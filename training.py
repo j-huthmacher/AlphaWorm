@@ -31,7 +31,7 @@ def make_unity_env(env_directory, num_env, visual, start_index=0):
         return DummyVecEnv([make_env(rank, use_visual=False)])
 
 def main():
-    env = make_unity_env('./envs/worm_dynamic', 4, True)
+    env = make_unity_env('./envs/worm_dynamic', 1, True)
     ppo2.learn(
         network="mlp",
         env=env,

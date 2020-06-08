@@ -1,0 +1,36 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1591629267",
+        "python_version": "3.8.2 (default, Apr 27 2020, 15:53:34) \n[GCC 9.3.0]",
+        "command_line_arguments": "/home/richard/.local/bin/mlagents-learn config/trainer_config.yaml --run-id=AlphaWorm --force",
+        "mlagents_version": "0.16.1",
+        "mlagents_envs_version": "0.16.1",
+        "communication_protocol_version": "1.0.0",
+        "tensorflow_version": "2.2.0",
+        "end_time_seconds": "1591629267"
+    },
+    "total": 0.011077667000790825,
+    "count": 1,
+    "self": 0.0005062639975221828,
+    "children": {
+        "run_training.setup": {
+            "total": 0.00571862200013129,
+            "count": 1,
+            "self": 0.00571862200013129
+        },
+        "TrainerController.start_learning": {
+            "total": 0.004852781003137352,
+            "count": 1,
+            "self": 0.0001505170039308723,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 0.00470226399920648,
+                    "count": 1,
+                    "self": 0.00470226399920648
+                }
+            }
+        }
+    }
+}

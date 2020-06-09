@@ -32,12 +32,6 @@ def make_unity_env(env_directory, num_env, visual, start_index=0):
 
 def main():
     env = make_unity_env('./envs/worm_dynamic', 1, True)
-    ppo2.learn(
-        network="mlp",
-        env=env,
-        total_timesteps=100000,
-        lr=1e-3,
-    )
 
 if __name__ == '__main__':
     main()

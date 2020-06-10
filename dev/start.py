@@ -3,12 +3,11 @@ from gym_unity.envs import UnityToGymWrapper
 from stable_baselines.common.vec_env import SubprocVecEnv
 from stable_baselines import logger
 import numpy as np
-from stable_baselines.common.policies import MlpPolicy
 from stable_baselines.common.vec_env import DummyVecEnv
-from stable_baselines import PPO2
 from stable_baselines.bench import Monitor
 import pickle
 import os
+import time
 
 #PATH TO ALGORITHM
 from initial_version.training import InitialTrainingExample
@@ -37,8 +36,10 @@ def make_unity_env(env_directory, num_env, visual, start_index=0):
         return DummyVecEnv([make_env(rank, use_visual=False)])
 
 def main():
+    #Set to FALSE for CIP-Pool execution
     env = make_unity_env('./envs/worm_dynamic_one_agent/worm_dynamic', 1, False)
     InitialTrainingExample.start_training(env)
+    env.close();
 
 
 

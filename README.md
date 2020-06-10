@@ -15,3 +15,10 @@ Remote (Slurm via CIP):
 ```
 ./deploy.sh
 ```
+
+### Errors
+## Tensorflow
+```
+No module tensorflow.contrib
+```
+Install tensorflow version < 2.0 (e.g. 1.15.3)

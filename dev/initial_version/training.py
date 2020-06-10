@@ -14,7 +14,7 @@ class InitialTrainingExample:
         model.learn(total_timesteps=10000)
 
         #evaluate agent
-        episodes = 100
+        episodes = 1000
         ep_r = []
         ep_l = []
         for e in range(episodes):

@@ -10,7 +10,7 @@ import os
 import time
 
 #PATH TO ALGORITHM
-from dev.initial_version.training import InitialTrainingExample
+from initial_version.training import InitialTrainingExample
 
 try:
     from mpi4py import MPI

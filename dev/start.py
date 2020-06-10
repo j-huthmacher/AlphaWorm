@@ -37,7 +37,7 @@ def make_unity_env(env_directory, num_env, visual, start_index=0):
 
 def main():
     #Set to FALSE for CIP-Pool execution
-    env = make_unity_env('./envs/worm_dynamic_one_agent/worm_dynamic', 1, False)
+    env = make_unity_env('./envs/worm_dynamic_one_agent/linux/worm_dynamic', 1, False)
     InitialTrainingExample.start_training(env)
     env.close();
 

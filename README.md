@@ -3,14 +3,13 @@ Student project where we use reinforcement learning to solve the worm domain of 
 
 ## Usage
 ### Prerequisites:
-Local:
+Local
 ```
-pip3 install -r requirements.txt
+pip3 install -r dev/requirements.txt
 ```
 ### Usage:
-Local:
 ```
-python3 training.py
+python3 dev/main.py
 ```
 Remote (Slurm via CIP):
 ```

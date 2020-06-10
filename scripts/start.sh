@@ -1,4 +1,5 @@
 #!/bin/sh
 cd REPLACE
+cd dev
 pip3 install -r requirements.txt
-python3 training.py
+python3 start.py

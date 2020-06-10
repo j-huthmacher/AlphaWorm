@@ -2,17 +2,16 @@ from mlagents_envs.environment import UnityEnvironment
 from gym_unity.envs import UnityToGymWrapper
 from stable_baselines.common.vec_env import SubprocVecEnv
 from stable_baselines import logger
-import gym
 import numpy as np
 from stable_baselines.common.policies import MlpPolicy
 from stable_baselines.common.vec_env import DummyVecEnv
 from stable_baselines import PPO2
 from stable_baselines.bench import Monitor
-import os
-import time
 import pickle
-
 import os
+
+#PATH TO ALGORITHM
+from initial_version.training import InitialTrainingExample
 
 try:
     from mpi4py import MPI
@@ -38,37 +37,9 @@ def make_unity_env(env_directory, num_env, visual, start_index=0):
         return DummyVecEnv([make_env(rank, use_visual=False)])
 
 def main():
-    env = make_unity_env('./envs/worm_dynamic', 1, False)
+    env = make_unity_env('./envs/worm_dynamic_one_agent/worm_dynamic', 1, False)
+    InitialTrainingExample.start_training(env)
 
-    log_dir = "pp02_results"
-    os.makedirs(log_dir, exist_ok=True)
-    model = PPO2(MlpPolicy, env, verbose=1)
-    model.learn(total_timesteps=10000)
-
-    #evaluate agent
-    episodes = 100
-    ep_r = []
-    ep_l = []
-    for e in range(episodes):
-        obs = env.reset()
-        total_r = 0.
-        total_l = 0.
-        while True:
-            action, _states = model.predict(obs)
-            obs, reward, done, info = env.step(action)
-            total_l += 1.
-            total_r += reward
-            if done:
-                break
-        ep_r.append(total_r)
-        ep_l.append(total_l)
-    print("episode mean reward: {:0.3f} mean length: {:0.3f}".format(np.mean(ep_r), np.mean(ep_l)))
-    with open('{}_eval.pkl'.format(log_dir), 'wb') as f:
-        pickle.dump(ep_r, f)
-        pickle.dump(ep_l, f)
-
-    env.close()
-    model.save(log_dir+"model")
 
 
 

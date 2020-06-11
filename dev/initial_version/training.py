@@ -8,8 +8,16 @@ import os
 class InitialTrainingExample:
     def start_training(env):
 
+
+
         log_dir = "pp02_results"
         os.makedirs(log_dir, exist_ok=True)
+
+        # Continue learning already learned model
+        #loaded_model = PPO2.load(log_dir + "/model")
+        #loaded_model.set_env(env)
+        #loaded_model.learn(total_timesteps=10000)
+
         model = PPO2(MlpPolicy, env, verbose=1)
         model.learn(total_timesteps=10000)
 
@@ -31,11 +39,10 @@ class InitialTrainingExample:
             ep_r.append(total_r)
             ep_l.append(total_l)
         print("episode mean reward: {:0.3f} mean length: {:0.3f}".format(np.mean(ep_r), np.mean(ep_l)))
-        with open('{}_eval.pkl'.format(log_dir), 'wb') as f:
+        with open('{}/eval.pkl'.format(log_dir), 'wb') as f:
             pickle.dump(ep_r, f)
             pickle.dump(ep_l, f)
 
-        env.close()
-        model.save(log_dir+"model")
+        model.save(log_dir + "/model")
 
 

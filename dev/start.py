@@ -25,7 +25,7 @@ def make_unity_env(env_directory, num_env, visual, start_index=0):
         def _thunk():
             no_graphics = not use_visual
             unity_env = UnityEnvironment(env_directory, no_graphics=no_graphics)
-            env = UnityToGymWrapper(unity_env, rank, uint8_visual=True)
+            env = UnityToGymWrapper(unity_env, rank, uint8_visual=False)
             env = Monitor(env, logger.get_dir() and os.path.join(logger.get_dir(), str(rank)))
             return env
         return _thunk
@@ -35,13 +35,12 @@ def make_unity_env(env_directory, num_env, visual, start_index=0):
         rank = MPI.COMM_WORLD.Get_rank() if MPI else 0
         return DummyVecEnv([make_env(rank, use_visual=False)])
 
+
 def main():
-    #Set to FALSE for CIP-Pool execution
+    #   Set to FALSE for CIP-Pool execution
     env = make_unity_env('./envs/worm_dynamic_one_agent/linux/worm_dynamic', 1, False)
     InitialTrainingExample.start_training(env)
-    env.close();
-
-
+    env.close()
 
 
 if __name__ == '__main__':

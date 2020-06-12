@@ -10,7 +10,7 @@ import os
 import time
 
 #PATH TO ALGORITHM
-from initial_version.training import InitialTrainingExample
+from td3.training import TD3_Training
 
 try:
     from mpi4py import MPI
@@ -39,7 +39,8 @@ def make_unity_env(env_directory, num_env, visual, start_index=0):
 def main():
     #   Set to FALSE for CIP-Pool execution
     env = make_unity_env('./envs/worm_dynamic_one_agent/linux/worm_dynamic', 1, False)
-    InitialTrainingExample.start_training(env)
+    #Change Algorithm Here
+    TD3_Training.start_training(env)
     env.close()
 
 

@@ -24,7 +24,7 @@ EVAL_FREQUENCY = 5000
 REWARD_THRESH = 8000
 
 
-class TD3:
+class TD3_Training:
     def start_training(env):
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 

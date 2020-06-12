@@ -1,3 +1,5 @@
+import os
+
 from td3.Actor import Actor
 from td3.Critic import Critic
 import torch
@@ -75,6 +77,7 @@ class TD3(object):
             state = torch.FloatTensor(x).to(self.device)
             action = torch.FloatTensor(u).to(self.device)
             next_state = torch.FloatTensor(y).to(self.device)
+            #d = torch.from_numpy(d)
             done = torch.FloatTensor(1 - d).to(self.device)
             reward = torch.FloatTensor(r).to(self.device)
 
@@ -118,6 +121,7 @@ class TD3(object):
                     target_param.data.copy_(tau * param.data + (1 - tau) * target_param.data)
 
     def save(self, filename, directory):
+        os.makedirs(directory, exist_ok=True)
         torch.save(self.actor.state_dict(), '%s/%s_actor.pth' % (directory, filename))
         torch.save(self.critic.state_dict(), '%s/%s_critic.pth' % (directory, filename))
 

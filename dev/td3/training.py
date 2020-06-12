@@ -10,7 +10,7 @@ import sys
 from td3.TD3 import TD3
 
 SEED = 0
-OBSERVATION = 10000
+OBSERVATION = 100
 EXPLORATION = 5000000
 BATCH_SIZE = 100
 GAMMA = 0.99
@@ -33,7 +33,7 @@ class TD3_Training:
 
     def start_training(self, env):
         # Set seeds
-        env.seed(SEED)
+        env.action_space.seed(SEED)
         torch.manual_seed(SEED)
         np.random.seed(SEED)
 
@@ -108,7 +108,9 @@ class TD3_Training:
 
         while time_steps < observation_steps:
             action = env.action_space.sample()
-            print(action)
+            #print(np.array(action).reshape((1, 9)))
+            action = np.array(action).reshape((1, 9))
+            #print(action)
             new_obs, reward, self.done, _ = env.step(action)
 
             replay_buffer.add((obs, new_obs, action, reward, self.done))
@@ -165,8 +167,8 @@ class TD3_Training:
                         print("saving best model....\n")
                         agent.save("best_avg", "saves")
 
-                    print("\rTotal T: {:d} Episode Num: {:d} Reward: {:f} Avg Reward: {:f}".format(
-                        self.total_timesteps, self.episode_num, episode_reward, avg_reward), end="")
+                    print("\rTotal T: {:d} Episode Num: {:d} Reward: {:s} Avg Reward: {:f}".format(
+                        self.total_timesteps, self.episode_num, str(episode_reward), avg_reward), end="")
                     sys.stdout.flush()
 
                     if avg_reward >= REWARD_THRESH:

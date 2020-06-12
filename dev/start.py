@@ -25,7 +25,7 @@ def make_unity_env(env_directory, num_env, visual, start_index=0):
         def _thunk():
             no_graphics = not use_visual
             unity_env = UnityEnvironment(env_directory, no_graphics=no_graphics)
-            env = UnityToGymWrapper(unity_env, rank, uint8_visual=False)
+            env = UnityToGymWrapper(unity_env, uint8_visual=False)
             env = Monitor(env, logger.get_dir() and os.path.join(logger.get_dir(), str(rank)))
             return env
         return _thunk

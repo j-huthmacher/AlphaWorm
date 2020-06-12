@@ -3,6 +3,9 @@ from td3.Critic import Critic
 import torch
 import numpy as np
 
+import gym
+import roboschool
+import sys
 
 class TD3(object):
     """Agent class that handles the training of the networks and provides outputs as actions
@@ -16,7 +19,7 @@ class TD3(object):
 
     """
 
-    def __init__(self, state_dim, action_dim, max_action, env):
+    def __init__(self, state_dim, action_dim, max_action, env, device):
         self.actor = Actor(state_dim, action_dim, max_action).to(device)
         self.actor_target = Actor(state_dim, action_dim, max_action).to(device)
         self.actor_target.load_state_dict(self.actor.state_dict())

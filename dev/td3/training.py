@@ -6,6 +6,8 @@ from td3.Runner import Runner
 from torch.autograd import Variable
 import torch.nn.functional as F
 from tensorboardX import SummaryWriter
+import numpy as np
+import sys
 
 ENV = "RoboschoolHalfCheetah-v1"#"Pendulum-v0"
 SEED = 0
@@ -35,7 +37,7 @@ class TD3:
         action_dim = env.action_space.shape[0]
         max_action = float(env.action_space.high[0])
 
-        policy = TD3(state_dim, action_dim, max_action, env)
+        policy = TD3(state_dim, action_dim, max_action, env, device)
 
         replay_buffer = ReplayBuffer()
 
@@ -48,7 +50,7 @@ class TD3:
 
         observe(env, replay_buffer, OBSERVATION)
 
-        train(policy, env)
+        train(policy, env, runner, replay_buffer)
 
         policy.load()
 
@@ -123,7 +125,7 @@ def observe(env, replay_buffer, observation_steps):
         sys.stdout.flush()
 
 
-def train(agent, test_env):
+def train(agent, env, runner, replay_buffer):
     """Train the agent for exploration steps
 
         Args:

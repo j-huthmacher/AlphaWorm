@@ -40,7 +40,8 @@ def main():
     #   Set to FALSE for CIP-Pool execution
     env = make_unity_env('./envs/worm_dynamic_one_agent/linux/worm_dynamic', 1, False)
     #Change Algorithm Here
-    TD3_Training.start_training(env)
+    training = TD3_Training()
+    training.start_training(env)
     env.close()
 
 

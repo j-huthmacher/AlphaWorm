@@ -41,7 +41,7 @@ class TD3_Training:
         action_dim = env.action_space.shape[0]
         max_action = float(env.action_space.high[0])
 
-        policy = TD3(state_dim, action_dim, max_action, env)
+        policy = TD3(state_dim, action_dim, max_action, env, self.device)
 
         replay_buffer = ReplayBuffer()
 
@@ -108,6 +108,7 @@ class TD3_Training:
 
         while time_steps < observation_steps:
             action = env.action_space.sample()
+            print(action)
             new_obs, reward, self.done, _ = env.step(action)
 
             replay_buffer.add((obs, new_obs, action, reward, self.done))

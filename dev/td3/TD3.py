@@ -2,10 +2,7 @@ from td3.Actor import Actor
 from td3.Critic import Critic
 import torch
 import numpy as np
-
-import gym
-import roboschool
-import sys
+import torch.nn.functional as F
 
 class TD3(object):
     """Agent class that handles the training of the networks and provides outputs as actions
@@ -32,6 +29,7 @@ class TD3(object):
 
         self.max_action = max_action
         self.env = env
+        self.device = device
 
     def select_action(self, state, noise=0.1):
         """Select an appropriate action from the agent policy
@@ -45,7 +43,7 @@ class TD3(object):
 
         """
 
-        state = torch.FloatTensor(state.reshape(1, -1)).to(device)
+        state = torch.FloatTensor(state.reshape(1, -1)).to(self.device)
 
         action = self.actor(state).cpu().data.numpy().flatten()
         if noise != 0:
@@ -74,14 +72,14 @@ class TD3(object):
 
             # Sample replay buffer
             x, y, u, r, d = replay_buffer.sample(batch_size)
-            state = torch.FloatTensor(x).to(device)
-            action = torch.FloatTensor(u).to(device)
-            next_state = torch.FloatTensor(y).to(device)
-            done = torch.FloatTensor(1 - d).to(device)
-            reward = torch.FloatTensor(r).to(device)
+            state = torch.FloatTensor(x).to(self.device)
+            action = torch.FloatTensor(u).to(self.device)
+            next_state = torch.FloatTensor(y).to(self.device)
+            done = torch.FloatTensor(1 - d).to(self.device)
+            reward = torch.FloatTensor(r).to(self.device)
 
             # Select action according to policy and add clipped noise
-            noise = torch.FloatTensor(u).data.normal_(0, policy_noise).to(device)
+            noise = torch.FloatTensor(u).data.normal_(0, policy_noise).to(self.device)
             noise = noise.clamp(-noise_clip, noise_clip)
             next_action = (self.actor_target(next_state) + noise).clamp(-self.max_action, self.max_action)
 

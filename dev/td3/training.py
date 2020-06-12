@@ -9,6 +9,8 @@ from tensorboardX import SummaryWriter
 import numpy as np
 import sys
 
+from td3.TD3 import TD3
+
 ENV = "RoboschoolHalfCheetah-v1"#"Pendulum-v0"
 SEED = 0
 OBSERVATION = 10000

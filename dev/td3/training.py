@@ -1,201 +1,151 @@
 import torch
-
-from td3.ReplayBuffer import ReplayBuffer
-from td3.Runner import Runner
-
-from tensorboardX import SummaryWriter
 import numpy as np
-import sys
+import torch
+import gym
+import argparse
+import os
 
+from td3 import OurDDPG
+from td3.DDPG import DDPG
 from td3.TD3 import TD3
-
-SEED = 0
-OBSERVATION = 100
-EXPLORATION = 5000000
-BATCH_SIZE = 100
-GAMMA = 0.99
-TAU = 0.005
-NOISE = 0.2
-NOISE_CLIP = 0.5
-EXPLORE_NOISE = 0.1
-POLICY_FREQUENCY = 2
-EVAL_FREQUENCY = 5000
-REWARD_THRESH = 8000
+from td3.utils import ReplayBuffer
 
 
 class TD3_Training:
-    def __init__(self):
-        self.total_timesteps = 0
-        self.timesteps_since_eval = 0
-        self.episode_num = 0
-        self.done = True
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    # Runs policy for X episodes and returns average reward
+    # A fixed seed is used for the eval environment
+    def eval_policy(policy, env_name, seed, eval_episodes=10):
+        eval_env = gym.make(env_name)
+        eval_env.seed(seed + 100)
+
+        avg_reward = 0.
+        for _ in range(eval_episodes):
+            state, done = eval_env.reset(), False
+            while not done:
+                action = policy.select_action(np.array(state))
+                state, reward, done, _ = eval_env.step(action)
+                avg_reward += reward
+
+        avg_reward /= eval_episodes
+
+        print("---------------------------------------")
+        print(f"Evaluation over {eval_episodes} episodes: {avg_reward:.3f}")
+        print("---------------------------------------")
+        return avg_reward
 
     def start_training(self, env):
+        parser = argparse.ArgumentParser()
+        parser.add_argument("--policy", default="TD3")  # Policy name (TD3, DDPG or OurDDPG)
+        parser.add_argument("--env", default="AlphaWorm")  # OpenAI gym environment name
+        parser.add_argument("--seed", default=0, type=int)  # Sets Gym, PyTorch and Numpy seeds
+        parser.add_argument("--start_timesteps", default=25e3, type=int)  # Time steps initial random policy is used
+        parser.add_argument("--eval_freq", default=5e3, type=int)  # How often (time steps) we evaluate
+        parser.add_argument("--max_timesteps", default=1e6, type=int)  # Max time steps to run environment
+        parser.add_argument("--expl_noise", default=0.1)  # Std of Gaussian exploration noise
+        parser.add_argument("--batch_size", default=256, type=int)  # Batch size for both actor and critic
+        parser.add_argument("--discount", default=0.99)  # Discount factor
+        parser.add_argument("--tau", default=0.005)  # Target network update rate
+        parser.add_argument("--policy_noise", default=0.2)  # Noise added to target policy during critic update
+        parser.add_argument("--noise_clip", default=0.5)  # Range to clip target policy noise
+        parser.add_argument("--policy_freq", default=2, type=int)  # Frequency of delayed policy updates
+        parser.add_argument("--save_model", action="store_true")  # Save model and optimizer parameters
+        parser.add_argument("--load_model",
+                            default="")  # Model load file name, "" doesn't load, "default" uses file_name
+        args = parser.parse_args()
+
+        file_name = f"{args.policy}_{args.env}_{args.seed}"
+        print("---------------------------------------")
+        print(f"Policy: {args.policy}, Env: {args.env}, Seed: {args.seed}")
+        print("---------------------------------------")
+
+        if not os.path.exists("./results"):
+            os.makedirs("./results")
+
+        if args.save_model and not os.path.exists("./models"):
+            os.makedirs("./models")
+
         # Set seeds
-        env.action_space.seed(SEED)
-        torch.manual_seed(SEED)
-        np.random.seed(SEED)
+        env.seed(args.seed)
+        torch.manual_seed(args.seed)
+        np.random.seed(args.seed)
 
         state_dim = env.observation_space.shape[0]
         action_dim = env.action_space.shape[0]
         max_action = float(env.action_space.high[0])
 
-        policy = TD3(state_dim, action_dim, max_action, env, self.device)
+        kwargs = {
+            "state_dim": state_dim,
+            "action_dim": action_dim,
+            "max_action": max_action,
+            "discount": args.discount,
+            "tau": args.tau,
+        }
 
-        replay_buffer = ReplayBuffer()
+        # Initialize policy
+        if args.policy == "TD3":
+            # Target policy smoothing is scaled wrt the action scale
+            kwargs["policy_noise"] = args.policy_noise * max_action
+            kwargs["noise_clip"] = args.noise_clip * max_action
+            kwargs["policy_freq"] = args.policy_freq
+            policy = TD3(**kwargs)
+        elif args.policy == "OurDDPG":
+            policy = OurDDPG.DDPG(**kwargs)
+        elif args.policy == "DDPG":
+            policy = DDPG.DDPG(**kwargs)
 
-        runner = Runner(env, policy, replay_buffer)
+        if args.load_model != "":
+            policy_file = file_name if args.load_model == "default" else args.load_model
+            policy.load(f"./models/{policy_file}")
 
-        self.observe(env, replay_buffer, OBSERVATION)
+        replay_buffer = ReplayBuffer(state_dim, action_dim)
 
-        self.train(policy, env, runner, replay_buffer)
+        # Evaluate untrained policy
+        evaluations = [self.eval_policy(policy, args.env, args.seed)]
 
-        policy.load()
-
-        for i in range(100):
-            self.evaluate_policy(policy, env, render=True)
-
-        env.close()
-
-
-
-    def evaluate_policy(self, policy, env, eval_episodes=100, render=False):
-        """run several episodes using the best agent policy
-
-            Args:
-                policy (agent): agent to evaluate
-                env (env): gym environment
-                eval_episodes (int): how many test episodes to run
-                render (bool): show training
-
-            Returns:
-                avg_reward (float): average reward over the number of evaluations
-
-        """
-
-        avg_reward = 0.
-        for i in range(eval_episodes):
-            obs = env.reset()
-            done = False
-            while not done:
-                if render:
-                    env.render()
-                action = policy.select_action(np.array(obs), noise=0)
-                obs, reward, done, _ = env.step(action)
-                avg_reward += reward
-
-        avg_reward /= eval_episodes
-
-        print("\n---------------------------------------")
-        print("Evaluation over {:d} episodes: {:f}".format(eval_episodes, avg_reward))
-        print("---------------------------------------")
-        return avg_reward
-
-    def observe(self, env, replay_buffer, observation_steps):
-        """run episodes while taking random actions and filling replay_buffer
-
-            Args:
-                env (env): gym environment
-                replay_buffer(ReplayBuffer): buffer to store experience replay
-                observation_steps (int): how many steps to observe for
-
-        """
-
-        time_steps = 0
-        obs = env.reset()
-        self.done = False
-
-        while time_steps < observation_steps:
-            action = env.action_space.sample()
-            #print(np.array(action).reshape((1, 9)))
-            action = np.array(action).reshape((1, 9))
-            #print(action)
-            new_obs, reward, self.done, _ = env.step(action)
-
-            replay_buffer.add((obs, new_obs, action, reward, self.done))
-
-            obs = new_obs
-            time_steps += 1
-
-            if self.done:
-                obs = env.reset()
-                self.done = False
-
-            print("\rPopulating Buffer {}/{}.".format(time_steps, observation_steps), end="")
-            sys.stdout.flush()
-
-
-    def train(self, agent, env, runner, replay_buffer):
-        """Train the agent for exploration steps
-
-            Args:
-                agent (Agent): agent to use
-                env (environment): gym environment
-                writer (SummaryWriter): tensorboard writer
-                exploration (int): how many training steps to run
-
-        """
-
-        self.total_timesteps = 0
-        self.timesteps_since_eval = 0
-        self.episode_num = 0
+        state, done = env.reset(), False
         episode_reward = 0
         episode_timesteps = 0
-        done = False
-        obs = env.reset()
-        evaluations = []
-        rewards = []
-        best_avg = -2000
+        episode_num = 0
 
-        writer = SummaryWriter(comment="-TD3_Baseline_HalfCheetah")
-
-        while self.total_timesteps < EXPLORATION:
-
-            if done:
-
-                if self.total_timesteps != 0:
-                    rewards.append(episode_reward)
-                    avg_reward = np.mean(rewards[-100:])
-
-                    writer.add_scalar("avg_reward", avg_reward, self.total_timesteps)
-                    writer.add_scalar("reward_step", reward, self.total_timesteps)
-                    writer.add_scalar("episode_reward", episode_reward, self.total_timesteps)
-
-                    if best_avg < avg_reward:
-                        best_avg = avg_reward
-                        print("saving best model....\n")
-                        agent.save("best_avg", "saves")
-
-                    print("\rTotal T: {:d} Episode Num: {:d} Reward: {:s} Avg Reward: {:f}".format(
-                        self.total_timesteps, self.episode_num, str(episode_reward), avg_reward), end="")
-                    sys.stdout.flush()
-
-                    if avg_reward >= REWARD_THRESH:
-                        break
-
-                    agent.train(replay_buffer, episode_timesteps, BATCH_SIZE, GAMMA, TAU, NOISE, NOISE_CLIP,
-                                POLICY_FREQUENCY)
-
-                    # Evaluate episode
-                    #                 if timesteps_since_eval >= EVAL_FREQUENCY:
-                    #                     timesteps_since_eval %= EVAL_FREQUENCY
-                    #                     eval_reward = evaluate_policy(agent, test_env)
-                    #                     evaluations.append(avg_reward)
-                    #                     writer.add_scalar("eval_reward", eval_reward, total_timesteps)
-
-                    #                     if best_avg < eval_reward:
-                    #                         best_avg = eval_reward
-                    #                         print("saving best model....\n")
-                    #                         agent.save("best_avg","saves")
-
-                    episode_reward = 0
-                    episode_timesteps = 0
-                    self.episode_num += 1
-
-            reward, done = runner.next_step(episode_timesteps)
-            episode_reward += reward
+        for t in range(int(args.max_timesteps)):
 
             episode_timesteps += 1
-            self.total_timesteps += 1
-            self.timesteps_since_eval += 1
+
+            # Select action randomly or according to policy
+            if t < args.start_timesteps:
+                action = env.action_space.sample()
+            else:
+                action = (
+                        policy.select_action(np.array(state))
+                        + np.random.normal(0, max_action * args.expl_noise, size=action_dim)
+                ).clip(-max_action, max_action)
+
+            # Perform action
+            next_state, reward, done, _ = env.step(action)
+            done_bool = float(done) if episode_timesteps < env._max_episode_steps else 0
+
+            # Store data in replay buffer
+            replay_buffer.add(state, action, next_state, reward, done_bool)
+
+            state = next_state
+            episode_reward += reward
+
+            # Train agent after collecting sufficient data
+            if t >= args.start_timesteps:
+                policy.train(replay_buffer, args.batch_size)
+
+            if done:
+                # +1 to account for 0 indexing. +0 on ep_timesteps since it will increment +1 even if done=True
+                print(
+                    f"Total T: {t + 1} Episode Num: {episode_num + 1} Episode T: {episode_timesteps} Reward: {episode_reward:.3f}")
+                # Reset environment
+                state, done = env.reset(), False
+                episode_reward = 0
+                episode_timesteps = 0
+                episode_num += 1
+
+            # Evaluate episode
+            if (t + 1) % args.eval_freq == 0:
+                evaluations.append(self.eval_policy(policy, args.env, args.seed))
+                np.save(f"./results/{file_name}", evaluations)
+                if args.save_model: policy.save(f"./models/{file_name}")

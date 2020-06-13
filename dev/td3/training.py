@@ -21,6 +21,7 @@ class TD3_Training:
         eval_env.action_space.seed(seed + 100)
 
         avg_reward = 0.
+        print_count = 0
         for _ in range(eval_episodes):
             state, done = eval_env.reset(), False
             while not done:
@@ -29,10 +30,16 @@ class TD3_Training:
                 state, reward, done, _ = eval_env.step(action)
                 avg_reward += reward
 
+                #Print Debug
+                print_count += 1
+                if print_count % 100 == 0:
+                    print("Eval_Policy:  " + str(print_count))
+
         avg_reward /= eval_episodes
 
         print("---------------------------------------")
-        print(f"Evaluation over {eval_episodes} episodes: {avg_reward:.3f}")
+        #print(f"Evaluation over {eval_episodes} episodes: {avg_reward:.3f}")
+        print(f"Evaluation over {eval_episodes} episodes: {avg_reward}")
         print("---------------------------------------")
         return avg_reward
 

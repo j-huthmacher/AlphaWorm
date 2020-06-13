@@ -24,9 +24,9 @@ class DDPGagent:
         for learning.
     """
     def __init__(self, env: gym.Env, hidden_dim: [int] = [256],
-                 actor_lr: float = 1e-4, critic_lr: float = 1e-4,
+                 actor_lr: float = 1e-4, critic_lr: float = 1e-3,
                  gamma: float = 0.99, tau: float = 1e-3,
-                 max_memory: int = 10000):
+                 max_memory: int = 50000):
         """ Initialization of the DDPG-Agent
 
             Parameters:
@@ -95,15 +95,18 @@ class DDPGagent:
         action = self.actor.forward(s).detach().numpy()
         return action
 
-    def update(self, batch_size: int):
+    def update(self, batch_size: int = 64, tau: float = None):
         """ Function to update the actor and critic components.
 
             Parameters:
             -----------
                 batch_size: int
                     The number of samples we want to sample from the memory
-                    buffer (replay buffer)
+                    buffer (replay buffer). For PRB = 128
         """
+
+        if len(self.memory_buffer) < batch_size:
+            return
 
         # state, action, reward, next_state
         s, a, r, next_s, _ = self.memory_buffer.sample(batch_size)
@@ -126,21 +129,24 @@ class DDPGagent:
         actor_loss = -self.critic.forward(s, self.actor.forward(s)).mean()
 
         # Updates!
-        self.critic_optimizer.zero_grad()
-        critic_loss.backward()
-        self.critic_optimizer.step()
-
         self.actor_optimizer.zero_grad()
         actor_loss.backward()
         self.actor_optimizer.step()
 
+        self.critic_optimizer.zero_grad()
+        critic_loss.backward()
+        self.critic_optimizer.step()        
+
+        if not tau:
+            tau = self.tau
+
         # Updates for the target networsk
         for t_param, param in zip(self.actor_target.parameters(),
                                   self.actor.parameters()):
-            update = self.tau * param.data + ((1 - self.tau) * t_param.data)
+            update = tau * param.data + ((1 - tau) * t_param.data)
             t_param.data.copy_(update)
 
         for t_param, param in zip(self.critic_target.parameters(),
                                   self.critic.parameters()):
-            update = self.tau * param.data + ((1 - self.tau) * t_param.data)
+            update = tau * param.data + ((1 - tau) * t_param.data)
             t_param.data.copy_(update)

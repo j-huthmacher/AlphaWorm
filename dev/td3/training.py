@@ -17,13 +17,15 @@ class TD3_Training:
     def eval_policy(self, policy, env, seed, eval_episodes=10):
         #eval_env = gym.make(env_name)
         eval_env = env
-        eval_env.seed(seed + 100)
+        #eval_env.seed(seed + 100)
+        eval_env.action_space.seed(seed + 100)
 
         avg_reward = 0.
         for _ in range(eval_episodes):
             state, done = eval_env.reset(), False
             while not done:
                 action = policy.select_action(np.array(state))
+                action = np.array(action).reshape((1, 9))
                 state, reward, done, _ = eval_env.step(action)
                 avg_reward += reward
 
@@ -66,7 +68,8 @@ class TD3_Training:
             os.makedirs("./models")
 
         # Set seeds
-        env.seed(args.seed)
+        #env.seed(args.seed)
+        env.action_space.seed(args.seed)
         torch.manual_seed(args.seed)
         np.random.seed(args.seed)
 

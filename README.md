@@ -8,6 +8,7 @@ Local
 pip3 install -r dev/requirements.txt
 ```
 ### Usage:
+Local (Set working directory to /dev/)
 ```
 python3 dev/main.py
 ```
@@ -15,6 +16,7 @@ Remote (Slurm via CIP):
 ```
 ./deploy.sh
 ```
+Slurm logs will be created in the home directory!
 
 ### Errors
 ## Tensorflow

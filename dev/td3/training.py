@@ -51,6 +51,7 @@ class TD3_Training:
         parser.add_argument("--start_timesteps", default=25e3, type=int)  # Time steps initial random policy is used
         parser.add_argument("--eval_freq", default=5e3, type=int)  # How often (time steps) we evaluate
         parser.add_argument("--max_timesteps", default=1e6, type=int)  # Max time steps to run environment
+        parser.add_argument("--max_env_episode_steps", default=1e3, type=int) #Max env steps
         parser.add_argument("--expl_noise", default=0.1)  # Std of Gaussian exploration noise
         parser.add_argument("--batch_size", default=256, type=int)  # Batch size for both actor and critic
         parser.add_argument("--discount", default=0.99)  # Discount factor
@@ -132,8 +133,9 @@ class TD3_Training:
                 ).clip(-max_action, max_action)
 
             # Perform action
+            action = np.array(action).reshape((1, 9))
             next_state, reward, done, _ = env.step(action)
-            done_bool = float(done) if episode_timesteps < env._max_episode_steps else 0
+            done_bool = float(done) if episode_timesteps < args.max_env_episode_steps else 0
 
             # Store data in replay buffer
             replay_buffer.add(state, action, next_state, reward, done_bool)

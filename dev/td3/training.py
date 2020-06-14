@@ -159,6 +159,6 @@ class TD3_Training:
 
             # Evaluate episode
             if (t + 1) % args.eval_freq == 0:
-                evaluations.append(self.eval_policy(policy, args.env, args.seed))
+                evaluations.append(self.eval_policy(policy, env, args.seed))
                 np.save(f"./results/{file_name}", evaluations)
                 if args.save_model: policy.save(f"./models/{file_name}")

@@ -14,7 +14,7 @@ from td3.utils import ReplayBuffer
 class TD3_Training_Gym:
     # Runs policy for X episodes and returns average reward
     # A fixed seed is used for the eval environment
-    def eval_policy(self, policy, env, seed, eval_episodes=10):
+    def eval_policy(self, policy, env, seed, render, eval_episodes=10,):
         #eval_env = gym.make(env_name)
         eval_env = env
         #eval_env.seed(seed + 100)
@@ -30,7 +30,8 @@ class TD3_Training_Gym:
                 state, reward, done, _ = eval_env.step(action)
                 avg_reward += reward
             print("Eval Episode:  " + str(episode))
-            env.render()
+            if render:
+                env.render()
             episode += 1
 
         avg_reward /= eval_episodes
@@ -41,7 +42,7 @@ class TD3_Training_Gym:
         print("---------------------------------------")
         return avg_reward
 
-    def start_training(self, env):
+    def start_training(self, env, render):
         parser = argparse.ArgumentParser()
         parser.add_argument("--policy", default="TD3")  # Policy name (TD3, DDPG or OurDDPG)
         parser.add_argument("--env", default="AlphaWorm")  # OpenAI gym environment name (not used to start env in AlphaWorm)
@@ -110,7 +111,7 @@ class TD3_Training_Gym:
         replay_buffer = ReplayBuffer(state_dim, action_dim)
 
         # Evaluate untrained policy
-        evaluations = [self.eval_policy(policy, env, args.seed)]
+        evaluations = [self.eval_policy(policy, env, args.seed, render)]
 
         state, done = env.reset(), False
         episode_reward = 0
@@ -157,6 +158,6 @@ class TD3_Training_Gym:
 
             # Evaluate episode
             if (t + 1) % args.eval_freq == 0:
-                evaluations.append(self.eval_policy(policy, env, args.seed))
+                evaluations.append(self.eval_policy(policy, env, args.seed, render))
                 np.save(f"./results/{file_name}", evaluations)
                 if args.save_model: policy.save(f"./models/{file_name}")

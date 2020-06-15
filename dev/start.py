@@ -39,8 +39,8 @@ def make_unity_env(env_directory, num_env, visual, start_index=0):
 
 
 def main():
-    start_unity()
-    #start_gym_std()
+    #start_unity()
+    start_gym_std()
 
 def start_unity():
     #   Set to FALSE for CIP-Pool execution
@@ -51,11 +51,12 @@ def start_unity():
     env.close()
 
 def start_gym_std():
-    env = gym.make("MountainCarContinuous-v0")
+    #env = gym.make("MountainCarContinuous-v0")
+    env = gym.make("Pendulum-v0")
 
     #Gym version with render
     training = TD3_Training_Gym()
-    training.start_training(env)
+    training.start_training(env, True)
     env.close()
 
 

@@ -25,8 +25,10 @@ class TD3_Training:
         for _ in range(eval_episodes):
             state, done = eval_env.reset(), False
             while not done:
+                env.render()
                 action = policy.select_action(np.array(state))
-                action = np.array(action).reshape((1, 9))
+                #action = np.array(action).reshape((1, 9))
+                #print(eval_env.action_space)
                 state, reward, done, _ = eval_env.step(action)
                 avg_reward += reward
             print("Eval Episode:  " + str(episode))
@@ -130,7 +132,7 @@ class TD3_Training:
                 ).clip(-max_action, max_action)
 
             # Perform action
-            action = np.array(action).reshape((1, 9))
+            #action = np.array(action).reshape((1, 9))
             next_state, reward, done, _ = env.step(action)
             done_bool = float(done) if episode_timesteps < args.max_env_episode_steps else 0
 

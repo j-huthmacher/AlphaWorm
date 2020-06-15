@@ -8,6 +8,7 @@ from stable_baselines.bench import Monitor
 import pickle
 import os
 import time
+import gym
 
 #PATH TO ALGORITHM
 from td3.training import TD3_Training
@@ -38,7 +39,8 @@ def make_unity_env(env_directory, num_env, visual, start_index=0):
 
 def main():
     #   Set to FALSE for CIP-Pool execution
-    env = make_unity_env('./envs/worm_dynamic_one_agent/linux/worm_dynamic', 1, False)
+    env = gym.make('MountainCarContinuous-v0')
+    #env = make_unity_env('./envs/worm_dynamic_one_agent/win/UnityEnvironment', 1, False)
     #Change Algorithm Here
     training = TD3_Training()
     training.start_training(env)

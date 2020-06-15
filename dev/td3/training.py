@@ -27,7 +27,7 @@ class TD3_Training:
             while not done:
                 env.render()
                 action = policy.select_action(np.array(state))
-                #action = np.array(action).reshape((1, 9))
+                action = np.array(action).reshape((1, 9))
                 #print(eval_env.action_space)
                 state, reward, done, _ = eval_env.step(action)
                 avg_reward += reward

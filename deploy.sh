@@ -15,6 +15,3 @@ sshpass -p ${password} rsync -av --update ./dev/* ${address}:~${full_dir}/dev/
 
 sshpass -p ${password} ssh ${address} "sed -i 's|REPLACE|.$full_dir|g' .${full_dir}/start.sh"
 sshpass -p ${password} ssh ${address} sbatch --partition=All --cpus-per-task=4 ./work/${dir}/start.sh
-sshpass -p ${password} ssh ${address} sbatch --partition=All --cpus-per-task=4 ./work/${dir}/start.sh
-sshpass -p ${password} ssh ${address} sbatch --partition=All --cpus-per-task=4 ./work/${dir}/start.sh
-sshpass -p ${password} ssh ${address} sbatch --partition=All --cpus-per-task=4 ./work/${dir}/start.sh

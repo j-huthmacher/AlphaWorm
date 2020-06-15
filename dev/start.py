@@ -57,7 +57,7 @@ def start_gym_std():
 
     #Gym version with render
     training = TD3_Training_Gym()
-    training.start_training(env, True)
+    training.start_training(env, False)
     env.close()
 
 

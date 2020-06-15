@@ -1,3 +1,4 @@
+import gym
 from mlagents_envs.environment import UnityEnvironment
 from gym_unity.envs import UnityToGymWrapper
 from stable_baselines.common.vec_env import SubprocVecEnv
@@ -12,6 +13,7 @@ import gym
 
 #PATH TO ALGORITHM
 from td3.training import TD3_Training
+from td3.training_gym import TD3_Training_Gym
 
 try:
     from mpi4py import MPI
@@ -38,12 +40,24 @@ def make_unity_env(env_directory, num_env, visual, start_index=0):
 
 
 def main():
+    #start_unity()
+    start_gym_std()
+
+def start_unity():
     #   Set to FALSE for CIP-Pool execution
-    env = gym.make('MountainCarContinuous-v0')
-    #env = make_unity_env('./envs/worm_dynamic_one_agent/win/UnityEnvironment', 1, False)
-    #Change Algorithm Here
+    env = make_unity_env('./envs/worm_dynamic_one_agent/linux/worm_dynamic', 1, False)
+
     training = TD3_Training()
     training.start_training(env)
+    env.close()
+
+def start_gym_std():
+    #env = gym.make("MountainCarContinuous-v0")
+    env = gym.make("Pendulum-v0")
+
+    #Gym version with render
+    training = TD3_Training_Gym()
+    training.start_training(env, True)
     env.close()
 
 

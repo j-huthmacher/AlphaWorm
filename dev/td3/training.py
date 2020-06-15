@@ -132,7 +132,7 @@ class TD3_Training:
                 ).clip(-max_action, max_action)
 
             # Perform action
-            #action = np.array(action).reshape((1, 9))
+            action = np.array(action).reshape((1, 9))
             next_state, reward, done, _ = env.step(action)
             done_bool = float(done) if episode_timesteps < args.max_env_episode_steps else 0
 

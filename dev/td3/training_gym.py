@@ -25,13 +25,14 @@ class TD3_Training_Gym:
         for _ in range(eval_episodes):
             state, done = eval_env.reset(), False
             while not done:
+                if render:
+                    env.render()
                 action = policy.select_action(np.array(state))
                 #action = np.array(action).reshape((1, 9))
                 state, reward, done, _ = eval_env.step(action)
                 avg_reward += reward
             print("Eval Episode:  " + str(episode))
-            if render:
-                env.render()
+
             episode += 1
 
         avg_reward /= eval_episodes

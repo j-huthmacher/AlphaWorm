@@ -14,12 +14,12 @@ class InitialTrainingExample:
         os.makedirs(log_dir, exist_ok=True)
 
         # Continue learning already learned model
-        #loaded_model = PPO2.load(log_dir + "/model")
-        #loaded_model.set_env(env)
+        loaded_model = PPO2.load(log_dir + "/model")
+        loaded_model.set_env(env)
         #loaded_model.learn(total_timesteps=10000)
-
-        model = PPO2(MlpPolicy, env, verbose=1)
-        model.learn(total_timesteps=10000)
+        model = loaded_model
+        #model = PPO2(MlpPolicy, env, verbose=1)
+        #model.learn(total_timesteps=10000)
 
         #evaluate agent
         episodes = 1000

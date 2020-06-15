@@ -21,6 +21,7 @@ class TD3_Training:
         eval_env.action_space.seed(seed + 100)
 
         avg_reward = 0.
+        episode = 0
         for _ in range(eval_episodes):
             state, done = eval_env.reset(), False
             while not done:
@@ -28,7 +29,8 @@ class TD3_Training:
                 action = np.array(action).reshape((1, 9))
                 state, reward, done, _ = eval_env.step(action)
                 avg_reward += reward
-            print("Eval Episode:  " + str(_))
+            print("Eval Episode:  " + str(episode))
+            episode += 1
 
         avg_reward /= eval_episodes
 

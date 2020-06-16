@@ -61,7 +61,7 @@ class TD3_Training_Gym:
         parser.add_argument("--policy_freq", default=2, type=int)  # Frequency of delayed policy updates
         parser.add_argument("--save_model", default=True, action="store_true")  # Save model and optimizer parameters
         parser.add_argument("--load_model", default="")  # Model load file name, "" doesn't load, "default" uses file_name
-        parser.add_argument("--load_replays", default="")  # Model load file name, "" doesn't load, "default" uses file_name
+        parser.add_argument("--load_replays", default="buffers")  # Loads pre-trained replays to replay into the buffer "" doesn't load, "..." loads from the specified folder name
 
         args = parser.parse_args()
 
@@ -75,6 +75,10 @@ class TD3_Training_Gym:
 
         if args.save_model and not os.path.exists("./models"):
             os.makedirs("./models")
+
+        if not os.path.exists("./buffers"):
+            os.makedirs("./buffers")
+
 
         # Set seeds
         #env.seed(args.seed)
@@ -112,11 +116,13 @@ class TD3_Training_Gym:
 
         replay_buffer = ReplayBuffer(state_dim, action_dim)
         best_buffer = ReplayBuffer(state_dim, action_dim)
-        buffer_handler = ReplayBufferHandler()
+        buffer_handler = ReplayBufferHandler(state_dim, action_dim)
 
         if args.load_replays != "":
             replay_buffer = buffer_handler.load(args.load_replays)
+            print('ready to train')
             policy.train(replay_buffer, args.batch_size)
+
         # Evaluate untrained policy
         evaluations = [self.eval_policy(policy, env, args.seed, render)]
 
@@ -176,4 +182,4 @@ class TD3_Training_Gym:
                 np.save(f"./results/{file_name}", evaluations)
                 if args.save_model:
                     policy.save(f"./models/{file_name}")
-                    buffer_handler.save()
+                    buffer_handler.save("buffers")

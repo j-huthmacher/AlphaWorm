@@ -97,7 +97,6 @@ class TD3(object):
 
     def train(self, replay_buffer, batch_size=100):
         self.total_it += 1
-
         # Sample replay buffer
         state, action, next_state, reward, not_done = replay_buffer.sample(batch_size)
 

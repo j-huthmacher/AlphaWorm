@@ -8,7 +8,7 @@ import os
 from td3 import OurDDPG
 from td3 import DDPG
 from td3.TD3 import TD3
-from td3.utils import ReplayBuffer
+from td3.utils import ReplayBuffer, ReplayBufferHandler
 
 
 class TD3_Training_Gym:
@@ -60,8 +60,9 @@ class TD3_Training_Gym:
         parser.add_argument("--noise_clip", default=0.5)  # Range to clip target policy noise
         parser.add_argument("--policy_freq", default=2, type=int)  # Frequency of delayed policy updates
         parser.add_argument("--save_model", default=True, action="store_true")  # Save model and optimizer parameters
-        parser.add_argument("--load_model",
-                            default="")  # Model load file name, "" doesn't load, "default" uses file_name
+        parser.add_argument("--load_model", default="")  # Model load file name, "" doesn't load, "default" uses file_name
+        parser.add_argument("--load_replays", default="")  # Model load file name, "" doesn't load, "default" uses file_name
+
         args = parser.parse_args()
 
         file_name = f"{args.policy}_{args.env}_{args.seed}"
@@ -110,7 +111,12 @@ class TD3_Training_Gym:
             policy.load(f"./models/{policy_file}")
 
         replay_buffer = ReplayBuffer(state_dim, action_dim)
+        best_buffer = ReplayBuffer(state_dim, action_dim)
+        buffer_handler = ReplayBufferHandler()
 
+        if args.load_replays != "":
+            replay_buffer = buffer_handler.load(args.load_replays)
+            policy.train(replay_buffer, args.batch_size)
         # Evaluate untrained policy
         evaluations = [self.eval_policy(policy, env, args.seed, render)]
 
@@ -118,6 +124,7 @@ class TD3_Training_Gym:
         episode_reward = 0
         episode_timesteps = 0
         episode_num = 0
+
 
         for t in range(int(args.max_timesteps)):
 
@@ -139,6 +146,12 @@ class TD3_Training_Gym:
 
             # Store data in replay buffer
             replay_buffer.add(state, action, next_state, reward, done_bool)
+            best_buffer.add(state, action, next_state, reward, done_bool)
+            # Store best Reward in reward
+            if done:
+                buffer_handler.add(best_buffer)
+                best_buffer = ReplayBuffer(state_dim, action_dim)
+                buffer_handler.save()
 
             state = next_state
             episode_reward += reward
@@ -161,4 +174,6 @@ class TD3_Training_Gym:
             if (t + 1) % args.eval_freq == 0:
                 evaluations.append(self.eval_policy(policy, env, args.seed, render))
                 np.save(f"./results/{file_name}", evaluations)
-                if args.save_model: policy.save(f"./models/{file_name}")
+                if args.save_model:
+                    policy.save(f"./models/{file_name}")
+                    buffer_handler.save()

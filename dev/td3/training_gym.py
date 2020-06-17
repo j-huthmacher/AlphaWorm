@@ -4,11 +4,12 @@ import torch
 import gym
 import argparse
 import os
+from datetime import datetime
 
 from td3 import OurDDPG
 from td3 import DDPG
 from td3.TD3 import TD3
-from td3.utils import ReplayBuffer, ReplayBufferHandler
+from td3.utils import ReplayBuffer, DynamicExperienceReplay
 
 
 class TD3_Training_Gym:
@@ -39,7 +40,7 @@ class TD3_Training_Gym:
 
         print("---------------------------------------")
         #print(f"Evaluation over {eval_episodes} episodes: {avg_reward:.3f}")
-        print(f"Evaluation over {eval_episodes} episodes: {avg_reward}")
+        print(f"{datetime.now()} \t Evaluation over {eval_episodes} episodes: {avg_reward}")
         print("---------------------------------------")
         return avg_reward
 
@@ -61,13 +62,13 @@ class TD3_Training_Gym:
         parser.add_argument("--policy_freq", default=2, type=int)  # Frequency of delayed policy updates
         parser.add_argument("--save_model", default=True, action="store_true")  # Save model and optimizer parameters
         parser.add_argument("--load_model", default="")  # Model load file name, "" doesn't load, "default" uses file_name
-        parser.add_argument("--load_replays", default="buffers")  # Loads pre-trained replays to replay into the buffer "" doesn't load, "..." loads from the specified folder name
+        parser.add_argument("--load_replays", default="")  # Loads pre-trained replays to replay into the buffer "" doesn't load, "..." loads from the specified folder name
 
         args = parser.parse_args()
 
         file_name = f"{args.policy}_{args.env}_{args.seed}"
         print("---------------------------------------")
-        print(f"Policy: {args.policy}, Env: {args.env}, Seed: {args.seed}")
+        print(f"{datetime.now()} \t Policy: {args.policy}, Env: {args.env}, Seed: {args.seed}")
         print("---------------------------------------")
 
         if not os.path.exists("./results"):
@@ -116,11 +117,10 @@ class TD3_Training_Gym:
 
         replay_buffer = ReplayBuffer(state_dim, action_dim)
         best_buffer = ReplayBuffer(state_dim, action_dim)
-        buffer_handler = ReplayBufferHandler(state_dim, action_dim)
+        der_buffer = DynamicExperienceReplay(state_dim, action_dim, args.max_env_episode_steps/10)
 
         if args.load_replays != "":
-            replay_buffer = buffer_handler.load(args.load_replays)
-            print('ready to train')
+            replay_buffer = der_buffer.load(args.load_replays)
             policy.train(replay_buffer, args.batch_size)
 
         # Evaluate untrained policy
@@ -153,11 +153,11 @@ class TD3_Training_Gym:
             # Store data in replay buffer
             replay_buffer.add(state, action, next_state, reward, done_bool)
             best_buffer.add(state, action, next_state, reward, done_bool)
-            # Store best Reward in reward
+
+            # Store buffer
             if done:
-                buffer_handler.add(best_buffer)
+                der_buffer.add(best_buffer)
                 best_buffer = ReplayBuffer(state_dim, action_dim)
-                buffer_handler.save()
 
             state = next_state
             episode_reward += reward
@@ -169,7 +169,7 @@ class TD3_Training_Gym:
             if done:
                 # +1 to account for 0 indexing. +0 on ep_timesteps since it will increment +1 even if done=True
                 print(
-                    f"Total T: {t + 1} Episode Num: {episode_num + 1} Episode T: {episode_timesteps} Reward: {episode_reward}")
+                    f"{datetime.now()} \t Total T: {t + 1} Episode Num: {episode_num + 1} Episode T: {episode_timesteps} Reward: {episode_reward}")
                 # Reset environment
                 state, done = env.reset(), False
                 episode_reward = 0
@@ -182,4 +182,4 @@ class TD3_Training_Gym:
                 np.save(f"./results/{file_name}", evaluations)
                 if args.save_model:
                     policy.save(f"./models/{file_name}")
-                    buffer_handler.save("buffers")
+                    der_buffer.save()

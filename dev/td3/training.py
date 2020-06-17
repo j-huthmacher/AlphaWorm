@@ -4,6 +4,7 @@ import torch
 import gym
 import argparse
 import os
+from datetime import datetime
 
 from td3 import OurDDPG
 from td3 import DDPG
@@ -38,7 +39,7 @@ class TD3_Training:
 
         print("---------------------------------------")
         #print(f"Evaluation over {eval_episodes} episodes: {avg_reward:.3f}")
-        print(f"Evaluation over {eval_episodes} episodes: {avg_reward}")
+        print(f"{datetime.now()} \t Evaluation over {eval_episodes} episodes: {avg_reward}")
         print("---------------------------------------")
         return avg_reward
 
@@ -65,7 +66,7 @@ class TD3_Training:
 
         file_name = f"{args.policy}_{args.env}_{args.seed}"
         print("---------------------------------------")
-        print(f"Policy: {args.policy}, Env: {args.env}, Seed: {args.seed}")
+        print(f"{datetime.now()} \t Policy: {args.policy}, Env: {args.env}, Seed: {args.seed}")
         print("---------------------------------------")
 
         if not os.path.exists("./results"):
@@ -149,7 +150,7 @@ class TD3_Training:
             if done:
                 # +1 to account for 0 indexing. +0 on ep_timesteps since it will increment +1 even if done=True
                 print(
-                    f"Total T: {t + 1} Episode Num: {episode_num + 1} Episode T: {episode_timesteps} Reward: {episode_reward}")
+                    f"{datetime.now()} \t Total T: {t + 1} Episode Num: {episode_num + 1} Episode T: {episode_timesteps} Reward: {episode_reward}")
                 # Reset environment
                 state, done = env.reset(), False
                 episode_reward = 0

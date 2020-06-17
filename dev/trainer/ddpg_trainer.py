@@ -18,7 +18,7 @@ class DDPGTrainer(Trainer):
     def __init__(self):
         """ Initilzation
         """
-        self.path = f'../models/{datetime.now().date()}'
+        self.path = f'models/{datetime.now().date()}'
         folder = Path(self.path)
         folder.mkdir(parents=True, exist_ok=True)
 

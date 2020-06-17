@@ -9,6 +9,11 @@ import pickle
 import os
 import time
 
+from utils.mlagent_utils import get_env
+from trainer.ddpg_trainer import DDPGTrainer
+from config.config import log
+
+
 #PATH TO ALGORITHM
 from initial_version.training import InitialTrainingExample
 
@@ -38,9 +43,29 @@ def make_unity_env(env_directory, num_env, visual, start_index=0):
 
 def main():
     #   Set to FALSE for CIP-Pool execution
-    env = make_unity_env('./envs/worm_dynamic_one_agent/linux/worm_dynamic', 1, False)
-    InitialTrainingExample.start_training(env)
-    env.close()
+    # env = make_unity_env('./envs/worm_dynamic_one_agent/linux/worm_dynamic', 1, False)
+    # InitialTrainingExample.start_training(env)
+    # env.close()
+
+    train_ddpg()
+
+
+def train_ddpg():
+    """
+        @author: jhuthmacher
+    """
+    win_env = "envs/worm_dynamic_one_agent/win/UnityEnvironment"
+    # lin_env = "./envs/worm_dynamic_one_agent/linux/worm_dynamic"
+    env = get_env(win_env, False)
+
+    trainer = DDPGTrainer()
+
+    log.info("Start DDPG training (WormDomain)...")
+
+    study = trainer.start_training(env, trials=5, render=False,
+                                   name="DPPG-WormDomain-2")
+
+    log.info("Training done!")
 
 
 if __name__ == '__main__':

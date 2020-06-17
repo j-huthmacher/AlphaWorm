@@ -33,7 +33,7 @@ class Actor(nn.Module):
         super(Actor, self).__init__()
         self.input_layer = nn.Linear(input_dim, hidden_dim[0])
 
-        self.hidden_layer = []
+        self.hidden_layer = nn.ModuleList()
 
         last_dim = hidden_dim[0]
         for dim in hidden_dim[1:]:
@@ -41,6 +41,7 @@ class Actor(nn.Module):
             last_dim = dim
 
         self.output_layer = nn.Linear(last_dim, output_dim)
+
 
     def forward(self, state: np.array):
         """ Forward pass.

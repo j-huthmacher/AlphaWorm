@@ -34,7 +34,7 @@ class Critic(nn.Module):
         super(Critic, self).__init__()
         self.input_layer = nn.Linear(input_dim, hidden_dim[0])
 
-        self.hidden_layer = []
+        self.hidden_layer = nn.ModuleList()
 
         last_dim = hidden_dim[0]
         for dim in hidden_dim[1:]:
@@ -46,7 +46,6 @@ class Critic(nn.Module):
     def init_weight(self):
         """ TODO
         """
-
 
     def forward(self, state: np.array, action: np.array):
         """ Forward pass.
@@ -62,8 +61,9 @@ class Critic(nn.Module):
                 numpy.array: Feedback for taking the specific action in that
                 specific state.
         """
-        
-        x = torch.cat([state, action.squeeze(1)], 1)
+
+        # x = torch.cat([state, action.squeeze(1)], 1)
+        x = torch.cat([state, action], 1)
         x = F.relu(self.input_layer(x))
 
         for layer in self.hidden_layer:

@@ -13,12 +13,14 @@ import torch.nn as nn
 import gym
 import numpy as np
 
-from models.MemoryBuffer import MemoryBuffer
-from models.ddpg.Actor import Actor
-from models.ddpg.Critic import Critic
+from agents.agent import Agent
+from agents.memory_buffer import MemoryBuffer
+from agents.ddpg.actor import Actor
+from agents.ddpg.critic import Critic
+from agents.ddpg.ou_noise import OUNoise
 
 
-class DDPGagent:
+class DDPGagent(Agent):
     """
         Implementation of an DDPG-Agent that uses the DDPG algorithm
         for learning.
@@ -91,7 +93,8 @@ class DDPGagent:
                 np.array: The action in form of vector predicted by the actor
                           component.
         """
-        s = Variable(torch.from_numpy(state).float().unsqueeze(0))
+        # s = Variable(torch.from_numpy(state).float().unsqueeze(0))
+        s = torch.from_numpy(state).float()
         action = self.actor.forward(s).detach().numpy()
         return action
 
@@ -135,7 +138,7 @@ class DDPGagent:
 
         self.critic_optimizer.zero_grad()
         critic_loss.backward()
-        self.critic_optimizer.step()        
+        self.critic_optimizer.step()
 
         if not tau:
             tau = self.tau
@@ -150,3 +153,27 @@ class DDPGagent:
                                   self.critic.parameters()):
             update = tau * param.data + ((1 - tau) * t_param.data)
             t_param.data.copy_(update)
+
+    def run(self, env: object, steps: int = 100, render: bool = True):
+        """ Method to execute a trained agent on a domain.
+
+            Parameters:
+            -----------
+                env: UnityEnvironment or GymEnvironment
+
+                steps: int
+                    Number of actions the agent should take in this run.
+                render: bool
+                    Flag to decide if the environment is rendered while
+                    the agent is active.
+        """
+        noise = OUNoise(env.action_space)
+        state = env.reset()
+        noise.reset()
+
+        for step in range(steps):
+            if render:
+                env.render()
+            action = self.get_action(state)
+            action = noise.get_action(action, step)
+            state, reward, done, _ = env.step(action)

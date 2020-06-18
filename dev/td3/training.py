@@ -9,7 +9,7 @@ from datetime import datetime
 from td3 import OurDDPG
 from td3 import DDPG
 from td3.TD3 import TD3
-from td3.utils import ReplayBuffer
+from td3.utils import ReplayBuffer, DynamicExperienceReplay
 
 
 class TD3_Training:
@@ -60,8 +60,9 @@ class TD3_Training:
         parser.add_argument("--noise_clip", default=0.5)  # Range to clip target policy noise
         parser.add_argument("--policy_freq", default=2, type=int)  # Frequency of delayed policy updates
         parser.add_argument("--save_model", default=True, action="store_true")  # Save model and optimizer parameters
-        parser.add_argument("--load_model",
-                            default="")  # Model load file name, "" doesn't load, "default" uses file_name
+        parser.add_argument("--load_model", default="")  # Model load file name, "" doesn't load, "default" uses file_name
+        parser.add_argument("--load_replays", default="")  # Loads pre-trained replays to replay into the buffer "" doesn't load, "..." loads from the specified folder name
+
         args = parser.parse_args()
 
         file_name = f"{args.policy}_{args.env}_{args.seed}"
@@ -74,6 +75,9 @@ class TD3_Training:
 
         if args.save_model and not os.path.exists("./models"):
             os.makedirs("./models")
+
+        if not os.path.exists("./buffers"):
+            os.makedirs("./buffers")
 
         # Set seeds
         #env.seed(args.seed)
@@ -110,6 +114,11 @@ class TD3_Training:
             policy.load(f"./models/{policy_file}")
 
         replay_buffer = ReplayBuffer(state_dim, action_dim)
+        best_buffer = ReplayBuffer(state_dim, action_dim)
+        der_buffer = DynamicExperienceReplay(state_dim, action_dim)
+
+        if args.load_replays != "":
+            policy.train(der_buffer.load(args.load_replays), args.batch_size)
 
         # Evaluate untrained policy
         evaluations = [self.eval_policy(policy, env, args.seed)]
@@ -139,6 +148,12 @@ class TD3_Training:
 
             # Store data in replay buffer
             replay_buffer.add(state, action, next_state, reward, done_bool)
+            best_buffer.add(state, action, next_state, reward, done_bool)
+
+            # Store buffer
+            if done:
+                der_buffer.add(best_buffer)
+                best_buffer = ReplayBuffer(state_dim, action_dim)
 
             state = next_state
             episode_reward += reward
@@ -162,3 +177,6 @@ class TD3_Training:
                 evaluations.append(self.eval_policy(policy, env, args.seed))
                 np.save(f"./results/{file_name}", evaluations)
                 if args.save_model: policy.save(f"./models/{file_name}")
+
+            if(t + 1) % (args.max_env_episode_steps * 100) == 0:
+                der_buffer.save()

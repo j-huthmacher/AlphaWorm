@@ -157,7 +157,7 @@ class TD3_Training_Gym:
             if done:
                 der_buffer.add(best_buffer)
                 best_buffer = ReplayBuffer(state_dim, action_dim)
-                der_buffer.save()
+
 
             state = next_state
             episode_reward += reward
@@ -182,3 +182,4 @@ class TD3_Training_Gym:
                 np.save(f"./results/{file_name}", evaluations)
                 if args.save_model:
                     policy.save(f"./models/{file_name}")
+                    der_buffer.save()

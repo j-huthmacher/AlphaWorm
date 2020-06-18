@@ -1,0 +1,3918 @@
+slurmstepd-chamb: error: Unable to create TMPDIR [/tmp/user/31799]: Permission denied
+slurmstepd-chamb: error: Setting TMPDIR to /tmp
+Collecting gym_unity (from -r requirements.txt (line 1))
+  Using cached https://files.pythonhosted.org/packages/aa/a5/763e8c4238692ab461ce5cfcd056505b0c442063b36bb598fadc224f397a/gym_unity-0.17.0-py3-none-any.whl
+Collecting mlagents (from -r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/3d/e4/2280a34157610decdf1a743fc101ff395fbdf981f0f654ef9dae60398d58/mlagents-0.17.0-py3-none-any.whl
+Collecting stable_baselines (from -r requirements.txt (line 4))
+  Using cached https://files.pythonhosted.org/packages/e5/fe/db8159d4d79109c6c8942abe77c7ba6b6e008c32ae55870a35e73fa10db3/stable_baselines-2.10.0-py3-none-any.whl
+Collecting torch (from -r requirements.txt (line 5))
+  Using cached https://files.pythonhosted.org/packages/13/70/54e9fb010fe1547bc4774716f11ececb81ae5b306c05f090f4461ee13205/torch-1.5.0-cp36-cp36m-manylinux1_x86_64.whl
+Collecting tensorboardX (from -r requirements.txt (line 6))
+  Using cached https://files.pythonhosted.org/packages/35/f1/5843425495765c8c2dd0784a851a93ef204d314fc87bcc2bbb9f662a3ad1/tensorboardX-2.0-py2.py3-none-any.whl
+Collecting numpy (from -r requirements.txt (line 7))
+  Using cached https://files.pythonhosted.org/packages/b3/a9/b1bc4c935ed063766bce7d3e8c7b20bd52e515ff1c732b02caacf7918e5a/numpy-1.18.5-cp36-cp36m-manylinux1_x86_64.whl
+Collecting mlagents-envs==0.17.0 (from gym_unity->-r requirements.txt (line 1))
+  Using cached https://files.pythonhosted.org/packages/99/e0/d182e0f9a2729a5938f296d29cd64f35a078a5dbb7cf3bb2f9a0aac1528e/mlagents_envs-0.17.0-py3-none-any.whl
+Collecting gym (from gym_unity->-r requirements.txt (line 1))
+Collecting pyyaml>=3.1.0 (from mlagents->-r requirements.txt (line 2))
+Collecting h5py>=2.9.0 (from mlagents->-r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/60/06/cafdd44889200e5438b897388f3075b52a8ef01f28a17366d91de0fa2d05/h5py-2.10.0-cp36-cp36m-manylinux1_x86_64.whl
+Collecting protobuf>=3.6 (from mlagents->-r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/28/05/9867ef8eafd12265267bee138fa2c46ebf34a276ea4cbe184cba4c606e8b/protobuf-3.12.2-cp36-cp36m-manylinux1_x86_64.whl
+Collecting Pillow>=4.2.1 (from mlagents->-r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/e0/50/8e78e6f62ffa50d6ca95c281d5a2819bef66d023ac1b723e253de5bda9c5/Pillow-7.1.2-cp36-cp36m-manylinux1_x86_64.whl
+Collecting tensorflow<3.0,>=1.7 (from mlagents->-r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/de/f0/96fb2e0412ae9692dbf400e5b04432885f677ad6241c088ccc5fe7724d69/tensorflow-1.14.0-cp36-cp36m-manylinux1_x86_64.whl
+Collecting six>=1.12.0 (from mlagents->-r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/ee/ff/48bde5c0f013094d729fe4b0316ba2a24774b3ff1c52d924a8a4cb04078a/six-1.15.0-py2.py3-none-any.whl
+Collecting cattrs>=1.0.0 (from mlagents->-r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/17/5b/6afbdaeb066ecf8ca28d85851048103ac80bb169491a54a14bd39823c422/cattrs-1.0.0-py2.py3-none-any.whl
+Collecting attrs>=19.3.0 (from mlagents->-r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/a2/db/4313ab3be961f7a763066401fb77f7748373b6094076ae2bda2806988af6/attrs-19.3.0-py2.py3-none-any.whl
+Collecting grpcio>=1.11.0 (from mlagents->-r requirements.txt (line 2))
+Collecting joblib (from stable_baselines->-r requirements.txt (line 4))
+  Using cached https://files.pythonhosted.org/packages/b8/a6/d1a816b89aa1e9e96bcb298eb1ee1854f21662ebc6d55ffa3d7b3b50122b/joblib-0.15.1-py3-none-any.whl
+Collecting scipy (from stable_baselines->-r requirements.txt (line 4))
+  Using cached https://files.pythonhosted.org/packages/dc/29/162476fd44203116e7980cfbd9352eef9db37c49445d1fec35509022f6aa/scipy-1.4.1-cp36-cp36m-manylinux1_x86_64.whl
+Collecting matplotlib (from stable_baselines->-r requirements.txt (line 4))
+  Using cached https://files.pythonhosted.org/packages/93/4b/52da6b1523d5139d04e02d9e26ceda6146b48f2a4e5d2abfdf1c7bac8c40/matplotlib-3.2.1-cp36-cp36m-manylinux1_x86_64.whl
+Collecting opencv-python (from stable_baselines->-r requirements.txt (line 4))
+  Using cached https://files.pythonhosted.org/packages/72/c2/e9cf54ae5b1102020ef895866a67cb2e1aef72f16dd1fde5b5fb1495ad9c/opencv_python-4.2.0.34-cp36-cp36m-manylinux1_x86_64.whl
+Collecting pandas (from stable_baselines->-r requirements.txt (line 4))
+  Using cached https://files.pythonhosted.org/packages/8e/86/c14387d6813ebadb7bf61b9ad270ffff111c8b587e4d266e07de774e385e/pandas-1.0.4-cp36-cp36m-manylinux1_x86_64.whl
+Collecting cloudpickle>=0.5.5 (from stable_baselines->-r requirements.txt (line 4))
+  Using cached https://files.pythonhosted.org/packages/c6/a5/bb99276ec2685e11d34e4aefc0d9238626843ea51f974aa59c68317d34b2/cloudpickle-1.4.1-py3-none-any.whl
+Collecting future (from torch->-r requirements.txt (line 5))
+Collecting pyglet<=1.5.0,>=1.4.0 (from gym->gym_unity->-r requirements.txt (line 1))
+  Using cached https://files.pythonhosted.org/packages/70/ca/20aee170afe6011e295e34b27ad7d7ccd795faba581dd3c6f7cec237f561/pyglet-1.5.0-py2.py3-none-any.whl
+Collecting setuptools (from protobuf>=3.6->mlagents->-r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/68/6c/504404be24846206811fdb52a80ecaef2e5284870f6bb9f8181ef3fe4a32/setuptools-47.2.0-py3-none-any.whl
+Collecting absl-py>=0.7.0 (from tensorflow<3.0,>=1.7->mlagents->-r requirements.txt (line 2))
+Collecting tensorboard<1.15.0,>=1.14.0 (from tensorflow<3.0,>=1.7->mlagents->-r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/91/2d/2ed263449a078cd9c8a9ba50ebd50123adf1f8cfbea1492f9084169b89d9/tensorboard-1.14.0-py3-none-any.whl
+Collecting gast>=0.2.0 (from tensorflow<3.0,>=1.7->mlagents->-r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/d6/84/759f5dd23fec8ba71952d97bcc7e2c9d7d63bdc582421f3cd4be845f0c98/gast-0.3.3-py2.py3-none-any.whl
+Collecting tensorflow-estimator<1.15.0rc0,>=1.14.0rc0 (from tensorflow<3.0,>=1.7->mlagents->-r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/3c/d5/21860a5b11caf0678fbc8319341b0ae21a07156911132e0e71bffed0510d/tensorflow_estimator-1.14.0-py2.py3-none-any.whl
+Collecting google-pasta>=0.1.6 (from tensorflow<3.0,>=1.7->mlagents->-r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/a3/de/c648ef6835192e6e2cc03f40b19eeda4382c49b5bafb43d88b931c4c74ac/google_pasta-0.2.0-py3-none-any.whl
+Collecting wheel>=0.26 (from tensorflow<3.0,>=1.7->mlagents->-r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/8c/23/848298cccf8e40f5bbb59009b32848a4c38f4e7f3364297ab3c3e2e2cd14/wheel-0.34.2-py2.py3-none-any.whl
+Collecting wrapt>=1.11.1 (from tensorflow<3.0,>=1.7->mlagents->-r requirements.txt (line 2))
+Collecting keras-preprocessing>=1.0.5 (from tensorflow<3.0,>=1.7->mlagents->-r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/79/4c/7c3275a01e12ef9368a892926ab932b33bb13d55794881e3573482b378a7/Keras_Preprocessing-1.1.2-py2.py3-none-any.whl
+Collecting astor>=0.6.0 (from tensorflow<3.0,>=1.7->mlagents->-r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/c3/88/97eef84f48fa04fbd6750e62dcceafba6c63c81b7ac1420856c8dcc0a3f9/astor-0.8.1-py2.py3-none-any.whl
+Collecting keras-applications>=1.0.6 (from tensorflow<3.0,>=1.7->mlagents->-r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/71/e3/19762fdfc62877ae9102edf6342d71b28fbfd9dea3d2f96a882ce099b03f/Keras_Applications-1.0.8-py3-none-any.whl
+Collecting termcolor>=1.1.0 (from tensorflow<3.0,>=1.7->mlagents->-r requirements.txt (line 2))
+Collecting cycler>=0.10 (from matplotlib->stable_baselines->-r requirements.txt (line 4))
+  Using cached https://files.pythonhosted.org/packages/f7/d2/e07d3ebb2bd7af696440ce7e754c59dd546ffe1bbe732c8ab68b9c834e61/cycler-0.10.0-py2.py3-none-any.whl
+Collecting kiwisolver>=1.0.1 (from matplotlib->stable_baselines->-r requirements.txt (line 4))
+  Using cached https://files.pythonhosted.org/packages/ae/23/147de658aabbf968324551ea22c0c13a00284c4ef49a77002e91f79657b7/kiwisolver-1.2.0-cp36-cp36m-manylinux1_x86_64.whl
+Collecting pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.1 (from matplotlib->stable_baselines->-r requirements.txt (line 4))
+  Using cached https://files.pythonhosted.org/packages/8a/bb/488841f56197b13700afd5658fc279a2025a39e22449b7cf29864669b15d/pyparsing-2.4.7-py2.py3-none-any.whl
+Collecting python-dateutil>=2.1 (from matplotlib->stable_baselines->-r requirements.txt (line 4))
+  Using cached https://files.pythonhosted.org/packages/d4/70/d60450c3dd48ef87586924207ae8907090de0b306af2bce5d134d78615cb/python_dateutil-2.8.1-py2.py3-none-any.whl
+Collecting pytz>=2017.2 (from pandas->stable_baselines->-r requirements.txt (line 4))
+  Using cached https://files.pythonhosted.org/packages/4f/a4/879454d49688e2fad93e59d7d4efda580b783c745fd2ec2a3adf87b0808d/pytz-2020.1-py2.py3-none-any.whl
+Collecting werkzeug>=0.11.15 (from tensorboard<1.15.0,>=1.14.0->tensorflow<3.0,>=1.7->mlagents->-r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/cc/94/5f7079a0e00bd6863ef8f1da638721e9da21e5bacee597595b318f71d62e/Werkzeug-1.0.1-py2.py3-none-any.whl
+Collecting markdown>=2.6.8 (from tensorboard<1.15.0,>=1.14.0->tensorflow<3.0,>=1.7->mlagents->-r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/a4/63/eaec2bd025ab48c754b55e8819af0f6a69e2b1e187611dd40cbbe101ee7f/Markdown-3.2.2-py3-none-any.whl
+Collecting importlib-metadata; python_version < "3.8" (from markdown>=2.6.8->tensorboard<1.15.0,>=1.14.0->tensorflow<3.0,>=1.7->mlagents->-r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/98/13/a1d703ec396ade42c1d33df0e1cb691a28b7c08b336a5683912c87e04cd7/importlib_metadata-1.6.1-py2.py3-none-any.whl
+Collecting zipp>=0.5 (from importlib-metadata; python_version < "3.8"->markdown>=2.6.8->tensorboard<1.15.0,>=1.14.0->tensorflow<3.0,>=1.7->mlagents->-r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/b2/34/bfcb43cc0ba81f527bc4f40ef41ba2ff4080e047acb0586b56b3d017ace4/zipp-3.1.0-py3-none-any.whl
+Installing collected packages: pyyaml, cloudpickle, setuptools, six, protobuf, Pillow, numpy, grpcio, mlagents-envs, future, pyglet, scipy, gym, gym-unity, h5py, absl-py, werkzeug, wheel, zipp, importlib-metadata, markdown, tensorboard, gast, tensorflow-estimator, google-pasta, wrapt, keras-preprocessing, astor, keras-applications, termcolor, tensorflow, attrs, cattrs, mlagents, joblib, cycler, kiwisolver, pyparsing, python-dateutil, matplotlib, opencv-python, pytz, pandas, stable-baselines, torch, tensorboardX
+Successfully installed Pillow-7.1.2 absl-py-0.9.0 astor-0.8.1 attrs-19.3.0 cattrs-1.0.0 cloudpickle-1.4.1 cycler-0.10.0 future-0.18.2 gast-0.3.3 google-pasta-0.2.0 grpcio-1.29.0 gym-0.17.2 gym-unity-0.17.0 h5py-2.10.0 importlib-metadata-1.6.1 joblib-0.15.1 keras-applications-1.0.8 keras-preprocessing-1.1.2 kiwisolver-1.2.0 markdown-3.2.2 matplotlib-3.2.1 mlagents-0.17.0 mlagents-envs-0.17.0 numpy-1.18.5 opencv-python-4.2.0.34 pandas-1.0.4 protobuf-3.12.2 pyglet-1.5.0 pyparsing-2.4.7 python-dateutil-2.8.1 pytz-2020.1 pyyaml-5.3.1 scipy-1.4.1 setuptools-47.2.0 six-1.15.0 stable-baselines-2.10.0 tensorboard-1.14.0 tensorboardX-2.0 tensorflow-1.14.0 tensorflow-estimator-1.14.0 termcolor-1.1.0 torch-1.5.0 werkzeug-1.0.1 wheel-0.34.2 wrapt-1.12.1 zipp-3.1.0
+Found path: /home/p/poschinger/work/td3_1/dev/./envs/worm_dynamic_one_agent/linux/worm_dynamic.x86_64
+Mono path[0] = '/home/p/poschinger/work/td3_1/dev/./envs/worm_dynamic_one_agent/linux/worm_dynamic_Data/Managed'
+Mono config path = '/home/p/poschinger/work/td3_1/dev/./envs/worm_dynamic_one_agent/linux/worm_dynamic_Data/MonoBleedingEdge/etc'
+Preloaded 'lib_burst_generated.so'
+Preloaded 'libgrpc_csharp_ext.x64.so'
+Initialize engine version: 2019.3.15f1 (59ff3e03856d)
+[Subsystems] Discovering subsystems at path /home/p/poschinger/work/td3_1/dev/./envs/worm_dynamic_one_agent/linux/worm_dynamic_Data/UnitySubsystems
+Forcing GfxDevice: Null
+GfxDevice: creating device client; threaded=0
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+Failed to create secure directory (/run/user/31799/pulse): No such file or directory
+Failed to create secure directory (/run/user/31799/pulse): No such file or directory
+Failed to create secure directory (/run/user/31799/pulse): No such file or directory
+Failed to create secure directory (/run/user/31799/pulse): No such file or directory
+Failed to create secure directory (/run/user/31799/pulse): No such file or directory
+Failed to create secure directory (/run/user/31799/pulse): No such file or directory
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM default
+FMOD failed to initialize the output device.: "Error initializing output device. " (60) 
+(Filename:  Line: 1489)
+
+Failed to create secure directory (/run/user/31799/pulse): No such file or directory
+Failed to create secure directory (/run/user/31799/pulse): No such file or directory
+Failed to create secure directory (/run/user/31799/pulse): No such file or directory
+Forced to initialize FMOD to to the device driver's system output rate 48000, this may impact performance and/or give inconsistent experiences compared to selected sample rate 48000 
+(Filename:  Line: 1425)
+
+Failed to create secure directory (/run/user/31799/pulse): No such file or directory
+Failed to create secure directory (/run/user/31799/pulse): No such file or directory
+Failed to create secure directory (/run/user/31799/pulse): No such file or directory
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM default
+FMOD failed to initialize the output device.: "Error initializing output device. " (60) 
+(Filename:  Line: 1489)
+
+FMOD initialized on nosound output
+Begin MonoManager ReloadAssembly
+- Completed reload, in  0.097 seconds
+WARNING: Shader Unsupported: 'Autodesk Interactive' - All passes removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+UnloadTime: 0.474011 ms
+Fallback handler could not load library /home/p/poschinger/work/td3_1/dev/./envs/worm_dynamic_one_agent/linux/worm_dynamic_Data/Mono/libcoreclr.so
+Fallback handler could not load library /home/p/poschinger/work/td3_1/dev/./envs/worm_dynamic_one_agent/linux/worm_dynamic_Data/Mono/libcoreclr.so
+Fallback handler could not load library /home/p/poschinger/work/td3_1/dev/./envs/worm_dynamic_one_agent/linux/worm_dynamic_Data/Mono/libcoreclr.so
+Fallback handler could not load library /home/p/poschinger/work/td3_1/dev/./envs/worm_dynamic_one_agent/linux/worm_dynamic_Data/Mono/libSystem.dylib
+Fallback handler could not load library /home/p/poschinger/work/td3_1/dev/./envs/worm_dynamic_one_agent/linux/worm_dynamic_Data/Mono/libSystem.dylib.so
+Fallback handler could not load library /home/p/poschinger/work/td3_1/dev/./envs/worm_dynamic_one_agent/linux/worm_dynamic_Data/Mono/libSystem.dylib
+Fallback handler could not load library /home/p/poschinger/work/td3_1/dev/./envs/worm_dynamic_one_agent/linux/worm_dynamic_Data/Mono/libcoreclr.so
+Fallback handler could not load library /home/p/poschinger/work/td3_1/dev/./envs/worm_dynamic_one_agent/linux/worm_dynamic_Data/Mono/libcoreclr.so
+Fallback handler could not load library /home/p/poschinger/work/td3_1/dev/./envs/worm_dynamic_one_agent/linux/worm_dynamic_Data/Mono/libcoreclr.so
+Fallback handler could not load library /home/p/poschinger/work/td3_1/dev/./envs/worm_dynamic_one_agent/linux/worm_dynamic_Data/Mono/libSystem.dylib
+Fallback handler could not load library /home/p/poschinger/work/td3_1/dev/./envs/worm_dynamic_one_agent/linux/worm_dynamic_Data/Mono/libSystem.dylib.so
+Fallback handler could not load library /home/p/poschinger/work/td3_1/dev/./envs/worm_dynamic_one_agent/linux/worm_dynamic_Data/Mono/libSystem.dylib
+/home/p/poschinger/.local/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:516: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/home/p/poschinger/.local/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:517: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/home/p/poschinger/.local/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:518: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/home/p/poschinger/.local/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:519: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/home/p/poschinger/.local/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:520: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/home/p/poschinger/.local/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:525: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+/home/p/poschinger/.local/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:541: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/home/p/poschinger/.local/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:542: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/home/p/poschinger/.local/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:543: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/home/p/poschinger/.local/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:544: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/home/p/poschinger/.local/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:545: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/home/p/poschinger/.local/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:550: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+2020-06-15 22:02:20 INFO [environment.py:108] Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+2020-06-15 22:02:20 INFO [environment.py:265] Connected new brain:
+WormDynamic?team=0
+2020-06-15 22:02:20 WARNING [__init__.py:92] The environment contains multiple observations. You must define allow_multiple_obs=True to receive them all. Otherwise, only the first visual observation (or vector observation ifthere are no visual observations) will be provided in the observation.
+Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+---------------------------------------
+Policy: TD3, Env: AlphaWorm, Seed: 0
+---------------------------------------
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [-15.1408615]
+---------------------------------------
+Total T: 1000 Episode Num: 1 Episode T: 1000 Reward: [1.8402699]
+Total T: 2000 Episode Num: 2 Episode T: 1000 Reward: [-1.9815682]
+Total T: 3000 Episode Num: 3 Episode T: 1000 Reward: [4.9101467]
+Total T: 4000 Episode Num: 4 Episode T: 1000 Reward: [-13.084295]
+Total T: 5000 Episode Num: 5 Episode T: 1000 Reward: [3.2425637]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [14.964976]
+---------------------------------------
+Total T: 6000 Episode Num: 6 Episode T: 1000 Reward: [2.2652156]
+Total T: 7000 Episode Num: 7 Episode T: 1000 Reward: [-1.2648307]
+Total T: 8000 Episode Num: 8 Episode T: 1000 Reward: [10.393861]
+Total T: 9000 Episode Num: 9 Episode T: 1000 Reward: [-6.6556964]
+Total T: 10000 Episode Num: 10 Episode T: 1000 Reward: [-19.879805]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [1.8298757]
+---------------------------------------
+Total T: 11000 Episode Num: 11 Episode T: 1000 Reward: [6.8696632]
+Total T: 12000 Episode Num: 12 Episode T: 1000 Reward: [9.237153]
+Total T: 13000 Episode Num: 13 Episode T: 1000 Reward: [-6.2874904]
+Total T: 14000 Episode Num: 14 Episode T: 1000 Reward: [-5.104745]
+Total T: 15000 Episode Num: 15 Episode T: 1000 Reward: [-8.388326]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [2.8834834]
+---------------------------------------
+Total T: 16000 Episode Num: 16 Episode T: 1000 Reward: [-10.653967]
+Total T: 17000 Episode Num: 17 Episode T: 1000 Reward: [1.0041428]
+Total T: 18000 Episode Num: 18 Episode T: 1000 Reward: [-10.35079]
+Total T: 19000 Episode Num: 19 Episode T: 1000 Reward: [-3.52986]
+Total T: 20000 Episode Num: 20 Episode T: 1000 Reward: [-3.1128]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [-3.4734664]
+---------------------------------------
+Total T: 21000 Episode Num: 21 Episode T: 1000 Reward: [1.503786]
+Total T: 22000 Episode Num: 22 Episode T: 1000 Reward: [2.7634377]
+Total T: 23000 Episode Num: 23 Episode T: 1000 Reward: [11.059628]
+Total T: 24000 Episode Num: 24 Episode T: 1000 Reward: [-5.3301935]
+Total T: 25000 Episode Num: 25 Episode T: 1000 Reward: [-1.1624426]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [7.827353]
+---------------------------------------
+Total T: 26000 Episode Num: 26 Episode T: 1000 Reward: [16.14856]
+Total T: 27000 Episode Num: 27 Episode T: 1000 Reward: [-3.0679884]
+Total T: 28000 Episode Num: 28 Episode T: 1000 Reward: [-8.730028]
+Total T: 29000 Episode Num: 29 Episode T: 1000 Reward: [-12.2065525]
+Total T: 30000 Episode Num: 30 Episode T: 1000 Reward: [-17.433601]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [1.6249866]
+---------------------------------------
+Total T: 31000 Episode Num: 31 Episode T: 1000 Reward: [-23.03815]
+Total T: 32000 Episode Num: 32 Episode T: 1000 Reward: [12.381348]
+Total T: 33000 Episode Num: 33 Episode T: 1000 Reward: [0.5363519]
+Total T: 34000 Episode Num: 34 Episode T: 1000 Reward: [-5.951635]
+Total T: 35000 Episode Num: 35 Episode T: 1000 Reward: [-0.2758188]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [4.954959]
+---------------------------------------
+Total T: 36000 Episode Num: 36 Episode T: 1000 Reward: [5.0107174]
+Total T: 37000 Episode Num: 37 Episode T: 1000 Reward: [-17.441547]
+Total T: 38000 Episode Num: 38 Episode T: 1000 Reward: [-11.14984]
+Total T: 39000 Episode Num: 39 Episode T: 1000 Reward: [-2.9312282]
+Total T: 40000 Episode Num: 40 Episode T: 1000 Reward: [12.152639]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [1.4081907]
+---------------------------------------
+Total T: 41000 Episode Num: 41 Episode T: 1000 Reward: [-3.690269]
+Total T: 42000 Episode Num: 42 Episode T: 1000 Reward: [13.13429]
+Total T: 43000 Episode Num: 43 Episode T: 1000 Reward: [5.868937]
+Total T: 44000 Episode Num: 44 Episode T: 1000 Reward: [5.577298]
+Total T: 45000 Episode Num: 45 Episode T: 1000 Reward: [10.706385]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [3.56744]
+---------------------------------------
+Total T: 46000 Episode Num: 46 Episode T: 1000 Reward: [3.1759174]
+Total T: 47000 Episode Num: 47 Episode T: 1000 Reward: [7.0482883]
+Total T: 48000 Episode Num: 48 Episode T: 1000 Reward: [-2.4911425]
+Total T: 49000 Episode Num: 49 Episode T: 1000 Reward: [4.9281034]
+Total T: 50000 Episode Num: 50 Episode T: 1000 Reward: [20.209887]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [4.7221537]
+---------------------------------------
+Total T: 51000 Episode Num: 51 Episode T: 1000 Reward: [-4.3522205]
+Total T: 52000 Episode Num: 52 Episode T: 1000 Reward: [10.510939]
+Total T: 53000 Episode Num: 53 Episode T: 1000 Reward: [15.494296]
+Total T: 54000 Episode Num: 54 Episode T: 1000 Reward: [9.686995]
+Total T: 55000 Episode Num: 55 Episode T: 1000 Reward: [11.09725]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [6.027238]
+---------------------------------------
+Total T: 56000 Episode Num: 56 Episode T: 1000 Reward: [14.035354]
+Total T: 57000 Episode Num: 57 Episode T: 1000 Reward: [2.533271]
+Total T: 58000 Episode Num: 58 Episode T: 1000 Reward: [-1.5385106]
+Total T: 59000 Episode Num: 59 Episode T: 1000 Reward: [5.0597363]
+Total T: 60000 Episode Num: 60 Episode T: 1000 Reward: [2.2461557]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [9.846887]
+---------------------------------------
+Total T: 61000 Episode Num: 61 Episode T: 1000 Reward: [11.338242]
+Total T: 62000 Episode Num: 62 Episode T: 1000 Reward: [8.702007]
+Total T: 63000 Episode Num: 63 Episode T: 1000 Reward: [11.071998]
+Total T: 64000 Episode Num: 64 Episode T: 1000 Reward: [9.641467]
+Total T: 65000 Episode Num: 65 Episode T: 1000 Reward: [-2.4156609]Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+Internal: deleting an allocation that is older than its permitted lifetime of 4 frames (age = 10) 
+(Filename:  Line: 310)
+
+
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [9.512154]
+---------------------------------------
+Total T: 66000 Episode Num: 66 Episode T: 1000 Reward: [13.179083]
+Total T: 67000 Episode Num: 67 Episode T: 1000 Reward: [-1.4194899]
+Total T: 68000 Episode Num: 68 Episode T: 1000 Reward: [15.568732]
+Total T: 69000 Episode Num: 69 Episode T: 1000 Reward: [13.849967]
+Total T: 70000 Episode Num: 70 Episode T: 1000 Reward: [9.7209635]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [10.434436]
+---------------------------------------
+Total T: 71000 Episode Num: 71 Episode T: 1000 Reward: [15.155218]
+Total T: 72000 Episode Num: 72 Episode T: 1000 Reward: [9.041982]
+Total T: 73000 Episode Num: 73 Episode T: 1000 Reward: [18.445833]
+Total T: 74000 Episode Num: 74 Episode T: 1000 Reward: [12.345716]
+Total T: 75000 Episode Num: 75 Episode T: 1000 Reward: [-1.3494614]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [14.624517]
+---------------------------------------
+Total T: 76000 Episode Num: 76 Episode T: 1000 Reward: [11.174775]
+Total T: 77000 Episode Num: 77 Episode T: 1000 Reward: [22.415161]
+Total T: 78000 Episode Num: 78 Episode T: 1000 Reward: [18.5649]
+Total T: 79000 Episode Num: 79 Episode T: 1000 Reward: [32.013973]
+Total T: 80000 Episode Num: 80 Episode T: 1000 Reward: [17.22863]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [15.198301]
+---------------------------------------
+Total T: 81000 Episode Num: 81 Episode T: 1000 Reward: [5.442203]
+Total T: 82000 Episode Num: 82 Episode T: 1000 Reward: [20.354635]
+Total T: 83000 Episode Num: 83 Episode T: 1000 Reward: [11.130748]
+Total T: 84000 Episode Num: 84 Episode T: 1000 Reward: [0.77360934]
+Total T: 85000 Episode Num: 85 Episode T: 1000 Reward: [18.230265]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [17.203842]
+---------------------------------------
+Total T: 86000 Episode Num: 86 Episode T: 1000 Reward: [18.305553]
+Total T: 87000 Episode Num: 87 Episode T: 1000 Reward: [17.939882]
+Total T: 88000 Episode Num: 88 Episode T: 1000 Reward: [17.10787]
+Total T: 89000 Episode Num: 89 Episode T: 1000 Reward: [19.92804]
+Total T: 90000 Episode Num: 90 Episode T: 1000 Reward: [25.296446]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [18.648487]
+---------------------------------------
+Total T: 91000 Episode Num: 91 Episode T: 1000 Reward: [23.335283]
+Total T: 92000 Episode Num: 92 Episode T: 1000 Reward: [18.96686]
+Total T: 93000 Episode Num: 93 Episode T: 1000 Reward: [16.756632]
+Total T: 94000 Episode Num: 94 Episode T: 1000 Reward: [11.248357]
+Total T: 95000 Episode Num: 95 Episode T: 1000 Reward: [28.461706]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [18.0112]
+---------------------------------------
+Total T: 96000 Episode Num: 96 Episode T: 1000 Reward: [5.448721]
+Total T: 97000 Episode Num: 97 Episode T: 1000 Reward: [19.370329]
+Total T: 98000 Episode Num: 98 Episode T: 1000 Reward: [9.820661]
+Total T: 99000 Episode Num: 99 Episode T: 1000 Reward: [11.75287]
+Total T: 100000 Episode Num: 100 Episode T: 1000 Reward: [18.761282]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [20.246523]
+---------------------------------------
+Total T: 101000 Episode Num: 101 Episode T: 1000 Reward: [11.404469]
+Total T: 102000 Episode Num: 102 Episode T: 1000 Reward: [36.633526]
+Total T: 103000 Episode Num: 103 Episode T: 1000 Reward: [13.690222]
+Total T: 104000 Episode Num: 104 Episode T: 1000 Reward: [34.93741]
+Total T: 105000 Episode Num: 105 Episode T: 1000 Reward: [47.493355]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [35.107616]
+---------------------------------------
+Total T: 106000 Episode Num: 106 Episode T: 1000 Reward: [25.653006]
+Total T: 107000 Episode Num: 107 Episode T: 1000 Reward: [45.37628]
+Total T: 108000 Episode Num: 108 Episode T: 1000 Reward: [22.218544]
+Total T: 109000 Episode Num: 109 Episode T: 1000 Reward: [25.130041]
+Total T: 110000 Episode Num: 110 Episode T: 1000 Reward: [18.615194]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [37.046806]
+---------------------------------------
+Total T: 111000 Episode Num: 111 Episode T: 1000 Reward: [51.254776]
+Total T: 112000 Episode Num: 112 Episode T: 1000 Reward: [46.279644]
+Total T: 113000 Episode Num: 113 Episode T: 1000 Reward: [29.051626]
+Total T: 114000 Episode Num: 114 Episode T: 1000 Reward: [34.964863]
+Total T: 115000 Episode Num: 115 Episode T: 1000 Reward: [34.180046]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [34.374912]
+---------------------------------------
+Total T: 116000 Episode Num: 116 Episode T: 1000 Reward: [37.74198]
+Total T: 117000 Episode Num: 117 Episode T: 1000 Reward: [47.934547]
+Total T: 118000 Episode Num: 118 Episode T: 1000 Reward: [36.307682]
+Total T: 119000 Episode Num: 119 Episode T: 1000 Reward: [34.027096]
+Total T: 120000 Episode Num: 120 Episode T: 1000 Reward: [27.350285]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [36.384026]
+---------------------------------------
+Total T: 121000 Episode Num: 121 Episode T: 1000 Reward: [31.138565]
+Total T: 122000 Episode Num: 122 Episode T: 1000 Reward: [28.681234]
+Total T: 123000 Episode Num: 123 Episode T: 1000 Reward: [27.03625]
+Total T: 124000 Episode Num: 124 Episode T: 1000 Reward: [32.296146]
+Total T: 125000 Episode Num: 125 Episode T: 1000 Reward: [42.488792]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [39.80227]
+---------------------------------------
+Total T: 126000 Episode Num: 126 Episode T: 1000 Reward: [31.635393]
+Total T: 127000 Episode Num: 127 Episode T: 1000 Reward: [31.513325]
+Total T: 128000 Episode Num: 128 Episode T: 1000 Reward: [49.338543]
+Total T: 129000 Episode Num: 129 Episode T: 1000 Reward: [36.101395]
+Total T: 130000 Episode Num: 130 Episode T: 1000 Reward: [29.694078]
+Eval Episode:  0Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [36.51568]
+---------------------------------------
+Total T: 131000 Episode Num: 131 Episode T: 1000 Reward: [25.554447]
+Total T: 132000 Episode Num: 132 Episode T: 1000 Reward: [21.145084]
+Total T: 133000 Episode Num: 133 Episode T: 1000 Reward: [46.84404]
+Total T: 134000 Episode Num: 134 Episode T: 1000 Reward: [18.779299]
+Total T: 135000 Episode Num: 135 Episode T: 1000 Reward: [45.32145]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [35.991768]
+---------------------------------------
+Total T: 136000 Episode Num: 136 Episode T: 1000 Reward: [46.60428]
+Total T: 137000 Episode Num: 137 Episode T: 1000 Reward: [33.566696]
+Total T: 138000 Episode Num: 138 Episode T: 1000 Reward: [29.018984]
+Total T: 139000 Episode Num: 139 Episode T: 1000 Reward: [27.914715]
+Total T: 140000 Episode Num: 140 Episode T: 1000 Reward: [28.002594]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [38.358894]
+---------------------------------------
+Total T: 141000 Episode Num: 141 Episode T: 1000 Reward: [43.269844]
+Total T: 142000 Episode Num: 142 Episode T: 1000 Reward: [29.00684]
+Total T: 143000 Episode Num: 143 Episode T: 1000 Reward: [43.012367]
+Total T: 144000 Episode Num: 144 Episode T: 1000 Reward: [46.898193]
+Total T: 145000 Episode Num: 145 Episode T: 1000 Reward: [38.963684]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [35.40249]
+---------------------------------------
+Total T: 146000 Episode Num: 146 Episode T: 1000 Reward: [41.375797]
+Total T: 147000 Episode Num: 147 Episode T: 1000 Reward: [41.91456]
+Total T: 148000 Episode Num: 148 Episode T: 1000 Reward: [44.7653]
+Total T: 149000 Episode Num: 149 Episode T: 1000 Reward: [44.936626]
+Total T: 150000 Episode Num: 150 Episode T: 1000 Reward: [36.94838]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [32.22194]
+---------------------------------------
+Total T: 151000 Episode Num: 151 Episode T: 1000 Reward: [40.45538]
+Total T: 152000 Episode Num: 152 Episode T: 1000 Reward: [25.295248]
+Total T: 153000 Episode Num: 153 Episode T: 1000 Reward: [41.152256]
+Total T: 154000 Episode Num: 154 Episode T: 1000 Reward: [38.541718]
+Total T: 155000 Episode Num: 155 Episode T: 1000 Reward: [35.14232]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [31.535099]
+---------------------------------------
+Total T: 156000 Episode Num: 156 Episode T: 1000 Reward: [42.748436]
+Total T: 157000 Episode Num: 157 Episode T: 1000 Reward: [37.005444]
+Total T: 158000 Episode Num: 158 Episode T: 1000 Reward: [42.266026]
+Total T: 159000 Episode Num: 159 Episode T: 1000 Reward: [45.973515]
+Total T: 160000 Episode Num: 160 Episode T: 1000 Reward: [46.047348]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [36.18548]
+---------------------------------------
+Total T: 161000 Episode Num: 161 Episode T: 1000 Reward: [38.319206]
+Total T: 162000 Episode Num: 162 Episode T: 1000 Reward: [39.987682]
+Total T: 163000 Episode Num: 163 Episode T: 1000 Reward: [46.667454]
+Total T: 164000 Episode Num: 164 Episode T: 1000 Reward: [32.32736]
+Total T: 165000 Episode Num: 165 Episode T: 1000 Reward: [32.496014]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [34.34453]
+---------------------------------------
+Total T: 166000 Episode Num: 166 Episode T: 1000 Reward: [40.91305]
+Total T: 167000 Episode Num: 167 Episode T: 1000 Reward: [46.307495]
+Total T: 168000 Episode Num: 168 Episode T: 1000 Reward: [36.225784]
+Total T: 169000 Episode Num: 169 Episode T: 1000 Reward: [31.653181]
+Total T: 170000 Episode Num: 170 Episode T: 1000 Reward: [44.79378]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [33.475494]
+---------------------------------------
+Total T: 171000 Episode Num: 171 Episode T: 1000 Reward: [23.732569]
+Total T: 172000 Episode Num: 172 Episode T: 1000 Reward: [45.662117]
+Total T: 173000 Episode Num: 173 Episode T: 1000 Reward: [42.119358]
+Total T: 174000 Episode Num: 174 Episode T: 1000 Reward: [4.7390466]
+Total T: 175000 Episode Num: 175 Episode T: 1000 Reward: [31.005878]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [28.740335]
+---------------------------------------
+Total T: 176000 Episode Num: 176 Episode T: 1000 Reward: [25.707472]
+Total T: 177000 Episode Num: 177 Episode T: 1000 Reward: [33.13967]
+Total T: 178000 Episode Num: 178 Episode T: 1000 Reward: [39.986927]
+Total T: 179000 Episode Num: 179 Episode T: 1000 Reward: [44.61659]
+Total T: 180000 Episode Num: 180 Episode T: 1000 Reward: [39.080765]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [31.017908]
+---------------------------------------
+Total T: 181000 Episode Num: 181 Episode T: 1000 Reward: [43.794617]
+Total T: 182000 Episode Num: 182 Episode T: 1000 Reward: [31.82389]
+Total T: 183000 Episode Num: 183 Episode T: 1000 Reward: [5.366628]
+Total T: 184000 Episode Num: 184 Episode T: 1000 Reward: [47.56001]
+Total T: 185000 Episode Num: 185 Episode T: 1000 Reward: [46.12046]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [38.3469]
+---------------------------------------
+Total T: 186000 Episode Num: 186 Episode T: 1000 Reward: [14.071436]
+Total T: 187000 Episode Num: 187 Episode T: 1000 Reward: [45.893883]
+Total T: 188000 Episode Num: 188 Episode T: 1000 Reward: [44.194576]
+Total T: 189000 Episode Num: 189 Episode T: 1000 Reward: [34.502728]
+Total T: 190000 Episode Num: 190 Episode T: 1000 Reward: [39.03961]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [37.293972]
+---------------------------------------
+Total T: 191000 Episode Num: 191 Episode T: 1000 Reward: [38.25532]
+Total T: 192000 Episode Num: 192 Episode T: 1000 Reward: [26.582367]
+Total T: 193000 Episode Num: 193 Episode T: 1000 Reward: [45.339848]
+Total T: 194000 Episode Num: 194 Episode T: 1000 Reward: [39.164]
+Total T: 195000 Episode Num: 195 Episode T: 1000 Reward: [42.344902]Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+Internal: deleting an allocation that is older than its permitted lifetime of 4 frames (age = 6) 
+(Filename:  Line: 310)
+
+
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [28.387478]
+---------------------------------------
+Total T: 196000 Episode Num: 196 Episode T: 1000 Reward: [43.69649]
+Total T: 197000 Episode Num: 197 Episode T: 1000 Reward: [21.124302]
+Total T: 198000 Episode Num: 198 Episode T: 1000 Reward: [45.50735]
+Total T: 199000 Episode Num: 199 Episode T: 1000 Reward: [-1.890776]
+Total T: 200000 Episode Num: 200 Episode T: 1000 Reward: [41.70728]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [37.75856]
+---------------------------------------
+Total T: 201000 Episode Num: 201 Episode T: 1000 Reward: [43.06504]
+Total T: 202000 Episode Num: 202 Episode T: 1000 Reward: [25.598957]
+Total T: 203000 Episode Num: 203 Episode T: 1000 Reward: [32.978653]
+Total T: 204000 Episode Num: 204 Episode T: 1000 Reward: [44.6565]
+Total T: 205000 Episode Num: 205 Episode T: 1000 Reward: [21.071518]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [34.365685]
+---------------------------------------
+Total T: 206000 Episode Num: 206 Episode T: 1000 Reward: [32.841698]
+Total T: 207000 Episode Num: 207 Episode T: 1000 Reward: [25.775936]
+Total T: 208000 Episode Num: 208 Episode T: 1000 Reward: [46.36123]
+Total T: 209000 Episode Num: 209 Episode T: 1000 Reward: [26.891993]
+Total T: 210000 Episode Num: 210 Episode T: 1000 Reward: [44.774094]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [36.883762]
+---------------------------------------
+Total T: 211000 Episode Num: 211 Episode T: 1000 Reward: [48.540653]
+Total T: 212000 Episode Num: 212 Episode T: 1000 Reward: [31.21496]
+Total T: 213000 Episode Num: 213 Episode T: 1000 Reward: [44.560177]
+Total T: 214000 Episode Num: 214 Episode T: 1000 Reward: [25.437359]
+Total T: 215000 Episode Num: 215 Episode T: 1000 Reward: [14.4009495]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [35.318653]
+---------------------------------------
+Total T: 216000 Episode Num: 216 Episode T: 1000 Reward: [22.162771]
+Total T: 217000 Episode Num: 217 Episode T: 1000 Reward: [45.044003]
+Total T: 218000 Episode Num: 218 Episode T: 1000 Reward: [45.908157]
+Total T: 219000 Episode Num: 219 Episode T: 1000 Reward: [46.392483]
+Total T: 220000 Episode Num: 220 Episode T: 1000 Reward: [45.166744]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [31.926676]
+---------------------------------------
+Total T: 221000 Episode Num: 221 Episode T: 1000 Reward: [49.16541]
+Total T: 222000 Episode Num: 222 Episode T: 1000 Reward: [45.005413]
+Total T: 223000 Episode Num: 223 Episode T: 1000 Reward: [39.89008]
+Total T: 224000 Episode Num: 224 Episode T: 1000 Reward: [19.957188]
+Total T: 225000 Episode Num: 225 Episode T: 1000 Reward: [47.34539]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [36.19228]
+---------------------------------------
+Total T: 226000 Episode Num: 226 Episode T: 1000 Reward: [37.337303]
+Total T: 227000 Episode Num: 227 Episode T: 1000 Reward: [43.39087]
+Total T: 228000 Episode Num: 228 Episode T: 1000 Reward: [46.703606]
+Total T: 229000 Episode Num: 229 Episode T: 1000 Reward: [37.14542]
+Total T: 230000 Episode Num: 230 Episode T: 1000 Reward: [35.871994]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [39.284958]
+---------------------------------------
+Total T: 231000 Episode Num: 231 Episode T: 1000 Reward: [43.021984]
+Total T: 232000 Episode Num: 232 Episode T: 1000 Reward: [36.842716]
+Total T: 233000 Episode Num: 233 Episode T: 1000 Reward: [33.527252]
+Total T: 234000 Episode Num: 234 Episode T: 1000 Reward: [38.7413]
+Total T: 235000 Episode Num: 235 Episode T: 1000 Reward: [40.944855]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [30.983969]
+---------------------------------------
+Total T: 236000 Episode Num: 236 Episode T: 1000 Reward: [45.991093]
+Total T: 237000 Episode Num: 237 Episode T: 1000 Reward: [20.832344]
+Total T: 238000 Episode Num: 238 Episode T: 1000 Reward: [40.60802]
+Total T: 239000 Episode Num: 239 Episode T: 1000 Reward: [44.117977]
+Total T: 240000 Episode Num: 240 Episode T: 1000 Reward: [28.197933]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [42.4344]
+---------------------------------------
+Total T: 241000 Episode Num: 241 Episode T: 1000 Reward: [41.292847]
+Total T: 242000 Episode Num: 242 Episode T: 1000 Reward: [42.703587]
+Total T: 243000 Episode Num: 243 Episode T: 1000 Reward: [32.837395]
+Total T: 244000 Episode Num: 244 Episode T: 1000 Reward: [43.312237]
+Total T: 245000 Episode Num: 245 Episode T: 1000 Reward: [38.704773]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [35.405952]
+---------------------------------------
+Total T: 246000 Episode Num: 246 Episode T: 1000 Reward: [20.827644]
+Total T: 247000 Episode Num: 247 Episode T: 1000 Reward: [49.29682]
+Total T: 248000 Episode Num: 248 Episode T: 1000 Reward: [43.642963]
+Total T: 249000 Episode Num: 249 Episode T: 1000 Reward: [33.468517]
+Total T: 250000 Episode Num: 250 Episode T: 1000 Reward: [47.213512]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [38.119957]
+---------------------------------------
+Total T: 251000 Episode Num: 251 Episode T: 1000 Reward: [40.303757]
+Total T: 252000 Episode Num: 252 Episode T: 1000 Reward: [32.43399]
+Total T: 253000 Episode Num: 253 Episode T: 1000 Reward: [44.522068]
+Total T: 254000 Episode Num: 254 Episode T: 1000 Reward: [36.751373]
+Total T: 255000 Episode Num: 255 Episode T: 1000 Reward: [42.5922]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [35.532017]
+---------------------------------------
+Total T: 256000 Episode Num: 256 Episode T: 1000 Reward: [25.446987]
+Total T: 257000 Episode Num: 257 Episode T: 1000 Reward: [45.584003]
+Total T: 258000 Episode Num: 258 Episode T: 1000 Reward: [28.66266]
+Total T: 259000 Episode Num: 259 Episode T: 1000 Reward: [41.369625]
+Total T: 260000 Episode Num: 260 Episode T: 1000 Reward: [47.693302]Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [34.513565]
+---------------------------------------
+Total T: 261000 Episode Num: 261 Episode T: 1000 Reward: [46.12212]
+Total T: 262000 Episode Num: 262 Episode T: 1000 Reward: [44.086956]
+Total T: 263000 Episode Num: 263 Episode T: 1000 Reward: [45.56256]
+Total T: 264000 Episode Num: 264 Episode T: 1000 Reward: [23.65452]
+Total T: 265000 Episode Num: 265 Episode T: 1000 Reward: [42.433838]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [37.53685]
+---------------------------------------
+Total T: 266000 Episode Num: 266 Episode T: 1000 Reward: [34.975918]
+Total T: 267000 Episode Num: 267 Episode T: 1000 Reward: [38.038044]
+Total T: 268000 Episode Num: 268 Episode T: 1000 Reward: [48.05]
+Total T: 269000 Episode Num: 269 Episode T: 1000 Reward: [45.767105]
+Total T: 270000 Episode Num: 270 Episode T: 1000 Reward: [33.214573]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [34.909397]
+---------------------------------------
+Total T: 271000 Episode Num: 271 Episode T: 1000 Reward: [47.58282]
+Total T: 272000 Episode Num: 272 Episode T: 1000 Reward: [43.888424]
+Total T: 273000 Episode Num: 273 Episode T: 1000 Reward: [47.595127]
+Total T: 274000 Episode Num: 274 Episode T: 1000 Reward: [45.74792]
+Total T: 275000 Episode Num: 275 Episode T: 1000 Reward: [48.10127]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [36.615868]
+---------------------------------------
+Total T: 276000 Episode Num: 276 Episode T: 1000 Reward: [9.34089]
+Total T: 277000 Episode Num: 277 Episode T: 1000 Reward: [45.82669]
+Total T: 278000 Episode Num: 278 Episode T: 1000 Reward: [45.964165]
+Total T: 279000 Episode Num: 279 Episode T: 1000 Reward: [42.071278]
+Total T: 280000 Episode Num: 280 Episode T: 1000 Reward: [45.259453]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [43.138443]
+---------------------------------------
+Total T: 281000 Episode Num: 281 Episode T: 1000 Reward: [42.472694]
+Total T: 282000 Episode Num: 282 Episode T: 1000 Reward: [46.82268]
+Total T: 283000 Episode Num: 283 Episode T: 1000 Reward: [45.95638]
+Total T: 284000 Episode Num: 284 Episode T: 1000 Reward: [45.073578]
+Total T: 285000 Episode Num: 285 Episode T: 1000 Reward: [46.729893]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [37.747475]
+---------------------------------------
+Total T: 286000 Episode Num: 286 Episode T: 1000 Reward: [48.47318]
+Total T: 287000 Episode Num: 287 Episode T: 1000 Reward: [36.892372]
+Total T: 288000 Episode Num: 288 Episode T: 1000 Reward: [27.5537]
+Total T: 289000 Episode Num: 289 Episode T: 1000 Reward: [46.245525]
+Total T: 290000 Episode Num: 290 Episode T: 1000 Reward: [33.31112]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [40.754898]
+---------------------------------------
+Total T: 291000 Episode Num: 291 Episode T: 1000 Reward: [42.140606]
+Total T: 292000 Episode Num: 292 Episode T: 1000 Reward: [42.86999]
+Total T: 293000 Episode Num: 293 Episode T: 1000 Reward: [44.651726]
+Total T: 294000 Episode Num: 294 Episode T: 1000 Reward: [41.633286]
+Total T: 295000 Episode Num: 295 Episode T: 1000 Reward: [21.344366]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [36.88623]
+---------------------------------------
+Total T: 296000 Episode Num: 296 Episode T: 1000 Reward: [42.782734]
+Total T: 297000 Episode Num: 297 Episode T: 1000 Reward: [25.389112]
+Total T: 298000 Episode Num: 298 Episode T: 1000 Reward: [37.03586]
+Total T: 299000 Episode Num: 299 Episode T: 1000 Reward: [45.536728]
+Total T: 300000 Episode Num: 300 Episode T: 1000 Reward: [39.904346]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [37.59855]
+---------------------------------------
+Total T: 301000 Episode Num: 301 Episode T: 1000 Reward: [26.54195]
+Total T: 302000 Episode Num: 302 Episode T: 1000 Reward: [44.472797]
+Total T: 303000 Episode Num: 303 Episode T: 1000 Reward: [23.775328]
+Total T: 304000 Episode Num: 304 Episode T: 1000 Reward: [32.952496]
+Total T: 305000 Episode Num: 305 Episode T: 1000 Reward: [43.468853]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [39.43951]
+---------------------------------------
+Total T: 306000 Episode Num: 306 Episode T: 1000 Reward: [47.037163]
+Total T: 307000 Episode Num: 307 Episode T: 1000 Reward: [41.611588]
+Total T: 308000 Episode Num: 308 Episode T: 1000 Reward: [46.162434]
+Total T: 309000 Episode Num: 309 Episode T: 1000 Reward: [39.836315]
+Total T: 310000 Episode Num: 310 Episode T: 1000 Reward: [43.939075]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [37.348557]
+---------------------------------------
+Total T: 311000 Episode Num: 311 Episode T: 1000 Reward: [41.34505]
+Total T: 312000 Episode Num: 312 Episode T: 1000 Reward: [46.658207]
+Total T: 313000 Episode Num: 313 Episode T: 1000 Reward: [47.47532]
+Total T: 314000 Episode Num: 314 Episode T: 1000 Reward: [39.98469]
+Total T: 315000 Episode Num: 315 Episode T: 1000 Reward: [38.266163]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [34.411095]
+---------------------------------------
+Total T: 316000 Episode Num: 316 Episode T: 1000 Reward: [32.20888]
+Total T: 317000 Episode Num: 317 Episode T: 1000 Reward: [41.829166]
+Total T: 318000 Episode Num: 318 Episode T: 1000 Reward: [46.319206]
+Total T: 319000 Episode Num: 319 Episode T: 1000 Reward: [48.265728]
+Total T: 320000 Episode Num: 320 Episode T: 1000 Reward: [47.955296]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [40.67769]
+---------------------------------------
+Total T: 321000 Episode Num: 321 Episode T: 1000 Reward: [38.36127]
+Total T: 322000 Episode Num: 322 Episode T: 1000 Reward: [19.164545]
+Total T: 323000 Episode Num: 323 Episode T: 1000 Reward: [46.441765]
+Total T: 324000 Episode Num: 324 Episode T: 1000 Reward: [37.581516]
+Total T: 325000 Episode Num: 325 Episode T: 1000 Reward: [41.171684]Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+Internal: deleting an allocation that is older than its permitted lifetime of 4 frames (age = 8) 
+(Filename:  Line: 310)
+
+
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [38.338608]
+---------------------------------------
+Total T: 326000 Episode Num: 326 Episode T: 1000 Reward: [47.896767]
+Total T: 327000 Episode Num: 327 Episode T: 1000 Reward: [38.46073]
+Total T: 328000 Episode Num: 328 Episode T: 1000 Reward: [43.53235]
+Total T: 329000 Episode Num: 329 Episode T: 1000 Reward: [25.006802]
+Total T: 330000 Episode Num: 330 Episode T: 1000 Reward: [30.342615]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [43.626823]
+---------------------------------------
+Total T: 331000 Episode Num: 331 Episode T: 1000 Reward: [41.703125]
+Total T: 332000 Episode Num: 332 Episode T: 1000 Reward: [45.828075]
+Total T: 333000 Episode Num: 333 Episode T: 1000 Reward: [35.615158]
+Total T: 334000 Episode Num: 334 Episode T: 1000 Reward: [30.95081]
+Total T: 335000 Episode Num: 335 Episode T: 1000 Reward: [45.134045]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [39.306377]
+---------------------------------------
+Total T: 336000 Episode Num: 336 Episode T: 1000 Reward: [19.380049]
+Total T: 337000 Episode Num: 337 Episode T: 1000 Reward: [32.97175]
+Total T: 338000 Episode Num: 338 Episode T: 1000 Reward: [45.28738]
+Total T: 339000 Episode Num: 339 Episode T: 1000 Reward: [47.565697]
+Total T: 340000 Episode Num: 340 Episode T: 1000 Reward: [20.144878]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [41.375587]
+---------------------------------------
+Total T: 341000 Episode Num: 341 Episode T: 1000 Reward: [41.926647]
+Total T: 342000 Episode Num: 342 Episode T: 1000 Reward: [44.38116]
+Total T: 343000 Episode Num: 343 Episode T: 1000 Reward: [46.296474]
+Total T: 344000 Episode Num: 344 Episode T: 1000 Reward: [37.32827]
+Total T: 345000 Episode Num: 345 Episode T: 1000 Reward: [46.524605]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [36.089626]
+---------------------------------------
+Total T: 346000 Episode Num: 346 Episode T: 1000 Reward: [37.848614]
+Total T: 347000 Episode Num: 347 Episode T: 1000 Reward: [6.0343685]
+Total T: 348000 Episode Num: 348 Episode T: 1000 Reward: [25.082563]
+Total T: 349000 Episode Num: 349 Episode T: 1000 Reward: [35.76307]
+Total T: 350000 Episode Num: 350 Episode T: 1000 Reward: [20.940744]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [38.93876]
+---------------------------------------
+Total T: 351000 Episode Num: 351 Episode T: 1000 Reward: [28.90587]
+Total T: 352000 Episode Num: 352 Episode T: 1000 Reward: [43.67418]
+Total T: 353000 Episode Num: 353 Episode T: 1000 Reward: [33.9536]
+Total T: 354000 Episode Num: 354 Episode T: 1000 Reward: [45.98366]
+Total T: 355000 Episode Num: 355 Episode T: 1000 Reward: [44.85184]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [35.72899]
+---------------------------------------
+Total T: 356000 Episode Num: 356 Episode T: 1000 Reward: [47.32802]
+Total T: 357000 Episode Num: 357 Episode T: 1000 Reward: [45.74541]
+Total T: 358000 Episode Num: 358 Episode T: 1000 Reward: [46.78713]
+Total T: 359000 Episode Num: 359 Episode T: 1000 Reward: [38.147682]
+Total T: 360000 Episode Num: 360 Episode T: 1000 Reward: [32.291283]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [37.041855]
+---------------------------------------
+Total T: 361000 Episode Num: 361 Episode T: 1000 Reward: [31.39535]
+Total T: 362000 Episode Num: 362 Episode T: 1000 Reward: [43.209747]
+Total T: 363000 Episode Num: 363 Episode T: 1000 Reward: [18.841326]
+Total T: 364000 Episode Num: 364 Episode T: 1000 Reward: [49.23372]
+Total T: 365000 Episode Num: 365 Episode T: 1000 Reward: [18.504303]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [40.515373]
+---------------------------------------
+Total T: 366000 Episode Num: 366 Episode T: 1000 Reward: [40.830936]
+Total T: 367000 Episode Num: 367 Episode T: 1000 Reward: [32.51818]
+Total T: 368000 Episode Num: 368 Episode T: 1000 Reward: [47.7312]
+Total T: 369000 Episode Num: 369 Episode T: 1000 Reward: [46.792168]
+Total T: 370000 Episode Num: 370 Episode T: 1000 Reward: [43.267227]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [36.399113]
+---------------------------------------
+Total T: 371000 Episode Num: 371 Episode T: 1000 Reward: [48.41619]
+Total T: 372000 Episode Num: 372 Episode T: 1000 Reward: [34.974663]
+Total T: 373000 Episode Num: 373 Episode T: 1000 Reward: [45.21494]
+Total T: 374000 Episode Num: 374 Episode T: 1000 Reward: [29.784233]
+Total T: 375000 Episode Num: 375 Episode T: 1000 Reward: [46.156067]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [36.49202]
+---------------------------------------
+Total T: 376000 Episode Num: 376 Episode T: 1000 Reward: [21.258642]
+Total T: 377000 Episode Num: 377 Episode T: 1000 Reward: [23.667706]
+Total T: 378000 Episode Num: 378 Episode T: 1000 Reward: [8.154728]
+Total T: 379000 Episode Num: 379 Episode T: 1000 Reward: [46.68659]
+Total T: 380000 Episode Num: 380 Episode T: 1000 Reward: [27.32711]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [35.32444]
+---------------------------------------
+Total T: 381000 Episode Num: 381 Episode T: 1000 Reward: [38.13869]
+Total T: 382000 Episode Num: 382 Episode T: 1000 Reward: [41.597782]
+Total T: 383000 Episode Num: 383 Episode T: 1000 Reward: [18.88159]
+Total T: 384000 Episode Num: 384 Episode T: 1000 Reward: [46.00156]
+Total T: 385000 Episode Num: 385 Episode T: 1000 Reward: [45.73885]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [42.5379]
+---------------------------------------
+Total T: 386000 Episode Num: 386 Episode T: 1000 Reward: [41.241287]
+Total T: 387000 Episode Num: 387 Episode T: 1000 Reward: [44.490597]
+Total T: 388000 Episode Num: 388 Episode T: 1000 Reward: [42.552834]
+Total T: 389000 Episode Num: 389 Episode T: 1000 Reward: [20.47574]
+Total T: 390000 Episode Num: 390 Episode T: 1000 Reward: [35.691597]Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [35.17135]
+---------------------------------------
+Total T: 391000 Episode Num: 391 Episode T: 1000 Reward: [45.500916]
+Total T: 392000 Episode Num: 392 Episode T: 1000 Reward: [40.521553]
+Total T: 393000 Episode Num: 393 Episode T: 1000 Reward: [41.42971]
+Total T: 394000 Episode Num: 394 Episode T: 1000 Reward: [30.433172]
+Total T: 395000 Episode Num: 395 Episode T: 1000 Reward: [47.192932]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [29.221441]
+---------------------------------------
+Total T: 396000 Episode Num: 396 Episode T: 1000 Reward: [37.502235]
+Total T: 397000 Episode Num: 397 Episode T: 1000 Reward: [11.657427]
+Total T: 398000 Episode Num: 398 Episode T: 1000 Reward: [48.004753]
+Total T: 399000 Episode Num: 399 Episode T: 1000 Reward: [44.615307]
+Total T: 400000 Episode Num: 400 Episode T: 1000 Reward: [27.099005]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [36.073242]
+---------------------------------------
+Total T: 401000 Episode Num: 401 Episode T: 1000 Reward: [47.728798]
+Total T: 402000 Episode Num: 402 Episode T: 1000 Reward: [46.851856]
+Total T: 403000 Episode Num: 403 Episode T: 1000 Reward: [47.722515]
+Total T: 404000 Episode Num: 404 Episode T: 1000 Reward: [28.021929]
+Total T: 405000 Episode Num: 405 Episode T: 1000 Reward: [18.103014]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [36.38697]
+---------------------------------------
+Total T: 406000 Episode Num: 406 Episode T: 1000 Reward: [42.43612]
+Total T: 407000 Episode Num: 407 Episode T: 1000 Reward: [40.73455]
+Total T: 408000 Episode Num: 408 Episode T: 1000 Reward: [45.87075]
+Total T: 409000 Episode Num: 409 Episode T: 1000 Reward: [41.928036]
+Total T: 410000 Episode Num: 410 Episode T: 1000 Reward: [42.277424]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [41.211754]
+---------------------------------------
+Total T: 411000 Episode Num: 411 Episode T: 1000 Reward: [36.598946]
+Total T: 412000 Episode Num: 412 Episode T: 1000 Reward: [41.101105]
+Total T: 413000 Episode Num: 413 Episode T: 1000 Reward: [27.664001]
+Total T: 414000 Episode Num: 414 Episode T: 1000 Reward: [39.96012]
+Total T: 415000 Episode Num: 415 Episode T: 1000 Reward: [43.565075]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [41.612335]
+---------------------------------------
+Total T: 416000 Episode Num: 416 Episode T: 1000 Reward: [21.68588]
+Total T: 417000 Episode Num: 417 Episode T: 1000 Reward: [41.722042]
+Total T: 418000 Episode Num: 418 Episode T: 1000 Reward: [34.778095]
+Total T: 419000 Episode Num: 419 Episode T: 1000 Reward: [45.38035]
+Total T: 420000 Episode Num: 420 Episode T: 1000 Reward: [20.690496]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [38.9239]
+---------------------------------------
+Total T: 421000 Episode Num: 421 Episode T: 1000 Reward: [41.202362]
+Total T: 422000 Episode Num: 422 Episode T: 1000 Reward: [27.447157]
+Total T: 423000 Episode Num: 423 Episode T: 1000 Reward: [21.160254]
+Total T: 424000 Episode Num: 424 Episode T: 1000 Reward: [44.37917]
+Total T: 425000 Episode Num: 425 Episode T: 1000 Reward: [33.74956]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [34.273144]
+---------------------------------------
+Total T: 426000 Episode Num: 426 Episode T: 1000 Reward: [32.17749]
+Total T: 427000 Episode Num: 427 Episode T: 1000 Reward: [46.04964]
+Total T: 428000 Episode Num: 428 Episode T: 1000 Reward: [45.50299]
+Total T: 429000 Episode Num: 429 Episode T: 1000 Reward: [44.922012]
+Total T: 430000 Episode Num: 430 Episode T: 1000 Reward: [17.67422]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [31.74223]
+---------------------------------------
+Total T: 431000 Episode Num: 431 Episode T: 1000 Reward: [17.156652]
+Total T: 432000 Episode Num: 432 Episode T: 1000 Reward: [44.107445]
+Total T: 433000 Episode Num: 433 Episode T: 1000 Reward: [42.287415]
+Total T: 434000 Episode Num: 434 Episode T: 1000 Reward: [21.566343]
+Total T: 435000 Episode Num: 435 Episode T: 1000 Reward: [24.036566]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [39.172695]
+---------------------------------------
+Total T: 436000 Episode Num: 436 Episode T: 1000 Reward: [41.768497]
+Total T: 437000 Episode Num: 437 Episode T: 1000 Reward: [35.5954]
+Total T: 438000 Episode Num: 438 Episode T: 1000 Reward: [38.416027]
+Total T: 439000 Episode Num: 439 Episode T: 1000 Reward: [24.989805]
+Total T: 440000 Episode Num: 440 Episode T: 1000 Reward: [36.73895]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [30.021305]
+---------------------------------------
+Total T: 441000 Episode Num: 441 Episode T: 1000 Reward: [30.635515]
+Total T: 442000 Episode Num: 442 Episode T: 1000 Reward: [26.488543]
+Total T: 443000 Episode Num: 443 Episode T: 1000 Reward: [35.092896]
+Total T: 444000 Episode Num: 444 Episode T: 1000 Reward: [40.556217]
+Total T: 445000 Episode Num: 445 Episode T: 1000 Reward: [31.47098]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [38.881973]
+---------------------------------------
+Total T: 446000 Episode Num: 446 Episode T: 1000 Reward: [18.843447]
+Total T: 447000 Episode Num: 447 Episode T: 1000 Reward: [44.479717]
+Total T: 448000 Episode Num: 448 Episode T: 1000 Reward: [32.237064]
+Total T: 449000 Episode Num: 449 Episode T: 1000 Reward: [45.221214]
+Total T: 450000 Episode Num: 450 Episode T: 1000 Reward: [20.627024]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [34.775932]
+---------------------------------------
+Total T: 451000 Episode Num: 451 Episode T: 1000 Reward: [37.085907]
+Total T: 452000 Episode Num: 452 Episode T: 1000 Reward: [46.544186]
+Total T: 453000 Episode Num: 453 Episode T: 1000 Reward: [41.472984]
+Total T: 454000 Episode Num: 454 Episode T: 1000 Reward: [46.053253]
+Total T: 455000 Episode Num: 455 Episode T: 1000 Reward: [36.839447]Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+Internal: deleting an allocation that is older than its permitted lifetime of 4 frames (age = 7) 
+(Filename:  Line: 310)
+
+Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [41.271732]
+---------------------------------------
+Total T: 456000 Episode Num: 456 Episode T: 1000 Reward: [45.70381]
+Total T: 457000 Episode Num: 457 Episode T: 1000 Reward: [46.04275]
+Total T: 458000 Episode Num: 458 Episode T: 1000 Reward: [19.92055]
+Total T: 459000 Episode Num: 459 Episode T: 1000 Reward: [44.15756]
+Total T: 460000 Episode Num: 460 Episode T: 1000 Reward: [45.323463]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [40.69976]
+---------------------------------------
+Total T: 461000 Episode Num: 461 Episode T: 1000 Reward: [45.719143]
+Total T: 462000 Episode Num: 462 Episode T: 1000 Reward: [39.864647]
+Total T: 463000 Episode Num: 463 Episode T: 1000 Reward: [9.3946]
+Total T: 464000 Episode Num: 464 Episode T: 1000 Reward: [37.83648]
+Total T: 465000 Episode Num: 465 Episode T: 1000 Reward: [46.599255]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [40.534782]
+---------------------------------------
+Total T: 466000 Episode Num: 466 Episode T: 1000 Reward: [45.623283]
+Total T: 467000 Episode Num: 467 Episode T: 1000 Reward: [15.392723]
+Total T: 468000 Episode Num: 468 Episode T: 1000 Reward: [24.536457]
+Total T: 469000 Episode Num: 469 Episode T: 1000 Reward: [20.391829]
+Total T: 470000 Episode Num: 470 Episode T: 1000 Reward: [40.92042]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [37.587593]
+---------------------------------------
+Total T: 471000 Episode Num: 471 Episode T: 1000 Reward: [26.618382]
+Total T: 472000 Episode Num: 472 Episode T: 1000 Reward: [37.287155]
+Total T: 473000 Episode Num: 473 Episode T: 1000 Reward: [45.178677]
+Total T: 474000 Episode Num: 474 Episode T: 1000 Reward: [14.592495]
+Total T: 475000 Episode Num: 475 Episode T: 1000 Reward: [23.519196]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [35.021706]
+---------------------------------------
+Total T: 476000 Episode Num: 476 Episode T: 1000 Reward: [33.726845]
+Total T: 477000 Episode Num: 477 Episode T: 1000 Reward: [42.746887]
+Total T: 478000 Episode Num: 478 Episode T: 1000 Reward: [27.193499]
+Total T: 479000 Episode Num: 479 Episode T: 1000 Reward: [42.92497]
+Total T: 480000 Episode Num: 480 Episode T: 1000 Reward: [21.183804]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [38.56309]
+---------------------------------------
+Total T: 481000 Episode Num: 481 Episode T: 1000 Reward: [35.9195]
+Total T: 482000 Episode Num: 482 Episode T: 1000 Reward: [48.52229]
+Total T: 483000 Episode Num: 483 Episode T: 1000 Reward: [12.825241]
+Total T: 484000 Episode Num: 484 Episode T: 1000 Reward: [27.749733]
+Total T: 485000 Episode Num: 485 Episode T: 1000 Reward: [29.80659]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [38.871086]
+---------------------------------------
+Total T: 486000 Episode Num: 486 Episode T: 1000 Reward: [13.793442]
+Total T: 487000 Episode Num: 487 Episode T: 1000 Reward: [44.792187]
+Total T: 488000 Episode Num: 488 Episode T: 1000 Reward: [41.890427]
+Total T: 489000 Episode Num: 489 Episode T: 1000 Reward: [47.298996]
+Total T: 490000 Episode Num: 490 Episode T: 1000 Reward: [34.544376]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [34.665077]
+---------------------------------------
+Total T: 491000 Episode Num: 491 Episode T: 1000 Reward: [20.540527]
+Total T: 492000 Episode Num: 492 Episode T: 1000 Reward: [21.838316]
+Total T: 493000 Episode Num: 493 Episode T: 1000 Reward: [49.253582]
+Total T: 494000 Episode Num: 494 Episode T: 1000 Reward: [48.397537]
+Total T: 495000 Episode Num: 495 Episode T: 1000 Reward: [44.228535]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [34.77454]
+---------------------------------------
+Total T: 496000 Episode Num: 496 Episode T: 1000 Reward: [33.0358]
+Total T: 497000 Episode Num: 497 Episode T: 1000 Reward: [37.076534]
+Total T: 498000 Episode Num: 498 Episode T: 1000 Reward: [47.500164]
+Total T: 499000 Episode Num: 499 Episode T: 1000 Reward: [33.51549]
+Total T: 500000 Episode Num: 500 Episode T: 1000 Reward: [16.209707]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [37.790497]
+---------------------------------------
+Total T: 501000 Episode Num: 501 Episode T: 1000 Reward: [45.4929]
+Total T: 502000 Episode Num: 502 Episode T: 1000 Reward: [44.372807]
+Total T: 503000 Episode Num: 503 Episode T: 1000 Reward: [46.928276]
+Total T: 504000 Episode Num: 504 Episode T: 1000 Reward: [47.613308]
+Total T: 505000 Episode Num: 505 Episode T: 1000 Reward: [47.445984]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [34.5625]
+---------------------------------------
+Total T: 506000 Episode Num: 506 Episode T: 1000 Reward: [13.659326]
+Total T: 507000 Episode Num: 507 Episode T: 1000 Reward: [29.418262]
+Total T: 508000 Episode Num: 508 Episode T: 1000 Reward: [43.923405]
+Total T: 509000 Episode Num: 509 Episode T: 1000 Reward: [46.528572]
+Total T: 510000 Episode Num: 510 Episode T: 1000 Reward: [49.00948]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [38.981945]
+---------------------------------------
+Total T: 511000 Episode Num: 511 Episode T: 1000 Reward: [32.730984]
+Total T: 512000 Episode Num: 512 Episode T: 1000 Reward: [41.532875]
+Total T: 513000 Episode Num: 513 Episode T: 1000 Reward: [46.455025]
+Total T: 514000 Episode Num: 514 Episode T: 1000 Reward: [45.74208]
+Total T: 515000 Episode Num: 515 Episode T: 1000 Reward: [13.788602]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [39.83592]
+---------------------------------------
+Total T: 516000 Episode Num: 516 Episode T: 1000 Reward: [49.373512]
+Total T: 517000 Episode Num: 517 Episode T: 1000 Reward: [44.302334]
+Total T: 518000 Episode Num: 518 Episode T: 1000 Reward: [43.476604]
+Total T: 519000 Episode Num: 519 Episode T: 1000 Reward: [12.126398]
+Total T: 520000 Episode Num: 520 Episode T: 1000 Reward: [37.84457]Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+Internal: deleting an allocation that is older than its permitted lifetime of 4 frames (age = 10) 
+(Filename:  Line: 310)
+
+
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [43.554905]
+---------------------------------------
+Total T: 521000 Episode Num: 521 Episode T: 1000 Reward: [20.93335]
+Total T: 522000 Episode Num: 522 Episode T: 1000 Reward: [26.782785]
+Total T: 523000 Episode Num: 523 Episode T: 1000 Reward: [42.457367]
+Total T: 524000 Episode Num: 524 Episode T: 1000 Reward: [48.4397]
+Total T: 525000 Episode Num: 525 Episode T: 1000 Reward: [23.464993]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [41.25418]
+---------------------------------------
+Total T: 526000 Episode Num: 526 Episode T: 1000 Reward: [46.21592]
+Total T: 527000 Episode Num: 527 Episode T: 1000 Reward: [43.586998]
+Total T: 528000 Episode Num: 528 Episode T: 1000 Reward: [22.323305]
+Total T: 529000 Episode Num: 529 Episode T: 1000 Reward: [15.301845]
+Total T: 530000 Episode Num: 530 Episode T: 1000 Reward: [45.321804]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [39.8375]
+---------------------------------------
+Total T: 531000 Episode Num: 531 Episode T: 1000 Reward: [40.102093]
+Total T: 532000 Episode Num: 532 Episode T: 1000 Reward: [31.251383]
+Total T: 533000 Episode Num: 533 Episode T: 1000 Reward: [43.856365]
+Total T: 534000 Episode Num: 534 Episode T: 1000 Reward: [24.015066]
+Total T: 535000 Episode Num: 535 Episode T: 1000 Reward: [50.290195]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [35.031616]
+---------------------------------------
+Total T: 536000 Episode Num: 536 Episode T: 1000 Reward: [28.357117]
+Total T: 537000 Episode Num: 537 Episode T: 1000 Reward: [33.01598]
+Total T: 538000 Episode Num: 538 Episode T: 1000 Reward: [40.20826]
+Total T: 539000 Episode Num: 539 Episode T: 1000 Reward: [31.308407]
+Total T: 540000 Episode Num: 540 Episode T: 1000 Reward: [27.522842]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [42.788498]
+---------------------------------------
+Total T: 541000 Episode Num: 541 Episode T: 1000 Reward: [47.561546]
+Total T: 542000 Episode Num: 542 Episode T: 1000 Reward: [42.852676]
+Total T: 543000 Episode Num: 543 Episode T: 1000 Reward: [30.019506]
+Total T: 544000 Episode Num: 544 Episode T: 1000 Reward: [18.135447]
+Total T: 545000 Episode Num: 545 Episode T: 1000 Reward: [43.18755]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [37.831287]
+---------------------------------------
+Total T: 546000 Episode Num: 546 Episode T: 1000 Reward: [48.158363]
+Total T: 547000 Episode Num: 547 Episode T: 1000 Reward: [36.925323]
+Total T: 548000 Episode Num: 548 Episode T: 1000 Reward: [41.037964]
+Total T: 549000 Episode Num: 549 Episode T: 1000 Reward: [45.445076]
+Total T: 550000 Episode Num: 550 Episode T: 1000 Reward: [47.88587]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [35.973923]
+---------------------------------------
+Total T: 551000 Episode Num: 551 Episode T: 1000 Reward: [45.584946]
+Total T: 552000 Episode Num: 552 Episode T: 1000 Reward: [29.865076]
+Total T: 553000 Episode Num: 553 Episode T: 1000 Reward: [49.31676]
+Total T: 554000 Episode Num: 554 Episode T: 1000 Reward: [47.83183]
+Total T: 555000 Episode Num: 555 Episode T: 1000 Reward: [48.787544]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [39.695496]
+---------------------------------------
+Total T: 556000 Episode Num: 556 Episode T: 1000 Reward: [31.524351]
+Total T: 557000 Episode Num: 557 Episode T: 1000 Reward: [34.685658]
+Total T: 558000 Episode Num: 558 Episode T: 1000 Reward: [47.155567]
+Total T: 559000 Episode Num: 559 Episode T: 1000 Reward: [47.589073]
+Total T: 560000 Episode Num: 560 Episode T: 1000 Reward: [33.458088]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [36.14769]
+---------------------------------------
+Total T: 561000 Episode Num: 561 Episode T: 1000 Reward: [38.16361]
+Total T: 562000 Episode Num: 562 Episode T: 1000 Reward: [48.994236]
+Total T: 563000 Episode Num: 563 Episode T: 1000 Reward: [37.19628]
+Total T: 564000 Episode Num: 564 Episode T: 1000 Reward: [42.714813]
+Total T: 565000 Episode Num: 565 Episode T: 1000 Reward: [47.496742]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [40.285942]
+---------------------------------------
+Total T: 566000 Episode Num: 566 Episode T: 1000 Reward: [37.350235]
+Total T: 567000 Episode Num: 567 Episode T: 1000 Reward: [45.474957]
+Total T: 568000 Episode Num: 568 Episode T: 1000 Reward: [44.667526]
+Total T: 569000 Episode Num: 569 Episode T: 1000 Reward: [43.904446]
+Total T: 570000 Episode Num: 570 Episode T: 1000 Reward: [12.926688]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [37.603203]
+---------------------------------------
+Total T: 571000 Episode Num: 571 Episode T: 1000 Reward: [45.779316]
+Total T: 572000 Episode Num: 572 Episode T: 1000 Reward: [44.78629]
+Total T: 573000 Episode Num: 573 Episode T: 1000 Reward: [51.084663]
+Total T: 574000 Episode Num: 574 Episode T: 1000 Reward: [31.883558]
+Total T: 575000 Episode Num: 575 Episode T: 1000 Reward: [15.203609]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [45.820724]
+---------------------------------------
+Total T: 576000 Episode Num: 576 Episode T: 1000 Reward: [34.27023]
+Total T: 577000 Episode Num: 577 Episode T: 1000 Reward: [38.568684]
+Total T: 578000 Episode Num: 578 Episode T: 1000 Reward: [42.560524]
+Total T: 579000 Episode Num: 579 Episode T: 1000 Reward: [18.700136]
+Total T: 580000 Episode Num: 580 Episode T: 1000 Reward: [46.906013]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [34.059105]
+---------------------------------------
+Total T: 581000 Episode Num: 581 Episode T: 1000 Reward: [48.6426]
+Total T: 582000 Episode Num: 582 Episode T: 1000 Reward: [42.270626]
+Total T: 583000 Episode Num: 583 Episode T: 1000 Reward: [24.379711]
+Total T: 584000 Episode Num: 584 Episode T: 1000 Reward: [29.863592]
+Total T: 585000 Episode Num: 585 Episode T: 1000 Reward: [38.060226]Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+Internal: deleting an allocation that is older than its permitted lifetime of 4 frames (age = 15) 
+(Filename:  Line: 310)
+
+
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [32.06442]
+---------------------------------------
+Total T: 586000 Episode Num: 586 Episode T: 1000 Reward: [31.994984]
+Total T: 587000 Episode Num: 587 Episode T: 1000 Reward: [50.47626]
+Total T: 588000 Episode Num: 588 Episode T: 1000 Reward: [44.57285]
+Total T: 589000 Episode Num: 589 Episode T: 1000 Reward: [47.30397]
+Total T: 590000 Episode Num: 590 Episode T: 1000 Reward: [45.021076]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [41.446587]
+---------------------------------------
+Total T: 591000 Episode Num: 591 Episode T: 1000 Reward: [45.18295]
+Total T: 592000 Episode Num: 592 Episode T: 1000 Reward: [48.16027]
+Total T: 593000 Episode Num: 593 Episode T: 1000 Reward: [48.170147]
+Total T: 594000 Episode Num: 594 Episode T: 1000 Reward: [47.629723]
+Total T: 595000 Episode Num: 595 Episode T: 1000 Reward: [37.30353]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [34.15325]
+---------------------------------------
+Total T: 596000 Episode Num: 596 Episode T: 1000 Reward: [41.889965]
+Total T: 597000 Episode Num: 597 Episode T: 1000 Reward: [47.285267]
+Total T: 598000 Episode Num: 598 Episode T: 1000 Reward: [47.61885]
+Total T: 599000 Episode Num: 599 Episode T: 1000 Reward: [35.27174]
+Total T: 600000 Episode Num: 600 Episode T: 1000 Reward: [31.766094]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [39.82157]
+---------------------------------------
+Total T: 601000 Episode Num: 601 Episode T: 1000 Reward: [47.24084]
+Total T: 602000 Episode Num: 602 Episode T: 1000 Reward: [20.051098]
+Total T: 603000 Episode Num: 603 Episode T: 1000 Reward: [44.097866]
+Total T: 604000 Episode Num: 604 Episode T: 1000 Reward: [45.021156]
+Total T: 605000 Episode Num: 605 Episode T: 1000 Reward: [46.67082]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [37.45325]
+---------------------------------------
+Total T: 606000 Episode Num: 606 Episode T: 1000 Reward: [44.610786]
+Total T: 607000 Episode Num: 607 Episode T: 1000 Reward: [46.20004]
+Total T: 608000 Episode Num: 608 Episode T: 1000 Reward: [45.30469]
+Total T: 609000 Episode Num: 609 Episode T: 1000 Reward: [46.304832]
+Total T: 610000 Episode Num: 610 Episode T: 1000 Reward: [48.52049]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [38.223904]
+---------------------------------------
+Total T: 611000 Episode Num: 611 Episode T: 1000 Reward: [39.039795]
+Total T: 612000 Episode Num: 612 Episode T: 1000 Reward: [39.286484]
+Total T: 613000 Episode Num: 613 Episode T: 1000 Reward: [44.6195]
+Total T: 614000 Episode Num: 614 Episode T: 1000 Reward: [47.590645]
+Total T: 615000 Episode Num: 615 Episode T: 1000 Reward: [47.05635]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [37.540897]
+---------------------------------------
+Total T: 616000 Episode Num: 616 Episode T: 1000 Reward: [46.855183]
+Total T: 617000 Episode Num: 617 Episode T: 1000 Reward: [35.86104]
+Total T: 618000 Episode Num: 618 Episode T: 1000 Reward: [46.23642]
+Total T: 619000 Episode Num: 619 Episode T: 1000 Reward: [22.569897]
+Total T: 620000 Episode Num: 620 Episode T: 1000 Reward: [48.160904]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [35.529385]
+---------------------------------------
+Total T: 621000 Episode Num: 621 Episode T: 1000 Reward: [26.313347]
+Total T: 622000 Episode Num: 622 Episode T: 1000 Reward: [24.715582]
+Total T: 623000 Episode Num: 623 Episode T: 1000 Reward: [8.847906]
+Total T: 624000 Episode Num: 624 Episode T: 1000 Reward: [42.8616]
+Total T: 625000 Episode Num: 625 Episode T: 1000 Reward: [34.181072]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [42.0549]
+---------------------------------------
+Total T: 626000 Episode Num: 626 Episode T: 1000 Reward: [44.83305]
+Total T: 627000 Episode Num: 627 Episode T: 1000 Reward: [50.177464]
+Total T: 628000 Episode Num: 628 Episode T: 1000 Reward: [35.115322]
+Total T: 629000 Episode Num: 629 Episode T: 1000 Reward: [42.486935]
+Total T: 630000 Episode Num: 630 Episode T: 1000 Reward: [47.689747]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [37.182487]
+---------------------------------------
+Total T: 631000 Episode Num: 631 Episode T: 1000 Reward: [42.94305]
+Total T: 632000 Episode Num: 632 Episode T: 1000 Reward: [45.042652]
+Total T: 633000 Episode Num: 633 Episode T: 1000 Reward: [41.95383]
+Total T: 634000 Episode Num: 634 Episode T: 1000 Reward: [15.155625]
+Total T: 635000 Episode Num: 635 Episode T: 1000 Reward: [28.81666]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [32.988125]
+---------------------------------------
+Total T: 636000 Episode Num: 636 Episode T: 1000 Reward: [44.85533]
+Total T: 637000 Episode Num: 637 Episode T: 1000 Reward: [45.995586]
+Total T: 638000 Episode Num: 638 Episode T: 1000 Reward: [43.222206]
+Total T: 639000 Episode Num: 639 Episode T: 1000 Reward: [28.16731]
+Total T: 640000 Episode Num: 640 Episode T: 1000 Reward: [41.902576]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [37.917904]
+---------------------------------------
+Total T: 641000 Episode Num: 641 Episode T: 1000 Reward: [46.336998]
+Total T: 642000 Episode Num: 642 Episode T: 1000 Reward: [46.878666]
+Total T: 643000 Episode Num: 643 Episode T: 1000 Reward: [35.28465]
+Total T: 644000 Episode Num: 644 Episode T: 1000 Reward: [46.797115]
+Total T: 645000 Episode Num: 645 Episode T: 1000 Reward: [31.560219]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [37.423378]
+---------------------------------------
+Total T: 646000 Episode Num: 646 Episode T: 1000 Reward: [42.05796]
+Total T: 647000 Episode Num: 647 Episode T: 1000 Reward: [43.813564]
+Total T: 648000 Episode Num: 648 Episode T: 1000 Reward: [48.158894]
+Total T: 649000 Episode Num: 649 Episode T: 1000 Reward: [42.612347]
+Total T: 650000 Episode Num: 650 Episode T: 1000 Reward: [29.628311]Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [34.218586]
+---------------------------------------
+Total T: 651000 Episode Num: 651 Episode T: 1000 Reward: [44.867695]
+Total T: 652000 Episode Num: 652 Episode T: 1000 Reward: [24.174484]
+Total T: 653000 Episode Num: 653 Episode T: 1000 Reward: [32.170105]
+Total T: 654000 Episode Num: 654 Episode T: 1000 Reward: [45.669147]
+Total T: 655000 Episode Num: 655 Episode T: 1000 Reward: [47.118565]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [38.623913]
+---------------------------------------
+Total T: 656000 Episode Num: 656 Episode T: 1000 Reward: [26.146322]
+Total T: 657000 Episode Num: 657 Episode T: 1000 Reward: [43.77478]
+Total T: 658000 Episode Num: 658 Episode T: 1000 Reward: [47.3077]
+Total T: 659000 Episode Num: 659 Episode T: 1000 Reward: [44.10643]
+Total T: 660000 Episode Num: 660 Episode T: 1000 Reward: [44.854996]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [36.790558]
+---------------------------------------
+Total T: 661000 Episode Num: 661 Episode T: 1000 Reward: [39.564754]
+Total T: 662000 Episode Num: 662 Episode T: 1000 Reward: [47.917263]
+Total T: 663000 Episode Num: 663 Episode T: 1000 Reward: [48.27181]
+Total T: 664000 Episode Num: 664 Episode T: 1000 Reward: [40.901264]
+Total T: 665000 Episode Num: 665 Episode T: 1000 Reward: [44.77631]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [35.651756]
+---------------------------------------
+Total T: 666000 Episode Num: 666 Episode T: 1000 Reward: [47.462048]
+Total T: 667000 Episode Num: 667 Episode T: 1000 Reward: [27.695793]
+Total T: 668000 Episode Num: 668 Episode T: 1000 Reward: [47.29392]
+Total T: 669000 Episode Num: 669 Episode T: 1000 Reward: [47.16304]
+Total T: 670000 Episode Num: 670 Episode T: 1000 Reward: [26.318592]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [39.62362]
+---------------------------------------
+Total T: 671000 Episode Num: 671 Episode T: 1000 Reward: [45.65545]
+Total T: 672000 Episode Num: 672 Episode T: 1000 Reward: [20.055902]
+Total T: 673000 Episode Num: 673 Episode T: 1000 Reward: [47.605972]
+Total T: 674000 Episode Num: 674 Episode T: 1000 Reward: [46.33166]
+Total T: 675000 Episode Num: 675 Episode T: 1000 Reward: [40.126774]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [31.645443]
+---------------------------------------
+Total T: 676000 Episode Num: 676 Episode T: 1000 Reward: [44.22223]
+Total T: 677000 Episode Num: 677 Episode T: 1000 Reward: [39.682114]
+Total T: 678000 Episode Num: 678 Episode T: 1000 Reward: [44.233776]
+Total T: 679000 Episode Num: 679 Episode T: 1000 Reward: [40.56867]
+Total T: 680000 Episode Num: 680 Episode T: 1000 Reward: [42.844036]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [33.622612]
+---------------------------------------
+Total T: 681000 Episode Num: 681 Episode T: 1000 Reward: [18.820787]
+Total T: 682000 Episode Num: 682 Episode T: 1000 Reward: [41.912006]
+Total T: 683000 Episode Num: 683 Episode T: 1000 Reward: [44.0918]
+Total T: 684000 Episode Num: 684 Episode T: 1000 Reward: [46.675987]
+Total T: 685000 Episode Num: 685 Episode T: 1000 Reward: [49.668674]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [41.10645]
+---------------------------------------
+Total T: 686000 Episode Num: 686 Episode T: 1000 Reward: [15.941777]
+Total T: 687000 Episode Num: 687 Episode T: 1000 Reward: [34.23155]
+Total T: 688000 Episode Num: 688 Episode T: 1000 Reward: [46.59194]
+Total T: 689000 Episode Num: 689 Episode T: 1000 Reward: [29.296663]
+Total T: 690000 Episode Num: 690 Episode T: 1000 Reward: [40.24517]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [33.46708]
+---------------------------------------
+Total T: 691000 Episode Num: 691 Episode T: 1000 Reward: [34.48739]
+Total T: 692000 Episode Num: 692 Episode T: 1000 Reward: [8.451408]
+Total T: 693000 Episode Num: 693 Episode T: 1000 Reward: [17.085588]
+Total T: 694000 Episode Num: 694 Episode T: 1000 Reward: [43.846256]
+Total T: 695000 Episode Num: 695 Episode T: 1000 Reward: [42.895573]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [35.406837]
+---------------------------------------
+Total T: 696000 Episode Num: 696 Episode T: 1000 Reward: [44.37391]
+Total T: 697000 Episode Num: 697 Episode T: 1000 Reward: [41.29095]
+Total T: 698000 Episode Num: 698 Episode T: 1000 Reward: [41.54328]
+Total T: 699000 Episode Num: 699 Episode T: 1000 Reward: [47.792446]
+Total T: 700000 Episode Num: 700 Episode T: 1000 Reward: [43.518845]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [36.35861]
+---------------------------------------
+Total T: 701000 Episode Num: 701 Episode T: 1000 Reward: [47.299686]
+Total T: 702000 Episode Num: 702 Episode T: 1000 Reward: [42.485287]
+Total T: 703000 Episode Num: 703 Episode T: 1000 Reward: [23.140095]
+Total T: 704000 Episode Num: 704 Episode T: 1000 Reward: [45.834763]
+Total T: 705000 Episode Num: 705 Episode T: 1000 Reward: [47.06058]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [35.22343]
+---------------------------------------
+Total T: 706000 Episode Num: 706 Episode T: 1000 Reward: [43.40199]
+Total T: 707000 Episode Num: 707 Episode T: 1000 Reward: [39.571575]
+Total T: 708000 Episode Num: 708 Episode T: 1000 Reward: [34.237583]
+Total T: 709000 Episode Num: 709 Episode T: 1000 Reward: [46.843105]
+Total T: 710000 Episode Num: 710 Episode T: 1000 Reward: [46.41933]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [37.267014]
+---------------------------------------
+Total T: 711000 Episode Num: 711 Episode T: 1000 Reward: [41.62809]
+Total T: 712000 Episode Num: 712 Episode T: 1000 Reward: [46.066853]
+Total T: 713000 Episode Num: 713 Episode T: 1000 Reward: [44.197815]
+Total T: 714000 Episode Num: 714 Episode T: 1000 Reward: [36.11185]
+Total T: 715000 Episode Num: 715 Episode T: 1000 Reward: [43.56487]Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [39.423485]
+---------------------------------------
+Total T: 716000 Episode Num: 716 Episode T: 1000 Reward: [21.707428]
+Total T: 717000 Episode Num: 717 Episode T: 1000 Reward: [43.84946]
+Total T: 718000 Episode Num: 718 Episode T: 1000 Reward: [42.54037]
+Total T: 719000 Episode Num: 719 Episode T: 1000 Reward: [45.483273]
+Total T: 720000 Episode Num: 720 Episode T: 1000 Reward: [44.511555]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [41.50077]
+---------------------------------------
+Total T: 721000 Episode Num: 721 Episode T: 1000 Reward: [43.806618]
+Total T: 722000 Episode Num: 722 Episode T: 1000 Reward: [46.003414]
+Total T: 723000 Episode Num: 723 Episode T: 1000 Reward: [21.111229]
+Total T: 724000 Episode Num: 724 Episode T: 1000 Reward: [17.34787]
+Total T: 725000 Episode Num: 725 Episode T: 1000 Reward: [47.149906]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [37.20748]
+---------------------------------------
+Total T: 726000 Episode Num: 726 Episode T: 1000 Reward: [40.353947]
+Total T: 727000 Episode Num: 727 Episode T: 1000 Reward: [43.300117]
+Total T: 728000 Episode Num: 728 Episode T: 1000 Reward: [42.877995]
+Total T: 729000 Episode Num: 729 Episode T: 1000 Reward: [26.29507]
+Total T: 730000 Episode Num: 730 Episode T: 1000 Reward: [43.641727]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [34.72627]
+---------------------------------------
+Total T: 731000 Episode Num: 731 Episode T: 1000 Reward: [41.797905]
+Total T: 732000 Episode Num: 732 Episode T: 1000 Reward: [32.969303]
+Total T: 733000 Episode Num: 733 Episode T: 1000 Reward: [45.39248]
+Total T: 734000 Episode Num: 734 Episode T: 1000 Reward: [45.26219]
+Total T: 735000 Episode Num: 735 Episode T: 1000 Reward: [41.570496]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [38.943172]
+---------------------------------------
+Total T: 736000 Episode Num: 736 Episode T: 1000 Reward: [29.275757]
+Total T: 737000 Episode Num: 737 Episode T: 1000 Reward: [44.233055]
+Total T: 738000 Episode Num: 738 Episode T: 1000 Reward: [44.881348]
+Total T: 739000 Episode Num: 739 Episode T: 1000 Reward: [43.133533]
+Total T: 740000 Episode Num: 740 Episode T: 1000 Reward: [46.614155]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [39.598633]
+---------------------------------------
+Total T: 741000 Episode Num: 741 Episode T: 1000 Reward: [24.750057]
+Total T: 742000 Episode Num: 742 Episode T: 1000 Reward: [44.890224]
+Total T: 743000 Episode Num: 743 Episode T: 1000 Reward: [17.958494]
+Total T: 744000 Episode Num: 744 Episode T: 1000 Reward: [27.915728]
+Total T: 745000 Episode Num: 745 Episode T: 1000 Reward: [46.193855]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [38.746155]
+---------------------------------------
+Total T: 746000 Episode Num: 746 Episode T: 1000 Reward: [45.923767]
+Total T: 747000 Episode Num: 747 Episode T: 1000 Reward: [37.39704]
+Total T: 748000 Episode Num: 748 Episode T: 1000 Reward: [24.045979]
+Total T: 749000 Episode Num: 749 Episode T: 1000 Reward: [37.171314]
+Total T: 750000 Episode Num: 750 Episode T: 1000 Reward: [40.731407]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [37.53315]
+---------------------------------------
+Total T: 751000 Episode Num: 751 Episode T: 1000 Reward: [28.83926]
+Total T: 752000 Episode Num: 752 Episode T: 1000 Reward: [45.04237]
+Total T: 753000 Episode Num: 753 Episode T: 1000 Reward: [17.501898]
+Total T: 754000 Episode Num: 754 Episode T: 1000 Reward: [33.196163]
+Total T: 755000 Episode Num: 755 Episode T: 1000 Reward: [43.02293]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [31.170294]
+---------------------------------------
+Total T: 756000 Episode Num: 756 Episode T: 1000 Reward: [43.800568]
+Total T: 757000 Episode Num: 757 Episode T: 1000 Reward: [12.722011]
+Total T: 758000 Episode Num: 758 Episode T: 1000 Reward: [47.137238]
+Total T: 759000 Episode Num: 759 Episode T: 1000 Reward: [47.140205]
+Total T: 760000 Episode Num: 760 Episode T: 1000 Reward: [32.327103]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [35.86561]
+---------------------------------------
+Total T: 761000 Episode Num: 761 Episode T: 1000 Reward: [39.785538]
+Total T: 762000 Episode Num: 762 Episode T: 1000 Reward: [46.182884]
+Total T: 763000 Episode Num: 763 Episode T: 1000 Reward: [21.574581]
+Total T: 764000 Episode Num: 764 Episode T: 1000 Reward: [13.36367]
+Total T: 765000 Episode Num: 765 Episode T: 1000 Reward: [46.174038]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [36.007652]
+---------------------------------------
+Total T: 766000 Episode Num: 766 Episode T: 1000 Reward: [41.788464]
+Total T: 767000 Episode Num: 767 Episode T: 1000 Reward: [44.136086]
+Total T: 768000 Episode Num: 768 Episode T: 1000 Reward: [46.236477]
+Total T: 769000 Episode Num: 769 Episode T: 1000 Reward: [34.403732]
+Total T: 770000 Episode Num: 770 Episode T: 1000 Reward: [44.137684]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [34.83935]
+---------------------------------------
+Total T: 771000 Episode Num: 771 Episode T: 1000 Reward: [45.425358]
+Total T: 772000 Episode Num: 772 Episode T: 1000 Reward: [45.47387]
+Total T: 773000 Episode Num: 773 Episode T: 1000 Reward: [34.297874]
+Total T: 774000 Episode Num: 774 Episode T: 1000 Reward: [43.37622]
+Total T: 775000 Episode Num: 775 Episode T: 1000 Reward: [45.763355]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [35.42773]
+---------------------------------------
+Total T: 776000 Episode Num: 776 Episode T: 1000 Reward: [46.528828]
+Total T: 777000 Episode Num: 777 Episode T: 1000 Reward: [46.654903]
+Total T: 778000 Episode Num: 778 Episode T: 1000 Reward: [46.234062]
+Total T: 779000 Episode Num: 779 Episode T: 1000 Reward: [39.589607]
+Total T: 780000 Episode Num: 780 Episode T: 1000 Reward: [41.686676]Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [34.731907]
+---------------------------------------
+Total T: 781000 Episode Num: 781 Episode T: 1000 Reward: [38.507732]
+Total T: 782000 Episode Num: 782 Episode T: 1000 Reward: [41.294754]
+Total T: 783000 Episode Num: 783 Episode T: 1000 Reward: [45.76968]
+Total T: 784000 Episode Num: 784 Episode T: 1000 Reward: [42.38119]
+Total T: 785000 Episode Num: 785 Episode T: 1000 Reward: [44.053783]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [33.708218]
+---------------------------------------
+Total T: 786000 Episode Num: 786 Episode T: 1000 Reward: [42.539707]
+Total T: 787000 Episode Num: 787 Episode T: 1000 Reward: [46.88134]
+Total T: 788000 Episode Num: 788 Episode T: 1000 Reward: [48.407417]
+Total T: 789000 Episode Num: 789 Episode T: 1000 Reward: [30.095545]
+Total T: 790000 Episode Num: 790 Episode T: 1000 Reward: [42.369686]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [41.470455]
+---------------------------------------
+Total T: 791000 Episode Num: 791 Episode T: 1000 Reward: [31.469446]
+Total T: 792000 Episode Num: 792 Episode T: 1000 Reward: [42.307537]
+Total T: 793000 Episode Num: 793 Episode T: 1000 Reward: [32.073566]
+Total T: 794000 Episode Num: 794 Episode T: 1000 Reward: [45.46632]
+Total T: 795000 Episode Num: 795 Episode T: 1000 Reward: [16.25256]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [39.17625]
+---------------------------------------
+Total T: 796000 Episode Num: 796 Episode T: 1000 Reward: [50.162144]
+Total T: 797000 Episode Num: 797 Episode T: 1000 Reward: [39.8217]
+Total T: 798000 Episode Num: 798 Episode T: 1000 Reward: [39.54652]
+Total T: 799000 Episode Num: 799 Episode T: 1000 Reward: [44.87449]
+Total T: 800000 Episode Num: 800 Episode T: 1000 Reward: [48.898014]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [39.370697]
+---------------------------------------
+Total T: 801000 Episode Num: 801 Episode T: 1000 Reward: [47.806427]
+Total T: 802000 Episode Num: 802 Episode T: 1000 Reward: [39.08762]
+Total T: 803000 Episode Num: 803 Episode T: 1000 Reward: [45.337807]
+Total T: 804000 Episode Num: 804 Episode T: 1000 Reward: [44.100266]
+Total T: 805000 Episode Num: 805 Episode T: 1000 Reward: [22.88549]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [37.0306]
+---------------------------------------
+Total T: 806000 Episode Num: 806 Episode T: 1000 Reward: [31.264475]
+Total T: 807000 Episode Num: 807 Episode T: 1000 Reward: [26.155857]
+Total T: 808000 Episode Num: 808 Episode T: 1000 Reward: [40.926315]
+Total T: 809000 Episode Num: 809 Episode T: 1000 Reward: [42.472816]
+Total T: 810000 Episode Num: 810 Episode T: 1000 Reward: [35.546482]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [37.30198]
+---------------------------------------
+Total T: 811000 Episode Num: 811 Episode T: 1000 Reward: [49.09667]
+Total T: 812000 Episode Num: 812 Episode T: 1000 Reward: [42.72588]
+Total T: 813000 Episode Num: 813 Episode T: 1000 Reward: [47.51115]
+Total T: 814000 Episode Num: 814 Episode T: 1000 Reward: [48.20461]
+Total T: 815000 Episode Num: 815 Episode T: 1000 Reward: [49.551105]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [40.94364]
+---------------------------------------
+Total T: 816000 Episode Num: 816 Episode T: 1000 Reward: [44.454517]
+Total T: 817000 Episode Num: 817 Episode T: 1000 Reward: [45.33744]
+Total T: 818000 Episode Num: 818 Episode T: 1000 Reward: [28.462896]
+Total T: 819000 Episode Num: 819 Episode T: 1000 Reward: [46.203808]
+Total T: 820000 Episode Num: 820 Episode T: 1000 Reward: [45.06091]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [39.342186]
+---------------------------------------
+Total T: 821000 Episode Num: 821 Episode T: 1000 Reward: [46.585827]
+Total T: 822000 Episode Num: 822 Episode T: 1000 Reward: [44.38006]
+Total T: 823000 Episode Num: 823 Episode T: 1000 Reward: [44.047813]
+Total T: 824000 Episode Num: 824 Episode T: 1000 Reward: [45.502293]
+Total T: 825000 Episode Num: 825 Episode T: 1000 Reward: [36.272453]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [35.480988]
+---------------------------------------
+Total T: 826000 Episode Num: 826 Episode T: 1000 Reward: [44.105038]
+Total T: 827000 Episode Num: 827 Episode T: 1000 Reward: [31.872774]
+Total T: 828000 Episode Num: 828 Episode T: 1000 Reward: [47.204506]
+Total T: 829000 Episode Num: 829 Episode T: 1000 Reward: [46.929775]
+Total T: 830000 Episode Num: 830 Episode T: 1000 Reward: [38.431366]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [33.77636]
+---------------------------------------
+Total T: 831000 Episode Num: 831 Episode T: 1000 Reward: [33.304913]
+Total T: 832000 Episode Num: 832 Episode T: 1000 Reward: [46.935425]
+Total T: 833000 Episode Num: 833 Episode T: 1000 Reward: [38.841587]
+Total T: 834000 Episode Num: 834 Episode T: 1000 Reward: [31.747166]
+Total T: 835000 Episode Num: 835 Episode T: 1000 Reward: [43.79669]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [40.050835]
+---------------------------------------
+Total T: 836000 Episode Num: 836 Episode T: 1000 Reward: [36.526714]
+Total T: 837000 Episode Num: 837 Episode T: 1000 Reward: [45.182163]
+Total T: 838000 Episode Num: 838 Episode T: 1000 Reward: [30.567776]
+Total T: 839000 Episode Num: 839 Episode T: 1000 Reward: [40.02179]
+Total T: 840000 Episode Num: 840 Episode T: 1000 Reward: [43.240414]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [42.7754]
+---------------------------------------
+Total T: 841000 Episode Num: 841 Episode T: 1000 Reward: [42.838947]
+Total T: 842000 Episode Num: 842 Episode T: 1000 Reward: [44.488575]
+Total T: 843000 Episode Num: 843 Episode T: 1000 Reward: [44.22844]
+Total T: 844000 Episode Num: 844 Episode T: 1000 Reward: [44.315956]
+Total T: 845000 Episode Num: 845 Episode T: 1000 Reward: [47.32214]Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [40.166367]
+---------------------------------------
+Total T: 846000 Episode Num: 846 Episode T: 1000 Reward: [45.8978]
+Total T: 847000 Episode Num: 847 Episode T: 1000 Reward: [42.08404]
+Total T: 848000 Episode Num: 848 Episode T: 1000 Reward: [44.325558]
+Total T: 849000 Episode Num: 849 Episode T: 1000 Reward: [33.218353]
+Total T: 850000 Episode Num: 850 Episode T: 1000 Reward: [45.65317]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [40.48056]
+---------------------------------------
+Total T: 851000 Episode Num: 851 Episode T: 1000 Reward: [45.21326]
+Total T: 852000 Episode Num: 852 Episode T: 1000 Reward: [49.930492]
+Total T: 853000 Episode Num: 853 Episode T: 1000 Reward: [44.96811]
+Total T: 854000 Episode Num: 854 Episode T: 1000 Reward: [47.784935]
+Total T: 855000 Episode Num: 855 Episode T: 1000 Reward: [47.36142]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [38.230915]
+---------------------------------------
+Total T: 856000 Episode Num: 856 Episode T: 1000 Reward: [48.407814]
+Total T: 857000 Episode Num: 857 Episode T: 1000 Reward: [51.046803]
+Total T: 858000 Episode Num: 858 Episode T: 1000 Reward: [47.137226]
+Total T: 859000 Episode Num: 859 Episode T: 1000 Reward: [31.115116]
+Total T: 860000 Episode Num: 860 Episode T: 1000 Reward: [44.370358]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [42.8965]
+---------------------------------------
+Total T: 861000 Episode Num: 861 Episode T: 1000 Reward: [51.485306]
+Total T: 862000 Episode Num: 862 Episode T: 1000 Reward: [44.795967]
+Total T: 863000 Episode Num: 863 Episode T: 1000 Reward: [48.95412]
+Total T: 864000 Episode Num: 864 Episode T: 1000 Reward: [45.00143]
+Total T: 865000 Episode Num: 865 Episode T: 1000 Reward: [27.483875]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [43.16189]
+---------------------------------------
+Total T: 866000 Episode Num: 866 Episode T: 1000 Reward: [40.906517]
+Total T: 867000 Episode Num: 867 Episode T: 1000 Reward: [39.197037]
+Total T: 868000 Episode Num: 868 Episode T: 1000 Reward: [40.57739]
+Total T: 869000 Episode Num: 869 Episode T: 1000 Reward: [44.083557]
+Total T: 870000 Episode Num: 870 Episode T: 1000 Reward: [29.992254]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [42.57828]
+---------------------------------------
+Total T: 871000 Episode Num: 871 Episode T: 1000 Reward: [27.548061]
+Total T: 872000 Episode Num: 872 Episode T: 1000 Reward: [48.146866]
+Total T: 873000 Episode Num: 873 Episode T: 1000 Reward: [33.932198]
+Total T: 874000 Episode Num: 874 Episode T: 1000 Reward: [25.71896]
+Total T: 875000 Episode Num: 875 Episode T: 1000 Reward: [47.145943]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [42.412712]
+---------------------------------------
+Total T: 876000 Episode Num: 876 Episode T: 1000 Reward: [43.92086]
+Total T: 877000 Episode Num: 877 Episode T: 1000 Reward: [51.484795]
+Total T: 878000 Episode Num: 878 Episode T: 1000 Reward: [33.209507]
+Total T: 879000 Episode Num: 879 Episode T: 1000 Reward: [39.505512]
+Total T: 880000 Episode Num: 880 Episode T: 1000 Reward: [45.69515]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [34.869087]
+---------------------------------------
+Total T: 881000 Episode Num: 881 Episode T: 1000 Reward: [43.76549]
+Total T: 882000 Episode Num: 882 Episode T: 1000 Reward: [46.79748]
+Total T: 883000 Episode Num: 883 Episode T: 1000 Reward: [42.225315]
+Total T: 884000 Episode Num: 884 Episode T: 1000 Reward: [47.044662]
+Total T: 885000 Episode Num: 885 Episode T: 1000 Reward: [47.48669]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [39.60253]
+---------------------------------------
+Total T: 886000 Episode Num: 886 Episode T: 1000 Reward: [54.715275]
+Total T: 887000 Episode Num: 887 Episode T: 1000 Reward: [48.4931]
+Total T: 888000 Episode Num: 888 Episode T: 1000 Reward: [48.266216]
+Total T: 889000 Episode Num: 889 Episode T: 1000 Reward: [39.16064]
+Total T: 890000 Episode Num: 890 Episode T: 1000 Reward: [48.09172]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [40.413628]
+---------------------------------------
+Total T: 891000 Episode Num: 891 Episode T: 1000 Reward: [48.675713]
+Total T: 892000 Episode Num: 892 Episode T: 1000 Reward: [44.585148]
+Total T: 893000 Episode Num: 893 Episode T: 1000 Reward: [45.430714]
+Total T: 894000 Episode Num: 894 Episode T: 1000 Reward: [46.206142]
+Total T: 895000 Episode Num: 895 Episode T: 1000 Reward: [41.943302]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [41.501568]
+---------------------------------------
+Total T: 896000 Episode Num: 896 Episode T: 1000 Reward: [41.593483]
+Total T: 897000 Episode Num: 897 Episode T: 1000 Reward: [48.304672]
+Total T: 898000 Episode Num: 898 Episode T: 1000 Reward: [48.6799]
+Total T: 899000 Episode Num: 899 Episode T: 1000 Reward: [26.845835]
+Total T: 900000 Episode Num: 900 Episode T: 1000 Reward: [47.226685]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [41.68001]
+---------------------------------------
+Total T: 901000 Episode Num: 901 Episode T: 1000 Reward: [44.711]
+Total T: 902000 Episode Num: 902 Episode T: 1000 Reward: [23.696362]
+Total T: 903000 Episode Num: 903 Episode T: 1000 Reward: [47.592842]
+Total T: 904000 Episode Num: 904 Episode T: 1000 Reward: [26.669846]
+Total T: 905000 Episode Num: 905 Episode T: 1000 Reward: [45.84339]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [43.19774]
+---------------------------------------
+Total T: 906000 Episode Num: 906 Episode T: 1000 Reward: [45.293457]
+Total T: 907000 Episode Num: 907 Episode T: 1000 Reward: [40.913513]
+Total T: 908000 Episode Num: 908 Episode T: 1000 Reward: [50.344852]
+Total T: 909000 Episode Num: 909 Episode T: 1000 Reward: [45.33777]
+Total T: 910000 Episode Num: 910 Episode T: 1000 Reward: [35.96014]Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak 
+(Filename:  Line: 554)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 7f0e90bbc700 -> priority: 1 
+  Thread -> id: 7f0e0ffff700 -> priority: 1 
+/home/p/poschinger/.local/lib/python3.6/site-packages/gym/logger.py:30: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  warnings.warn(colorize('%s: %s'%('WARN', msg % args), 'yellow'))
+2020-06-18 05:49:13 INFO [environment.py:418] Environment shut down with return code 0.
+
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [40.117218]
+---------------------------------------
+Total T: 911000 Episode Num: 911 Episode T: 1000 Reward: [48.623596]
+Total T: 912000 Episode Num: 912 Episode T: 1000 Reward: [45.69096]
+Total T: 913000 Episode Num: 913 Episode T: 1000 Reward: [51.36351]
+Total T: 914000 Episode Num: 914 Episode T: 1000 Reward: [45.369858]
+Total T: 915000 Episode Num: 915 Episode T: 1000 Reward: [28.248894]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [45.82995]
+---------------------------------------
+Total T: 916000 Episode Num: 916 Episode T: 1000 Reward: [45.46629]
+Total T: 917000 Episode Num: 917 Episode T: 1000 Reward: [46.778477]
+Total T: 918000 Episode Num: 918 Episode T: 1000 Reward: [46.29296]
+Total T: 919000 Episode Num: 919 Episode T: 1000 Reward: [30.880928]
+Total T: 920000 Episode Num: 920 Episode T: 1000 Reward: [46.74338]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [45.512768]
+---------------------------------------
+Total T: 921000 Episode Num: 921 Episode T: 1000 Reward: [50.04548]
+Total T: 922000 Episode Num: 922 Episode T: 1000 Reward: [46.630974]
+Total T: 923000 Episode Num: 923 Episode T: 1000 Reward: [44.712482]
+Total T: 924000 Episode Num: 924 Episode T: 1000 Reward: [36.934532]
+Total T: 925000 Episode Num: 925 Episode T: 1000 Reward: [23.90927]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [37.737736]
+---------------------------------------
+Total T: 926000 Episode Num: 926 Episode T: 1000 Reward: [49.375515]
+Total T: 927000 Episode Num: 927 Episode T: 1000 Reward: [50.02187]
+Total T: 928000 Episode Num: 928 Episode T: 1000 Reward: [46.026268]
+Total T: 929000 Episode Num: 929 Episode T: 1000 Reward: [43.002987]
+Total T: 930000 Episode Num: 930 Episode T: 1000 Reward: [49.420242]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [40.348587]
+---------------------------------------
+Total T: 931000 Episode Num: 931 Episode T: 1000 Reward: [48.65559]
+Total T: 932000 Episode Num: 932 Episode T: 1000 Reward: [47.937428]
+Total T: 933000 Episode Num: 933 Episode T: 1000 Reward: [49.42398]
+Total T: 934000 Episode Num: 934 Episode T: 1000 Reward: [48.44762]
+Total T: 935000 Episode Num: 935 Episode T: 1000 Reward: [43.38423]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [43.458344]
+---------------------------------------
+Total T: 936000 Episode Num: 936 Episode T: 1000 Reward: [37.42623]
+Total T: 937000 Episode Num: 937 Episode T: 1000 Reward: [47.97443]
+Total T: 938000 Episode Num: 938 Episode T: 1000 Reward: [51.200085]
+Total T: 939000 Episode Num: 939 Episode T: 1000 Reward: [48.218525]
+Total T: 940000 Episode Num: 940 Episode T: 1000 Reward: [46.11321]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [43.014416]
+---------------------------------------
+Total T: 941000 Episode Num: 941 Episode T: 1000 Reward: [45.615585]
+Total T: 942000 Episode Num: 942 Episode T: 1000 Reward: [28.23763]
+Total T: 943000 Episode Num: 943 Episode T: 1000 Reward: [42.85445]
+Total T: 944000 Episode Num: 944 Episode T: 1000 Reward: [47.964607]
+Total T: 945000 Episode Num: 945 Episode T: 1000 Reward: [48.323887]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [40.62173]
+---------------------------------------
+Total T: 946000 Episode Num: 946 Episode T: 1000 Reward: [41.503742]
+Total T: 947000 Episode Num: 947 Episode T: 1000 Reward: [49.49247]
+Total T: 948000 Episode Num: 948 Episode T: 1000 Reward: [48.202587]
+Total T: 949000 Episode Num: 949 Episode T: 1000 Reward: [45.787823]
+Total T: 950000 Episode Num: 950 Episode T: 1000 Reward: [49.668667]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [38.012474]
+---------------------------------------
+Total T: 951000 Episode Num: 951 Episode T: 1000 Reward: [33.788773]
+Total T: 952000 Episode Num: 952 Episode T: 1000 Reward: [45.77754]
+Total T: 953000 Episode Num: 953 Episode T: 1000 Reward: [44.015728]
+Total T: 954000 Episode Num: 954 Episode T: 1000 Reward: [45.94909]
+Total T: 955000 Episode Num: 955 Episode T: 1000 Reward: [48.798424]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [34.95002]
+---------------------------------------
+Total T: 956000 Episode Num: 956 Episode T: 1000 Reward: [32.62307]
+Total T: 957000 Episode Num: 957 Episode T: 1000 Reward: [33.65225]
+Total T: 958000 Episode Num: 958 Episode T: 1000 Reward: [37.405827]
+Total T: 959000 Episode Num: 959 Episode T: 1000 Reward: [45.473564]
+Total T: 960000 Episode Num: 960 Episode T: 1000 Reward: [42.606777]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [38.042564]
+---------------------------------------
+Total T: 961000 Episode Num: 961 Episode T: 1000 Reward: [42.90653]
+Total T: 962000 Episode Num: 962 Episode T: 1000 Reward: [43.446537]
+Total T: 963000 Episode Num: 963 Episode T: 1000 Reward: [36.96732]
+Total T: 964000 Episode Num: 964 Episode T: 1000 Reward: [50.314617]
+Total T: 965000 Episode Num: 965 Episode T: 1000 Reward: [29.569279]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [38.51245]
+---------------------------------------
+Total T: 966000 Episode Num: 966 Episode T: 1000 Reward: [55.548023]
+Total T: 967000 Episode Num: 967 Episode T: 1000 Reward: [52.118538]
+Total T: 968000 Episode Num: 968 Episode T: 1000 Reward: [44.684177]
+Total T: 969000 Episode Num: 969 Episode T: 1000 Reward: [39.89744]
+Total T: 970000 Episode Num: 970 Episode T: 1000 Reward: [55.771435]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [31.687479]
+---------------------------------------
+Total T: 971000 Episode Num: 971 Episode T: 1000 Reward: [38.448658]
+Total T: 972000 Episode Num: 972 Episode T: 1000 Reward: [51.093533]
+Total T: 973000 Episode Num: 973 Episode T: 1000 Reward: [57.10133]
+Total T: 974000 Episode Num: 974 Episode T: 1000 Reward: [42.595963]
+Total T: 975000 Episode Num: 975 Episode T: 1000 Reward: [48.34925]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [36.18703]
+---------------------------------------
+Total T: 976000 Episode Num: 976 Episode T: 1000 Reward: [49.220406]
+Total T: 977000 Episode Num: 977 Episode T: 1000 Reward: [31.054495]
+Total T: 978000 Episode Num: 978 Episode T: 1000 Reward: [49.92181]
+Total T: 979000 Episode Num: 979 Episode T: 1000 Reward: [45.23304]
+Total T: 980000 Episode Num: 980 Episode T: 1000 Reward: [46.793903]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [36.54806]
+---------------------------------------
+Total T: 981000 Episode Num: 981 Episode T: 1000 Reward: [43.342358]
+Total T: 982000 Episode Num: 982 Episode T: 1000 Reward: [45.161137]
+Total T: 983000 Episode Num: 983 Episode T: 1000 Reward: [33.79578]
+Total T: 984000 Episode Num: 984 Episode T: 1000 Reward: [41.338654]
+Total T: 985000 Episode Num: 985 Episode T: 1000 Reward: [48.04659]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [43.40296]
+---------------------------------------
+Total T: 986000 Episode Num: 986 Episode T: 1000 Reward: [41.62936]
+Total T: 987000 Episode Num: 987 Episode T: 1000 Reward: [49.765285]
+Total T: 988000 Episode Num: 988 Episode T: 1000 Reward: [45.88764]
+Total T: 989000 Episode Num: 989 Episode T: 1000 Reward: [45.46954]
+Total T: 990000 Episode Num: 990 Episode T: 1000 Reward: [26.075827]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [42.00075]
+---------------------------------------
+Total T: 991000 Episode Num: 991 Episode T: 1000 Reward: [46.87048]
+Total T: 992000 Episode Num: 992 Episode T: 1000 Reward: [47.79916]
+Total T: 993000 Episode Num: 993 Episode T: 1000 Reward: [40.89412]
+Total T: 994000 Episode Num: 994 Episode T: 1000 Reward: [27.659416]
+Total T: 995000 Episode Num: 995 Episode T: 1000 Reward: [43.161995]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [38.41236]
+---------------------------------------
+Total T: 996000 Episode Num: 996 Episode T: 1000 Reward: [32.95461]
+Total T: 997000 Episode Num: 997 Episode T: 1000 Reward: [44.52931]
+Total T: 998000 Episode Num: 998 Episode T: 1000 Reward: [22.790503]
+Total T: 999000 Episode Num: 999 Episode T: 1000 Reward: [46.731133]
+Total T: 1000000 Episode Num: 1000 Episode T: 1000 Reward: [55.937523]
+Eval Episode:  0
+Eval Episode:  1
+Eval Episode:  2
+Eval Episode:  3
+Eval Episode:  4
+Eval Episode:  5
+Eval Episode:  6
+Eval Episode:  7
+Eval Episode:  8
+Eval Episode:  9
+---------------------------------------
+Evaluation over 10 episodes: [38.938457]
+---------------------------------------

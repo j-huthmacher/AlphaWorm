@@ -1,4 +1,5 @@
 import os
+import shutil
 import time
 
 import numpy as np
@@ -73,8 +74,10 @@ class DynamicExperienceReplay(object):
 
 
 	def save(self, folder='buffers'):
-		folder_name = f"./{folder}/episode_{int(round(time.time() * 1000))}"
-		os.makedirs(folder_name)
+		#episode_{int(round(time.time() * 1000))
+		folder_name = f"./{folder}/tmp/"
+		if not os.path.exists(folder_name):
+			os.makedirs(folder_name)
 
 		states = None
 		actions = None
@@ -109,6 +112,9 @@ class DynamicExperienceReplay(object):
 		self.save_numpy(folder_name, 'next_state', next_states)
 		self.save_numpy(folder_name, 'reward', rewards)
 		self.save_numpy(folder_name, 'not_done', not_dones)
+		shutil.make_archive(f"./{folder}/episode_{int(round(time.time() * 1000))}", 'zip', folder_name)
+		if os.path.exists(folder_name):
+			shutil.rmtree(folder_name, ignore_errors=True)
 		self.best_list = []
 		self.size = 0
 
@@ -116,43 +122,45 @@ class DynamicExperienceReplay(object):
 		np.save(f"./{folder}/{filename}", array)
 
 	def load(self, folder='buffers'):
-		replay_buffer = ReplayBuffer(self.state_dim, self.action_dim)
-
 		states = None
 		actions = None
 		next_states = None
 		rewards = None
 		not_dones = None
 
-		for dirpath, dirnames, files in os.walk(folder):
-			for dirname in dirnames:
-				for filename in os.listdir(f"./{folder}/{dirname}"):
-					if filename.startswith("state"):
-						if states is None:
-							states = np.load(f"./{folder}/{dirname}/{filename}")
-						else:
-							states = np.append(states, np.load(f"./{folder}/{dirname}/{filename}"), axis=0)
-					if filename.startswith("action"):
-						if actions is None:
-							actions = np.load(f"./{folder}/{dirname}/{filename}")
-						else:
-							actions = np.append(actions, np.load(f"./{folder}/{dirname}/{filename}"), axis=0)
-					if filename.startswith("next_state"):
-						if next_states is None:
-							next_states = np.load(f"./{folder}/{dirname}/{filename}")
-						else:
-							next_states = np.append(next_states, np.load(f"./{folder}/{dirname}/{filename}"), axis=0)
-					if filename.startswith("reward"):
-						if rewards is None:
-							rewards = np.load(f"./{folder}/{dirname}/{filename}")
-						else:
-							rewards = np.append(rewards, np.load(f"./{folder}/{dirname}/{filename}"), axis=0)
-					if filename.startswith("not_done"):
-						if not_dones is None:
-							not_dones = np.load(f"./{folder}/{dirname}/{filename}")
-						else:
-							not_dones = np.append(not_dones, np.load(f"./{folder}/{dirname}/{filename}"), axis=0)
-
+		for archive_files in os.listdir(folder):
+			if ".zip" not in archive_files:
+				continue
+			tmp_folder = f"{folder}/tmp/"
+			shutil.unpack_archive(f"./{folder}/{archive_files}", f"./{tmp_folder}", "zip")
+			for filename in os.listdir(f"./{tmp_folder}/"):
+				if filename.startswith("state"):
+					if states is None:
+						states = np.load(f"./{tmp_folder}/{filename}")
+					else:
+						states = np.append(states, np.load(f"./{tmp_folder}/{filename}"), axis=0)
+				if filename.startswith("action"):
+					if actions is None:
+						actions = np.load(f"./{tmp_folder}/{filename}")
+					else:
+						actions = np.append(actions, np.load(f"./{tmp_folder}/{filename}"), axis=0)
+				if filename.startswith("next_state"):
+					if next_states is None:
+						next_states = np.load(f"./{tmp_folder}/{filename}")
+					else:
+						next_states = np.append(next_states, np.load(f"./{tmp_folder}/{filename}"), axis=0)
+				if filename.startswith("reward"):
+					if rewards is None:
+						rewards = np.load(f"./{tmp_folder}/{filename}")
+					else:
+						rewards = np.append(rewards, np.load(f"./{tmp_folder}/{filename}"), axis=0)
+				if filename.startswith("not_done"):
+					if not_dones is None:
+						not_dones = np.load(f"./{tmp_folder}/{filename}")
+					else:
+						not_dones = np.append(not_dones, np.load(f"./{tmp_folder}/{filename}"), axis=0)
+			if os.path.exists(tmp_folder):
+				shutil.rmtree(tmp_folder, ignore_errors=True)
 		replay_buffer = ReplayBuffer(states.size, actions.size)
 		for index in range(self.max_size):
 			replay_buffer.add(states[index], actions[index], next_states[index], rewards[index], not_dones[index])

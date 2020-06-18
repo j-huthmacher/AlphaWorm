@@ -20,7 +20,6 @@ class ReplayBuffer(object):
 
 		self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-
 	def add(self, state, action, next_state, reward, done):
 		self.state[self.ptr] = state
 		self.action[self.ptr] = action
@@ -45,7 +44,7 @@ class ReplayBuffer(object):
 
 
 class DynamicExperienceReplay(object):
-	def __init__(self, state_dim, action_dim, der_size=int(2), max_size=int(1e6)):
+	def __init__(self, state_dim, action_dim, der_size=int(1e1), max_size=int(1e6)):
 		self.state_dim = state_dim
 		self.action_dim = action_dim
 		self.der_size = der_size
@@ -161,7 +160,8 @@ class DynamicExperienceReplay(object):
 						not_dones = np.append(not_dones, np.load(f"./{tmp_folder}/{filename}"), axis=0)
 			if os.path.exists(tmp_folder):
 				shutil.rmtree(tmp_folder, ignore_errors=True)
-		replay_buffer = ReplayBuffer(states.size, actions.size)
+
+		replay_buffer = ReplayBuffer(states.shape[1], actions.shape[1], max_size=states.shape[0])
 		for index in range(self.max_size):
 			replay_buffer.add(states[index], actions[index], next_states[index], rewards[index], not_dones[index])
 

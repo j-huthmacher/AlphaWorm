@@ -51,7 +51,7 @@ class TD3_Training_Gym:
         parser.add_argument("--seed", default=0, type=int)  # Sets Gym, PyTorch and Numpy seeds
         parser.add_argument("--start_timesteps", default=25e3, type=int)  # Time steps initial random policy is used
         parser.add_argument("--eval_freq", default=5e3, type=int)  # How often (time steps) we evaluate
-        parser.add_argument("--max_timesteps", default=1e6, type=int)  # Max time steps to run environment
+        parser.add_argument("--max_timesteps", default=1e9, type=int)  # Max time steps to run environment
         parser.add_argument("--max_env_episode_steps", default=1e3, type=int) #Max env steps
         parser.add_argument("--expl_noise", default=0.1)  # Std of Gaussian exploration noise
         parser.add_argument("--batch_size", default=256, type=int)  # Batch size for both actor and critic
@@ -182,4 +182,6 @@ class TD3_Training_Gym:
                 np.save(f"./results/{file_name}", evaluations)
                 if args.save_model:
                     policy.save(f"./models/{file_name}")
-                    der_buffer.save()
+
+            if(t + 1) % (args.max_env_episode_steps * 100) == 0:
+                der_buffer.save()

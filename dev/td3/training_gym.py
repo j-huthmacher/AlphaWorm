@@ -117,7 +117,7 @@ class TD3_Training_Gym:
 
         replay_buffer = ReplayBuffer(state_dim, action_dim)
         best_buffer = ReplayBuffer(state_dim, action_dim)
-        der_buffer = DynamicExperienceReplay(state_dim, action_dim, args.max_env_episode_steps/10)
+        der_buffer = DynamicExperienceReplay(state_dim, action_dim)
 
         if args.load_replays != "":
             replay_buffer = der_buffer.load(args.load_replays)
@@ -182,4 +182,5 @@ class TD3_Training_Gym:
                 np.save(f"./results/{file_name}", evaluations)
                 if args.save_model:
                     policy.save(f"./models/{file_name}")
-                    der_buffer.save()
+
+        der_buffer.save()

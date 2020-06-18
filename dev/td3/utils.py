@@ -44,14 +44,13 @@ class ReplayBuffer(object):
 
 
 class DynamicExperienceReplay(object):
-	def __init__(self, state_dim, action_dim, der_size=int(1e1), max_size=int(1e6)):
+	def __init__(self, state_dim, action_dim, der_size=int(2), max_size=int(1e6)):
 		self.state_dim = state_dim
 		self.action_dim = action_dim
 		self.der_size = der_size
 		self.max_size = max_size
 		self.best_list = []
 		self.max_reward = float('-inf')
-		self.folder_number = 0
 		self.size = 0
 
 	def add(self, buffer):
@@ -72,29 +71,46 @@ class DynamicExperienceReplay(object):
 		if (self.size >= self.der_size - 1) and changed:
 			self.best_list.sort(key=lambda x: np.average(x.reward), reverse=True)
 
+
 	def save(self, folder='buffers'):
 		folder_name = f"./{folder}/episode_{int(round(time.time() * 1000))}"
 		os.makedirs(folder_name)
-		self.folder_number += 1
 
-		states = np.empty((self.max_size, self.state_dim))
-		actions = np.empty((self.max_size, self.action_dim))
-		next_states = np.empty((self.max_size, self.state_dim))
-		rewards = np.empty((self.max_size, 1))
-		not_dones = np.empty((self.max_size, 1))
+		states = None
+		actions = None
+		next_states = None
+		rewards = None
+		not_dones = None
+
 		for list_index in range(len(self.best_list)):
-			np.append(states, self.best_list[list_index].state, axis=0)
-			np.append(actions, self.best_list[list_index].action, axis=0)
-			np.append(next_states, self.best_list[list_index].next_state, axis=0)
-			np.append(rewards, self.best_list[list_index].reward, axis=0)
-			np.append(not_dones, self.best_list[list_index].not_done, axis=0)
+			if states is None:
+				states = self.best_list[list_index].state
+			else:
+				states = np.append(states, self.best_list[list_index].state, axis=0)
+			if actions is None:
+				actions = self.best_list[list_index].action
+			else:
+				actions = np.append(actions, self.best_list[list_index].action, axis=0)
+			if next_states is None:
+				next_states = self.best_list[list_index].next_state
+			else:
+				next_states = np.append(next_states, self.best_list[list_index].next_state, axis=0)
+			if rewards is None:
+				rewards = self.best_list[list_index].reward
+			else:
+				rewards = np.append(rewards, self.best_list[list_index].reward, axis=0)
+			if not_dones is None:
+				not_dones = self.best_list[list_index].not_done
+			else:
+				not_dones = np.append(not_dones, self.best_list[list_index].not_done, axis=0)
 
 		self.save_numpy(folder_name, 'state', states)
 		self.save_numpy(folder_name, 'action', actions)
 		self.save_numpy(folder_name, 'next_state', next_states)
 		self.save_numpy(folder_name, 'reward', rewards)
 		self.save_numpy(folder_name, 'not_done', not_dones)
-
+		self.best_list = []
+		self.size = 0
 
 	def save_numpy(self, folder, filename, array):
 		np.save(f"./{folder}/{filename}", array)
@@ -115,27 +131,27 @@ class DynamicExperienceReplay(object):
 						if states is None:
 							states = np.load(f"./{folder}/{dirname}/{filename}")
 						else:
-							np.append(states, np.load(f"./{folder}/{dirname}/{filename}"), axis=0)
+							states = np.append(states, np.load(f"./{folder}/{dirname}/{filename}"), axis=0)
 					if filename.startswith("action"):
 						if actions is None:
 							actions = np.load(f"./{folder}/{dirname}/{filename}")
 						else:
-							np.append(actions, np.load(f"./{folder}/{dirname}/{filename}"), axis=0)
+							actions = np.append(actions, np.load(f"./{folder}/{dirname}/{filename}"), axis=0)
 					if filename.startswith("next_state"):
 						if next_states is None:
 							next_states = np.load(f"./{folder}/{dirname}/{filename}")
 						else:
-							np.append(next_states, np.load(f"./{folder}/{dirname}/{filename}"), axis=0)
+							next_states = np.append(next_states, np.load(f"./{folder}/{dirname}/{filename}"), axis=0)
 					if filename.startswith("reward"):
 						if rewards is None:
 							rewards = np.load(f"./{folder}/{dirname}/{filename}")
 						else:
-							np.append(rewards, np.load(f"./{folder}/{dirname}/{filename}"), axis=0)
+							rewards = np.append(rewards, np.load(f"./{folder}/{dirname}/{filename}"), axis=0)
 					if filename.startswith("not_done"):
 						if not_dones is None:
 							not_dones = np.load(f"./{folder}/{dirname}/{filename}")
 						else:
-							np.append(not_dones, np.load(f"./{folder}/{dirname}/{filename}"), axis=0)
+							not_dones = np.append(not_dones, np.load(f"./{folder}/{dirname}/{filename}"), axis=0)
 
 		for index in range(self.max_size):
 			replay_buffer.add(states[index], actions[index], next_states[index], rewards[index], not_dones[index])

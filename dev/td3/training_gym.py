@@ -120,8 +120,7 @@ class TD3_Training_Gym:
         der_buffer = DynamicExperienceReplay(state_dim, action_dim)
 
         if args.load_replays != "":
-            replay_buffer = der_buffer.load(args.load_replays)
-            policy.train(replay_buffer, args.batch_size)
+            policy.train(der_buffer.load(args.load_replays), args.batch_size)
 
         # Evaluate untrained policy
         evaluations = [self.eval_policy(policy, env, args.seed, render)]

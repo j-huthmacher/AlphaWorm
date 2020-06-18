@@ -153,6 +153,7 @@ class DynamicExperienceReplay(object):
 						else:
 							not_dones = np.append(not_dones, np.load(f"./{folder}/{dirname}/{filename}"), axis=0)
 
+		replay_buffer = ReplayBuffer(states.size, actions.size)
 		for index in range(self.max_size):
 			replay_buffer.add(states[index], actions[index], next_states[index], rewards[index], not_dones[index])
 

@@ -27,7 +27,7 @@ class TD3_Training:
         for _ in range(eval_episodes):
             state, done = eval_env.reset(), False
             while not done:
-                env.render()
+                #env.render()
                 action = policy.select_action(np.array(state))
                 action = np.array(action).reshape((1, 9))
                 #print(eval_env.action_space)

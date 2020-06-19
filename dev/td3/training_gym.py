@@ -123,6 +123,8 @@ class TD3_Training_Gym:
             batch = der_buffer.load(args.load_replays, True, args.batch_size)
             if batch != None:
                 policy.train(batch, args.batch_size)
+            else:
+                print("No buffer batch loaded")
 
         # Evaluate untrained policy
         evaluations = [self.eval_policy(policy, env, args.seed, render)]

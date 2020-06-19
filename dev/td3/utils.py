@@ -126,7 +126,8 @@ class DynamicExperienceReplay(object):
 		rewards = None
 		not_dones = None
 
-		if not os.path.exists(f"./{folder})"):
+		if not os.path.exists(f"./{folder}/"):
+			print("No Buffer, can not load")
 			return
 
 		if batch_load:
@@ -136,6 +137,7 @@ class DynamicExperienceReplay(object):
 			file_list = os.listdir(folder)
 
 		for archive_files in file_list:
+			print("Loading:" + archive_files)
 			tmp_folder = f"{folder}/tmp/"
 			shutil.unpack_archive(f"./{folder}/{archive_files}", f"./{tmp_folder}", "zip")
 			for filename in os.listdir(f"./{tmp_folder}/"):

@@ -120,16 +120,20 @@ class DynamicExperienceReplay(object):
 	def save_numpy(self, folder, filename, array):
 		np.save(f"./{folder}/{filename}", array)
 
-	def load(self, folder='buffers'):
+	def load(self, folder='buffers', batch_load=False, batch_size=1):
 		states = None
 		actions = None
 		next_states = None
 		rewards = None
 		not_dones = None
 
-		for archive_files in os.listdir(folder):
-			if ".zip" not in archive_files:
-				continue
+		if batch_load:
+			file_list = [a_file for a_file in os.listdir(folder) if a_file.endswith('.zip')]
+			file_list = np.random.choice(file_list, batch_size)
+		else:
+			file_list = os.listdir(folder)
+
+		for archive_files in file_list:
 			tmp_folder = f"{folder}/tmp/"
 			shutil.unpack_archive(f"./{folder}/{archive_files}", f"./{tmp_folder}", "zip")
 			for filename in os.listdir(f"./{tmp_folder}/"):

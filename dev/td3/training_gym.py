@@ -62,7 +62,7 @@ class TD3_Training_Gym:
         parser.add_argument("--policy_freq", default=2, type=int)  # Frequency of delayed policy updates
         parser.add_argument("--save_model", default=True, action="store_true")  # Save model and optimizer parameters
         parser.add_argument("--load_model", default="")  # Model load file name, "" doesn't load, "default" uses file_name
-        parser.add_argument("--load_replays", default="")  # Loads pre-trained replays to replay into the buffer "" doesn't load, "..." loads from the specified folder name
+        parser.add_argument("--load_replays", default="buffers")  # Loads pre-trained replays to replay into the buffer "" doesn't load, "..." loads from the specified folder name
 
         args = parser.parse_args()
 
@@ -120,7 +120,9 @@ class TD3_Training_Gym:
         der_buffer = DynamicExperienceReplay(state_dim, action_dim)
 
         if args.load_replays != "":
-            policy.train(der_buffer.load(args.load_replays), args.batch_size)
+            batch = der_buffer.load(args.load_replays, True, args.batch_size)
+            if batch != None:
+                policy.train(batch, args.batch_size)
 
         # Evaluate untrained policy
         evaluations = [self.eval_policy(policy, env, args.seed, render)]
@@ -182,5 +184,6 @@ class TD3_Training_Gym:
                 np.save(f"./results/{file_name}", evaluations)
                 if args.save_model: policy.save(f"./models/{file_name}")
 
-            if(t + 1) % (args.max_env_episode_steps * 100) == 0:
-                der_buffer.save()
+            #if(t + 1) % (args.max_env_episode_steps * 100) == 0:
+            #
+            der_buffer.save()

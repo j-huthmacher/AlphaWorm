@@ -40,8 +40,8 @@ def make_unity_env(env_directory, num_env, visual, start_index=0):
 
 
 def main():
-    start_unity()
-    #start_gym_std()
+    #start_unity()
+    start_gym_std()
 
 def start_unity():
     #   Set to FALSE for CIP-Pool execution

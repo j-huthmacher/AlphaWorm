@@ -44,7 +44,7 @@ class ReplayBuffer(object):
 
 
 class DynamicExperienceReplay(object):
-	def __init__(self, state_dim, action_dim, der_size=int(1e1), max_size=int(1e6)):
+	def __init__(self, state_dim, action_dim, der_size=int(1), max_size=int(1e6)):
 		self.state_dim = state_dim
 		self.action_dim = action_dim
 		self.der_size = der_size
@@ -73,7 +73,6 @@ class DynamicExperienceReplay(object):
 
 
 	def save(self, folder='buffers'):
-		#episode_{int(round(time.time() * 1000))
 		folder_name = f"./{folder}/tmp/"
 		if not os.path.exists(folder_name):
 			os.makedirs(folder_name)
@@ -126,6 +125,9 @@ class DynamicExperienceReplay(object):
 		next_states = None
 		rewards = None
 		not_dones = None
+
+		if not os.path.exists(f"./{folder})"):
+			return
 
 		if batch_load:
 			file_list = [a_file for a_file in os.listdir(folder) if a_file.endswith('.zip')]

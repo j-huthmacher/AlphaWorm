@@ -127,12 +127,20 @@ class DynamicExperienceReplay(object):
 		not_dones = None
 
 		if not os.path.exists(f"./{folder}/"):
-			print("No Buffer, can not load")
+			print("No Buffer; No Folder")
 			return
 
 		if batch_load:
 			file_list = [a_file for a_file in os.listdir(folder) if a_file.endswith('.zip')]
-			file_list = np.random.choice(file_list, batch_size)
+			print(file_list)
+			if len(file_list) > 0:
+				select = batch_size if batch_size <= len(file_list) else len(file_list)
+				file_list = np.random.choice(file_list, select)
+				print("Random:")
+				print(file_list)
+			else:
+				print("No Buffer; No Files in Folder")
+				return
 		else:
 			file_list = os.listdir(folder)
 

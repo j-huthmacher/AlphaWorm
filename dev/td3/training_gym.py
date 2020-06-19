@@ -186,6 +186,5 @@ class TD3_Training_Gym:
                 np.save(f"./results/{file_name}", evaluations)
                 if args.save_model: policy.save(f"./models/{file_name}")
 
-            #if(t + 1) % (args.max_env_episode_steps * 100) == 0:
-            #
-            der_buffer.save()
+            if (t + 1) % (args.max_env_episode_steps * 10) == 0:
+                der_buffer.save()

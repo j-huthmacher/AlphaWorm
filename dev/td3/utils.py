@@ -132,12 +132,10 @@ class DynamicExperienceReplay(object):
 
 		if batch_load:
 			file_list = [a_file for a_file in os.listdir(folder) if a_file.endswith('.zip')]
-			print(file_list)
 			if len(file_list) > 0:
-				select = batch_size if batch_size <= len(file_list) else len(file_list)
+				select = min(batch_size, len(file_list))
 				file_list = np.random.choice(file_list, select)
-				print("Random:")
-				print(file_list)
+				print('Loading Buffers: ', file_list)
 			else:
 				print("No Buffer; No Files in Folder")
 				return
@@ -180,5 +178,5 @@ class DynamicExperienceReplay(object):
 		replay_buffer = ReplayBuffer(states.shape[1], actions.shape[1], max_size=states.shape[0])
 		for index in range(self.max_size):
 			replay_buffer.add(states[index], actions[index], next_states[index], rewards[index], not_dones[index])
-
+		print('Loading Buffer done')
 		return replay_buffer

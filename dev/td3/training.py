@@ -26,7 +26,6 @@ class TD3_Training:
         for _ in range(eval_episodes):
             state, done = eval_env.reset(), False
             while not done:
-                env.render()
                 action = policy.select_action(np.array(state))
                 action = np.array(action).reshape((1, 9))
                 #print(eval_env.action_space)
@@ -61,7 +60,7 @@ class TD3_Training:
         parser.add_argument("--policy_freq", default=2, type=int)  # Frequency of delayed policy updates
         parser.add_argument("--save_model", default=True, action="store_true")  # Save model and optimizer parameters
         parser.add_argument("--load_model", default="")  # Model load file name, "" doesn't load, "default" uses file_name
-        parser.add_argument("--load_replays", default="")  # Loads pre-trained replays to replay into the buffer "" doesn't load, "..." loads from the specified folder name
+        parser.add_argument("--load_replays", default="buffers")  # Loads pre-trained replays to replay into the buffer "" doesn't load, "..." loads from the specified folder name
 
         args = parser.parse_args()
 
@@ -118,7 +117,11 @@ class TD3_Training:
         der_buffer = DynamicExperienceReplay(state_dim, action_dim)
 
         if args.load_replays != "":
-            policy.train(der_buffer.load(args.load_replays), args.batch_size)
+            batch = der_buffer.load(args.load_replays, True)
+            if batch is None:
+                policy.train(batch, args.batch_size)
+            else:
+                print("No buffer batch loaded")
 
         # Evaluate untrained policy
         evaluations = [self.eval_policy(policy, env, args.seed)]
@@ -177,6 +180,12 @@ class TD3_Training:
                 evaluations.append(self.eval_policy(policy, env, args.seed))
                 np.save(f"./results/{file_name}", evaluations)
                 if args.save_model: policy.save(f"./models/{file_name}")
+                #if args.load_replays != "":
+                #    batch = der_buffer.load(args.load_replays, True)
+                #    if batch is None:
+                #        policy.train(batch, args.batch_size)
+                #    else:
+                #        print("No buffer batch loaded")
 
             if(t + 1) % (args.max_env_episode_steps * 100) == 0:
                 der_buffer.save()

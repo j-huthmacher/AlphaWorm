@@ -6,3 +6,9 @@ td3_3 tau=0.001 221753 #Unity Env timeout 20.06
 td3_4 tau=0.001 221765
 td3_5 tau=0.01  221762
 td3_6 tau=0.01  221763 #Seg Fault afters Start
+
+max_env_episode_steps = 2e2
+td3_7 tau=0.005 224364
+td3_8 tau=0.005 224365
+td3_9 tau=0.005 224366
+td3_10 tau=0.005 224368

@@ -2,7 +2,7 @@ max_env_steps = 1e9
 
 td3_1 tau=0.005 221750
 td3_2 tau=0.005 221760
-td3_3 tau=0.001 221753
+td3_3 tau=0.001 221753 #Unity Env timeout 20.06
 td3_4 tau=0.001 221765
 td3_5 tau=0.01  221762
-td3_6 tau=0.01  221763
+td3_6 tau=0.01  221763 #Seg Fault afters Start

@@ -118,7 +118,7 @@ class TD3_Training:
 
         if args.load_replays != "":
             batch = der_buffer.load(args.load_replays, True)
-            if batch is None:
+            if batch is not None:
                 policy.train(batch, args.batch_size)
             else:
                 print("No buffer batch loaded")
@@ -180,12 +180,12 @@ class TD3_Training:
                 evaluations.append(self.eval_policy(policy, env, args.seed))
                 np.save(f"./results/{file_name}", evaluations)
                 if args.save_model: policy.save(f"./models/{file_name}")
-                #if args.load_replays != "":
-                #    batch = der_buffer.load(args.load_replays, True)
-                #    if batch is None:
-                #        policy.train(batch, args.batch_size)
-                #    else:
-                #        print("No buffer batch loaded")
+                if args.load_replays != "":
+                    batch = der_buffer.load(args.load_replays, True)
+                    if batch is not None:
+                        policy.train(batch, args.batch_size)
+                    else:
+                        print("No buffer batch loaded")
 
             if(t + 1) % (args.max_env_episode_steps * 100) == 0:
                 der_buffer.save()

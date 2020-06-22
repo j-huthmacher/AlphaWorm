@@ -121,7 +121,7 @@ class TD3_Training_Gym:
 
         if args.load_replays != "":
             batch = der_buffer.load(args.load_replays, True)
-            if batch is None:
+            if batch is not None:
                 policy.train(batch, args.batch_size)
             else:
                 print("No buffer batch loaded")

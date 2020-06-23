@@ -8,9 +8,12 @@ from stable_baselines.bench import Monitor
 import pickle
 import os
 import time
+import matplotlib as plot
+import gym
 
 #PATH TO ALGORITHM
-from initial_version.training import InitialTrainingExample
+from dev.initial_version.gym_training import GymTraining
+from dev.initial_version.training import InitialTrainingExample
 
 try:
     from mpi4py import MPI
@@ -37,11 +40,16 @@ def make_unity_env(env_directory, num_env, visual, start_index=0):
 
 
 def main():
-    #   Set to FALSE for CIP-Pool execution
-    env = make_unity_env('./envs/worm_dynamic_one_agent/linux/worm_dynamic', 1, False)
-    InitialTrainingExample.start_training(env)
-    env.close()
 
+    #   Set to FALSE for CIP-Pool execution
+    #env = make_unity_env('./envs/worm_dynamic_one_agent/linux/worm_dynamic', 1, False)
+    #env = gym.make('CartPole-v1')
+    #env = gym.make('MountainCar-v0')
+    env = gym.make('Pendulum-v0')
+    #env = gym.make('Acrobot-v1')
+    #InitialTrainingExample.start_training(env)
+    GymTraining.perform_training(GymTraining,env)
+    env.close()
 
 if __name__ == '__main__':
     main()

@@ -1,6 +1,5 @@
 """
     Critic network for DDPG algorithm.
-
     @author: j-huthmacher
 """
 
@@ -19,7 +18,6 @@ class Critic(nn.Module):
 
     def __init__(self, input_dim: int, hidden_dim: [int], output_dim: int):
         """ Initialize critic.
-
             Paramters:
             ----------
                 input_dim: int
@@ -28,7 +26,6 @@ class Critic(nn.Module):
                     Array of input dimensions for the hidden layers.
                 ouput_dim: int
                     Output dimension of the network.
-
         """
 
         super(Critic, self).__init__()
@@ -50,7 +47,6 @@ class Critic(nn.Module):
 
     def forward(self, state: np.array, action: np.array):
         """ Forward pass.
-
             Parameters:
             -----------
                 state: numpy.array
@@ -62,7 +58,8 @@ class Critic(nn.Module):
                 numpy.array: Feedback for taking the specific action in that
                 specific state.
         """
-        
+       # x = torch.cat([state, action.squeeze(1)], 1)
+
         x = torch.cat([state, action.squeeze(1)], 1)
         x = F.relu(self.input_layer(x))
 

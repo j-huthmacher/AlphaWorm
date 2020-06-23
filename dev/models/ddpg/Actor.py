@@ -1,6 +1,5 @@
 """
     Actor network for DDPG algorithm.
-
     @author: j-huthmacher
 """
 
@@ -18,7 +17,6 @@ class Actor(nn.Module):
 
     def __init__(self, input_dim: int, hidden_dim: [int], output_dim: int):
         """ Initialize actor.
-
             Paramters:
             ----------
                 input_dim: int
@@ -27,7 +25,6 @@ class Actor(nn.Module):
                     Array of input dimensions for the hidden layers.
                 ouput_dim: int
                     Output dimension of the network.
-
         """
 
         super(Actor, self).__init__()
@@ -44,7 +41,6 @@ class Actor(nn.Module):
 
     def forward(self, state: np.array):
         """ Forward pass.
-
             Parameters:
             -----------
                 state: numpy.array

@@ -20,29 +20,6 @@ from dev.models.ddpg.Critic import Critic
 
 
 
-
-
-
-
-
-"""
-
-
-Implement PER:
-
-
-1. Select Prioritizing Replay Buffer
-2. Get TD-Error from update function
-3. Save TD-Error in Buffer
-4. Get TD-Error when sampling 
-
-
-"""
-
-
-
-
-
 class DDPGagent:
     """
         Implementation of an DDPG-Agent that uses the DDPG algorithm
@@ -162,6 +139,9 @@ class DDPGagent:
         self.memory_buffer.set_priorities(indices, errors)
         critic_loss = self.critic_loss_func(q_values, q_prime)
         #critic_loss = self.critic_loss_func(q_values, q_prime)*importance
+
+      #  TODO: Use critic_loss aka mean squared error for calculating the sample_probs
+
 
         # Calculate the actor loss
         actor_loss = -self.critic.forward(s, self.actor.forward(s).unsqueeze(2)).mean()

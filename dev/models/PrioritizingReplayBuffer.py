@@ -1,33 +1,26 @@
 from collections import deque
 import numpy as np
 import random
-import math
 
 # Set a = 0 for normal experience replay
 
 """
+Implement PER:
+
+
+1. Select Prioritizing Replay Buffer
+2. Get TD-Error from update function
+3. Save TD-Error in Buffer
+4. Get TD-Error when sampling 
+5. Update self.priorities with the corresponding td_errprs
+
+
 
 Greedy TD-Priorization makes NN overfit easily 
 
  => trade-off between greedy TD-error prioritization and pure random sampling
 
-Make the training method return the absolute TD-error
-Save absolute td error for each experience in Buffer
-When sampling: Calculate probability and select accordingly
-Update the Network weights correctly
-
-
-
 """
-
-
-
-
-
-
-
-
-
 
 class MemoryBuffer:
 
@@ -59,7 +52,7 @@ class MemoryBuffer:
     # Returns a random experience
     # Batch_size = number of experiences to add
     # Scale: 0=Random Sampling
-    def sample(self, batch_size, scale = 1):
+    def sample(self, batch_size, scale = 0.5):
 
 
         state_batch = []
@@ -85,18 +78,7 @@ class MemoryBuffer:
                 importance_batch.append(self.priorities[index])
 
 
-        """for experience in batch:
-            state_batch.append(experience[0])
-            action_batch.append(experience[1])
-            reward_batch.append(experience[2])
-            next_state_batch.append(experience[3])
-            done_batch.append(experience[4])"""
-
-        #importance = self.get_importance(sample_probs[batch])
-
         return state_batch, action_batch, reward_batch, next_state_batch, done_batch, importance_batch, sample_indices
-
-
 
     def set_priorities(self, indices, errors, offset=0.1):
         for index, error in zip(indices, errors):

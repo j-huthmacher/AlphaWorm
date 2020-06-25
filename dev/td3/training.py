@@ -47,10 +47,10 @@ class TD3_Training:
         parser.add_argument("--policy", default="TD3")  # Policy name (TD3, DDPG or OurDDPG)
         parser.add_argument("--env", default="AlphaWorm")  # OpenAI gym environment name (not used to start env in AlphaWorm)
         parser.add_argument("--seed", default=0, type=int)  # Sets Gym, PyTorch and Numpy seeds
-        parser.add_argument("--start_timesteps", default=25e3, type=int)  # Time steps initial random policy is used
+        parser.add_argument("--start_timesteps", default=1e6, type=int)  # Time steps initial random policy is used
         parser.add_argument("--eval_freq", default=5e3, type=int)  # How often (time steps) we evaluate
-        parser.add_argument("--max_timesteps", default=1e6, type=int)  # Max time steps to run environment
-        parser.add_argument("--max_env_episode_steps", default=1e3, type=int) #Max env steps
+        parser.add_argument("--max_timesteps", default=1e9, type=int)  # Max time steps to run environment
+        parser.add_argument("--max_env_episode_steps", default=2e2, type=int) #Max env steps
         parser.add_argument("--expl_noise", default=0.1)  # Std of Gaussian exploration noise
         parser.add_argument("--batch_size", default=256, type=int)  # Batch size for both actor and critic
         parser.add_argument("--discount", default=0.99)  # Discount factor
@@ -60,7 +60,7 @@ class TD3_Training:
         parser.add_argument("--policy_freq", default=2, type=int)  # Frequency of delayed policy updates
         parser.add_argument("--save_model", default=True, action="store_true")  # Save model and optimizer parameters
         parser.add_argument("--load_model", default="")  # Model load file name, "" doesn't load, "default" uses file_name
-        parser.add_argument("--load_replays", default="buffers")  # Loads pre-trained replays to replay into the buffer "" doesn't load, "..." loads from the specified folder name
+        parser.add_argument("--load_replays", default="")  # Loads pre-trained replays to replay into the buffer "" doesn't load, "..." loads from the specified folder name
 
         args = parser.parse_args()
 
@@ -103,10 +103,6 @@ class TD3_Training:
             kwargs["noise_clip"] = args.noise_clip * max_action
             kwargs["policy_freq"] = args.policy_freq
             policy = TD3(**kwargs)
-        elif args.policy == "OurDDPG":
-            policy = OurDDPG.DDPG(**kwargs)
-        elif args.policy == "DDPG":
-            policy = DDPG.DDPG(**kwargs)
 
         if args.load_model != "":
             policy_file = file_name if args.load_model == "default" else args.load_model
@@ -132,7 +128,6 @@ class TD3_Training:
         episode_num = 0
 
         for t in range(int(args.max_timesteps)):
-
             episode_timesteps += 1
 
             # Select action randomly or according to policy
@@ -147,6 +142,7 @@ class TD3_Training:
             # Perform action
             action = np.array(action).reshape((1, 9))
             next_state, reward, done, _ = env.step(action)
+            done = True if episode_timesteps % args.max_env_episode_steps == 0 else False
             done_bool = float(done) if episode_timesteps < args.max_env_episode_steps else 0
 
             # Store data in replay buffer

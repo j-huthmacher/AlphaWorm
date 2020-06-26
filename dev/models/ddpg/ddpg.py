@@ -102,8 +102,10 @@ class DDPGagent:
                 np.array: The action in form of vector predicted by the actor
                           component.
         """
+        self.actor.eval()
         s = Variable(torch.from_numpy(state).float().unsqueeze(0))
         action = self.actor.forward(s).detach().numpy()
+        self.actor.train()
         return action
 
     def update(self, batch_size: int = 64, tau: float = None):
@@ -128,6 +130,9 @@ class DDPGagent:
         r = torch.FloatTensor(r)
         next_s = torch.FloatTensor(next_s)
 
+        self.actor_target.eval()
+        self.critic_target.eval()
+        self.critic.eval()
 
         # Calculate the critic loss ("feedback")
         # Old q value -> next action -> next q value -> loss
@@ -137,14 +142,18 @@ class DDPGagent:
         q_prime = r + self.gamma * next_q
         errors = abs(q_values - q_prime)
         self.memory_buffer.set_priorities(indices, errors)
+
+        self.critic.train()
         critic_loss = self.critic_loss_func(q_values, q_prime)
         #critic_loss = self.critic_loss_func(q_values, q_prime)*importance
-
+        self.critic.eval()
       #  TODO: Use critic_loss aka mean squared error for calculating the sample_probs
 
 
         # Calculate the actor loss
+        self.actor.train()
         actor_loss = -self.critic.forward(s, self.actor.forward(s).unsqueeze(2)).mean()
+
 
         # Updates!
         self.actor_optimizer.zero_grad()

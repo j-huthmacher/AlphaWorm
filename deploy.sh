@@ -1,5 +1,8 @@
 #!/bin/bash
-sudo apt-get install sshpass rsync -y
+#sudo apt-get install sshpass rsync -y
+#brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb
+
+
 
 echo "--Please enter IFI-CIP username (without @ and suffix)"
 read username

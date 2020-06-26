@@ -30,13 +30,15 @@ class Critic(nn.Module):
 
         super(Critic, self).__init__()
         self.input_layer = nn.Linear(input_dim, hidden_dim[0])
-
+        self.bn_input = nn.BatchNorm1d(hidden_dim[0])
         self.hidden_layer = []
+        self.bn_hidden = []
 
         last_dim = hidden_dim[0]
         for dim in hidden_dim[1:]:
             self.hidden_layer.append(nn.Linear(last_dim, dim))
             last_dim = dim
+            self.bn_hidden.append(nn.BatchNorm1d(hidden_dim[0]))
 
         self.output_layer = nn.Linear(last_dim, output_dim)
 
@@ -61,10 +63,10 @@ class Critic(nn.Module):
        # x = torch.cat([state, action.squeeze(1)], 1)
 
         x = torch.cat([state, action.squeeze(1)], 1)
-        x = F.relu(self.input_layer(x))
+        x = F.relu(self.bn_input(self.input_layer(x)))
 
-        for layer in self.hidden_layer:
-            x = F.relu(layer(x))
+        for index, layer in enumerate(self.hidden_layer):
+            x = F.relu(self.bn_hidden(layer(x))[index])
 
         x = torch.tanh(self.output_layer(x))
 

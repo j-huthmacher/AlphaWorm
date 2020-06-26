@@ -50,8 +50,9 @@ class TD3_Training:
         parser.add_argument("--start_timesteps", default=1e6, type=int)  # Time steps initial random policy is used
         parser.add_argument("--eval_freq", default=5e3, type=int)  # How often (time steps) we evaluate
         parser.add_argument("--max_timesteps", default=1e9, type=int)  # Max time steps to run environment
-        parser.add_argument("--max_env_episode_steps", default=2e2, type=int) #Max env steps
+        parser.add_argument("--max_env_episode_steps", default=1e3, type=int) #Max env steps
         parser.add_argument("--expl_noise", default=0.1)  # Std of Gaussian exploration noise
+        parser.add_argument("--random_policy_ratio", default=1)  # ratio of random episodes 1 = as many random as policy, 2 = double as many policy as random ...
         parser.add_argument("--batch_size", default=256, type=int)  # Batch size for both actor and critic
         parser.add_argument("--discount", default=0.99)  # Discount factor
         parser.add_argument("--tau", default=0.005)  # Target network update rate
@@ -131,7 +132,8 @@ class TD3_Training:
             episode_timesteps += 1
 
             # Select action randomly or according to policy
-            if t < args.start_timesteps:
+            # if t < args.start_timesteps:
+            if t % ((args.random_policy_ratio + 1)*args.start_timesteps) < args.start_timesteps:
                 action = env.action_space.sample()
             else:
                 action = (

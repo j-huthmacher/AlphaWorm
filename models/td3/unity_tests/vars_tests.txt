@@ -1,0 +1,12 @@
+max_env_episode_steps=1e3, batch_size=256, DER=False, start_timesteps=1e6: best_rew: 175
+max_env_episode_steps=1e3, batch_size=256, DER=True, start_timesteps=1e6: best_rew: 190 (höhere am Schwankung am Ende)
+max_env_episode_steps=1e3, batch_size=256, DER=False, start_timesteps=5e5: best_rew: Ausstehend
+
+Vergleich Action Selection:
+Select_action_random = True: Ausstehend
+Select_action_random = False: Ausstehend
+
+Vergleich DER:
+DER = True: Ausstehend
+DER = false: Ausstehend
+

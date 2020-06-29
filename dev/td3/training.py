@@ -42,7 +42,7 @@ class TD3_Training:
         print("---------------------------------------")
         return avg_reward
 
-    def start_training(self, env):
+    def start_training(self, env, load):
         parser = argparse.ArgumentParser()
         parser.add_argument("--policy", default="TD3")  # Policy name (TD3, DDPG or OurDDPG)
         parser.add_argument("--env", default="AlphaWorm")  # OpenAI gym environment name (not used to start env in AlphaWorm)
@@ -60,7 +60,11 @@ class TD3_Training:
         parser.add_argument("--noise_clip", default=0.5)  # Range to clip target policy noise
         parser.add_argument("--policy_freq", default=2, type=int)  # Frequency of delayed policy updates
         parser.add_argument("--save_model", default=True, action="store_true")  # Save model and optimizer parameters
-        parser.add_argument("--load_model", default="")  # Model load file name, "" doesn't load, "default" uses file_name
+        if load:
+            parser.add_argument("--load_model", default="default")  # Model load file name, "" doesn't load, "default" uses file_name
+        else:
+            parser.add_argument("--load_model",
+                                default="")  # Model load file name, "" doesn't load, "default" uses file_name
         parser.add_argument("--load_replays", default="")  # Loads pre-trained replays to replay into the buffer "" doesn't load, "..." loads from the specified folder name
 
         args = parser.parse_args()

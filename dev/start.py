@@ -45,7 +45,7 @@ def main():
 
 def start_unity():
     #   Set to FALSE for CIP-Pool execution
-    env = make_unity_env('./envs/worm_dynamic_one_agent/linux/worm_dynamic_cylinder', 1, True)
+    env = make_unity_env('./envs/worm_dynamic_one_agent/linux/worm_dynamic_cubes', 1, True)
 
     training = TD3_Training()
     training.start_training(env, True)

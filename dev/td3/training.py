@@ -66,6 +66,7 @@ class TD3_Training:
             parser.add_argument("--load_model",
                                 default="")  # Model load file name, "" doesn't load, "default" uses file_name
         parser.add_argument("--load_replays", default="")  # Loads pre-trained replays to replay into the buffer "" doesn't load, "..." loads from the specified folder name
+        parser.add_argument("--random_policy", default=False) #Activate random policy
 
         args = parser.parse_args()
 
@@ -134,16 +135,23 @@ class TD3_Training:
 
         for t in range(int(args.max_timesteps)):
             episode_timesteps += 1
-
-            # Select action randomly or according to policy
-            # if t < args.start_timesteps:
-            if t % ((args.random_policy_ratio + 1)*args.start_timesteps) < args.start_timesteps:
-                action = env.action_space.sample()
+            if args.random_policy:
+                # Select action randomly or according to policy
+                if t % ((args.random_policy_ratio + 1)*args.start_timesteps) < args.start_timesteps:
+                    action = env.action_space.sample()
+                else:
+                    action = (
+                            policy.select_action(np.array(state))
+                            + np.random.normal(0, max_action * args.expl_noise, size=action_dim)
+                    ).clip(-max_action, max_action)
             else:
-                action = (
-                        policy.select_action(np.array(state))
-                        + np.random.normal(0, max_action * args.expl_noise, size=action_dim)
-                ).clip(-max_action, max_action)
+                if t < args.start_timesteps:
+                    action = env.action_space.sample()
+                else:
+                    action = (
+                            policy.select_action(np.array(state))
+                            + np.random.normal(0, max_action * args.expl_noise, size=action_dim)
+                    ).clip(-max_action, max_action)
 
             # Perform action
             action = np.array(action).reshape((1, 9))

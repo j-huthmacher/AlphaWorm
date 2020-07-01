@@ -11,7 +11,7 @@ from gym_unity.envs import UnityToGymWrapper
 
 def get_env(env_directory: str, visual: bool, start_index: int = 0):
 
-    unity_env = UnityEnvironment(env_directory,
+    unity_env = UnityEnvironment(env_directory, seed=1234,
                                  no_graphics=not visual)
     env = UnityToGymWrapper(unity_env, uint8_visual=False)
 

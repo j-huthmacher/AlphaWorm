@@ -54,16 +54,20 @@ def train_ddpg():
     """
         @author: jhuthmacher
     """
-    win_env = "envs/worm_dynamic_one_agent/win/UnityEnvironment"
-    # lin_env = "./envs/worm_dynamic_one_agent/linux/worm_dynamic"
-    env = get_env(win_env, False)
+    # env = "envs/worm_dynamic_one_agent/win/UnityEnvironment"
+    env = "./envs/worm_dynamic_one_agent/linux/worm_dynamic"
+    env = get_env(env, False)
 
     trainer = DDPGTrainer()
 
     log.info("Start DDPG training (WormDomain)...")
 
-    study = trainer.start_training(env, trials=5, render=False,
-                                   name="DPPG-WormDomain-2")
+    # study = trainer.start_training(env, trials=2, render=False,
+    #                                name="WormDomain-5_Default",
+    #                                default=True)
+
+    study = trainer.start_training(env, trials=1, render=False, default=True,
+                                   name="DPPG-WormDomain-8-FixedParameter")
 
     log.info("Training done!")
 

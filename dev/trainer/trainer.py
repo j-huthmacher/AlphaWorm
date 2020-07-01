@@ -5,15 +5,21 @@
 """
 
 from optuna import Trial, Study
-
+from pathlib import Path
+from datetime import datetime
+import pandas as pd
 
 class Trainer(object):
     """ Abstract trainer object for bundle trainings procedures
     """
 
-    def __init_(self):
+    def __init__(self):
         """ Initilization
         """
+        self.training_rewards_df = pd.DataFrame([])
+        self.training_rewards = []
+        self.curr_episode = 0
+        self.successful_episdes = {}
 
     def start_training(env: any, trials: int = 1, render: bool = False,
                        name: str = None):
@@ -65,3 +71,57 @@ class Trainer(object):
                     the reward of the trainings run.
         """
         raise NotImplementedError
+
+    def track_setup(self, model_name: str, trial):
+        """
+        """
+        self.path = f'models/{datetime.now().date()}/{model_name}'
+        self.path_trial = f'models/{datetime.now().date()}/{model_name}/{trial.number}_{model_name}'
+
+        # Create general directory
+        folder = Path(self.path)
+        folder.mkdir(parents=True, exist_ok=True)
+
+        # Create general directory
+        folder = Path(self.path_trial)
+        folder.mkdir(parents=True, exist_ok=True)
+
+
+        # Create result directory
+        folder = Path(self.path_trial + "/results")
+        folder.mkdir(parents=True, exist_ok=True)
+
+        # Create result directory
+        folder = Path(self.path + "/best_agent")
+        folder.mkdir(parents=True, exist_ok=True)
+
+        # Init reqard csv with correct header
+        with open(f'{self.path_trial}/results/rewards.csv', 'w+') as f:
+            f.write("reward,episode")
+
+        # Init reqard csv with correct header
+        with open(f'{self.path_trial}/results/successful_episodes.csv', 'w+') as f:
+            f.write("episode,reqard,reward,training_step")
+
+    def track_reward(self, reward, episode):
+        """
+        """
+        with open(f'{self.path_trial}/results/rewards.csv', 'a') as f:
+            f.write(f"\n{reward},{episode}")
+
+    def track_training_reward(self, reward, step, num_steps):
+        """
+        """
+        self.training_rewards.append(reward)
+
+        if step == num_steps - 1:
+            self.training_rewards_df[f"Episode {self.curr_episode}"] = self.training_rewards
+            self.training_rewards_df.to_csv(f'{self.path_trial}/results/trainings_rewards.csv')
+            self.training_rewards = []
+            self.curr_episode += 1
+
+    def track_successful_episodes(self, episode, reward, training_step):
+        """
+        """
+        with open(f'{self.path_trial}/results/rewards.csv', 'a') as f:
+            f.write(f"\n{episode},{reward},{training_step}")

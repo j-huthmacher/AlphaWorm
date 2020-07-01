@@ -28,7 +28,7 @@ class DDPGagent(Agent):
     def __init__(self, env: gym.Env, hidden_dim: [int] = [256],
                  actor_lr: float = 1e-4, critic_lr: float = 1e-3,
                  gamma: float = 0.99, tau: float = 1e-3,
-                 max_memory: int = 50000):
+                 max_memory: int = 50000, w_decay: float = 0.01):
         """ Initialization of the DDPG-Agent
 
             Parameters:
@@ -76,9 +76,10 @@ class DDPGagent(Agent):
         self.memory_buffer = MemoryBuffer(max_memory)
 
         self.critic_loss_func = nn.MSELoss()
-        self.actor_optimizer = optim.Adam(self.actor.parameters(), lr=actor_lr)
+        self.actor_optimizer = optim.Adam(self.actor.parameters(), lr=actor_lr,
+                                          weight_decay=w_decay)
         self.critic_optimizer = optim.Adam(self.critic.parameters(),
-                                           lr=critic_lr)
+                                           lr=critic_lr, weight_decay=w_decay)
 
     def get_action(self, state: np.array):
         """ Returns the action that should be taken in the current state.
@@ -124,7 +125,7 @@ class DDPGagent(Agent):
         # Old q value -> next action -> next q value -> loss
         q_values = self.critic.forward(s, a)
         next_actions = self.actor_target.forward(next_s).detach()
-        next_q = self.critic_target.forward(next_s, next_actions)
+        next_q = self.critic_target.forward(next_s, next_actions) # unsqueeze(2)
         q_prime = r + self.gamma * next_q
         critic_loss = self.critic_loss_func(q_values, q_prime)
 

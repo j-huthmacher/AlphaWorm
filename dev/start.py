@@ -40,15 +40,15 @@ def make_unity_env(env_directory, num_env, visual, start_index=0):
 
 
 def main():
-    #start_unity()
-    start_gym_std()
+    start_unity()
+    #start_gym_std()
 
 def start_unity():
     #   Set to FALSE for CIP-Pool execution
-    env = make_unity_env('./envs/worm_dynamic_one_agent/linux/worm_dynamic', 1, False)
+    env = make_unity_env('./envs/worm_dynamic_one_agent/linux/worm_dynamic_sloping', 1, True)
 
     training = TD3_Training()
-    training.start_training(env)
+    training.start_training(env, True)
     env.close()
 
 def start_gym_std():

@@ -1,10 +1,14 @@
 max_env_steps = 1e9
 
-td3_1
-td3_2
-td3_3
-td3_4
-td3_5
+Test Random_Policy
+td3_1 RP=False 232726
+td3_2 RP=True 232727
+td3_3 RP=False 232728
+td3_4 ##Failed?
+td3_5 ##Failed?
+td3_6 RP=True 232732
+
+
 td3_6
 td3_7
 td3_8

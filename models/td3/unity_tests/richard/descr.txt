@@ -1,0 +1,17 @@
+max_env_steps = 1e9
+
+td3_1
+td3_2
+td3_3
+td3_4
+td3_5
+td3_6
+td3_7
+td3_8
+td3_9
+td3_10
+
+max_timesteps = 1e6
+td3_11 tau=0.005 228748
+td3_12 tau=0.005 228754
+td3_12 tau=0.005 228755

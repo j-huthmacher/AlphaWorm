@@ -113,12 +113,16 @@ class DDPGTrainer(Trainer):
         ddpg_agent = DDPGagent(env, hidden_dim, actor_lr, critic_lr,
                                gamma, tau)
 
+
+        np.random.seed(0)
+
         rewards = []
-        noise = OUNoise(env.action_space)
+
+        noise = OUNoise(mu = np.zeros(env.action_space))
 
         for episode in range(episodes):
             state = env.reset()
-            noise.reset()
+            #noise.reset()
             episode_reward = 0
 
             for step in range(training_steps):

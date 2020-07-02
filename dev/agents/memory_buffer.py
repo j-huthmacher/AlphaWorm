@@ -23,10 +23,18 @@ class MemoryBuffer:
         """
 
         # deque -> list-like container with fast appends and pops on either end
+        self.max_size = max_size
         self.buffer = deque(maxlen=max_size)
+        self.experience_count = 0
+
+
 
     def push(self, state: np.array, action: np.array, reward: float,
              next_state: np.array, done: bool):
+        if self.experience_count >= self.max_size:
+            self.buffer.popleft()
+        else:
+            self.experience_count += 1
         """ Function to push a entry to the memory buffer.
 
             Parameters:
@@ -34,7 +42,7 @@ class MemoryBuffer:
                 state: np.array
                     Current state.
                 action: np.array
-                    Curretn action.
+                    Current action.
                 reward: np.array
                     Current reward
                 next_state: np.array
@@ -42,7 +50,7 @@ class MemoryBuffer:
                 done: bool
                     Flag if the next state is termination state.
         """
-        experience = (state, action, np.array([reward]), next_state, done)
+        experience = (state, action, np.array([reward]), next_state, 1-int(done))
         self.buffer.append(experience)
 
     def sample(self, batch_size):
@@ -63,6 +71,7 @@ class MemoryBuffer:
         reward_batch = []
         next_state_batch = []
         done_batch = []
+
 
         batch = random.sample(self.buffer, batch_size)
 

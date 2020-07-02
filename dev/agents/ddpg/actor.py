@@ -10,6 +10,7 @@ from torch.nn import functional as F
 import numpy as np
 
 
+
 class Actor(nn.Module):
     """
         This class represents the neural network that is used as the actor for

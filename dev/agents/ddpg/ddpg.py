@@ -20,6 +20,30 @@ from agents.ddpg.critic import Critic
 from agents.ddpg.ou_noise import OUNoise
 
 
+"""
+Added changes:
+
+
+Added np.random.seed(0) for replicability and for uniform sampling
+
+Mu needs to be np.zeros(nr_actions)
+
+Deleted noise reset in DDPG-Trainer
+
+Append 1-int(done) instead of done in store_transition 
+
+Change memory buffer push so that it overwrites old memories if buffer is full
+
+Added network parameter update after agent init
+
+(Make layer init and layer norm or batch norm???)
+
+
+"""
+
+
+
+
 class DDPGagent(Agent):
     """
         Implementation of an DDPG-Agent that uses the DDPG algorithm
@@ -79,6 +103,10 @@ class DDPGagent(Agent):
         self.actor_optimizer = optim.Adam(self.actor.parameters(), lr=actor_lr)
         self.critic_optimizer = optim.Adam(self.critic.parameters(),
                                            lr=critic_lr)
+
+        self.update_network_params(tau = 1)
+
+
 
     def get_action(self, state: np.array):
         """ Returns the action that should be taken in the current state.
@@ -140,10 +168,17 @@ class DDPGagent(Agent):
         critic_loss.backward()
         self.critic_optimizer.step()
 
+
+
+        # Updates for the target network
+        self.update_network_params(tau=None)
+
+
+    def update_network_params(self, tau=None):
+
         if not tau:
             tau = self.tau
 
-        # Updates for the target networsk
         for t_param, param in zip(self.actor_target.parameters(),
                                   self.actor.parameters()):
             update = tau * param.data + ((1 - tau) * t_param.data)

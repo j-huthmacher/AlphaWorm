@@ -4,6 +4,9 @@
     Source: https://github.com/vitchyr/rlkit/blob/master/rlkit/exploration_strategies/ou_strategy.py
 """
 
+
+
+
 import numpy as np
 
 
@@ -17,7 +20,7 @@ class OUNoise(object):
         Based on the rllab implementation.
     """
 
-    def __init__(self, action_space, mu=0., theta=0.15,
+    def __init__(self, action_space, mu, theta=0.15,
                  max_sigma=0.3, min_sigma=0.3, decay_period=100000):
         self.mu = mu
         self.theta = theta
@@ -30,8 +33,9 @@ class OUNoise(object):
         self.high = action_space.high
         self.reset()
 
+
     def reset(self):
-        self.state = np.ones(self.action_dim) * self.mu
+        self.state = np.zeros(self.action_dim) * self.mu
 
     def evolve_state(self):
         x = self.state

@@ -19,6 +19,8 @@ from agents.ddpg.actor import Actor
 from agents.ddpg.critic import Critic
 from agents.ddpg.ou_noise import OUNoise
 
+from baselines.common.mpi_running_mean_std import RunningMeanStd
+
 
 class DDPGagent(Agent):
     """
@@ -28,7 +30,8 @@ class DDPGagent(Agent):
     def __init__(self, env: gym.Env, hidden_dim: [int] = [256],
                  actor_lr: float = 1e-4, critic_lr: float = 1e-3,
                  gamma: float = 0.99, tau: float = 1e-3,
-                 max_memory: int = 50000, w_decay: float = 0.01):
+                 max_memory: int = 50000, w_decay: float = 0.01,
+                 normalize_obs: bool = True):
         """ Initialization of the DDPG-Agent
 
             Parameters:
@@ -55,6 +58,10 @@ class DDPGagent(Agent):
 
         self.gamma = gamma
         self.tau = tau
+
+        # Not used yet!
+        if normalize_obs:
+            self.obs_rms = RunningMeanStd(shape=env.observation_space.shape)
 
         # Initialize actor- and critic networks
         self.actor = Actor(self.num_states, hidden_dim, self.num_actions)
@@ -97,7 +104,7 @@ class DDPGagent(Agent):
         # s = Variable(torch.from_numpy(state).float().unsqueeze(0))
         s = torch.from_numpy(state).float()
         action = self.actor.forward(s).detach().numpy()
-        return np.clip(action, -self.max_action, self.max_action)
+        return action
 
     def update(self, batch_size: int = 64, tau: float = None):
         """ Function to update the actor and critic components.

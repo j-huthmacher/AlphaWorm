@@ -17,6 +17,8 @@ class Trainer(object):
         """ Initilization
         """
         self.training_rewards_df = pd.DataFrame([])
+        self.action_history_df = pd.DataFrame([])
+        self.action_history = []
         self.training_rewards = []
         self.curr_episode = 0
         self.successful_episdes = {}
@@ -44,7 +46,7 @@ class Trainer(object):
         """
         raise NotImplementedError
 
-    def train(trial: Trial, env: any, render: bool = False, name: str = None,
+    def train_hpo(trial: Trial, env: any, render: bool = False, name: str = None,
               study: Study = None):
         """ Individual train function that implement the actual training procedure.
 
@@ -72,11 +74,14 @@ class Trainer(object):
         """
         raise NotImplementedError
 
-    def track_setup(self, model_name: str, trial):
+    def track_setup(self, model_name: str, trial=None):
         """
         """
         self.path = f'models/{datetime.now().date()}/{model_name}'
-        self.path_trial = f'models/{datetime.now().date()}/{model_name}/{trial.number}_{model_name}'
+        if not trial:
+            self.path_trial = f'models/{datetime.now().date()}/{model_name}'
+        else:
+            self.path_trial = f'models/{datetime.now().date()}/{model_name}/{trial.number}_{model_name}'
 
         # Create general directory
         folder = Path(self.path)
@@ -102,6 +107,17 @@ class Trainer(object):
         # Init reqard csv with correct header
         with open(f'{self.path_trial}/results/successful_episodes.csv', 'w+') as f:
             f.write("episode,reqard,reward,training_step")
+
+    def track_action(self, action, step, num_steps):
+        """
+        """
+        self.action_history.append(action)
+
+        if step == num_steps - 1:
+            self.action_history_df[f"Episode {self.curr_episode}"] = self.action_history
+            self.action_history_df.to_csv(f'{self.path_trial}/results/action_history.csv')
+            self.action_history = []
+            self.curr_episode += 1
 
     def track_reward(self, reward, episode):
         """

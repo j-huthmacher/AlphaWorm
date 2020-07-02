@@ -14,6 +14,7 @@ from config.config import log
 from shutil import copyfile
 import json
 
+
 class DDPGTrainer(Trainer):
     """ Trainer class to train a DDPG agent.
     """
@@ -89,6 +90,9 @@ class DDPGTrainer(Trainer):
             if episode % 100 == 0:
                 log.info(f"Trainings-Step: {episode}/{episodes}")
 
+            ############
+            # Training #
+            ############
             for step in range(training_steps):
                 if render:
                     env.render()
@@ -108,6 +112,14 @@ class DDPGTrainer(Trainer):
                     action = self.ddpg_agent.get_action(state)
                     # action = noise.get_action(action, step)
                     action += gaussian_noise()
+                    # action = np.clip(action, -self.ddpg_agent.max_action,
+                    #                  self.ddpg_agent.max_action)
+                    
+                action = np.clip(action, env.action_space.low,
+                                     env.action_space.high)
+
+                self.track_action(action,step,
+                                  training_steps)
 
                 new_state, reward, done, _ = env.step(action)
                 self.ddpg_agent.memory_buffer.push(state, action, reward,
@@ -125,6 +137,7 @@ class DDPGTrainer(Trainer):
                 self.track_training_reward(episode_reward,
                                            step,
                                            training_steps)
+                
 
                 if done:
                     self.track_successful_episodes(episode,

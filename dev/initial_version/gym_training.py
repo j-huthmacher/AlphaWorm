@@ -12,7 +12,7 @@ class GymTraining:
         noise = OUNoise(env.action_space)
         # Agent setup
         agent = DDPGagent(env)
-        episodes = 50
+        episodes = 200
         training_steps = 50
 
         batch_size = 128

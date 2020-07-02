@@ -49,7 +49,7 @@ class DDPGagent(Agent):
                 max_memory: float
                     Maximal size of the memory buffer (replay buffer).
         """
-
+        self.max_action = float(env.action_space.high[0])
         self.num_actions = env.action_space.shape[0]
         self.num_states = env.observation_space.shape[0]
 
@@ -97,7 +97,7 @@ class DDPGagent(Agent):
         # s = Variable(torch.from_numpy(state).float().unsqueeze(0))
         s = torch.from_numpy(state).float()
         action = self.actor.forward(s).detach().numpy()
-        return action
+        return np.clip(action, -self.max_action, self.max_action)
 
     def update(self, batch_size: int = 64, tau: float = None):
         """ Function to update the actor and critic components.
@@ -178,3 +178,11 @@ class DDPGagent(Agent):
             action = self.get_action(state)
             action = noise.get_action(action, step)
             state, reward, done, _ = env.step(action)
+
+
+def normalize(x, stats):
+    """
+    """
+    if stats is None:
+        return x
+    return (x - stats.mean) / (stats.std + 1e-8)

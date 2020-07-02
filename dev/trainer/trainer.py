@@ -123,5 +123,5 @@ class Trainer(object):
     def track_successful_episodes(self, episode, reward, training_step):
         """
         """
-        with open(f'{self.path_trial}/results/rewards.csv', 'a') as f:
+        with open(f'{self.path_trial}/results/successful_episodes.csv', 'a') as f:
             f.write(f"\n{episode},{reward},{training_step}")

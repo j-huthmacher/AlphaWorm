@@ -9,6 +9,7 @@ import numpy as np
 from trainer.trainer import Trainer
 from agents.ddpg.ddpg import DDPGagent
 from agents.ddpg.ou_noise import OUNoise
+from agents.ddpg.gaussian_noise import GaussianNoise
 from config.config import log
 from shutil import copyfile
 import json
@@ -22,6 +23,7 @@ class DDPGTrainer(Trainer):
         """
         super(DDPGTrainer, self).__init__()
 
+        # Legacy
         self.default_trail = {
             'n_layers': 2,
             'n_units_l0': 128,
@@ -35,6 +37,111 @@ class DDPGTrainer(Trainer):
             'batch_size': 512,
             'explore_threshold': 0.5
         }
+
+        self.config = {
+            'n_layers': 2,
+            'n_units_l0': 128,
+            'n_units_l1': 128,
+            'actor_lr': 0.001,  # Default ADAM
+            'critic_lr': 0.001,
+            'gamma': 0.999,
+            'tau': 0.001,
+            'episodes': 2000,
+            'training_steps': 1000,
+            'batch_size': 512,
+            'explore_threshold': 0.5
+        }
+
+    def train(self, env: object, render: bool = False, name: str = None ):
+        """
+        """
+
+        ################
+        # Create agent #
+        ################
+        self.ddpg_agent = DDPGagent(env, [self.config["n_units_l0"],
+                                    self.config["n_units_l1"]],
+                                    self.config["actor_lr"],
+                                    self.config["critic_lr"],
+                                    self.config["gamma"],
+                                    self.config["tau"])
+
+        rewards = []
+        noise = OUNoise(env.action_space)
+        gaussian_noise = GaussianNoise(mu=np.zeros(self.ddpg_agent.num_actions),
+                                       sigma=np.ones(self.ddpg_agent.num_actions))
+
+        episodes = self.config["episodes"]
+        training_steps = self.config["training_steps"]
+        explore_threshold = self.config["explore_threshold"]
+        batch_size = self.config["batch_size"]
+
+        log.info(f"Start episodes ({episodes}) with {training_steps} steps.")
+
+        self.episode_num = 0
+
+        overall_steps = 0
+        for episode in range(episodes):
+            state = env.reset()
+            noise.reset()
+            episode_reward = 0
+
+            if episode % 100 == 0:
+                log.info(f"Trainings-Step: {episode}/{episodes}")
+
+            for step in range(training_steps):
+                if render:
+                    env.render()
+
+                ###############
+                # Exploration #
+                ###############
+                if overall_steps < explore_threshold * (training_steps * episodes):
+                    if step % 100 == 0:
+                        log.info(f"Trainings-Step: {step}/{training_steps} (Explore)")
+
+                    action = env.action_space.sample()
+                else:
+                    if step % 100 == 0:
+                        log.info(f"Trainings-Step: {step}/{training_steps}")
+
+                    action = self.ddpg_agent.get_action(state)
+                    # action = noise.get_action(action, step)
+                    action += gaussian_noise()
+
+                new_state, reward, done, _ = env.step(action)
+                self.ddpg_agent.memory_buffer.push(state, action, reward,
+                                                   new_state, done)
+
+                if len(self.ddpg_agent.memory_buffer) > batch_size:
+                    ######################
+                    # Update neural nets #
+                    ######################
+                    self.ddpg_agent.update(batch_size)
+
+                state = new_state
+                episode_reward += reward
+
+                self.track_training_reward(episode_reward,
+                                           step,
+                                           training_steps)
+
+                if done:
+                    self.track_successful_episodes(episode,
+                                                   episode_reward,
+                                                   step)
+                    state, done = env.reset(), False
+                    episode_reward = 0
+                    # episode_timesteps = 0
+                    self.episode_num += 1
+
+                overall_steps += 1
+
+            self.track_reward(episode_reward, episode)
+            rewards.append(episode_reward)
+
+        log.info("End episode!")
+
 
     def start_training(self, env, trials: int = 1, render: bool = False,
                        name: str = None, training_steps: int = None,
@@ -72,7 +179,7 @@ class DDPGTrainer(Trainer):
         study = optuna.create_study(direction="maximize")
         log.info("Start optimization!")
 
-        study.optimize(lambda trial: self.train(trial, env, render, name,
+        study.optimize(lambda trial: self.train_hpo(trial, env, render, name,
                                                     study, training_steps),
                            n_trials=trials, timeout=600)
 
@@ -87,7 +194,7 @@ class DDPGTrainer(Trainer):
 
         return study
 
-    def train(self, trial: object, env: object, render: bool = False,
+    def train_hpo(self, trial: object, env: object, render: bool = False,
               name: str = None, study: object = None,
               training_steps: int = 1000):
         """ Implementation of the training procedure for ddpg.
@@ -176,6 +283,8 @@ class DDPGTrainer(Trainer):
 
         rewards = []
         noise = OUNoise(env.action_space)
+        gaussian_noise = GaussianNoise(mu=np.zeros(self.ddpg_agent.num_actions),
+                                       sigma=np.ones(self.ddpg_agent.num_actions))
 
         log.info(f"Start episodes ({episodes}) with {training_steps} steps.")
 
@@ -205,7 +314,8 @@ class DDPGTrainer(Trainer):
                         log.info(f"Trainings-Step: {step}/{training_steps}")
 
                     action = self.ddpg_agent.get_action(state)
-                    action = noise.get_action(action, step)
+                    # action = noise.get_action(action, step)
+                    action += gaussian_noise()
 
                 new_state, reward, done, _ = env.step(action)
                 self.ddpg_agent.memory_buffer.push(state, action, reward,

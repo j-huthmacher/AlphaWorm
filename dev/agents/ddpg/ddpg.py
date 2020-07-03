@@ -80,6 +80,7 @@ class DDPGagent(Agent):
         self.critic_optimizer = optim.Adam(self.critic.parameters(),
                                            lr=critic_lr)
 
+
     def get_action(self, state: np.array):
         """ Returns the action that should be taken in the current state.
 

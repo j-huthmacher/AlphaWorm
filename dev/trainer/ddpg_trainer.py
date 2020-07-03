@@ -9,6 +9,7 @@ import numpy as np
 from trainer.trainer import Trainer
 from agents.ddpg.ddpg import DDPGagent
 from agents.ddpg.ou_noise import OUNoise
+from agents.ddpg.param_noise import ParamNoise
 
 
 class DDPGTrainer(Trainer):
@@ -114,7 +115,8 @@ class DDPGTrainer(Trainer):
                                gamma, tau)
 
         rewards = []
-        noise = OUNoise(env.action_space)
+        noise = ParamNoise()
+        param_noise_adaption_interval = 50
 
         for episode in range(episodes):
             state = env.reset()
@@ -135,6 +137,12 @@ class DDPGTrainer(Trainer):
 
                 state = new_state
                 episode_reward += reward
+
+                # Adapt param noise.
+                if len(ddpg_agent.memory_buffer) >= batch_size and step % param_noise_adaption_interval == 0:
+                    distance = agent.adapt_param_noise()
+                    #epoch_adaptive_distances.append(distance)
+
 
             trial.report(episode_reward, episode)
 

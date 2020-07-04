@@ -33,15 +33,20 @@ class Critic(nn.Module):
 
         super(Critic, self).__init__()
         self.input_layer = nn.Linear(input_dim, hidden_dim[0])
+        self.input_norm = nn.LayerNorm(hidden_dim[0])
+
 
         self.hidden_layer = nn.ModuleList()
+        self.layer_norm = nn.ModuleList()
 
         last_dim = hidden_dim[0]
         for dim in hidden_dim[1:]:
             self.hidden_layer.append(nn.Linear(last_dim, dim))
+            self.layer_norm.append(nn.LayerNorm(dim))
             last_dim = dim
 
         self.output_layer = nn.Linear(last_dim, output_dim)
+
 
     def init_weight(self):
         """ TODO

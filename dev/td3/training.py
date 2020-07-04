@@ -133,8 +133,7 @@ class TD3_Training:
                 print("No buffer batch loaded")
 
         # Evaluate untrained policy
-        #evaluations = [self.eval_policy(policy, env, args.seed)]
-        evaluations = []
+        evaluations = [self.eval_policy(policy, env, args.seed)]
         state, done = env.reset(), False
         episode_reward = 0
 

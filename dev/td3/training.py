@@ -42,7 +42,7 @@ class TD3_Training:
         print("---------------------------------------")
         return avg_reward
 
-    def start_training(self, env, load):
+    def start_training(self, env, load=False, der_activated=False):
         parser = argparse.ArgumentParser()
         parser.add_argument("--policy", default="TD3")  # Policy name (TD3, DDPG or OurDDPG)
         parser.add_argument("--env", default="AlphaWorm")  # OpenAI gym environment name (not used to start env in AlphaWorm)
@@ -65,6 +65,13 @@ class TD3_Training:
         else:
             parser.add_argument("--load_model",
                                 default="")  # Model load file name, "" doesn't load, "default" uses file_name
+        if der_activated:
+            parser.add_argument("--load_replays",
+                                default="buffers")  # Loads pre-trained replays to replay into the buffer "" doesn't load, "..." loads from the specified folder name
+        else:
+            parser.add_argument("--load_replays",
+                                default="")  # Loads pre-trained replays to replay into the buffer "" doesn't load, "..." loads from the specified folder name
+
         parser.add_argument("--load_replays", default="")  # Loads pre-trained replays to replay into the buffer "" doesn't load, "..." loads from the specified folder name
         parser.add_argument("--random_policy", default=False) #Activate random policy
 

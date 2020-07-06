@@ -72,7 +72,6 @@ class TD3_Training:
             parser.add_argument("--load_replays",
                                 default="")  # Loads pre-trained replays to replay into the buffer "" doesn't load, "..." loads from the specified folder name
 
-        parser.add_argument("--load_replays", default="")  # Loads pre-trained replays to replay into the buffer "" doesn't load, "..." loads from the specified folder name
         parser.add_argument("--random_policy", default=False) #Activate random policy
 
         args = parser.parse_args()
@@ -137,7 +136,6 @@ class TD3_Training:
         state, done = env.reset(), False
         episode_reward = 0
 
-        #for t in range(int(args.max_timesteps)):
 
         for episode in range(int(args.max_episodes)):
 

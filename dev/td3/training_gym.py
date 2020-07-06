@@ -9,6 +9,7 @@ from datetime import datetime
 from td3 import OurDDPG
 from td3 import DDPG
 from td3.TD3 import TD3
+from td3 import DDPG_alt
 from td3.utils import ReplayBuffer, DynamicExperienceReplay
 
 
@@ -46,7 +47,7 @@ class TD3_Training_Gym:
 
     def start_training(self, env, render):
         parser = argparse.ArgumentParser()
-        parser.add_argument("--policy", default="TD3")  # Policy name (TD3, DDPG or OurDDPG)
+        parser.add_argument("--policy", default="DDPG_alt")  # Policy name (TD3, DDPG, OurDDPG or DDPG_alt)
         parser.add_argument("--env", default="AlphaWorm")  # OpenAI gym environment name (not used to start env in AlphaWorm)
         parser.add_argument("--seed", default=0, type=int)  # Sets Gym, PyTorch and Numpy seeds
         parser.add_argument("--start_timesteps", default=25e3, type=int)  # Time steps initial random policy is used
@@ -110,6 +111,8 @@ class TD3_Training_Gym:
             policy = OurDDPG.DDPG(**kwargs)
         elif args.policy == "DDPG":
             policy = DDPG.DDPG(**kwargs)
+        elif args.policy == "DDPG_alt":
+            policy = DDPG_alt.DDPG_alt(**kwargs)
 
         if args.load_model != "":
             policy_file = file_name if args.load_model == "default" else args.load_model

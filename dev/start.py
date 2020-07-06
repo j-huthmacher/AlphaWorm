@@ -45,8 +45,8 @@ def make_unity_env(env_directory, num_env, visual, start_index=0):
 
 def main():
     #start_unity()
-    start_unity_baselines()
-    #start_gym_std()
+    #start_unity_baselines()
+    start_gym_std()
 
 def start_unity_baselines():
     #   Set to FALSE for CIP-Pool execution
@@ -74,7 +74,8 @@ def start_gym_std():
 
     #Gym version with render
     training = TD3_Training_Gym()
-    training.start_training(env, load=False, der_activated=False)
+    #training.start_training(env, load=False, der_activated=False)
+    training.start_training(env, True)
     env.close()
 
 

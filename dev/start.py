@@ -1,6 +1,7 @@
 import gym
 from mlagents_envs.environment import UnityEnvironment
 from gym_unity.envs import UnityToGymWrapper
+from stable_baselines.common.noise import NormalActionNoise
 from stable_baselines.common.vec_env import SubprocVecEnv
 from stable_baselines import logger
 import numpy as np
@@ -12,6 +13,9 @@ import time
 import gym
 
 #PATH TO ALGORITHM
+from stable_baselines.td3 import MlpPolicy
+from stable_baselines import TD3 as TD3_Baselines
+
 from td3.training import TD3_Training
 from td3.training_gym import TD3_Training_Gym
 
@@ -40,8 +44,21 @@ def make_unity_env(env_directory, num_env, visual, start_index=0):
 
 
 def main():
-    start_unity()
+    #start_unity()
+    start_unity_baselines()
     #start_gym_std()
+
+def start_unity_baselines():
+    #   Set to FALSE for CIP-Pool execution
+    env = make_unity_env('./envs/worm_dynamic_one_agent/linux/worm_dynamic', 1, False)
+
+    # The noise objects for TD3
+    n_actions = env.action_space.shape[-1]
+    action_noise = NormalActionNoise(mean=np.zeros(n_actions), sigma=0.1 * np.ones(n_actions))
+
+    model = TD3_Baselines(MlpPolicy, env, action_noise=action_noise, verbose=1)
+    model.learn(total_timesteps=50000, log_interval=10)
+    model.save("td3_worm")
 
 def start_unity():
     #   Set to FALSE for CIP-Pool execution

@@ -9,11 +9,18 @@ import numpy as np
 from trainer.trainer import Trainer
 from agents.ddpg.ddpg import DDPGagent
 from agents.ddpg.ou_noise import OUNoise
+from agents.memory_buffer import ReplayBuffer
 from agents.ddpg.gaussian_noise import GaussianNoise
 from config.config import log
 from shutil import copyfile
 import json
-
+from collections import deque
+import os
+from datetime import datetime
+import pandas as pd
+import pickle
+from pathlib import Path
+import torch
 
 class DDPGTrainer(Trainer):
     """ Trainer class to train a DDPG agent.
@@ -46,15 +53,19 @@ class DDPGTrainer(Trainer):
             'actor_lr': 0.001,  # Default ADAM
             'critic_lr': 0.001,
             'gamma': 0.999,
-            'tau': 0.001,
+            'tau': 0.0001,
             'episodes': 2000,
             'training_steps': 1000,
-            'batch_size': 512,
-            'explore_threshold': 0.5
+            'batch_size': 256,
+            'explore_threshold': 0.5,
+            'evaluation_steps': 10,
+            'evaluation_lim': None
         }
 
-    def train(self, env: object, render: bool = False, name: str = None ):
-        """
+    def train_baseline(self, env, name, render=False, nb_epochs=50,
+                       nb_epoch_cycles=20, nb_rollout_steps=100,
+                       nb_train_steps=100, nb_eval_steps=100):
+        """ Trainingsprocedure from baseline implementation
         """
 
         ################
@@ -66,11 +77,194 @@ class DDPGTrainer(Trainer):
                                     self.config["critic_lr"],
                                     self.config["gamma"],
                                     self.config["tau"])
+        gaussian_noise = GaussianNoise(mu=np.zeros(self.ddpg_agent.num_actions),
+                                       sigma=np.ones(self.ddpg_agent.num_actions))
+
+        self.episode_reward = np.zeros(1, dtype=np.float32)  # vector
+        self.episode_step = np.zeros(1, dtype=int)  # vector
+        self.episodes = 0  # scalar
+        t = 0  # scalar
+        rank = 0
+
+        epoch = 0
+        batch_size = self.config["batch_size"]
+
+        self.epoch_episode_rewards = []
+        self.epoch_episode_steps = []
+        self.epoch_actions = []
+        self.epoch_reward = []
+        self.epoch_episodes = 0     
+        self.episode_rewards_history = deque(maxlen=100)
+
+        self.eval_rewards = []
+        self.train_rewards = []
+        self.eval_episode_rewards = []
+
+        self.number_it = (nb_epoch_cycles * nb_rollout_steps * nb_epochs)
+        self.explore = 0.35
+
+        for epoch in range(nb_epochs):
+            log.info(f"Epoch: {epoch} / {nb_epochs}")
+            state = env.reset()
+
+            ############
+            # Training #
+            ############
+            self.train_episode_reward = 0
+            for cycle in range(nb_epoch_cycles):
+                # log.info(f"Start cycle {cycle}/{nb_epoch_cycles}")
+                for t_rollout in range(nb_rollout_steps):
+                    # Explore 35% of all steps
+                    if (cycle * t_rollout * epoch) < self.number_it * self.explore:
+                        # Explore
+                        action = env.action_space.sample()
+                    else:
+                        # Predict next action.
+                        action = self.ddpg_agent.get_action(state)
+                        action += gaussian_noise()
+
+                        action = np.clip(action, env.action_space.low,
+                                         env.action_space.high)
+
+                    new_state, reward, done, _ = env.step(action)
+
+                    t += 1
+                    if False and render:
+                        env.render()
+
+                    self.episode_reward += reward
+                    self.train_episode_reward += reward
+                    self.episode_step += 1
+
+                    # Book-keeping.
+                    self.epoch_actions.append(action)
+                    self.ddpg_agent.memory_buffer.push(state, action, reward,
+                                                       new_state, done)
+
+                    state = new_state
+
+                    if done:
+                        # Episode done.
+                        self.epoch_episode_rewards.append(self.episode_reward)
+                        self.episode_rewards_history.append(self.episode_reward)
+                        self.epoch_episode_steps.append(self.episode_step)
+                        self.epoch_episodes += 1
+                        self.episodes += 1
+
+                ################
+                # Update Agent #
+                ################
+                # log.info(f"Start Training ({nb_train_steps})")
+                for t_train in range(nb_train_steps):
+                    self.ddpg_agent.update(batch_size)
+
+            #####################
+            # Trainings rewards #
+            #####################
+            self.train_episode_reward /= (nb_epoch_cycles * nb_rollout_steps)
+            self.train_rewards.append(self.train_episode_reward)
+
+            ########################
+            # Evaluation per epoch #
+            ########################
+            self.eval_episode_reward = 0  # np.zeros(1, dtype=np.float32)
+            for t_rollout in range(nb_eval_steps):
+                state = env.reset()
+                done = False
+                while not done:
+                    action = self.ddpg_agent.get_action(state)
+                    action += gaussian_noise()
+                    action = np.clip(action, env.action_space.low,
+                                            env.action_space.high)
+
+                    new_state, reward, done, _ = env.step(action)
+
+                    if False and render:
+                        env.render()
+                    self.eval_episode_reward += reward
+
+                    # if done:
+                    #     self.eval_episode_rewards.append(self.eval_episode_reward)
+                    #     self.eval_episode_rewards_history.append(self.eval_episode_reward)
+                    #     self.eval_episode_reward = 0.0
+
+                # if len(self.eval_episode_rewards) == 0:
+                #     self.eval_rewards.append(0)
+                # else:
+                #     self.eval_rewards.append(sum(self.eval_episode_rewards)/len(self.eval_episode_rewards))
+                # self.eval_episode_rewards = []
+
+            ######################
+            # Evaluation rewards #
+            ######################
+            self.eval_episode_reward /= nb_eval_steps
+            self.eval_rewards.append(self.eval_episode_reward)
+
+            #################
+            # Track Results #
+            #################
+            folder = Path(f'models/{datetime.now().date()}/{name}/')
+            folder.mkdir(parents=True, exist_ok=True)
+
+            # Evaluation rewards
+            pd.DataFrame(self.eval_rewards).to_csv(f'models/{datetime.now().date()}/{name}/eval_rewards.csv')
+
+            # Training rewards
+            pd.DataFrame(self.train_rewards).to_csv(f'models/{datetime.now().date()}/{name}/train_rewards.csv')
+
+            # Config
+            cfg = {
+                "epochs": nb_epochs,
+                "nb_epoch_cycles": nb_epoch_cycles,
+                "nb_rollout_steps": nb_rollout_steps,
+                "nb_train_steps": nb_train_steps,
+                "nb_eval_steps": nb_eval_steps,
+                "finished_episodes_train": self.epoch_episodes,
+                "mean_reward_training": np.asarray(self.train_rewards).mean(),
+                "mean_reward_eval": np.asarray(self.eval_rewards).mean(),
+                "exploration_abs": self.number_it * self.explore,
+                "exploration": self.explore
+            }
+            with open(f'models/{datetime.now().date()}/{name}/config.json', "w+") as f:
+                json.dump(cfg, f)
+
+            # Agent
+            with open(f'models/{datetime.now().date()}/{name}/ddpg_agent_baseline_training.pickle', "wb+") as f:
+                pickle.dump(self.ddpg_agent, f)
+
+    def train(self, env: object, render: bool = False, name: str = None):
+        """
+        """
+        # Set seeds
+        env.action_space.seed(0)
+        torch.manual_seed(0)
+        np.random.seed(0)
+
+        # Init directory set up.
+        self.track_setup(name)
+
+        state_dim = env.observation_space.shape[0]
+        action_dim = env.action_space.shape[0]
+        max_action = float(env.action_space.high[0])
+
+        ################
+        # Create agent #
+        ################
+        self.ddpg_agent = DDPGagent(env, [self.config["n_units_l0"],
+                                    self.config["n_units_l1"]],
+                                    self.config["actor_lr"],
+                                    self.config["critic_lr"],
+                                    self.config["gamma"],
+                                    self.config["tau"])
+
+        
+
+        self.ddpg_agent.max_action = max_action
+        
+        replay_buffer = ReplayBuffer(state_dim, action_dim)
 
         rewards = []
         noise = OUNoise(env.action_space)
-        gaussian_noise = GaussianNoise(mu=np.zeros(self.ddpg_agent.num_actions),
-                                       sigma=np.ones(self.ddpg_agent.num_actions))
 
         episodes = self.config["episodes"]
         training_steps = self.config["training_steps"]
@@ -80,6 +274,11 @@ class DDPGTrainer(Trainer):
         log.info(f"Start episodes ({episodes}) with {training_steps} steps.")
 
         self.episode_num = 0
+        self.eval_rewards = []
+        self.train_rewards = []
+
+        log.info("Parameter:")
+        log.info(self.config)
 
         overall_steps = 0
         for episode in range(episodes):
@@ -87,8 +286,8 @@ class DDPGTrainer(Trainer):
             noise.reset()
             episode_reward = 0
 
-            if episode % 100 == 0:
-                log.info(f"Trainings-Step: {episode}/{episodes}")
+            if episode % 100 == 0 or (episode < 10):
+                log.info(f"Episode-Step: {episode}/{episodes}")
 
             ############
             # Training #
@@ -101,43 +300,41 @@ class DDPGTrainer(Trainer):
                 # Exploration #
                 ###############
                 if overall_steps < explore_threshold * (training_steps * episodes):
-                    if step % 100 == 0:
+                    if step % 100 == 0 or (step < 10):
                         log.info(f"Trainings-Step: {step}/{training_steps} (Explore)")
 
                     action = env.action_space.sample()
                 else:
-                    if step % 100 == 0:
+                    if step % 100 == 0 or (step < 10):
                         log.info(f"Trainings-Step: {step}/{training_steps}")
 
-                    action = self.ddpg_agent.get_action(state)
-                    # action = noise.get_action(action, step)
-                    action += gaussian_noise()
-                    # action = np.clip(action, -self.ddpg_agent.max_action,
-                    #                  self.ddpg_agent.max_action)
-                    
-                action = np.clip(action, env.action_space.low,
-                                     env.action_space.high)
+                    action = (
+                        self.ddpg_agent.get_action(np.array(state))
+                        + np.random.normal(0, self.ddpg_agent.max_action * 0.1, size=self.ddpg_agent.num_actions)
+                    ).clip(-self.ddpg_agent.max_action, self.ddpg_agent.max_action)               
 
-                self.track_action(action,step,
+                action = np.array(action).reshape((1, 9))
+
+                self.track_action(action, step,
                                   training_steps)
 
-                new_state, reward, done, _ = env.step(action)
-                self.ddpg_agent.memory_buffer.push(state, action, reward,
-                                                   new_state, done)
+                next_state, reward, done, _ = env.step(action)
 
-                if len(self.ddpg_agent.memory_buffer) > batch_size:
-                    ######################
-                    # Update neural nets #
-                    ######################
-                    self.ddpg_agent.update(batch_size)
+                done = (True
+                        if step < self.config["training_steps"]
+                        else False)
+                done_bool = float(done)
 
-                state = new_state
+                log.info(action.shape)
+
+                replay_buffer.add(state, action, next_state, reward, done_bool)
+
+                state = next_state
                 episode_reward += reward
 
                 self.track_training_reward(episode_reward,
                                            step,
                                            training_steps)
-                
 
                 if done:
                     self.track_successful_episodes(episode,
@@ -150,8 +347,68 @@ class DDPGTrainer(Trainer):
 
                 overall_steps += 1
 
+            # TODO: Reset the environment here
+            state, done = env.reset(), False
+            episode_reward = 0
+
+            self.ddpg_agent.memory_buffer = replay_buffer
+            if len(self.ddpg_agent.memory_buffer) > batch_size:
+                ######################
+                # Update neural nets #
+                ######################
+                self.ddpg_agent.update(batch_size)
+
+            ########################
+            # Evaluation per epoch #
+            ########################
+            log.info(f"Start Evaluation: {self.config['evaluation_steps']}")
+            self.eval_episode_reward = 0
+            for _ in range(self.config["evaluation_steps"]):
+                eval_env = env
+                eval_env.action_space.seed(0)
+
+                state = eval_env.reset()
+                done = False
+                k = 0
+                while not done:
+                    action = self.ddpg_agent.get_action(np.array(state))
+                    action = np.array(action).reshape((1, 9))
+                    # action += gaussian_noise()
+                    # action = np.clip(action, -self.ddpg_agent.max_action,
+                    #                  self.ddpg_agent.max_action)
+
+                    new_state, reward, done, _ = eval_env.step(action)
+
+                    if False and render:
+                        eval_env.render()
+                    self.eval_episode_reward += reward
+
+                    if self.config["evaluation_lim"] != None and self.config["evaluation_lim"] < k:
+                        break
+
+                    k += 1
+
+            log.info(f"Evaluation Reward: {self.eval_episode_reward/self.config['evaluation_steps']}")
+
+            self.eval_rewards.append(self.eval_episode_reward/self.config["evaluation_steps"])
+
             self.track_reward(episode_reward, episode)
             rewards.append(episode_reward)
+
+            ################################
+            # Persist Tracking per Episode #
+            ################################
+            pd.DataFrame(self.eval_rewards).to_csv(f'models/{datetime.now().date()}/{name}/eval_rewards.csv')
+
+            # Training rewards
+            # pd.DataFrame(self.train_rewards).to_csv(f'models/{datetime.now().date()}/{name}/train_rewards.csv')
+
+            with open(f'models/{datetime.now().date()}/{name}/config.json', "w+") as f:
+                json.dump(self.config, f)
+
+            # Agent
+            with open(f'models/{datetime.now().date()}/{name}/ddpg_agent_training.pickle', "wb+") as f:
+                pickle.dump(self.ddpg_agent, f)
 
         log.info("End episode!")
 

@@ -12,6 +12,7 @@ import time
 from utils.mlagent_utils import get_env
 from trainer.ddpg_trainer import DDPGTrainer
 from config.config import log
+import gym
 
 
 #PATH TO ALGORITHM
@@ -47,7 +48,8 @@ def main():
     # InitialTrainingExample.start_training(env)
     # env.close()
 
-    train_ddpg()
+    # train_ddpg()
+    train_ddpg_gym()
 
 
 def train_ddpg():
@@ -62,12 +64,37 @@ def train_ddpg():
 
     log.info("Start DDPG training (WormDomain)...")
 
-    # study = trainer.start_training(env, trials=2, render=False,
-    #                                name="WormDomain-5_Default",
-    #                                default=True)
+    # trainer.train(env, name="DPPG-WormDomain-9-GaussianNoise-Clipping")
 
-    study = trainer.start_training(env, trials=1, render=False, default=True,
-                                   name="DPPG-WormDomain-8-FixedParameter")
+    # trainer.train_baseline(env, name="DPPG-WormDomain-10-Baseline",
+    #                        nb_epochs=1000, nb_epoch_cycles=50, nb_rollout_steps=200,
+    #                        nb_train_steps=500, nb_eval_steps=500)
+    trainer.config["episodes"] = 1500
+    # trainer.config["training_steps"] = 10
+    # trainer.config["episodes"] = 10
+    # trainer.config["training_steps"] = 10
+    # trainer.config["evaluation_lim"] = 10
+    trainer.train(env, name="DPPG-WormDomain")
+
+    log.info("Training done!")
+
+
+def train_ddpg_gym(env_name: str = "Pendulum-v0"):
+    """
+    """
+    env = gym.make(env_name)
+
+    trainer = DDPGTrainer()
+
+    log.info(f"Start DDPG training ({env_name})...")
+
+    trainer.train(env, name="DPPG-{env_name}")
+
+    # trainer.train_baseline(env, name=f"DPPG-{env_name}-2-Longer-Training",
+    #                        nb_epochs=300, nb_epoch_cycles=100, nb_rollout_steps=300,
+    #                        nb_train_steps=600, nb_eval_steps=600)
+
+    # trainer.train_baseline(env, name=f"DPPG-{env_name}-2", render=False)
 
     log.info("Training done!")
 

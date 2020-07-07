@@ -9,7 +9,7 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 import numpy as np
-
+from config.config import log
 
 class Critic(nn.Module):
     """
@@ -43,6 +43,10 @@ class Critic(nn.Module):
 
         self.output_layer = nn.Linear(last_dim, output_dim)
 
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self.to(self.device)
+
+
     def init_weight(self):
         """ TODO
         """
@@ -62,8 +66,13 @@ class Critic(nn.Module):
                 specific state.
         """
 
+        log.info(f"action {action.shape}")
+        log.info(f"state {state.shape}")
+
         # x = torch.cat([state, action.squeeze(1)], 1)
         x = torch.cat([state, action], 1)
+        
+        
         x = F.relu(self.input_layer(x))
 
         for layer in self.hidden_layer:

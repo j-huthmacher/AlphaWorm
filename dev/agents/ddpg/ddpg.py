@@ -19,7 +19,7 @@ from agents.ddpg.actor import Actor
 from agents.ddpg.critic import Critic
 from agents.ddpg.ou_noise import OUNoise
 
-from baselines.common.mpi_running_mean_std import RunningMeanStd
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 class DDPGagent(Agent):
@@ -30,7 +30,7 @@ class DDPGagent(Agent):
     def __init__(self, env: gym.Env, hidden_dim: [int] = [256],
                  actor_lr: float = 1e-4, critic_lr: float = 1e-3,
                  gamma: float = 0.99, tau: float = 1e-3,
-                 max_memory: int = 50000, w_decay: float = 0.01,
+                 max_memory: int = int(1e6), w_decay: float = 0.01,
                  normalize_obs: bool = True):
         """ Initialization of the DDPG-Agent
 
@@ -52,30 +52,30 @@ class DDPGagent(Agent):
                 max_memory: float
                     Maximal size of the memory buffer (replay buffer).
         """
-        self.max_action = float(env.action_space.high[0])
+        self.max_action = float(env.action_space.high[0]) #env.action_space.high
         self.num_actions = env.action_space.shape[0]
         self.num_states = env.observation_space.shape[0]
 
         self.gamma = gamma
         self.tau = tau
 
-        # Not used yet!
-        if normalize_obs:
-            self.obs_rms = RunningMeanStd(shape=env.observation_space.shape)
+        self.policy_noise = 0.2
+        self.noise_clip = 0.5
 
         # Initialize actor- and critic networks
-        self.actor = Actor(self.num_states, hidden_dim, self.num_actions)
+        self.actor = Actor(self.num_states, hidden_dim, self.num_actions,
+                           self.max_action).to(device)
         self.actor_target = Actor(self.num_states, hidden_dim,
-                                  self.num_actions)
+                                  self.num_actions, self.max_action).to(device)
         # Make copy of network
         self.actor_target.load_state_dict(self.actor.state_dict())
 
         # In the critic network we consider also the action to give "feedback"
         # Therefore the input dimension of self.num_states + self.num_actions
         self.critic = Critic(self.num_states + self.num_actions,
-                             hidden_dim, self.num_actions)
+                             hidden_dim, self.num_actions).to(device)
         self.critic_target = Critic(self.num_states + self.num_actions,
-                                    hidden_dim, self.num_actions)
+                                    hidden_dim, self.num_actions).to(device)
         # Make copy of network
         self.critic_target.load_state_dict(self.critic.state_dict())
 
@@ -102,8 +102,11 @@ class DDPGagent(Agent):
                           component.
         """
         # s = Variable(torch.from_numpy(state).float().unsqueeze(0))
-        s = torch.from_numpy(state).float()
-        action = self.actor.forward(s).detach().numpy()
+        s = torch.FloatTensor(state.reshape(1, -1)).to(device)
+        
+        # self.actor(state).cpu().data.numpy().flatten()
+
+        action = self.actor(s).cpu().data.numpy().flatten()
         return action
 
     def update(self, batch_size: int = 64, tau: float = None):
@@ -120,33 +123,44 @@ class DDPGagent(Agent):
             return
 
         # state, action, reward, next_state
-        s, a, r, next_s, _ = self.memory_buffer.sample(batch_size)
+        # s, a, r, next_s, _ = self.memory_buffer.sample(batch_size)
+        s, a, next_s, r, not_done = self.memory_buffer.sample(batch_size)
+
 
         # Create CPU tensors (for GPU use torch.cuda.FloatTensor)
-        s = torch.FloatTensor(s)
-        a = torch.FloatTensor(a)
-        r = torch.FloatTensor(r)
-        next_s = torch.FloatTensor(next_s)
+        # The new replay buffer implementation returns directly tensors
+        # s = torch.FloatTensor(s)
+        # a = torch.FloatTensor(a)
+        # r = torch.FloatTensor(r)
+        # next_s = torch.FloatTensor(next_s)
+
+        noise = (
+                    torch.randn_like(a) * self.policy_noise
+                ).clamp(-self.noise_clip, self.noise_clip)
+
+        next_action = (
+                        self.actor_target(next_s) + noise
+                      ).clamp(-self.max_action, self.max_action)
 
         # Calculate the critic loss ("feedback")
         # Old q value -> next action -> next q value -> loss
-        q_values = self.critic.forward(s, a)
-        next_actions = self.actor_target.forward(next_s).detach()
-        next_q = self.critic_target.forward(next_s, next_actions) # unsqueeze(2)
-        q_prime = r + self.gamma * next_q
+        q_values = self.critic(s, a)
+        # next_action = self.actor_target(next_s).detach()
+        next_q = self.critic_target(next_s, next_action)  # unsqueeze(2)
+        q_prime = r + (self.gamma * next_q)
         critic_loss = self.critic_loss_func(q_values, q_prime)
 
+        self.critic_optimizer.zero_grad()
+        critic_loss.backward()
+        self.critic_optimizer.step()
+
         # Calculate the actor loss
-        actor_loss = -self.critic.forward(s, self.actor.forward(s)).mean()
+        actor_loss = -self.critic(s, self.actor(s)).mean()
 
         # Updates!
         self.actor_optimizer.zero_grad()
         actor_loss.backward()
         self.actor_optimizer.step()
-
-        self.critic_optimizer.zero_grad()
-        critic_loss.backward()
-        self.critic_optimizer.step()
 
         if not tau:
             tau = self.tau
@@ -154,12 +168,12 @@ class DDPGagent(Agent):
         # Updates for the target networsk
         for t_param, param in zip(self.actor_target.parameters(),
                                   self.actor.parameters()):
-            update = tau * param.data + ((1 - tau) * t_param.data)
+            update = (tau * param.data) + ((1 - tau) * t_param.data)
             t_param.data.copy_(update)
 
         for t_param, param in zip(self.critic_target.parameters(),
                                   self.critic.parameters()):
-            update = tau * param.data + ((1 - tau) * t_param.data)
+            update = (tau * param.data) + ((1 - tau) * t_param.data)
             t_param.data.copy_(update)
 
     def run(self, env: object, steps: int = 100, render: bool = True):

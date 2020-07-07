@@ -78,6 +78,7 @@ class Trainer(object):
         """
         """
         self.path = f'models/{datetime.now().date()}/{model_name}'
+        self.path_trial = self.path
         if not trial:
             self.path_trial = f'models/{datetime.now().date()}/{model_name}'
         else:

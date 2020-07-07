@@ -57,7 +57,7 @@ def start_unity_baselines():
     action_noise = NormalActionNoise(mean=np.zeros(n_actions), sigma=0.1 * np.ones(n_actions))
 
     model = TD3_Baselines(MlpPolicy, env, action_noise=action_noise, verbose=1)
-    model.learn(total_timesteps=2e6, log_interval=10)
+    model.learn(total_timesteps=int(2e6), log_interval=10)
     model.save("td3_worm")
 
 def start_unity():

@@ -65,16 +65,16 @@ def start_unity():
     env = make_unity_env('./envs/worm_dynamic_one_agent/linux/worm_dynamic', 1, False)
 
     training = TD3_Training()
-    training.start_training(env, False)
+    training.start_training(env, load=False, der_activated=False)
     env.close()
 
 def start_gym_std():
-    env = gym.make("MountainCarContinuous-v0")
-    #env = gym.make("Pendulum-v0")
+    #env = gym.make("MountainCarContinuous-v0")
+    env = gym.make("Pendulum-v0")
 
     #Gym version with render
     training = TD3_Training_Gym()
-    training.start_training(env, load=False, der_activated=False)
+    training.start_training(env, render=False, load=False, der_activated=False)
     env.close()
 
 

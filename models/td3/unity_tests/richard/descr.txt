@@ -10,12 +10,15 @@ td3_6 baselines 2e6 241268
 
 
 
-td3_7 baselines 50000 242743
+td3_7 baselines 50000 242748
 td3_8 baselines 1e6 242744
 td3_9 baselines 1e6 242745
-td3_10 baselines 2e6 242746
-td3_11 baselines 2e6 242747
+td3_10 baselines 2e6 242749 FAILED
+td3_11 baselines 2e6 242754 FAILED
 
 max_timesteps = 1e6
 td3_12 tau=0.005 228754
 td3_13 tau=0.005 228755
+
+td3_14 baselines 2e6 242755
+td3_15 baselines 2e6 242756

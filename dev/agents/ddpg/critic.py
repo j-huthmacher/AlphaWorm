@@ -65,14 +65,8 @@ class Critic(nn.Module):
                 numpy.array: Feedback for taking the specific action in that
                 specific state.
         """
-
-        log.info(f"action {action.shape}")
-        log.info(f"state {state.shape}")
-
         # x = torch.cat([state, action.squeeze(1)], 1)
         x = torch.cat([state, action], 1)
-        
-        
         x = F.relu(self.input_layer(x))
 
         for layer in self.hidden_layer:

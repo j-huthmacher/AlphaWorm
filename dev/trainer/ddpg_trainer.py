@@ -21,6 +21,7 @@ import pandas as pd
 import pickle
 from pathlib import Path
 import torch
+from gym import wrappers
 
 class DDPGTrainer(Trainer):
     """ Trainer class to train a DDPG agent.
@@ -257,10 +258,8 @@ class DDPGTrainer(Trainer):
                                     self.config["gamma"],
                                     self.config["tau"])
 
-        
-
         self.ddpg_agent.max_action = max_action
-        
+
         replay_buffer = ReplayBuffer(state_dim, action_dim)
 
         rewards = []
@@ -286,7 +285,7 @@ class DDPGTrainer(Trainer):
             noise.reset()
             episode_reward = 0
 
-            if episode % 100 == 0 or (episode < 10):
+            if episode % 10 == 0 or True:
                 log.info(f"Episode-Step: {episode}/{episodes}")
 
             ############
@@ -300,12 +299,12 @@ class DDPGTrainer(Trainer):
                 # Exploration #
                 ###############
                 if overall_steps < explore_threshold * (training_steps * episodes):
-                    if step % 100 == 0 or (step < 10):
+                    if step % 50 == 0 : #or (step < 10):
                         log.info(f"Trainings-Step: {step}/{training_steps} (Explore)")
 
                     action = env.action_space.sample()
                 else:
-                    if step % 100 == 0 or (step < 10):
+                    if step % 50 == 0: # or (step < 10):
                         log.info(f"Trainings-Step: {step}/{training_steps}")
 
                     action = (
@@ -313,7 +312,9 @@ class DDPGTrainer(Trainer):
                         + np.random.normal(0, self.ddpg_agent.max_action * 0.1, size=self.ddpg_agent.num_actions)
                     ).clip(-self.ddpg_agent.max_action, self.ddpg_agent.max_action)               
 
-                action = np.array(action).reshape((1, 9))
+                # Not possible for pendulum!
+                if np.array(action).size > 1:
+                    action = np.array(action).reshape((1, 9))
 
                 self.track_action(action, step,
                                   training_steps)
@@ -324,8 +325,6 @@ class DDPGTrainer(Trainer):
                         if step < self.config["training_steps"]
                         else False)
                 done_bool = float(done)
-
-                log.info(action.shape)
 
                 replay_buffer.add(state, action, next_state, reward, done_bool)
 
@@ -363,32 +362,45 @@ class DDPGTrainer(Trainer):
             ########################
             log.info(f"Start Evaluation: {self.config['evaluation_steps']}")
             self.eval_episode_reward = 0
-            for _ in range(self.config["evaluation_steps"]):
-                eval_env = env
-                eval_env.action_space.seed(0)
+
+            eval_env = wrappers.Monitor(env, f'models/{datetime.now().date()}/{name}/',
+                                        force=True)
+            eval_env.action_space.seed(0)
+            # env.spec.timestep_limit = 1000
+            for step in range(self.config["evaluation_steps"]):
+                # eval_env = env
+                if step % 50 == 0 :# or (self.config['evaluation_steps'] < 10):
+                    log.info(f"Evaluation-Episode: {step}/{self.config['evaluation_steps']}")
 
                 state = eval_env.reset()
                 done = False
                 k = 0
                 while not done:
                     action = self.ddpg_agent.get_action(np.array(state))
-                    action = np.array(action).reshape((1, 9))
+
+                    # For pendulum
+                    if np.array(action).size > 1:
+                        action = np.array(action).reshape((1, 9))
                     # action += gaussian_noise()
                     # action = np.clip(action, -self.ddpg_agent.max_action,
                     #                  self.ddpg_agent.max_action)
 
-                    new_state, reward, done, _ = eval_env.step(action)
+                    state, reward, done, _ = eval_env.step(action)
 
-                    if False and render:
-                        eval_env.render()
+                    # Never render
+                    # if False and render:
+                    # eval_env.render()
                     self.eval_episode_reward += reward
 
-                    if self.config["evaluation_lim"] != None and self.config["evaluation_lim"] < k:
+                    if self.config["evaluation_lim"] is not None and self.config["evaluation_lim"] < k:
                         break
 
                     k += 1
 
-            log.info(f"Evaluation Reward: {self.eval_episode_reward/self.config['evaluation_steps']}")
+            eval_env.close()
+
+            if self.config['evaluation_steps'] > 0:
+                log.info(f"Evaluation Reward: {self.eval_episode_reward/self.config['evaluation_steps']}")
 
             self.eval_rewards.append(self.eval_episode_reward/self.config["evaluation_steps"])
 
@@ -398,6 +410,9 @@ class DDPGTrainer(Trainer):
             ################################
             # Persist Tracking per Episode #
             ################################
+            folder = Path(f'models/{datetime.now().date()}/{name}/')
+            folder.mkdir(parents=True, exist_ok=True)
+
             pd.DataFrame(self.eval_rewards).to_csv(f'models/{datetime.now().date()}/{name}/eval_rewards.csv')
 
             # Training rewards
@@ -411,7 +426,8 @@ class DDPGTrainer(Trainer):
                 pickle.dump(self.ddpg_agent, f)
 
         log.info("End episode!")
-
+        log.info("Close environment")
+        env.close()
 
     def start_training(self, env, trials: int = 1, render: bool = False,
                        name: str = None, training_steps: int = None,

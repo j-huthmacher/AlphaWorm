@@ -48,8 +48,8 @@ def main():
     # InitialTrainingExample.start_training(env)
     # env.close()
 
-    # train_ddpg()
-    train_ddpg_gym()
+    train_ddpg()
+    # train_ddpg_gym()
 
 
 def train_ddpg():
@@ -69,7 +69,7 @@ def train_ddpg():
     # trainer.train_baseline(env, name="DPPG-WormDomain-10-Baseline",
     #                        nb_epochs=1000, nb_epoch_cycles=50, nb_rollout_steps=200,
     #                        nb_train_steps=500, nb_eval_steps=500)
-    trainer.config["episodes"] = 1500
+    # trainer.config["episodes"] = 1500
     # trainer.config["training_steps"] = 10
     # trainer.config["episodes"] = 10
     # trainer.config["training_steps"] = 10
@@ -87,6 +87,9 @@ def train_ddpg_gym(env_name: str = "Pendulum-v0"):
     trainer = DDPGTrainer()
 
     log.info(f"Start DDPG training ({env_name})...")
+
+    trainer.config["episodes"] = 1000
+    trainer.config["training_steps"] = 700
 
     trainer.train(env, name="DPPG-{env_name}")
 

@@ -103,7 +103,6 @@ class DDPGagent(Agent):
         """
         # s = Variable(torch.from_numpy(state).float().unsqueeze(0))
         s = torch.FloatTensor(state.reshape(1, -1)).to(device)
-        
         # self.actor(state).cpu().data.numpy().flatten()
 
         action = self.actor(s).cpu().data.numpy().flatten()

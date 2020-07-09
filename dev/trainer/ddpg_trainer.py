@@ -147,7 +147,6 @@ class DDPGTrainer(Trainer):
         #############################
         for episode in range(episodes):
             state = env.reset()
-            noise.reset()
             episode_reward = 0
 
             if episode % 10 == 0:
@@ -172,6 +171,7 @@ class DDPGTrainer(Trainer):
                         log.info(f"Trainings-Step: {step}/{training_steps}")
 
                     action = self.ddpg_agent.get_action(np.array(state))
+
                     # Gaussian Noise. Used from TD3. Paper recommend OU Noise
                     noise = np.random.normal(0, self.ddpg_agent.max_action * 0.1, size=self.ddpg_agent.num_actions)
 
@@ -189,9 +189,9 @@ class DDPGTrainer(Trainer):
                 next_state, reward, done, _ = env.step(action)
 
                 # From TD3 implementation
-                done = (True
-                        if step < self.config["training_steps"]
-                        else False)
+                # done = (True
+                #         if step < self.config["training_steps"]
+                #         else False)
                 done_bool = float(done)
 
                 # Gather experiences
@@ -244,12 +244,12 @@ class DDPGTrainer(Trainer):
             else:
                 eval_env = env
 
-            eval_env.action_space.seed(0)
+            # env.action_space.seed(0)
             for step in range(self.config["evaluation_steps"]):
                 if step % 50 == 0:
                     log.info(f"Evaluation-Episode: {step}/{self.config['evaluation_steps']}")
 
-                state = eval_env.reset()
+                state = env.reset()
                 done = False
                 k = 0
                 while not done:
@@ -259,11 +259,10 @@ class DDPGTrainer(Trainer):
                     if np.array(action).size > 1:
                         action = np.array(action).reshape((1, 9))
 
-                    action = np.clip(action,
-                                     -self.ddpg_agent.max_action,
-                                     self.ddpg_agent.max_action)
+                    action = action.clip(-self.ddpg_agent.max_action,
+                                         self.ddpg_agent.max_action)
 
-                    state, reward, done, _ = eval_env.step(action)
+                    state, reward, done, _ = env.step(action)
 
                     self.eval_episode_reward += reward
 
@@ -274,8 +273,6 @@ class DDPGTrainer(Trainer):
                         break
 
                     k += 1
-
-            eval_env.close()
 
             if self.config['evaluation_steps'] > 0:
                 log.info(f"Evaluation Reward: {self.eval_episode_reward/self.config['evaluation_steps']}")

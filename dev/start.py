@@ -50,9 +50,20 @@ def make_unity_env(env_directory, num_env, visual, start_index=0):
 
 
 def main():
-    #start_unity()
-    start_unity_baselines()
+    #Start TD3 Unity Training
+    start_unity()
+
+    #Start TD3 Baseline Unity Training
+    #start_unity_baselines()
+
+    #Start TD3 Gym Training
     #start_gym_std()
+
+    #Start DDPG Unity Training
+    #train_ddpg()
+
+    #Start DDPG Gym Training
+    #train_ddpg_gym()
 
 
 def train_ddpg():

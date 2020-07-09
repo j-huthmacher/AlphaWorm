@@ -12,18 +12,29 @@ import os
 import time
 import gym
 
+from dev.utils.mlagent_utils import get_env
+from dev.trainer.ddpg_trainer import DDPGTrainer
+from dev.config.config import log
+
+"""
 from utils.mlagent_utils import get_env
 from trainer.ddpg_trainer import DDPGTrainer
-from config.config import log
-import gym
+from config.config import log"""
 
 
 #PATH TO ALGORITHM
 from stable_baselines.td3 import MlpPolicy
 from stable_baselines import TD3 as TD3_Baselines
 
+
+"""
 from td3.training import TD3_Training
 from td3.training_gym import TD3_Training_Gym
+"""
+
+from dev.td3.training import TD3_Training
+from dev.td3.training_gym import TD3_Training_Gym
+
 
 try:
     from mpi4py import MPI
@@ -51,13 +62,13 @@ def make_unity_env(env_directory, num_env, visual, start_index=0):
 
 def main():
     #Start TD3 Unity Training
-    start_unity()
+    #start_unity()
 
     #Start TD3 Baseline Unity Training
     #start_unity_baselines()
 
     #Start TD3 Gym Training
-    #start_gym_std()
+    start_gym_std()
 
     #Start DDPG Unity Training
     #train_ddpg()

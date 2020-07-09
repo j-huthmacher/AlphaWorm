@@ -1,23 +1,31 @@
-"""
+""" Implementation of trainer that trains the TD3 agent.
+
+    This class is responsible for the whole training procedure.
+    The functions and the concept is used from the td3/training.py and was
+    copied for debugging the DDPG implementation.
+
+    We recommend to use the correct td3 training in td3/training.py
+
     @author: jhuthmacher
 """
-import optuna
-from optuna.trial import FixedTrial
-import pickle
-
-import numpy as np
-from trainer.trainer import Trainer
-from agents import TD3agent, OUNoise, GaussianNoise, DynamicExperienceReplay, ReplayBuffer
-from config.config import log
-from shutil import copyfile
+####################
+# Default Packages #
+####################
 import json
-from collections import deque
-import os
 from datetime import datetime
-import pandas as pd
 import pickle
 from pathlib import Path
+
+####################
+# ML / RL Packages #
+####################
+import numpy as np
+import pandas as pd
 import torch
+
+from trainer import Trainer
+from agents import TD3agent, DynamicExperienceReplay, ReplayBuffer
+from config.config import log
 
 
 class TD3Trainer(Trainer):
@@ -29,6 +37,9 @@ class TD3Trainer(Trainer):
         """
         super(TD3Trainer, self).__init__()
 
+        ####################
+        # Trainings Config #
+        ####################
         self.config = {
             "seed": 0,  # Sets Gym, PyTorch and Numpy seeds
             "eval_freq": 5,  # How often (time steps) we evaluate
@@ -43,17 +54,26 @@ class TD3Trainer(Trainer):
             "policy_freq": 2,  # Frequency of delayed policy updates
             "save_model": True,  # Save model and optimizer parameters
             "episodes": 1e6,
-            "training_steps": 1e3, # Max env steps
+            "training_steps": 1e3,  # Max env steps
             "evaluation_steps": 10,
             "evaluation_lim": None
         }
 
     def train(self, env: object, render: bool = False, name: str = None):
+        """ Train method from td3/training.py
+
+            Parameters:
+            -----------
+                env: GymEnvironment or UnityEnvironment
+                    Environment in which the agent interacts
+                rende: bool
+                    Falg to decide if the intermediate steps should be rendered
+                name: str
+                    Name of the model/agent for tracking
         """
-        """
-        # Set seeds
-        # Set seeds
-        # env.seed(args.seed)
+        #############
+        # Set seeds #
+        #############
         env.action_space.seed(self.config["seed"])
         torch.manual_seed(self.config["seed"])
         np.random.seed(self.config["seed"])
@@ -84,7 +104,6 @@ class TD3Trainer(Trainer):
                                   self.config["policy_freq"])
 
         rewards = []
-        noise = OUNoise(env.action_space)
 
         episodes = self.config["episodes"]
         training_steps = self.config["training_steps"]
@@ -98,50 +117,47 @@ class TD3Trainer(Trainer):
         log.info("Parameter:")
         log.info(self.config)
 
+        #############################
+        # Start Trainings Procedure #
+        #############################
         for episode in range(episodes):
             state = env.reset()
-            noise.reset()
             episode_reward = 0
 
-            if episode % 100 == 0 or (episode < 10):
+            if episode % 50 == 0:
                 log.info(f"Episode-Step: {episode}/{episodes}")
 
             ############
             # Training #
             ############
             for step in range(training_steps):
-                if render:
-                    env.render()
 
                 ###############
                 # Exploration #
                 ###############
                 if episode < self.config["training_episodes"]:
-                    if step % 100 == 0 or (step < 10):
+                    if step % 50 == 0:
                         log.info(f"Trainings-Step: {step}/{training_steps} (Explore)")
 
                     action = env.action_space.sample()
                 else:
-                    if step % 100 == 0 or (step < 10):
+                    if step % 50 == 0:
                         log.info(f"Trainings-Step: {step}/{training_steps}")
+                    action = self.td3_agent.select_action(np.array(state))
+                    noise = np.random.normal(0, max_action * self.config["expl_noise"], size=action_dim)
 
-                    action = (
-                                self.td3_agent.select_action(np.array(state))
-                                + np.random.normal(0, max_action * self.config["expl_noise"], size=action_dim)
-                        ).clip(-max_action, max_action)
+                    action = (action + noise).clip(-max_action,
+                                                   max_action)
 
-                log.info(action.shape)
+                # Important for the Pendulum domain.
+                if np.array(action).size > 1:
+                    action = np.array(action).reshape((1, 9))
 
-                # Perform action
-                action = np.array(action).reshape((1, 9))
-                
                 next_state, reward, done, _ = env.step(action)
                 done = (True
                         if step < self.config["training_steps"]
                         else False)
                 done_bool = float(done)
-
-                log.info(action.shape)
 
                 # Store data in replay buffer
                 replay_buffer.add(state, action, next_state, reward, done_bool)
@@ -159,18 +175,20 @@ class TD3Trainer(Trainer):
             state, done = env.reset(), False
             episode_reward = 0
 
+            #################################
+            # Update neural nets (Learning) #
+            #################################
             if episode >= self.config["training_episodes"]:
                 # Only train after exploration
                 self.td3_agent.train(replay_buffer, self.config["batch_size"])
-                replay_buffer = ReplayBuffer(state_dim, action_dim)
+                # Reset replay buffer after training
+                # replay_buffer = ReplayBuffer(state_dim, action_dim)
 
             ########################
             # Evaluation per epoch #
             ########################
             log.info(f"Start Evaluation: {self.config['evaluation_steps']}")
-            # eval_env = gym.make(env_name)
             eval_env = env
-            # eval_env.seed(seed + 100)
             eval_env.action_space.seed(self.config['seed'] + 100)
 
             avg_reward = 0.
@@ -185,15 +203,13 @@ class TD3Trainer(Trainer):
                     state, reward, done, _ = eval_env.step(action)
                     avg_reward += reward
 
-                    if self.config["evaluation_lim"] != None and self.config["evaluation_lim"] < k:
-                       break
+                    if self.config["evaluation_lim"] is not None and self.config["evaluation_lim"] < k:
+                        break
 
                     k += 1
 
                 log.info("Eval Episode:  " + str(episode))
                 episode += 1
-
-                
 
             avg_reward /= self.config['evaluation_steps']
 
@@ -207,6 +223,9 @@ class TD3Trainer(Trainer):
             ################################
             # Persist Tracking per Episode #
             ################################
+            folder = Path(f'models/{datetime.now().date()}/{name}/')
+            folder.mkdir(parents=True, exist_ok=True)
+
             pd.DataFrame(self.eval_rewards).to_csv(f'models/{datetime.now().date()}/{name}/eval_rewards.csv')
 
             # Training rewards
@@ -215,7 +234,9 @@ class TD3Trainer(Trainer):
             with open(f'models/{datetime.now().date()}/{name}/config.json', "w+") as f:
                 json.dump(self.config, f)
 
-            # Agent
+            ##############
+            # Save Agent #
+            ##############
             with open(f'models/{datetime.now().date()}/{name}/td3_agent_trained.pickle', "wb+") as f:
                 pickle.dump(self.td3_agent, f)
 

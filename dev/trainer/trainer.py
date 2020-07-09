@@ -4,10 +4,12 @@
     @author: jhuthmacher
 """
 
-from optuna import Trial, Study
+import optuna
 from pathlib import Path
 from datetime import datetime
 import pandas as pd
+import numpy as np
+
 
 class Trainer(object):
     """ Abstract trainer object for bundle trainings procedures
@@ -23,59 +25,31 @@ class Trainer(object):
         self.curr_episode = 0
         self.successful_episdes = {}
 
-    def start_training(env: any, trials: int = 1, render: bool = False,
-                       name: str = None):
-        """ Function to exectue the individual training function.
+    def train(self, env: object, render: bool = False, name: str = None):
+        """ Standard train method for train an DDPG agent on an environment.
 
             Parameters:
             -----------
-                env: UnityEnvironment or GymEnvironment
-                    The environment the agent interacts in. Could be a Unity
-                    environment wrapped in a gym environment or directly a
-                    gym environment.
-                trials: int
-                    Number of training runs that are executed from the HPO
-                    library (trials = 2 means the train method is two times
-                    executed with different parameters)
-                render: bool
-                    Flag to decide if we want to render in case of a gym
-                    environment.
+                env: GymEnvironment or UnityEnvironment
+                    The environment that is used for training
+                render: bool (optional)
+                    For enable the rendering during training. Only usable
+                    for gym environments.
                 name: str
-                    A name for the model/agent that is used to store the best
-                    model.
+                    Name of the agents for storing the results etc.
         """
         raise NotImplementedError
 
-    def train_hpo(trial: Trial, env: any, render: bool = False, name: str = None,
-              study: Study = None):
-        """ Individual train function that implement the actual training procedure.
+    def track_setup(self, model_name: str, trial: optuna.Trial = None):
+        """ Initialization of the tracking et up. I.e. create folders and
+            save paths as class variables.
 
             Parameters:
             -----------
+                model_name: str
+                    Name of the model/agent you currently train.
                 trial: optuna.Trial
-                    The trail object from the handovered from the HPO library.
-                    This contains functionality for selecting hyper parameters.
-                env: UnityEnvironment or GymEnvironment
-                    The environemnt in which the agent should train.
-                render: bool
-                    Falg to decide if we want to render the steps in case of a
-                    gym environment.
-                name: str
-                    A name for the model/agent that is used to store the best
-                    model.
-                study: optuna.Study
-                    Study object that contains informationen about the training
-                    (parameters for each run, best parameter set etc.)
-            Return:
-            -------
-                reward: float
-                    Since we want to optimize the reward in our case we return
-                    the reward of the trainings run.
-        """
-        raise NotImplementedError
-
-    def track_setup(self, model_name: str, trial=None):
-        """
+                    Trial from HPO for tracking each trial separately.
         """
         self.path = f'models/{datetime.now().date()}/{model_name}'
         self.path_trial = self.path
@@ -91,7 +65,6 @@ class Trainer(object):
         # Create general directory
         folder = Path(self.path_trial)
         folder.mkdir(parents=True, exist_ok=True)
-
 
         # Create result directory
         folder = Path(self.path_trial + "/results")
@@ -109,8 +82,18 @@ class Trainer(object):
         with open(f'{self.path_trial}/results/successful_episodes.csv', 'w+') as f:
             f.write("episode,reqard,reward,training_step")
 
-    def track_action(self, action, step, num_steps):
-        """
+    def track_action(self, action: np.ndarray, step: int, num_steps: int):
+        """ Tracking actions for creating action history.
+
+            Parameters:
+            -----------
+                action: np.ndarray
+                    Action that should be tracked.
+                step: int
+                    The current step in which the action taked place
+                    (e.g. current trainings step)
+                num_steps: int
+                    Overall number of steps.
         """
         self.action_history.append(action)
 
@@ -120,14 +103,30 @@ class Trainer(object):
             self.action_history = []
             self.curr_episode += 1
 
-    def track_reward(self, reward, episode):
-        """
+    def track_reward(self, reward: float, episode: int):
+        """ Tracking rewards.
+
+            Parameters:
+            -----------
+                reward: float
+                    Reward for the corresponding episode.
+                episode: int
+                    Current episode to which the reward corresponds to.
         """
         with open(f'{self.path_trial}/results/rewards.csv', 'a') as f:
             f.write(f"\n{reward},{episode}")
 
-    def track_training_reward(self, reward, step, num_steps):
-        """
+    def track_training_reward(self, reward: float, step: int, num_steps: int):
+        """ Tracking the reward during training.
+
+            Parameters:
+            -----------
+                reward: float
+                    The reward to the corresponding training step.
+                step: int
+                    The current training step to which the reward corresponds to.
+                num_steps: int
+                    Overall number of steps.
         """
         self.training_rewards.append(reward)
 
@@ -137,8 +136,17 @@ class Trainer(object):
             self.training_rewards = []
             self.curr_episode += 1
 
-    def track_successful_episodes(self, episode, reward, training_step):
-        """
+    def track_successful_episodes(self, episode: int, reward: float, training_step: int):
+        """ Tracking successfull episodes.
+
+            Parameters:
+            -----------
+                episode: int
+                    Curreent episode.
+                reward: float
+                    Reward corresponding to the current episode.
+                training_step: int
+                    The training steps in which the agent reached the goal.
         """
         with open(f'{self.path_trial}/results/successful_episodes.csv', 'a') as f:
             f.write(f"\n{episode},{reward},{training_step}")

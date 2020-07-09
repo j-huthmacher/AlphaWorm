@@ -14,11 +14,9 @@ import torch
 
 
 class MemoryBuffer:
+    """ Simple replay buffer implmentation
     """
-        This class represents a memory buffer (or replay buffer)
-        that can be used for RL.
-    """
-    def __init__(self, max_size: int):
+    def __init__(self, max_size: int = 1e6):
         """ Initilaization of a memory buffer.
 
             Parameters:
@@ -83,11 +81,15 @@ class MemoryBuffer:
                 next_state_batch, done_batch)
 
     def __len__(self):
+        """ Returns the length of the buffer.
+        """
         return len(self.buffer)
 
 
 class ReplayBuffer(object):
-    """
+    """ Alternative implmentation of the replay buffer.
+
+        @author: sommerfe
     """
     def __init__(self, state_dim, action_dim, max_size=int(1e6)):
         self.max_size = max_size
@@ -126,8 +128,11 @@ class ReplayBuffer(object):
     def __len__(self):
         return len(self.state)
 
-
 class DynamicExperienceReplay(object):
+    """ Special form of a replay buffer.
+
+        @author: sommerfe
+    """
     def __init__(self, state_dim, action_dim, der_size=int(1), max_size=int(1e6)):
         self.state_dim = state_dim
         self.action_dim = action_dim

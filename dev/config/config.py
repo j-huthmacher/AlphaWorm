@@ -10,14 +10,9 @@ path = 'logs/'
 folder = Path(path)
 folder.mkdir(parents=True, exist_ok=True)
 
-# log.root.handlers = [
-#     log.FileHandler(f'{path}/{datetime.now().date()}.log', mode='a'),
-#     # log.StreamHandler()
-# ]
-
-
 # Custom logger configuration.
-logFormatter = log.Formatter('%(asctime)s %(levelname)s: %(message)s', datefmt='%d.%m.%Y %H:%M:%S')
+logFormatter = log.Formatter('%(asctime)s %(levelname)s: %(message)s',
+                             datefmt='%d.%m.%Y %H:%M:%S')
 
 log.basicConfig(format='%(asctime)s %(levelname)s: %(message)s',
                 datefmt='%d.%m.%Y %H:%M:%S',

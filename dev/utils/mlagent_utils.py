@@ -10,12 +10,11 @@ from gym_unity.envs import UnityToGymWrapper
 
 
 def get_env(env_directory: str, visual: bool, start_index: int = 0):
+    """ For loading the evironment
+    """
 
-    unity_env = UnityEnvironment(env_directory, seed=1234,
+    unity_env = UnityEnvironment(env_directory, seed=0,
                                  no_graphics=not visual)
     env = UnityToGymWrapper(unity_env, uint8_visual=False)
-
-    # env = Monitor(env, logger.get_dir() and 
-    #               os.path.join(logger.get_dir(), str(rank)))
 
     return env

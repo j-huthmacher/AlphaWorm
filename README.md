@@ -25,6 +25,11 @@ If the code is already transfered, one can just start the start.sh script to sta
 #### TD3
 All hyperparameters are already set as default and that is what is working and should not be changed.
 
+#### DDPG
+You can find the DDPG implementation and the required dependent component under the following link [https://github.com/j-huthmacher/AlphaWorm/tree/master/dev/agents/ddpg](https://github.com/j-huthmacher/AlphaWorm/tree/master/dev/agents/ddpg). Except the `replay buffer` which is stored in the `memory_buffer.py` under [https://github.com/j-huthmacher/AlphaWorm/tree/master/dev/agents](https://github.com/j-huthmacher/AlphaWorm/tree/master/dev/agents)
+
+For using the DDPG implementation please have a look on this notebook [https://github.com/j-huthmacher/AlphaWorm/blob/master/dev/notebooks/jh-alpha-worm-ddpg.ipynb](https://github.com/j-huthmacher/AlphaWorm/blob/master/dev/notebooks/jh-alpha-worm-ddpg.ipynb) that explains the general way how to use the implmentation.
+
 ### Errors
 ## Tensorflow
 ```

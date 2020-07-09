@@ -12,6 +12,12 @@ import os
 import time
 import gym
 
+from utils.mlagent_utils import get_env
+from trainer.ddpg_trainer import DDPGTrainer
+from config.config import log
+import gym
+
+
 #PATH TO ALGORITHM
 from stable_baselines.td3 import MlpPolicy
 from stable_baselines import TD3 as TD3_Baselines
@@ -48,8 +54,64 @@ def main():
     start_unity_baselines()
     #start_gym_std()
 
+
+def train_ddpg():
+    """
+        @author: jhuthmacher
+    """
+    # env = "envs/worm_dynamic_one_agent/win/UnityEnvironment"
+    env = "./envs/worm_dynamic_one_agent/linux/worm_dynamic"
+    env = get_env(env, False)
+
+    trainer = DDPGTrainer()
+
+    log.info("Start DDPG training (WormDomain)...")
+
+    # trainer.train(env, name="DPPG-WormDomain-9-GaussianNoise-Clipping")
+
+    # trainer.train_baseline(env, name="DPPG-WormDomain-10-Baseline",
+    #                        nb_epochs=1000, nb_epoch_cycles=50, nb_rollout_steps=200,
+    #                        nb_train_steps=500, nb_eval_steps=500)
+    # trainer.config["episodes"] = 1500
+    # trainer.config["training_steps"] = 10
+    # trainer.config["episodes"] = 10
+    # trainer.config["training_steps"] = 10
+    # trainer.config["evaluation_lim"] = 10
+    trainer.train(env, name="DPPG-WormDomain")
+
+    log.info("Training done!")
+
+
+def train_ddpg_gym(env_name: str = "Pendulum-v0"):
+    """
+    """
+    env = gym.make(env_name)
+
+    trainer = DDPGTrainer()
+
+    log.info(f"Start DDPG training ({env_name})...")
+
+    trainer.config["episodes"] = 1000
+    trainer.config["training_steps"] = 700
+
+    trainer.train(env, name="DPPG-{env_name}")
+
+    # trainer.train_baseline(env, name=f"DPPG-{env_name}-2-Longer-Training",
+    #                        nb_epochs=300, nb_epoch_cycles=100, nb_rollout_steps=300,
+    #                        nb_train_steps=600, nb_eval_steps=600)
+
+    # trainer.train_baseline(env, name=f"DPPG-{env_name}-2", render=False)
+
+    log.info("Training done!")
+    
 def start_unity_baselines():
     #   Set to FALSE for CIP-Pool execution
+    # env = make_unity_env('./envs/worm_dynamic_one_agent/linux/worm_dynamic', 1, False)
+    # InitialTrainingExample.start_training(env)
+    # env.close()
+
+    train_ddpg()
+    # train_ddpg_gym()
     env = make_unity_env('./envs/worm_dynamic_one_agent/linux/worm_dynamic', 1, False)
 
     # The noise objects for TD3

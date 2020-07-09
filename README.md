@@ -1,6 +1,11 @@
 # AlphaWorm
 Student project where we use reinforcement learning to solve the worm domain of Unity ML.
 
+## Package Strucute
+A brief introduction to our package structure.
+
+
+
 ## Usage
 ### Prerequisites:
 Local

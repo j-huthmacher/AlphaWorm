@@ -1,0 +1,13 @@
+{
+    "n_layers": 2,
+    "n_units_l0": 50,
+    "n_units_l1": 134,
+    "actor_lr": 0.009907468878926936,
+    "critic_lr": 0.007455942159747339,
+    "gamma": 0.8120546445261139,
+    "tau": 0.08018827572150175,
+    "training_steps": 959,
+    "episodes": 1143,
+    "explore_threshold": 0.2660122292172103,
+    "batch_size": 33
+}

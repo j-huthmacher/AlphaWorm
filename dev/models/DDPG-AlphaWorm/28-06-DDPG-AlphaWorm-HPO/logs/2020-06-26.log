@@ -1,0 +1,1052 @@
+26.06.2020 15:58:02 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 15:58:02 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 15:58:02 INFO: Start trial#0
+26.06.2020 15:58:03 INFO: Start episodes (5) with 800 steps.
+26.06.2020 16:02:35 INFO: End episode!
+26.06.2020 16:02:35 INFO: End trial#0
+26.06.2020 20:10:43 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 20:10:43 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 20:10:43 INFO: Start trial#0
+26.06.2020 20:10:43 INFO: Start episodes (5) with 1000 steps.
+26.06.2020 20:30:11 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 20:30:19 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 20:30:20 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 20:30:20 INFO: Start trial#0
+26.06.2020 20:30:30 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 20:31:45 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 20:31:46 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 20:31:46 INFO: Start trial#0
+26.06.2020 20:31:54 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 20:32:51 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 20:32:51 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 20:32:51 INFO: Start trial#0
+26.06.2020 20:32:58 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 20:33:32 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 20:33:32 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 20:33:32 INFO: Start trial#0
+26.06.2020 20:33:32 INFO: Start episodes (2) with 1000 steps.
+26.06.2020 20:33:38 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 20:34:16 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 20:34:17 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 20:34:17 INFO: Start trial#0
+26.06.2020 20:34:17 INFO: Start episodes (2) with 1000 steps.
+26.06.2020 20:34:48 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 20:34:55 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 20:34:55 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 20:34:55 INFO: Start trial#0
+26.06.2020 20:34:55 INFO: Start episodes (2) with 1000 steps.
+26.06.2020 20:35:03 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 20:35:37 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 20:35:38 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 20:35:38 INFO: Start trial#0
+26.06.2020 20:35:38 INFO: Start episodes (2) with 1000 steps.
+26.06.2020 20:37:44 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 21:53:30 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 21:53:31 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 21:53:31 INFO: Start trial#0
+26.06.2020 21:53:31 INFO: Start episodes (2) with 400 steps.
+26.06.2020 21:53:31 INFO: Trainings-Step: 1
+26.06.2020 21:53:31 INFO: Trainings-Step: 2
+26.06.2020 21:53:31 INFO: Trainings-Step: 3
+26.06.2020 21:53:31 INFO: Trainings-Step: 4
+26.06.2020 21:53:31 INFO: Trainings-Step: 5
+26.06.2020 21:53:31 INFO: Trainings-Step: 6
+26.06.2020 21:53:31 INFO: Trainings-Step: 7
+26.06.2020 21:53:31 INFO: Trainings-Step: 8
+26.06.2020 21:53:32 INFO: Trainings-Step: 9
+26.06.2020 21:53:32 INFO: Trainings-Step: 11
+26.06.2020 21:53:32 INFO: Trainings-Step: 12
+26.06.2020 21:53:32 INFO: Trainings-Step: 13
+26.06.2020 21:53:32 INFO: Trainings-Step: 14
+26.06.2020 21:53:32 INFO: Trainings-Step: 15
+26.06.2020 21:53:32 INFO: Trainings-Step: 16
+26.06.2020 21:53:32 INFO: Trainings-Step: 17
+26.06.2020 21:53:32 INFO: Trainings-Step: 18
+26.06.2020 21:53:32 INFO: Trainings-Step: 19
+26.06.2020 21:53:32 INFO: Trainings-Step: 21
+26.06.2020 21:53:32 INFO: Trainings-Step: 22
+26.06.2020 21:53:32 INFO: Trainings-Step: 23
+26.06.2020 21:53:33 INFO: Trainings-Step: 24
+26.06.2020 21:53:33 INFO: Trainings-Step: 25
+26.06.2020 21:53:33 INFO: Trainings-Step: 26
+26.06.2020 21:53:33 INFO: Trainings-Step: 27
+26.06.2020 21:53:33 INFO: Trainings-Step: 28
+26.06.2020 21:53:33 INFO: Trainings-Step: 29
+26.06.2020 21:53:33 INFO: Trainings-Step: 31
+26.06.2020 21:53:33 INFO: Trainings-Step: 32
+26.06.2020 21:53:33 INFO: Trainings-Step: 33
+26.06.2020 21:53:33 INFO: Trainings-Step: 34
+26.06.2020 21:53:33 INFO: Trainings-Step: 35
+26.06.2020 21:53:33 INFO: Trainings-Step: 36
+26.06.2020 21:53:33 INFO: Trainings-Step: 37
+26.06.2020 21:53:33 INFO: Trainings-Step: 38
+26.06.2020 21:53:34 INFO: Trainings-Step: 39
+26.06.2020 21:53:34 INFO: Trainings-Step: 41
+26.06.2020 21:53:34 INFO: Trainings-Step: 42
+26.06.2020 21:53:34 INFO: Trainings-Step: 43
+26.06.2020 21:53:34 INFO: Trainings-Step: 44
+26.06.2020 21:53:34 INFO: Trainings-Step: 45
+26.06.2020 21:53:34 INFO: Trainings-Step: 46
+26.06.2020 21:53:34 INFO: Trainings-Step: 47
+26.06.2020 21:53:34 INFO: Trainings-Step: 48
+26.06.2020 21:53:34 INFO: Trainings-Step: 49
+26.06.2020 21:53:34 INFO: Trainings-Step: 51
+26.06.2020 21:53:34 INFO: Trainings-Step: 52
+26.06.2020 21:53:34 INFO: Trainings-Step: 53
+26.06.2020 21:53:35 INFO: Trainings-Step: 54
+26.06.2020 21:53:35 INFO: Trainings-Step: 55
+26.06.2020 21:53:35 INFO: Trainings-Step: 56
+26.06.2020 21:53:35 INFO: Trainings-Step: 57
+26.06.2020 21:53:35 INFO: Trainings-Step: 58
+26.06.2020 21:53:35 INFO: Trainings-Step: 59
+26.06.2020 21:53:35 INFO: Trainings-Step: 61
+26.06.2020 21:53:35 INFO: Trainings-Step: 62
+26.06.2020 21:53:35 INFO: Trainings-Step: 63
+26.06.2020 21:53:35 INFO: Trainings-Step: 64
+26.06.2020 21:53:35 INFO: Trainings-Step: 65
+26.06.2020 21:53:35 INFO: Trainings-Step: 66
+26.06.2020 21:53:35 INFO: Trainings-Step: 67
+26.06.2020 21:53:35 INFO: Trainings-Step: 68
+26.06.2020 21:53:36 INFO: Trainings-Step: 69
+26.06.2020 21:53:36 INFO: Trainings-Step: 71
+26.06.2020 21:53:36 INFO: Trainings-Step: 72
+26.06.2020 21:53:36 INFO: Trainings-Step: 73
+26.06.2020 21:53:36 INFO: Trainings-Step: 74
+26.06.2020 21:53:36 INFO: Trainings-Step: 75
+26.06.2020 21:53:36 INFO: Trainings-Step: 76
+26.06.2020 21:53:36 INFO: Trainings-Step: 77
+26.06.2020 21:53:36 INFO: Trainings-Step: 78
+26.06.2020 21:53:36 INFO: Trainings-Step: 79
+26.06.2020 21:53:36 INFO: Trainings-Step: 81
+26.06.2020 21:53:36 INFO: Trainings-Step: 82
+26.06.2020 21:53:36 INFO: Trainings-Step: 83
+26.06.2020 21:53:37 INFO: Trainings-Step: 84
+26.06.2020 21:53:37 INFO: Trainings-Step: 85
+26.06.2020 21:53:37 INFO: Trainings-Step: 86
+26.06.2020 21:53:37 INFO: Trainings-Step: 87
+26.06.2020 21:53:37 INFO: Trainings-Step: 88
+26.06.2020 21:53:37 INFO: Trainings-Step: 89
+26.06.2020 21:53:37 INFO: Trainings-Step: 91
+26.06.2020 21:53:37 INFO: Trainings-Step: 92
+26.06.2020 21:53:37 INFO: Trainings-Step: 93
+26.06.2020 21:53:37 INFO: Trainings-Step: 94
+26.06.2020 21:53:37 INFO: Trainings-Step: 95
+26.06.2020 21:53:37 INFO: Trainings-Step: 96
+26.06.2020 21:53:37 INFO: Trainings-Step: 97
+26.06.2020 21:53:37 INFO: Trainings-Step: 98
+26.06.2020 21:53:38 INFO: Trainings-Step: 99
+26.06.2020 21:53:38 INFO: Trainings-Step: 101
+26.06.2020 21:53:38 INFO: Trainings-Step: 102
+26.06.2020 21:53:38 INFO: Trainings-Step: 103
+26.06.2020 21:53:38 INFO: Trainings-Step: 104
+26.06.2020 21:53:38 INFO: Trainings-Step: 105
+26.06.2020 21:53:38 INFO: Trainings-Step: 106
+26.06.2020 21:53:38 INFO: Trainings-Step: 107
+26.06.2020 21:53:38 INFO: Trainings-Step: 108
+26.06.2020 21:53:38 INFO: Trainings-Step: 109
+26.06.2020 21:53:38 INFO: Trainings-Step: 111
+26.06.2020 21:53:38 INFO: Trainings-Step: 112
+26.06.2020 21:53:38 INFO: Trainings-Step: 113
+26.06.2020 21:53:39 INFO: Trainings-Step: 114
+26.06.2020 21:53:39 INFO: Trainings-Step: 115
+26.06.2020 21:53:39 INFO: Trainings-Step: 116
+26.06.2020 21:53:39 INFO: Trainings-Step: 117
+26.06.2020 21:53:39 INFO: Trainings-Step: 118
+26.06.2020 21:53:39 INFO: Trainings-Step: 119
+26.06.2020 21:53:39 INFO: Trainings-Step: 121
+26.06.2020 21:53:39 INFO: Trainings-Step: 122
+26.06.2020 21:53:39 INFO: Trainings-Step: 123
+26.06.2020 21:53:39 INFO: Trainings-Step: 124
+26.06.2020 21:53:39 INFO: Trainings-Step: 125
+26.06.2020 21:53:39 INFO: Trainings-Step: 126
+26.06.2020 21:53:39 INFO: Trainings-Step: 127
+26.06.2020 21:53:39 INFO: Trainings-Step: 128
+26.06.2020 21:53:40 INFO: Trainings-Step: 129
+26.06.2020 21:53:40 INFO: Trainings-Step: 131
+26.06.2020 21:53:40 INFO: Trainings-Step: 132
+26.06.2020 21:53:40 INFO: Trainings-Step: 133
+26.06.2020 21:53:40 INFO: Trainings-Step: 134
+26.06.2020 21:53:40 INFO: Trainings-Step: 135
+26.06.2020 21:53:40 INFO: Trainings-Step: 136
+26.06.2020 21:53:40 INFO: Trainings-Step: 137
+26.06.2020 21:53:40 INFO: Trainings-Step: 138
+26.06.2020 21:53:40 INFO: Trainings-Step: 139
+26.06.2020 21:53:40 INFO: Trainings-Step: 141
+26.06.2020 21:53:40 INFO: Trainings-Step: 142
+26.06.2020 21:53:40 INFO: Trainings-Step: 143
+26.06.2020 21:53:41 INFO: Trainings-Step: 144
+26.06.2020 21:53:41 INFO: Trainings-Step: 145
+26.06.2020 21:53:41 INFO: Trainings-Step: 146
+26.06.2020 21:53:41 INFO: Trainings-Step: 147
+26.06.2020 21:53:41 INFO: Trainings-Step: 148
+26.06.2020 21:53:41 INFO: Trainings-Step: 149
+26.06.2020 21:53:41 INFO: Trainings-Step: 151
+26.06.2020 21:53:41 INFO: Trainings-Step: 152
+26.06.2020 21:53:41 INFO: Trainings-Step: 153
+26.06.2020 21:53:41 INFO: Trainings-Step: 154
+26.06.2020 21:53:41 INFO: Trainings-Step: 155
+26.06.2020 21:53:41 INFO: Trainings-Step: 156
+26.06.2020 21:53:41 INFO: Trainings-Step: 157
+26.06.2020 21:53:41 INFO: Trainings-Step: 158
+26.06.2020 21:53:42 INFO: Trainings-Step: 159
+26.06.2020 21:53:42 INFO: Trainings-Step: 161
+26.06.2020 21:53:42 INFO: Trainings-Step: 162
+26.06.2020 21:53:42 INFO: Trainings-Step: 163
+26.06.2020 21:53:42 INFO: Trainings-Step: 164
+26.06.2020 21:53:42 INFO: Trainings-Step: 165
+26.06.2020 21:53:42 INFO: Trainings-Step: 166
+26.06.2020 21:53:42 INFO: Trainings-Step: 167
+26.06.2020 21:53:42 INFO: Trainings-Step: 168
+26.06.2020 21:53:42 INFO: Trainings-Step: 169
+26.06.2020 21:53:42 INFO: Trainings-Step: 171
+26.06.2020 21:53:42 INFO: Trainings-Step: 172
+26.06.2020 21:53:42 INFO: Trainings-Step: 173
+26.06.2020 21:53:43 INFO: Trainings-Step: 174
+26.06.2020 21:53:43 INFO: Trainings-Step: 175
+26.06.2020 21:53:43 INFO: Trainings-Step: 176
+26.06.2020 21:53:43 INFO: Trainings-Step: 177
+26.06.2020 21:53:43 INFO: Trainings-Step: 178
+26.06.2020 21:53:43 INFO: Trainings-Step: 179
+26.06.2020 21:53:43 INFO: Trainings-Step: 181
+26.06.2020 21:53:43 INFO: Trainings-Step: 182
+26.06.2020 21:53:43 INFO: Trainings-Step: 183
+26.06.2020 21:53:43 INFO: Trainings-Step: 184
+26.06.2020 21:53:43 INFO: Trainings-Step: 185
+26.06.2020 21:53:43 INFO: Trainings-Step: 186
+26.06.2020 21:53:43 INFO: Trainings-Step: 187
+26.06.2020 21:53:43 INFO: Trainings-Step: 188
+26.06.2020 21:53:44 INFO: Trainings-Step: 189
+26.06.2020 21:53:44 INFO: Trainings-Step: 191
+26.06.2020 21:53:44 INFO: Trainings-Step: 192
+26.06.2020 21:53:44 INFO: Trainings-Step: 193
+26.06.2020 21:53:44 INFO: Trainings-Step: 194
+26.06.2020 21:53:44 INFO: Trainings-Step: 195
+26.06.2020 21:53:44 INFO: Trainings-Step: 196
+26.06.2020 21:53:44 INFO: Trainings-Step: 197
+26.06.2020 21:53:44 INFO: Trainings-Step: 198
+26.06.2020 21:53:44 INFO: Trainings-Step: 199
+26.06.2020 21:53:44 INFO: Trainings-Step: 201
+26.06.2020 21:53:44 INFO: Trainings-Step: 202
+26.06.2020 21:53:44 INFO: Trainings-Step: 203
+26.06.2020 21:53:45 INFO: Trainings-Step: 204
+26.06.2020 21:53:45 INFO: Trainings-Step: 205
+26.06.2020 21:53:45 INFO: Trainings-Step: 206
+26.06.2020 21:53:45 INFO: Trainings-Step: 207
+26.06.2020 21:53:45 INFO: Trainings-Step: 208
+26.06.2020 21:53:45 INFO: Trainings-Step: 209
+26.06.2020 21:53:45 INFO: Trainings-Step: 211
+26.06.2020 21:53:45 INFO: Trainings-Step: 212
+26.06.2020 21:53:45 INFO: Trainings-Step: 213
+26.06.2020 21:53:45 INFO: Trainings-Step: 214
+26.06.2020 21:53:45 INFO: Trainings-Step: 215
+26.06.2020 21:53:45 INFO: Trainings-Step: 216
+26.06.2020 21:53:45 INFO: Trainings-Step: 217
+26.06.2020 21:53:45 INFO: Trainings-Step: 218
+26.06.2020 21:53:46 INFO: Trainings-Step: 219
+26.06.2020 21:53:46 INFO: Trainings-Step: 221
+26.06.2020 21:53:46 INFO: Trainings-Step: 222
+26.06.2020 21:53:46 INFO: Trainings-Step: 223
+26.06.2020 21:53:46 INFO: Trainings-Step: 224
+26.06.2020 21:53:46 INFO: Trainings-Step: 225
+26.06.2020 21:53:46 INFO: Trainings-Step: 226
+26.06.2020 21:53:46 INFO: Trainings-Step: 227
+26.06.2020 21:53:46 INFO: Trainings-Step: 228
+26.06.2020 21:53:46 INFO: Trainings-Step: 229
+26.06.2020 21:53:46 INFO: Trainings-Step: 231
+26.06.2020 21:53:46 INFO: Trainings-Step: 232
+26.06.2020 21:53:46 INFO: Trainings-Step: 233
+26.06.2020 21:53:47 INFO: Trainings-Step: 234
+26.06.2020 21:53:47 INFO: Trainings-Step: 235
+26.06.2020 21:53:47 INFO: Trainings-Step: 236
+26.06.2020 21:53:47 INFO: Trainings-Step: 237
+26.06.2020 21:53:47 INFO: Trainings-Step: 238
+26.06.2020 21:53:47 INFO: Trainings-Step: 239
+26.06.2020 21:53:47 INFO: Trainings-Step: 241
+26.06.2020 21:53:47 INFO: Trainings-Step: 242
+26.06.2020 21:53:47 INFO: Trainings-Step: 243
+26.06.2020 21:53:47 INFO: Trainings-Step: 244
+26.06.2020 21:53:47 INFO: Trainings-Step: 245
+26.06.2020 21:53:47 INFO: Trainings-Step: 246
+26.06.2020 21:53:47 INFO: Trainings-Step: 247
+26.06.2020 21:53:47 INFO: Trainings-Step: 248
+26.06.2020 21:53:48 INFO: Trainings-Step: 249
+26.06.2020 21:53:48 INFO: Trainings-Step: 251
+26.06.2020 21:53:48 INFO: Trainings-Step: 252
+26.06.2020 21:53:48 INFO: Trainings-Step: 253
+26.06.2020 21:53:48 INFO: Trainings-Step: 254
+26.06.2020 21:53:48 INFO: Trainings-Step: 255
+26.06.2020 21:53:48 INFO: Trainings-Step: 256
+26.06.2020 21:53:48 INFO: Trainings-Step: 257
+26.06.2020 21:53:48 INFO: Trainings-Step: 258
+26.06.2020 21:53:48 INFO: Trainings-Step: 259
+26.06.2020 21:53:48 INFO: Trainings-Step: 261
+26.06.2020 21:53:48 INFO: Trainings-Step: 262
+26.06.2020 21:53:48 INFO: Trainings-Step: 263
+26.06.2020 21:53:49 INFO: Trainings-Step: 264
+26.06.2020 21:53:49 INFO: Trainings-Step: 265
+26.06.2020 21:53:49 INFO: Trainings-Step: 266
+26.06.2020 21:53:49 INFO: Trainings-Step: 267
+26.06.2020 21:53:49 INFO: Trainings-Step: 268
+26.06.2020 21:53:49 INFO: Trainings-Step: 269
+26.06.2020 21:53:49 INFO: Trainings-Step: 271
+26.06.2020 21:53:49 INFO: Trainings-Step: 272
+26.06.2020 21:53:49 INFO: Trainings-Step: 273
+26.06.2020 21:53:49 INFO: Trainings-Step: 274
+26.06.2020 21:53:49 INFO: Trainings-Step: 275
+26.06.2020 21:53:49 INFO: Trainings-Step: 276
+26.06.2020 21:53:49 INFO: Trainings-Step: 277
+26.06.2020 21:53:49 INFO: Trainings-Step: 278
+26.06.2020 21:53:50 INFO: Trainings-Step: 279
+26.06.2020 21:53:50 INFO: Trainings-Step: 281
+26.06.2020 21:53:50 INFO: Trainings-Step: 282
+26.06.2020 21:53:50 INFO: Trainings-Step: 283
+26.06.2020 21:53:50 INFO: Trainings-Step: 284
+26.06.2020 21:53:50 INFO: Trainings-Step: 285
+26.06.2020 21:53:50 INFO: Trainings-Step: 286
+26.06.2020 21:53:50 INFO: Trainings-Step: 287
+26.06.2020 21:53:50 INFO: Trainings-Step: 288
+26.06.2020 21:53:50 INFO: Trainings-Step: 289
+26.06.2020 21:53:50 INFO: Trainings-Step: 291
+26.06.2020 21:53:50 INFO: Trainings-Step: 292
+26.06.2020 21:53:50 INFO: Trainings-Step: 293
+26.06.2020 21:53:51 INFO: Trainings-Step: 294
+26.06.2020 21:53:51 INFO: Trainings-Step: 295
+26.06.2020 21:53:51 INFO: Trainings-Step: 296
+26.06.2020 21:53:51 INFO: Trainings-Step: 297
+26.06.2020 21:53:51 INFO: Trainings-Step: 298
+26.06.2020 21:53:51 INFO: Trainings-Step: 299
+26.06.2020 21:53:51 INFO: Trainings-Step: 301
+26.06.2020 21:53:51 INFO: Trainings-Step: 302
+26.06.2020 21:53:51 INFO: Trainings-Step: 303
+26.06.2020 21:53:51 INFO: Trainings-Step: 304
+26.06.2020 21:53:51 INFO: Trainings-Step: 305
+26.06.2020 21:53:51 INFO: Trainings-Step: 306
+26.06.2020 21:53:51 INFO: Trainings-Step: 307
+26.06.2020 21:53:51 INFO: Trainings-Step: 308
+26.06.2020 21:53:52 INFO: Trainings-Step: 309
+26.06.2020 21:53:52 INFO: Trainings-Step: 311
+26.06.2020 21:53:52 INFO: Trainings-Step: 312
+26.06.2020 21:53:52 INFO: Trainings-Step: 313
+26.06.2020 21:53:52 INFO: Trainings-Step: 314
+26.06.2020 21:53:52 INFO: Trainings-Step: 315
+26.06.2020 21:53:52 INFO: Trainings-Step: 316
+26.06.2020 21:53:52 INFO: Trainings-Step: 317
+26.06.2020 21:53:52 INFO: Trainings-Step: 318
+26.06.2020 21:53:52 INFO: Trainings-Step: 319
+26.06.2020 21:53:52 INFO: Trainings-Step: 321
+26.06.2020 21:53:52 INFO: Trainings-Step: 322
+26.06.2020 21:53:52 INFO: Trainings-Step: 323
+26.06.2020 21:53:53 INFO: Trainings-Step: 324
+26.06.2020 21:53:53 INFO: Trainings-Step: 325
+26.06.2020 21:53:53 INFO: Trainings-Step: 326
+26.06.2020 21:53:53 INFO: Trainings-Step: 327
+26.06.2020 21:53:53 INFO: Trainings-Step: 328
+26.06.2020 21:53:53 INFO: Trainings-Step: 329
+26.06.2020 21:53:53 INFO: Trainings-Step: 331
+26.06.2020 21:53:53 INFO: Trainings-Step: 332
+26.06.2020 21:53:53 INFO: Trainings-Step: 333
+26.06.2020 21:53:53 INFO: Trainings-Step: 334
+26.06.2020 21:53:53 INFO: Trainings-Step: 335
+26.06.2020 21:53:53 INFO: Trainings-Step: 336
+26.06.2020 21:53:53 INFO: Trainings-Step: 337
+26.06.2020 21:53:53 INFO: Trainings-Step: 338
+26.06.2020 21:53:54 INFO: Trainings-Step: 339
+26.06.2020 21:53:54 INFO: Trainings-Step: 341
+26.06.2020 21:53:54 INFO: Trainings-Step: 342
+26.06.2020 21:53:54 INFO: Trainings-Step: 343
+26.06.2020 21:53:54 INFO: Trainings-Step: 344
+26.06.2020 21:53:54 INFO: Trainings-Step: 345
+26.06.2020 21:53:54 INFO: Trainings-Step: 346
+26.06.2020 21:53:54 INFO: Trainings-Step: 347
+26.06.2020 21:53:54 INFO: Trainings-Step: 348
+26.06.2020 21:53:54 INFO: Trainings-Step: 349
+26.06.2020 21:53:54 INFO: Trainings-Step: 351
+26.06.2020 21:53:54 INFO: Trainings-Step: 352
+26.06.2020 21:53:54 INFO: Trainings-Step: 353
+26.06.2020 21:53:55 INFO: Trainings-Step: 354
+26.06.2020 21:53:55 INFO: Trainings-Step: 355
+26.06.2020 21:53:55 INFO: Trainings-Step: 356
+26.06.2020 21:53:55 INFO: Trainings-Step: 357
+26.06.2020 21:53:55 INFO: Trainings-Step: 358
+26.06.2020 21:53:55 INFO: Trainings-Step: 359
+26.06.2020 21:53:55 INFO: Trainings-Step: 361
+26.06.2020 21:53:55 INFO: Trainings-Step: 362
+26.06.2020 21:53:55 INFO: Trainings-Step: 363
+26.06.2020 21:53:55 INFO: Trainings-Step: 364
+26.06.2020 21:53:55 INFO: Trainings-Step: 365
+26.06.2020 21:53:55 INFO: Trainings-Step: 366
+26.06.2020 21:53:55 INFO: Trainings-Step: 367
+26.06.2020 21:53:55 INFO: Trainings-Step: 368
+26.06.2020 21:53:56 INFO: Trainings-Step: 369
+26.06.2020 21:53:56 INFO: Trainings-Step: 371
+26.06.2020 21:53:56 INFO: Trainings-Step: 372
+26.06.2020 21:53:56 INFO: Trainings-Step: 373
+26.06.2020 21:53:56 INFO: Trainings-Step: 374
+26.06.2020 21:53:56 INFO: Trainings-Step: 375
+26.06.2020 21:53:56 INFO: Trainings-Step: 376
+26.06.2020 21:53:56 INFO: Trainings-Step: 377
+26.06.2020 21:53:56 INFO: Trainings-Step: 378
+26.06.2020 21:53:56 INFO: Trainings-Step: 379
+26.06.2020 21:53:56 INFO: Trainings-Step: 381
+26.06.2020 21:53:56 INFO: Trainings-Step: 382
+26.06.2020 21:53:56 INFO: Trainings-Step: 383
+26.06.2020 21:53:57 INFO: Trainings-Step: 384
+26.06.2020 21:53:57 INFO: Trainings-Step: 385
+26.06.2020 21:53:57 INFO: Trainings-Step: 386
+26.06.2020 21:53:57 INFO: Trainings-Step: 387
+26.06.2020 21:53:57 INFO: Trainings-Step: 388
+26.06.2020 21:53:57 INFO: Trainings-Step: 389
+26.06.2020 21:53:57 INFO: Trainings-Step: 391
+26.06.2020 21:53:57 INFO: Trainings-Step: 392
+26.06.2020 21:53:57 INFO: Trainings-Step: 393
+26.06.2020 21:53:57 INFO: Trainings-Step: 394
+26.06.2020 21:53:57 INFO: Trainings-Step: 395
+26.06.2020 21:53:57 INFO: Trainings-Step: 396
+26.06.2020 21:53:57 INFO: Trainings-Step: 397
+26.06.2020 21:53:57 INFO: Trainings-Step: 398
+26.06.2020 21:53:58 INFO: Trainings-Step: 399
+26.06.2020 21:53:58 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 21:54:26 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 21:54:26 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 21:54:26 INFO: Start trial#0
+26.06.2020 21:54:26 INFO: Start episodes (2) with 400 steps.
+26.06.2020 21:54:26 INFO: Trainings-Step: 0/400
+26.06.2020 21:54:27 INFO: Trainings-Step: 10/400
+26.06.2020 21:54:28 INFO: Trainings-Step: 20/400
+26.06.2020 21:54:28 INFO: Trainings-Step: 30/400
+26.06.2020 21:54:29 INFO: Trainings-Step: 40/400
+26.06.2020 21:54:30 INFO: Trainings-Step: 50/400
+26.06.2020 21:54:30 INFO: Trainings-Step: 60/400
+26.06.2020 21:54:31 INFO: Trainings-Step: 70/400
+26.06.2020 21:54:32 INFO: Trainings-Step: 80/400
+26.06.2020 21:54:32 INFO: Trainings-Step: 90/400
+26.06.2020 21:54:33 INFO: Trainings-Step: 100/400
+26.06.2020 21:54:34 INFO: Trainings-Step: 110/400
+26.06.2020 21:54:34 INFO: Trainings-Step: 120/400
+26.06.2020 21:54:35 INFO: Trainings-Step: 130/400
+26.06.2020 21:54:36 INFO: Trainings-Step: 140/400
+26.06.2020 21:54:36 INFO: Trainings-Step: 150/400
+26.06.2020 21:54:37 INFO: Trainings-Step: 160/400
+26.06.2020 21:54:38 INFO: Trainings-Step: 170/400
+26.06.2020 21:54:38 INFO: Trainings-Step: 180/400
+26.06.2020 21:54:39 INFO: Trainings-Step: 190/400
+26.06.2020 21:54:40 INFO: Trainings-Step: 200/400
+26.06.2020 21:54:40 INFO: Trainings-Step: 210/400
+26.06.2020 21:54:41 INFO: Trainings-Step: 220/400
+26.06.2020 21:54:42 INFO: Trainings-Step: 230/400
+26.06.2020 21:54:42 INFO: Trainings-Step: 240/400
+26.06.2020 21:54:43 INFO: Trainings-Step: 250/400
+26.06.2020 21:54:44 INFO: Trainings-Step: 260/400
+26.06.2020 21:54:44 INFO: Trainings-Step: 270/400
+26.06.2020 21:54:45 INFO: Trainings-Step: 280/400
+26.06.2020 21:54:46 INFO: Trainings-Step: 290/400
+26.06.2020 21:54:46 INFO: Trainings-Step: 300/400
+26.06.2020 21:54:47 INFO: Trainings-Step: 310/400
+26.06.2020 21:54:48 INFO: Trainings-Step: 320/400
+26.06.2020 21:54:48 INFO: Trainings-Step: 330/400
+26.06.2020 21:54:49 INFO: Trainings-Step: 340/400
+26.06.2020 21:54:50 INFO: Trainings-Step: 350/400
+26.06.2020 21:54:50 INFO: Trainings-Step: 360/400
+26.06.2020 21:54:51 INFO: Trainings-Step: 370/400
+26.06.2020 21:54:52 INFO: Trainings-Step: 380/400
+26.06.2020 21:54:52 INFO: Trainings-Step: 390/400
+26.06.2020 21:54:53 INFO: Trainings-Step: 0/400
+26.06.2020 21:55:37 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 21:55:48 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 21:55:49 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 21:55:49 INFO: Start trial#0
+26.06.2020 21:55:49 INFO: Start episodes (2) with 400 steps.
+26.06.2020 21:55:49 INFO: Trainings-Step: 0/400
+26.06.2020 21:55:52 INFO: Trainings-Step: 50/400
+26.06.2020 21:55:55 INFO: Trainings-Step: 100/400
+26.06.2020 21:55:59 INFO: Trainings-Step: 150/400
+26.06.2020 21:56:02 INFO: Trainings-Step: 200/400
+26.06.2020 21:56:05 INFO: Trainings-Step: 250/400
+26.06.2020 21:56:09 INFO: Trainings-Step: 300/400
+26.06.2020 21:56:12 INFO: Trainings-Step: 350/400
+26.06.2020 21:56:15 INFO: Trainings-Step: 0/400
+26.06.2020 21:56:48 INFO: Environment shut down with return code 3489660927.
+26.06.2020 21:56:58 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 21:56:59 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 21:56:59 INFO: Start trial#0
+26.06.2020 21:56:59 INFO: Start episodes (2) with 400 steps.
+26.06.2020 21:56:59 INFO: Trainings-Step: 0/400
+26.06.2020 21:57:02 INFO: Trainings-Step: 50/400
+26.06.2020 21:57:05 INFO: Trainings-Step: 100/400
+26.06.2020 21:57:09 INFO: Trainings-Step: 150/400
+26.06.2020 21:57:12 INFO: Trainings-Step: 200/400
+26.06.2020 21:57:15 INFO: Trainings-Step: 250/400
+26.06.2020 21:57:19 INFO: Trainings-Step: 300/400
+26.06.2020 21:57:22 INFO: Trainings-Step: 350/400
+26.06.2020 21:57:25 INFO: Trainings-Step: 0/400
+26.06.2020 21:57:29 INFO: Trainings-Step: 50/400
+26.06.2020 21:57:32 INFO: Trainings-Step: 100/400
+26.06.2020 21:57:35 INFO: Trainings-Step: 150/400
+26.06.2020 21:57:39 INFO: Trainings-Step: 200/400
+26.06.2020 21:57:42 INFO: Trainings-Step: 250/400
+26.06.2020 21:57:45 INFO: Trainings-Step: 300/400
+26.06.2020 21:57:49 INFO: Trainings-Step: 350/400
+26.06.2020 21:57:52 INFO: End episode!
+26.06.2020 21:57:52 INFO: End trial#0
+26.06.2020 21:59:55 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 22:00:03 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 22:00:03 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 22:00:03 INFO: Start trial#0
+26.06.2020 22:00:03 INFO: Start episodes (2) with 400 steps.
+26.06.2020 22:00:03 INFO: Trainings-Step: 0/400
+26.06.2020 22:00:07 INFO: Trainings-Step: 50/400
+26.06.2020 22:00:10 INFO: Trainings-Step: 100/400
+26.06.2020 22:00:13 INFO: Trainings-Step: 150/400
+26.06.2020 22:00:17 INFO: Trainings-Step: 200/400
+26.06.2020 22:00:20 INFO: Trainings-Step: 250/400
+26.06.2020 22:00:23 INFO: Trainings-Step: 300/400
+26.06.2020 22:00:27 INFO: Trainings-Step: 350/400
+26.06.2020 22:00:30 INFO: Trainings-Step: 0/400
+26.06.2020 22:00:33 INFO: Trainings-Step: 50/400
+26.06.2020 22:00:37 INFO: Trainings-Step: 100/400
+26.06.2020 22:00:40 INFO: Trainings-Step: 150/400
+26.06.2020 22:00:43 INFO: Trainings-Step: 200/400
+26.06.2020 22:00:47 INFO: Trainings-Step: 250/400
+26.06.2020 22:00:50 INFO: Trainings-Step: 300/400
+26.06.2020 22:00:53 INFO: Trainings-Step: 350/400
+26.06.2020 22:00:57 INFO: End episode!
+26.06.2020 22:00:57 INFO: End trial#0
+26.06.2020 22:00:57 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 22:01:37 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 22:01:38 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 22:01:38 INFO: Start trial#0
+26.06.2020 22:01:38 INFO: Start episodes (2) with 400 steps.
+26.06.2020 22:01:38 INFO: Trainings-Step: 0/400
+26.06.2020 22:01:41 INFO: Trainings-Step: 50/400
+26.06.2020 22:01:44 INFO: Trainings-Step: 100/400
+26.06.2020 22:01:48 INFO: Trainings-Step: 150/400
+26.06.2020 22:01:51 INFO: Trainings-Step: 200/400
+26.06.2020 22:01:54 INFO: Trainings-Step: 250/400
+26.06.2020 22:01:58 INFO: Trainings-Step: 300/400
+26.06.2020 22:02:01 INFO: Trainings-Step: 350/400
+26.06.2020 22:02:04 INFO: Trainings-Step: 0/400
+26.06.2020 22:02:08 INFO: Trainings-Step: 50/400
+26.06.2020 22:02:11 INFO: Trainings-Step: 100/400
+26.06.2020 22:02:14 INFO: Trainings-Step: 150/400
+26.06.2020 22:02:18 INFO: Trainings-Step: 200/400
+26.06.2020 22:02:21 INFO: Trainings-Step: 250/400
+26.06.2020 22:02:24 INFO: Trainings-Step: 300/400
+26.06.2020 22:02:28 INFO: Trainings-Step: 350/400
+26.06.2020 22:02:31 INFO: End episode!
+26.06.2020 22:02:31 INFO: End trial#0
+26.06.2020 22:02:36 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 22:08:11 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 22:08:12 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 22:08:12 INFO: Start trial#0
+26.06.2020 22:08:12 INFO: Start episodes (2) with 400 steps.
+26.06.2020 22:08:12 INFO: Trainings-Step: 0/400
+26.06.2020 22:08:15 INFO: Trainings-Step: 50/400
+26.06.2020 22:08:18 INFO: Trainings-Step: 100/400
+26.06.2020 22:08:22 INFO: Trainings-Step: 150/400
+26.06.2020 22:08:25 INFO: Trainings-Step: 200/400
+26.06.2020 22:08:28 INFO: Trainings-Step: 250/400
+26.06.2020 22:08:32 INFO: Trainings-Step: 300/400
+26.06.2020 22:08:35 INFO: Trainings-Step: 350/400
+26.06.2020 22:08:38 INFO: Trainings-Step: 0/400
+26.06.2020 22:09:01 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 22:10:19 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 22:10:20 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 22:10:20 INFO: Start trial#0
+26.06.2020 22:10:20 INFO: Start episodes (2) with 400 steps.
+26.06.2020 22:10:20 INFO: Trainings-Step: 0/400
+26.06.2020 22:10:23 INFO: Trainings-Step: 50/400
+26.06.2020 22:10:26 INFO: Trainings-Step: 100/400
+26.06.2020 22:10:30 INFO: Trainings-Step: 150/400
+26.06.2020 22:10:33 INFO: Trainings-Step: 200/400
+26.06.2020 22:10:36 INFO: Trainings-Step: 250/400
+26.06.2020 22:10:40 INFO: Trainings-Step: 300/400
+26.06.2020 22:10:43 INFO: Trainings-Step: 350/400
+26.06.2020 22:10:46 INFO: Trainings-Step: 0/400
+26.06.2020 22:10:50 INFO: Trainings-Step: 50/400
+26.06.2020 22:10:53 INFO: Trainings-Step: 100/400
+26.06.2020 22:10:56 INFO: Trainings-Step: 150/400
+26.06.2020 22:11:00 INFO: Trainings-Step: 200/400
+26.06.2020 22:11:03 INFO: Trainings-Step: 250/400
+26.06.2020 22:11:06 INFO: Trainings-Step: 300/400
+26.06.2020 22:11:10 INFO: Trainings-Step: 350/400
+26.06.2020 22:11:13 INFO: End episode!
+26.06.2020 22:11:13 INFO: End trial#0
+26.06.2020 22:12:31 INFO: generated new fontManager
+26.06.2020 22:12:41 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 22:12:53 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 22:12:53 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 22:12:53 INFO: Start trial#0
+26.06.2020 22:12:53 INFO: Start episodes (2) with 400 steps.
+26.06.2020 22:12:53 INFO: Trainings-Step: 0/400
+26.06.2020 22:12:56 INFO: Trainings-Step: 50/400
+26.06.2020 22:13:00 INFO: Trainings-Step: 100/400
+26.06.2020 22:13:03 INFO: Trainings-Step: 150/400
+26.06.2020 22:13:07 INFO: Trainings-Step: 200/400
+26.06.2020 22:13:10 INFO: Trainings-Step: 250/400
+26.06.2020 22:13:13 INFO: Trainings-Step: 300/400
+26.06.2020 22:13:16 INFO: Trainings-Step: 350/400
+26.06.2020 22:13:20 INFO: Trainings-Step: 0/400
+26.06.2020 22:13:23 INFO: Trainings-Step: 50/400
+26.06.2020 22:13:27 INFO: Trainings-Step: 100/400
+26.06.2020 22:13:30 INFO: Trainings-Step: 150/400
+26.06.2020 22:13:33 INFO: Trainings-Step: 200/400
+26.06.2020 22:13:37 INFO: Trainings-Step: 250/400
+26.06.2020 22:13:40 INFO: Trainings-Step: 300/400
+26.06.2020 22:13:43 INFO: Trainings-Step: 350/400
+26.06.2020 22:13:47 INFO: End episode!
+26.06.2020 22:13:47 INFO: End trial#0
+26.06.2020 22:16:14 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 22:16:22 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 22:16:23 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 22:16:23 INFO: Start trial#0
+26.06.2020 22:16:23 INFO: Start episodes (2) with 400 steps.
+26.06.2020 22:16:23 INFO: Trainings-Step: 0/400
+26.06.2020 22:16:28 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 22:16:54 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 22:16:55 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 22:16:55 INFO: Start trial#0
+26.06.2020 22:16:55 INFO: Start episodes (2) with 400 steps.
+26.06.2020 22:16:55 INFO: Trainings-Step: 0/400
+26.06.2020 22:16:58 INFO: Trainings-Step: 50/400
+26.06.2020 22:17:02 INFO: Trainings-Step: 100/400
+26.06.2020 22:17:05 INFO: Trainings-Step: 150/400
+26.06.2020 22:17:08 INFO: Trainings-Step: 200/400
+26.06.2020 22:17:12 INFO: Trainings-Step: 250/400
+26.06.2020 22:17:15 INFO: Trainings-Step: 300/400
+26.06.2020 22:17:18 INFO: Trainings-Step: 350/400
+26.06.2020 22:17:22 INFO: Trainings-Step: 0/400
+26.06.2020 22:17:48 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 22:18:37 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 22:18:38 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 22:18:38 INFO: Start trial#0
+26.06.2020 22:18:38 INFO: Start episodes (2) with 400 steps.
+26.06.2020 22:18:38 INFO: Trainings-Step: 0/400
+26.06.2020 22:18:41 INFO: Trainings-Step: 50/400
+26.06.2020 22:18:45 INFO: Trainings-Step: 100/400
+26.06.2020 22:18:48 INFO: Trainings-Step: 150/400
+26.06.2020 22:18:51 INFO: Trainings-Step: 200/400
+26.06.2020 22:18:55 INFO: Trainings-Step: 250/400
+26.06.2020 22:18:58 INFO: Trainings-Step: 300/400
+26.06.2020 22:19:01 INFO: Trainings-Step: 350/400
+26.06.2020 22:19:05 INFO: Trainings-Step: 0/400
+26.06.2020 22:19:15 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 22:20:25 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 22:20:26 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 22:20:26 INFO: Start trial#0
+26.06.2020 22:20:26 INFO: Start episodes (2) with 400 steps.
+26.06.2020 22:20:26 INFO: Trainings-Step: 0/400
+26.06.2020 22:20:29 INFO: Trainings-Step: 50/400
+26.06.2020 22:20:33 INFO: Trainings-Step: 100/400
+26.06.2020 22:20:36 INFO: Trainings-Step: 150/400
+26.06.2020 22:20:39 INFO: Trainings-Step: 200/400
+26.06.2020 22:20:43 INFO: Trainings-Step: 250/400
+26.06.2020 22:20:46 INFO: Trainings-Step: 300/400
+26.06.2020 22:20:49 INFO: Trainings-Step: 350/400
+26.06.2020 22:20:53 INFO: Trainings-Step: 0/400
+26.06.2020 22:20:59 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 22:22:41 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 22:22:42 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 22:22:42 INFO: Start trial#0
+26.06.2020 22:22:42 INFO: Start episodes (2) with 400 steps.
+26.06.2020 22:22:42 INFO: Trainings-Step: 0/400
+26.06.2020 22:23:20 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 22:23:29 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 22:23:29 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 22:23:29 INFO: Start trial#0
+26.06.2020 22:23:29 INFO: Start episodes (2) with 400 steps.
+26.06.2020 22:23:29 INFO: Trainings-Step: 0/400
+26.06.2020 22:24:18 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 22:24:29 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 22:24:30 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 22:24:30 INFO: Start trial#0
+26.06.2020 22:24:30 INFO: Start episodes (2) with 400 steps.
+26.06.2020 22:24:30 INFO: Trainings-Step: 0/400
+26.06.2020 22:24:33 INFO: Trainings-Step: 50/400
+26.06.2020 22:24:36 INFO: Trainings-Step: 100/400
+26.06.2020 22:24:40 INFO: Trainings-Step: 150/400
+26.06.2020 22:24:43 INFO: Trainings-Step: 200/400
+26.06.2020 22:24:46 INFO: Trainings-Step: 250/400
+26.06.2020 22:24:50 INFO: Trainings-Step: 300/400
+26.06.2020 22:24:53 INFO: Trainings-Step: 350/400
+26.06.2020 22:25:12 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 22:25:13 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 22:25:13 INFO: Start trial#0
+26.06.2020 22:25:13 INFO: Start episodes (2) with 400 steps.
+26.06.2020 22:25:13 INFO: Trainings-Step: 0/400
+26.06.2020 22:25:16 INFO: Trainings-Step: 50/400
+26.06.2020 22:25:20 INFO: Trainings-Step: 100/400
+26.06.2020 22:25:23 INFO: Trainings-Step: 150/400
+26.06.2020 22:25:26 INFO: Trainings-Step: 200/400
+26.06.2020 22:25:30 INFO: Trainings-Step: 250/400
+26.06.2020 22:25:33 INFO: Trainings-Step: 300/400
+26.06.2020 22:25:36 INFO: Trainings-Step: 350/400
+26.06.2020 22:25:40 INFO: Trainings-Step: 0/400
+26.06.2020 22:25:43 INFO: Trainings-Step: 50/400
+26.06.2020 22:25:46 INFO: Trainings-Step: 100/400
+26.06.2020 22:25:50 INFO: Trainings-Step: 150/400
+26.06.2020 22:25:53 INFO: Trainings-Step: 200/400
+26.06.2020 22:25:56 INFO: Trainings-Step: 250/400
+26.06.2020 22:26:00 INFO: Trainings-Step: 300/400
+26.06.2020 22:26:03 INFO: Trainings-Step: 350/400
+26.06.2020 22:26:06 INFO: End episode!
+26.06.2020 22:26:06 INFO: End trial#0
+26.06.2020 22:26:46 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 22:27:05 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 22:27:06 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 22:27:06 INFO: Start trial#0
+26.06.2020 22:27:06 INFO: Start episodes (2) with 400 steps.
+26.06.2020 22:27:06 INFO: Trainings-Step: 0/400
+26.06.2020 22:27:09 INFO: Trainings-Step: 50/400
+26.06.2020 22:27:13 INFO: Trainings-Step: 100/400
+26.06.2020 22:27:16 INFO: Trainings-Step: 150/400
+26.06.2020 22:27:19 INFO: Trainings-Step: 200/400
+26.06.2020 22:27:23 INFO: Trainings-Step: 250/400
+26.06.2020 22:27:26 INFO: Trainings-Step: 300/400
+26.06.2020 22:27:29 INFO: Trainings-Step: 350/400
+26.06.2020 22:28:01 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 22:28:31 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 22:28:32 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 22:28:32 INFO: Start trial#0
+26.06.2020 22:28:32 INFO: Start episodes (2) with 400 steps.
+26.06.2020 22:28:32 INFO: Trainings-Step: 0/400
+26.06.2020 22:28:35 INFO: Trainings-Step: 50/400
+26.06.2020 22:28:39 INFO: Trainings-Step: 100/400
+26.06.2020 22:28:42 INFO: Trainings-Step: 150/400
+26.06.2020 22:28:45 INFO: Trainings-Step: 200/400
+26.06.2020 22:28:49 INFO: Trainings-Step: 250/400
+26.06.2020 22:28:52 INFO: Trainings-Step: 300/400
+26.06.2020 22:28:55 INFO: Trainings-Step: 350/400
+26.06.2020 22:28:59 INFO: Trainings-Step: 0/400
+26.06.2020 22:29:02 INFO: Trainings-Step: 50/400
+26.06.2020 22:29:06 INFO: Trainings-Step: 100/400
+26.06.2020 22:29:09 INFO: Trainings-Step: 150/400
+26.06.2020 22:29:13 INFO: Trainings-Step: 200/400
+26.06.2020 22:29:16 INFO: Trainings-Step: 250/400
+26.06.2020 22:29:19 INFO: Trainings-Step: 300/400
+26.06.2020 22:29:23 INFO: Trainings-Step: 350/400
+26.06.2020 22:29:26 INFO: End episode!
+26.06.2020 22:29:26 INFO: End trial#0
+26.06.2020 22:44:39 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 23:02:33 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 23:02:34 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 23:02:34 INFO: Start trial#0
+26.06.2020 23:04:13 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 23:04:22 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 23:04:22 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 23:04:22 INFO: Start trial#0
+26.06.2020 23:04:22 INFO: Start episodes (2) with 400 steps.
+26.06.2020 23:04:22 INFO: Trainings-Step: 0/400
+26.06.2020 23:04:26 INFO: Trainings-Step: 50/400
+26.06.2020 23:04:32 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 23:12:05 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 23:12:06 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 23:12:06 INFO: Optuna set up - trials: 2, name: WormDomain-5_Default
+26.06.2020 23:12:06 INFO: Start optimization!
+26.06.2020 23:12:06 INFO: Start trial#0
+26.06.2020 23:12:06 INFO: Start episodes (2) with 400 steps.
+26.06.2020 23:12:06 INFO: Trainings-Step: 0/400
+26.06.2020 23:12:09 INFO: Trainings-Step: 50/400
+26.06.2020 23:12:13 INFO: Trainings-Step: 100/400
+26.06.2020 23:12:16 INFO: Trainings-Step: 150/400
+26.06.2020 23:12:19 INFO: Trainings-Step: 200/400
+26.06.2020 23:12:23 INFO: Trainings-Step: 250/400
+26.06.2020 23:12:26 INFO: Trainings-Step: 300/400
+26.06.2020 23:12:29 INFO: Trainings-Step: 350/400
+26.06.2020 23:12:33 INFO: Trainings-Step: 0/400
+26.06.2020 23:12:36 INFO: Trainings-Step: 50/400
+26.06.2020 23:12:39 INFO: Trainings-Step: 100/400
+26.06.2020 23:12:43 INFO: Trainings-Step: 150/400
+26.06.2020 23:12:46 INFO: Trainings-Step: 200/400
+26.06.2020 23:12:49 INFO: Trainings-Step: 250/400
+26.06.2020 23:12:53 INFO: Trainings-Step: 300/400
+26.06.2020 23:12:56 INFO: Trainings-Step: 350/400
+26.06.2020 23:12:59 INFO: End episode!
+26.06.2020 23:13:00 INFO: Initial model stored.
+26.06.2020 23:13:00 INFO: End trial#0
+26.06.2020 23:13:00 INFO: Start trial#1
+26.06.2020 23:13:00 INFO: Start episodes (2) with 400 steps.
+26.06.2020 23:13:00 INFO: Trainings-Step: 0/400
+26.06.2020 23:13:03 INFO: Trainings-Step: 50/400
+26.06.2020 23:13:06 INFO: Trainings-Step: 100/400
+26.06.2020 23:13:09 INFO: Trainings-Step: 150/400
+26.06.2020 23:13:13 INFO: Trainings-Step: 200/400
+26.06.2020 23:13:16 INFO: Trainings-Step: 250/400
+26.06.2020 23:13:19 INFO: Trainings-Step: 300/400
+26.06.2020 23:13:23 INFO: Trainings-Step: 350/400
+26.06.2020 23:13:26 INFO: Trainings-Step: 0/400
+26.06.2020 23:13:29 INFO: Trainings-Step: 50/400
+26.06.2020 23:13:33 INFO: Trainings-Step: 100/400
+26.06.2020 23:13:36 INFO: Trainings-Step: 150/400
+26.06.2020 23:13:39 INFO: Trainings-Step: 200/400
+26.06.2020 23:13:43 INFO: Trainings-Step: 250/400
+26.06.2020 23:13:46 INFO: Trainings-Step: 300/400
+26.06.2020 23:13:50 INFO: Trainings-Step: 350/400
+26.06.2020 23:13:53 INFO: End episode!
+26.06.2020 23:13:53 INFO: Best model stored.
+26.06.2020 23:13:53 INFO: End trial#1
+26.06.2020 23:13:53 INFO: Optimization done.
+26.06.2020 23:13:53 INFO: Study stored. (models/2020-06-26/1/WormDomain-5_Default/WormDomain-5_Default_study.pickle)
+26.06.2020 23:13:54 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 23:29:26 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 23:29:27 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 23:29:27 INFO: Optuna set up - trials: 2, name: WormDomain-5_Default
+26.06.2020 23:29:27 INFO: Start optimization!
+26.06.2020 23:29:27 INFO: Start trial#0
+26.06.2020 23:29:27 INFO: Start episodes (2) with 400 steps.
+26.06.2020 23:29:27 INFO: Trainings-Step: 0/400
+26.06.2020 23:29:30 INFO: Trainings-Step: 50/400
+26.06.2020 23:29:34 INFO: Trainings-Step: 100/400
+26.06.2020 23:29:37 INFO: Trainings-Step: 150/400
+26.06.2020 23:29:40 INFO: Trainings-Step: 200/400
+26.06.2020 23:29:44 INFO: Trainings-Step: 250/400
+26.06.2020 23:29:47 INFO: Trainings-Step: 300/400
+26.06.2020 23:29:50 INFO: Trainings-Step: 350/400
+26.06.2020 23:29:54 INFO: Trainings-Step: 0/400
+26.06.2020 23:29:57 INFO: Trainings-Step: 50/400
+26.06.2020 23:30:00 INFO: Trainings-Step: 100/400
+26.06.2020 23:30:04 INFO: Trainings-Step: 150/400
+26.06.2020 23:30:07 INFO: Trainings-Step: 200/400
+26.06.2020 23:30:10 INFO: Trainings-Step: 250/400
+26.06.2020 23:30:14 INFO: Trainings-Step: 300/400
+26.06.2020 23:30:17 INFO: Trainings-Step: 350/400
+26.06.2020 23:30:20 INFO: End episode!
+26.06.2020 23:30:20 INFO: Initial agent stored at models/2020-06-26/0_WormDomain-5_Default/best_agent/WormDomain-5_Default_best_agent.pickle
+26.06.2020 23:30:20 INFO: End trial#0
+26.06.2020 23:30:20 INFO: Start trial#1
+26.06.2020 23:30:20 INFO: Start episodes (2) with 400 steps.
+26.06.2020 23:30:20 INFO: Trainings-Step: 0/400
+26.06.2020 23:30:24 INFO: Trainings-Step: 50/400
+26.06.2020 23:30:27 INFO: Trainings-Step: 100/400
+26.06.2020 23:30:30 INFO: Trainings-Step: 150/400
+26.06.2020 23:30:34 INFO: Trainings-Step: 200/400
+26.06.2020 23:30:37 INFO: Trainings-Step: 250/400
+26.06.2020 23:30:40 INFO: Trainings-Step: 300/400
+26.06.2020 23:30:44 INFO: Trainings-Step: 350/400
+26.06.2020 23:30:47 INFO: Trainings-Step: 0/400
+26.06.2020 23:30:52 INFO: Trainings-Step: 50/400
+26.06.2020 23:30:57 INFO: Trainings-Step: 100/400
+26.06.2020 23:31:01 INFO: Trainings-Step: 150/400
+26.06.2020 23:31:05 INFO: Trainings-Step: 200/400
+26.06.2020 23:31:09 INFO: Trainings-Step: 250/400
+26.06.2020 23:31:12 INFO: Trainings-Step: 300/400
+26.06.2020 23:31:17 INFO: Trainings-Step: 350/400
+26.06.2020 23:31:20 INFO: End episode!
+26.06.2020 23:31:20 INFO: End trial#1
+26.06.2020 23:31:20 INFO: Optimization done.
+26.06.2020 23:31:20 INFO: Study stored. (models/2020-06-26/1_WormDomain-5_Default/WormDomain-5_Default_study.pickle)
+26.06.2020 23:31:21 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 23:33:15 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 23:33:16 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 23:33:16 INFO: Optuna set up - trials: 2, name: WormDomain-5_Default
+26.06.2020 23:33:16 INFO: Start optimization!
+26.06.2020 23:33:16 INFO: Start trial#0
+26.06.2020 23:33:16 INFO: Start episodes (2) with 400 steps.
+26.06.2020 23:33:16 INFO: Trainings-Step: 0/400
+26.06.2020 23:33:19 INFO: Trainings-Step: 50/400
+26.06.2020 23:33:23 INFO: Trainings-Step: 100/400
+26.06.2020 23:33:26 INFO: Trainings-Step: 150/400
+26.06.2020 23:33:29 INFO: Trainings-Step: 200/400
+26.06.2020 23:33:33 INFO: Trainings-Step: 250/400
+26.06.2020 23:33:36 INFO: Trainings-Step: 300/400
+26.06.2020 23:33:39 INFO: Trainings-Step: 350/400
+26.06.2020 23:33:43 INFO: Trainings-Step: 0/400
+26.06.2020 23:33:46 INFO: Trainings-Step: 50/400
+26.06.2020 23:33:50 INFO: Trainings-Step: 100/400
+26.06.2020 23:33:53 INFO: Trainings-Step: 150/400
+26.06.2020 23:33:56 INFO: Trainings-Step: 200/400
+26.06.2020 23:34:00 INFO: Trainings-Step: 250/400
+26.06.2020 23:34:03 INFO: Trainings-Step: 300/400
+26.06.2020 23:34:06 INFO: Trainings-Step: 350/400
+26.06.2020 23:34:10 INFO: End episode!
+26.06.2020 23:34:10 INFO: Initial agent stored at models/2020-06-26/WormDomain-5_Default/best_agent/WormDomain-5_Default_best_agent.pickle
+26.06.2020 23:34:10 INFO: End trial#0
+26.06.2020 23:34:10 INFO: Start trial#1
+26.06.2020 23:34:10 INFO: Start episodes (2) with 400 steps.
+26.06.2020 23:34:10 INFO: Trainings-Step: 0/400
+26.06.2020 23:34:13 INFO: Trainings-Step: 50/400
+26.06.2020 23:34:16 INFO: Trainings-Step: 100/400
+26.06.2020 23:34:20 INFO: Trainings-Step: 150/400
+26.06.2020 23:34:23 INFO: Trainings-Step: 200/400
+26.06.2020 23:34:26 INFO: Trainings-Step: 250/400
+26.06.2020 23:34:30 INFO: Trainings-Step: 300/400
+26.06.2020 23:34:33 INFO: Trainings-Step: 350/400
+26.06.2020 23:34:36 INFO: Trainings-Step: 0/400
+26.06.2020 23:34:40 INFO: Trainings-Step: 50/400
+26.06.2020 23:34:43 INFO: Trainings-Step: 100/400
+26.06.2020 23:34:46 INFO: Trainings-Step: 150/400
+26.06.2020 23:34:50 INFO: Trainings-Step: 200/400
+26.06.2020 23:34:53 INFO: Trainings-Step: 250/400
+26.06.2020 23:34:56 INFO: Trainings-Step: 300/400
+26.06.2020 23:35:00 INFO: Trainings-Step: 350/400
+26.06.2020 23:35:03 INFO: End episode!
+26.06.2020 23:35:03 INFO: Best agent stored at models/2020-06-26/WormDomain-5_Default/best_agent/WormDomain-5_Default_best_agent.pickle
+26.06.2020 23:35:03 INFO: End trial#1
+26.06.2020 23:35:03 INFO: Optimization done.
+26.06.2020 23:35:03 INFO: Study stored. (models/2020-06-26/WormDomain-5_Default/WormDomain-5_Default_study.pickle)
+26.06.2020 23:35:04 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 23:36:01 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 23:36:02 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 23:36:02 INFO: Optuna set up - trials: 2, name: WormDomain-5_Default
+26.06.2020 23:36:02 INFO: Start optimization!
+26.06.2020 23:36:02 INFO: Start trial#0
+26.06.2020 23:36:02 INFO: Start episodes (2) with 400 steps.
+26.06.2020 23:36:02 INFO: Trainings-Step: 0/400
+26.06.2020 23:36:05 INFO: Trainings-Step: 50/400
+26.06.2020 23:36:09 INFO: Trainings-Step: 100/400
+26.06.2020 23:36:12 INFO: Trainings-Step: 150/400
+26.06.2020 23:36:15 INFO: Trainings-Step: 200/400
+26.06.2020 23:36:19 INFO: Trainings-Step: 250/400
+26.06.2020 23:36:22 INFO: Trainings-Step: 300/400
+26.06.2020 23:36:25 INFO: Trainings-Step: 350/400
+26.06.2020 23:36:29 INFO: Trainings-Step: 0/400
+26.06.2020 23:36:32 INFO: Trainings-Step: 50/400
+26.06.2020 23:36:35 INFO: Trainings-Step: 100/400
+26.06.2020 23:36:39 INFO: Trainings-Step: 150/400
+26.06.2020 23:36:42 INFO: Trainings-Step: 200/400
+26.06.2020 23:36:45 INFO: Trainings-Step: 250/400
+26.06.2020 23:36:49 INFO: Trainings-Step: 300/400
+26.06.2020 23:36:52 INFO: Trainings-Step: 350/400
+26.06.2020 23:36:55 INFO: End episode!
+26.06.2020 23:47:47 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 23:47:54 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 23:47:54 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 23:47:54 INFO: Optuna set up - trials: 2, name: WormDomain-5_Default
+26.06.2020 23:47:54 INFO: Start optimization!
+26.06.2020 23:47:54 INFO: Start trial#0
+26.06.2020 23:47:54 INFO: Start episodes (2) with 400 steps.
+26.06.2020 23:47:54 INFO: Trainings-Step: 0/400
+26.06.2020 23:47:58 INFO: Trainings-Step: 50/400
+26.06.2020 23:48:01 INFO: Trainings-Step: 100/400
+26.06.2020 23:48:04 INFO: Trainings-Step: 150/400
+26.06.2020 23:48:08 INFO: Trainings-Step: 200/400
+26.06.2020 23:48:11 INFO: Trainings-Step: 250/400
+26.06.2020 23:48:14 INFO: Trainings-Step: 300/400
+26.06.2020 23:48:18 INFO: Trainings-Step: 350/400
+26.06.2020 23:48:21 INFO: Trainings-Step: 0/400
+26.06.2020 23:48:24 INFO: Trainings-Step: 50/400
+26.06.2020 23:48:28 INFO: Trainings-Step: 100/400
+26.06.2020 23:48:31 INFO: Trainings-Step: 150/400
+26.06.2020 23:48:34 INFO: Trainings-Step: 200/400
+26.06.2020 23:48:38 INFO: Trainings-Step: 250/400
+26.06.2020 23:48:41 INFO: Trainings-Step: 300/400
+26.06.2020 23:48:44 INFO: Trainings-Step: 350/400
+26.06.2020 23:48:48 INFO: End episode!
+26.06.2020 23:50:01 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 23:51:47 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 23:51:48 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 23:51:48 INFO: Optuna set up - trials: 2, name: WormDomain-5_Default
+26.06.2020 23:51:48 INFO: Start optimization!
+26.06.2020 23:51:48 INFO: Start trial#0
+26.06.2020 23:51:48 INFO: Start episodes (2) with 400 steps.
+26.06.2020 23:51:48 INFO: Trainings-Step: 0/400
+26.06.2020 23:51:51 INFO: Trainings-Step: 50/400
+26.06.2020 23:51:54 INFO: Trainings-Step: 100/400
+26.06.2020 23:51:58 INFO: Trainings-Step: 150/400
+26.06.2020 23:52:01 INFO: Trainings-Step: 200/400
+26.06.2020 23:52:04 INFO: Trainings-Step: 250/400
+26.06.2020 23:52:08 INFO: Trainings-Step: 300/400
+26.06.2020 23:52:11 INFO: Trainings-Step: 350/400
+26.06.2020 23:52:14 INFO: Trainings-Step: 0/400
+26.06.2020 23:52:18 INFO: Trainings-Step: 50/400
+26.06.2020 23:52:21 INFO: Trainings-Step: 100/400
+26.06.2020 23:52:24 INFO: Trainings-Step: 150/400
+26.06.2020 23:52:28 INFO: Trainings-Step: 200/400
+26.06.2020 23:52:31 INFO: Trainings-Step: 250/400
+26.06.2020 23:52:34 INFO: Trainings-Step: 300/400
+26.06.2020 23:52:38 INFO: Trainings-Step: 350/400
+26.06.2020 23:52:41 INFO: End episode!
+26.06.2020 23:52:41 INFO: Initial agent stored at models/2020-06-26/WormDomain-5_Default/best_agent/WormDomain-5_Default_best_agent.pickle
+26.06.2020 23:52:41 INFO: End trial#0
+26.06.2020 23:52:41 INFO: Start trial#1
+26.06.2020 23:52:41 INFO: Start episodes (2) with 400 steps.
+26.06.2020 23:52:41 INFO: Trainings-Step: 0/400
+26.06.2020 23:52:45 INFO: Trainings-Step: 50/400
+26.06.2020 23:52:48 INFO: Trainings-Step: 100/400
+26.06.2020 23:52:51 INFO: Trainings-Step: 150/400
+26.06.2020 23:52:55 INFO: Trainings-Step: 200/400
+26.06.2020 23:52:58 INFO: Trainings-Step: 250/400
+26.06.2020 23:53:01 INFO: Trainings-Step: 300/400
+26.06.2020 23:53:05 INFO: Trainings-Step: 350/400
+26.06.2020 23:53:08 INFO: Trainings-Step: 0/400
+26.06.2020 23:53:11 INFO: Trainings-Step: 50/400
+26.06.2020 23:53:15 INFO: Trainings-Step: 100/400
+26.06.2020 23:53:18 INFO: Trainings-Step: 150/400
+26.06.2020 23:53:21 INFO: Trainings-Step: 200/400
+26.06.2020 23:53:25 INFO: Trainings-Step: 250/400
+26.06.2020 23:53:28 INFO: Trainings-Step: 300/400
+26.06.2020 23:53:31 INFO: Trainings-Step: 350/400
+26.06.2020 23:53:35 INFO: End episode!
+26.06.2020 23:53:35 INFO: End trial#1
+26.06.2020 23:53:35 INFO: Optimization done.
+26.06.2020 23:53:35 INFO: Study stored. (models/2020-06-26/WormDomain-5_Default/WormDomain-5_Default_study.pickle)
+26.06.2020 23:53:35 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+26.06.2020 23:59:02 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+26.06.2020 23:59:02 INFO: Connected new brain:
+WormDynamic?team=0
+26.06.2020 23:59:02 INFO: Optuna set up - trials: 2, name: WormDomain-5_Default
+26.06.2020 23:59:02 INFO: Start optimization!
+26.06.2020 23:59:02 INFO: Start trial#0
+26.06.2020 23:59:02 INFO: Start episodes (2) with 400 steps.
+26.06.2020 23:59:02 INFO: Trainings-Step: 0/400
+26.06.2020 23:59:09 INFO: Trainings-Step: 100/400
+26.06.2020 23:59:16 INFO: Trainings-Step: 200/400
+26.06.2020 23:59:22 INFO: Trainings-Step: 300/400
+26.06.2020 23:59:29 INFO: Trainings-Step: 0/400
+26.06.2020 23:59:36 INFO: Trainings-Step: 100/400
+26.06.2020 23:59:42 INFO: Trainings-Step: 200/400
+26.06.2020 23:59:49 INFO: Trainings-Step: 300/400
+26.06.2020 23:59:56 INFO: End episode!
+26.06.2020 23:59:56 INFO: Initial agent stored at models/2020-06-26/WormDomain-5_Default/best_agent/WormDomain-5_Default_best_agent.pickle
+26.06.2020 23:59:56 INFO: End trial#0
+26.06.2020 23:59:56 INFO: Start trial#1
+26.06.2020 23:59:56 INFO: Start episodes (2) with 400 steps.
+26.06.2020 23:59:56 INFO: Trainings-Step: 0/400
+27.06.2020 00:00:03 INFO: Trainings-Step: 100/400
+27.06.2020 00:00:09 INFO: Trainings-Step: 200/400
+27.06.2020 00:00:16 INFO: Trainings-Step: 300/400
+27.06.2020 00:00:23 INFO: Trainings-Step: 0/400
+27.06.2020 00:00:29 INFO: Trainings-Step: 100/400
+27.06.2020 00:00:36 INFO: Trainings-Step: 200/400
+27.06.2020 00:00:43 INFO: Trainings-Step: 300/400
+27.06.2020 00:00:49 INFO: End episode!
+27.06.2020 00:00:49 INFO: Best agent stored at models/2020-06-26/WormDomain-5_Default/best_agent/WormDomain-5_Default_best_agent.pickle
+27.06.2020 00:00:49 INFO: End trial#1
+27.06.2020 00:00:49 INFO: Optimization done.
+27.06.2020 00:00:49 INFO: Study stored. (models/2020-06-26/WormDomain-5_Default/WormDomain-5_Default_study.pickle)
+27.06.2020 00:00:50 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).

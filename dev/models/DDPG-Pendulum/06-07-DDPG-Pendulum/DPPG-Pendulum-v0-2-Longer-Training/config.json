@@ -1,0 +1,1 @@
+{"epochs": 300, "nb_epoch_cycles": 100, "nb_rollout_steps": 300, "nb_train_steps": 600, "nb_eval_steps": 600, "finished_episodes_train": 8940300, "mean_reward_training": -5.681307554659175, "mean_reward_eval": -1230.7033995298152, "exploration_abs": 3150000.0, "exploration": 0.35}

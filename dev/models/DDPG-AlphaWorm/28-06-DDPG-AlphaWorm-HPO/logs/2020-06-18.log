@@ -1,0 +1,16 @@
+18.06.2020 22:21:20 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+18.06.2020 22:21:20 INFO: Connected new brain:
+WormDynamic?team=0
+18.06.2020 22:21:20 WARNING: The environment contains multiple observations. You must define allow_multiple_obs=True to receive them all. Otherwise, only the first visual observation (or vector observation ifthere are no visual observations) will be provided in the observation.
+18.06.2020 22:21:20 INFO: Start DDPG training (WormDomain)...
+18.06.2020 22:21:20 INFO: Optuna set up - trials: 15, name: DPPG-WormDomain-3
+18.06.2020 22:21:20 INFO: Start optimization!
+18.06.2020 22:21:20 INFO: Start trial#0
+18.06.2020 22:21:20 INFO: Start episodes (294) with 198 steps.
+18.06.2020 23:26:04 INFO: End episode!
+18.06.2020 23:26:05 INFO: Initial model stored.
+18.06.2020 23:26:05 INFO: End trial#0
+18.06.2020 23:26:05 INFO: Optimization done.
+18.06.2020 23:26:05 INFO: Study stored. (models/2020-06-18/DPPG-WormDomain-3_study.pickle)
+18.06.2020 23:26:06 INFO: Environment shut down with return code 0.
+18.06.2020 23:26:06 INFO: Training done!

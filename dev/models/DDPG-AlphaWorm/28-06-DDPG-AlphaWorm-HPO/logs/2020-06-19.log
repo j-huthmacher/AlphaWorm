@@ -1,0 +1,135 @@
+19.06.2020 14:36:40 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+19.06.2020 14:36:41 INFO: Connected new brain:
+WormDynamic?team=0
+19.06.2020 14:36:41 INFO: Optuna set up - trials: 5, name: WormDomain-1
+19.06.2020 14:36:41 INFO: Start optimization!
+19.06.2020 14:36:41 INFO: Start trial#0
+19.06.2020 14:36:41 INFO: Start episodes (10) with 71 steps.
+19.06.2020 14:37:28 INFO: End episode!
+19.06.2020 14:37:28 INFO: Initial model stored.
+19.06.2020 14:37:28 INFO: End trial#0
+19.06.2020 14:37:29 INFO: Start trial#1
+19.06.2020 14:37:29 INFO: Start episodes (6) with 71 steps.
+19.06.2020 14:37:57 INFO: End episode!
+19.06.2020 14:37:57 INFO: End trial#1
+19.06.2020 14:37:57 INFO: Start trial#2
+19.06.2020 14:37:57 INFO: Start episodes (5) with 69 steps.
+19.06.2020 14:38:20 INFO: End episode!
+19.06.2020 14:38:20 INFO: Best model stored.
+19.06.2020 14:38:20 INFO: End trial#2
+19.06.2020 14:38:20 INFO: Start trial#3
+19.06.2020 14:38:20 INFO: Start episodes (8) with 89 steps.
+19.06.2020 14:39:08 INFO: End episode!
+19.06.2020 14:39:08 INFO: End trial#3
+19.06.2020 14:39:08 INFO: Start trial#4
+19.06.2020 14:39:08 INFO: Start episodes (10) with 75 steps.
+19.06.2020 14:39:58 INFO: End episode!
+19.06.2020 14:39:58 INFO: End trial#4
+19.06.2020 14:39:58 INFO: Optimization done.
+19.06.2020 14:39:58 INFO: Study stored. (models/2020-06-19/WormDomain-1_study.pickle)
+19.06.2020 14:39:59 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+19.06.2020 14:54:57 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+19.06.2020 14:54:58 INFO: Connected new brain:
+WormDynamic?team=0
+19.06.2020 14:55:12 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+19.06.2020 14:55:34 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+19.06.2020 14:55:35 INFO: Connected new brain:
+WormDynamic?team=0
+19.06.2020 14:56:35 ERROR: Exception calling application: 
+Traceback (most recent call last):
+  File "C:\Users\email\.conda\envs\asp\lib\multiprocessing\connection.py", line 312, in _recv_bytes
+    nread, err = ov.GetOverlappedResult(True)
+BrokenPipeError: [WinError 109] The pipe has been ended
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\email\.conda\envs\asp\lib\site-packages\grpc\_server.py", line 435, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "C:\Users\email\.conda\envs\asp\lib\site-packages\mlagents_envs\rpc_communicator.py", line 29, in Exchange
+    return self.child_conn.recv()
+  File "C:\Users\email\.conda\envs\asp\lib\multiprocessing\connection.py", line 250, in recv
+    buf = self._recv_bytes()
+  File "C:\Users\email\.conda\envs\asp\lib\multiprocessing\connection.py", line 321, in _recv_bytes
+    raise EOFError
+EOFError
+19.06.2020 14:56:35 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+19.06.2020 14:56:52 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+19.06.2020 14:56:53 INFO: Connected new brain:
+WormDynamic?team=0
+19.06.2020 14:56:53 INFO: Start trial#0
+19.06.2020 14:56:53 INFO: Start episodes (5) with 100 steps.
+19.06.2020 14:57:26 INFO: End episode!
+19.06.2020 14:57:26 INFO: End trial#0
+19.06.2020 14:57:40 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+19.06.2020 14:58:05 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+19.06.2020 14:58:06 INFO: Connected new brain:
+WormDynamic?team=0
+19.06.2020 14:58:06 INFO: Start trial#0
+19.06.2020 14:58:06 INFO: Start episodes (5) with 1000 steps.
+19.06.2020 15:03:39 INFO: End episode!
+19.06.2020 15:03:39 INFO: End trial#0
+19.06.2020 15:03:40 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+19.06.2020 15:23:23 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+19.06.2020 15:23:23 INFO: Connected new brain:
+WormDynamic?team=0
+19.06.2020 15:24:37 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+19.06.2020 15:28:16 INFO: Listening on port 5004. Start training by pressing the Play button in the Unity Editor.
+19.06.2020 15:28:27 INFO: Connected to Unity environment with package version 1.0.2 and communication version 1.0.0
+19.06.2020 15:28:27 INFO: Connected new brain:
+WormDynamic?team=0
+19.06.2020 17:59:11 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+19.06.2020 17:59:12 INFO: Connected new brain:
+WormDynamic?team=0
+19.06.2020 17:59:12 INFO: Optuna set up - trials: 2, name: WormDomain-4_HPO_Local
+19.06.2020 17:59:12 INFO: Start optimization!
+19.06.2020 17:59:12 INFO: Start trial#0
+19.06.2020 17:59:12 INFO: Start episodes (9) with 973 steps.
+19.06.2020 18:08:56 INFO: End episode!
+19.06.2020 18:08:56 INFO: Initial model stored.
+19.06.2020 18:08:56 INFO: End trial#0
+19.06.2020 18:08:56 INFO: Start trial#1
+19.06.2020 18:08:56 INFO: Start episodes (5) with 833 steps.
+19.06.2020 18:13:35 INFO: End episode!
+19.06.2020 18:13:35 INFO: End trial#1
+19.06.2020 18:13:35 INFO: Optimization done.
+19.06.2020 18:13:35 INFO: Study stored. (models/2020-06-19/WormDomain-4_HPO_Local_study.pickle)
+19.06.2020 18:13:36 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+19.06.2020 21:06:00 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+19.06.2020 21:06:01 INFO: Connected new brain:
+WormDynamic?team=0
+19.06.2020 21:06:35 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+19.06.2020 21:06:58 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+19.06.2020 21:06:59 INFO: Connected new brain:
+WormDynamic?team=0
+19.06.2020 21:06:59 INFO: Start trial#0
+19.06.2020 21:08:42 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+19.06.2020 21:08:51 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+19.06.2020 21:08:52 INFO: Connected new brain:
+WormDynamic?team=0
+19.06.2020 21:08:52 INFO: Start trial#0
+19.06.2020 21:09:53 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+19.06.2020 21:10:00 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+19.06.2020 21:10:00 INFO: Connected new brain:
+WormDynamic?team=0
+19.06.2020 21:10:00 INFO: Start trial#0
+19.06.2020 21:10:36 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+19.06.2020 21:11:00 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+19.06.2020 21:11:01 INFO: Connected new brain:
+WormDynamic?team=0
+19.06.2020 21:11:01 INFO: Start trial#0
+19.06.2020 21:11:58 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+19.06.2020 21:12:05 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+19.06.2020 21:12:05 INFO: Connected new brain:
+WormDynamic?team=0
+19.06.2020 21:12:05 INFO: Start trial#0
+19.06.2020 21:12:05 INFO: Start episodes (5) with 800 steps.
+19.06.2020 21:16:32 INFO: End episode!
+19.06.2020 21:16:33 INFO: End trial#0
+19.06.2020 21:45:32 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+19.06.2020 21:45:51 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+19.06.2020 21:45:51 INFO: Connected new brain:
+WormDynamic?team=0
+19.06.2020 21:45:52 INFO: Start trial#0
+19.06.2020 21:45:52 INFO: Start episodes (5) with 800 steps.
+19.06.2020 21:47:43 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).

@@ -1,0 +1,31 @@
+test
+17.06.2020 10:43:33 INFO: test
+17.06.2020 10:43:57 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+17.06.2020 10:43:57 INFO: Connected new brain:
+WormDynamic?team=0
+17.06.2020 10:43:57 INFO: Start DDPG training (WormDomain)...
+17.06.2020 10:44:42 INFO: Environment shut down with return code 0 (CTRL_C_EVENT).
+17.06.2020 10:44:42 INFO: Training done!
+17.06.2020 15:03:36 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+17.06.2020 15:03:36 INFO: Connected new brain:
+WormDynamic?team=0
+17.06.2020 15:03:36 WARNING: The environment contains multiple observations. You must define allow_multiple_obs=True to receive them all. Otherwise, only the first visual observation (or vector observation ifthere are no visual observations) will be provided in the observation.
+17.06.2020 15:03:36 INFO: Start DDPG training (WormDomain)...
+17.06.2020 15:06:21 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+17.06.2020 15:06:21 INFO: Connected new brain:
+WormDynamic?team=0
+17.06.2020 15:06:21 WARNING: The environment contains multiple observations. You must define allow_multiple_obs=True to receive them all. Otherwise, only the first visual observation (or vector observation ifthere are no visual observations) will be provided in the observation.
+17.06.2020 15:06:21 INFO: Start DDPG training (WormDomain)...
+17.06.2020 15:11:12 INFO: Connected to Unity environment with package version 1.0.2-preview and communication version 1.0.0
+17.06.2020 15:11:12 INFO: Connected new brain:
+WormDynamic?team=0
+17.06.2020 15:11:12 WARNING: The environment contains multiple observations. You must define allow_multiple_obs=True to receive them all. Otherwise, only the first visual observation (or vector observation ifthere are no visual observations) will be provided in the observation.
+17.06.2020 15:11:12 INFO: Start DDPG training (WormDomain)...
+17.06.2020 15:37:04 INFO: Environment shut down with return code 0.
+17.06.2020 15:37:04 INFO: Training done!
+17.06.2020 18:16:46 INFO: Environment shut down with return code 0.
+17.06.2020 18:16:46 INFO: Training done!
+17.06.2020 19:52:57 INFO: Environment shut down with return code 0.
+17.06.2020 19:52:57 INFO: Training done!
+17.06.2020 23:35:26 INFO: Environment shut down with return code 0.
+17.06.2020 23:35:26 INFO: Training done!

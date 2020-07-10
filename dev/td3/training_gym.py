@@ -7,18 +7,11 @@ import os
 from datetime import datetime
 
 
-"""
-from td3 import OurDDPG
-from td3 import DDPG
-from td3.TD3 import TD3
-from td3.utils import ReplayBuffer, DynamicExperienceReplay
-"""
 
 from td3 import OurDDPG
 from td3 import DDPG
 from td3.TD3 import TD3
 from td3.utils import ReplayBuffer, DynamicExperienceReplay
-
 
 
 class TD3_Training_Gym:

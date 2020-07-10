@@ -75,7 +75,8 @@ class DDPGTrainer(Trainer):
             'evaluation_lim': None  # An evaluation limit that can be set if we don't want to wait until a episode is done.
         }
 
-    def train(self, env: object, render: bool = False, name: str = None):
+    def train(self, env: object, render: bool = False, name: str = None,
+              render_training: bool = False):
         """ Standard train method for train an DDPG agent on an environment.
 
             Parameters:
@@ -173,10 +174,12 @@ class DDPGTrainer(Trainer):
                     action = self.ddpg_agent.get_action(np.array(state))
 
                     # Gaussian Noise. Used from TD3. Paper recommend OU Noise
-                    noise = np.random.normal(0, self.ddpg_agent.max_action * 0.1, size=self.ddpg_agent.num_actions)
+                    # noise = np.random.normal(0, self.ddpg_agent.max_action * 0.1, size=self.ddpg_agent.num_actions)
 
-                    action = (action + noise).clip(-self.ddpg_agent.max_action,
-                                                   self.ddpg_agent.max_action)
+                    # action = (action + noise).clip(-self.ddpg_agent.max_action,
+                    #                                self.ddpg_agent.max_action)
+                    action = noise.get_action(action, step)
+
 
                 # Important for the Pendulum domain.
                 if np.array(action).size > 1:
@@ -187,6 +190,9 @@ class DDPGTrainer(Trainer):
                 #                   training_steps)
 
                 next_state, reward, done, _ = env.step(action)
+
+                if render_training:
+                    env.render()
 
                 # From TD3 implementation
                 # done = (True
@@ -226,58 +232,62 @@ class DDPGTrainer(Trainer):
             #################################
             if (len(self.ddpg_agent.memory_buffer) > batch_size and
                 overall_steps >= explore_threshold * (training_steps * episodes)):
-                # Only train the nets when we have enough experience and we
-                # do not randomly explore anymore.
-                self.ddpg_agent.update(batch_size)
+                for step in range(training_steps):
+                    # Only train the nets when we have enough experience and we
+                    # do not randomly explore anymore.
+                    self.ddpg_agent.update(batch_size)
 
             ########################
             # Evaluation per epoch #
             ########################
-            log.info(f"Start Evaluation: {self.config['evaluation_steps']}")
+            # Evaluation after we learned something
+            if overall_steps >= explore_threshold * (training_steps * episodes):
+                log.info(f"Start Evaluation: {self.config['evaluation_steps']}")
 
-            self.eval_episode_reward = 0
+                self.eval_episode_reward = 0
 
-            # For monitoring the progress.
-            if render:
-                path = f'models/{datetime.now().date()}/{name}/'
-                eval_env = wrappers.Monitor(env, path, force=True)
-            else:
-                eval_env = env
+                # For monitoring the progress.
+                if render:
+                    path = f'models/{datetime.now().date()}/{name}/'
+                    eval_env = wrappers.Monitor(env, path, force=True)
+                else:
+                    eval_env = env
 
-            # env.action_space.seed(0)
-            for step in range(self.config["evaluation_steps"]):
-                if step % 50 == 0:
-                    log.info(f"Evaluation-Episode: {step}/{self.config['evaluation_steps']}")
+                # env.action_space.seed(0)
+                for step in range(self.config["evaluation_steps"]):
+                    if step % 50 == 0:
+                        log.info(f"Evaluation-Episode: {step}/{self.config['evaluation_steps']}")
 
-                state = env.reset()
-                done = False
-                k = 0
-                while not done:
-                    action = self.ddpg_agent.get_action(np.array(state))
+                    state = eval_env.reset()
+                    done = False
+                    k = 0
+                    while not done:
+                        action = self.ddpg_agent.get_action(np.array(state))
 
-                    # For pendulum
-                    if np.array(action).size > 1:
-                        action = np.array(action).reshape((1, 9))
+                        # For pendulum
+                        if np.array(action).size > 1:
+                            action = np.array(action).reshape((1, 9))
 
-                    action = action.clip(-self.ddpg_agent.max_action,
-                                         self.ddpg_agent.max_action)
+                        action = action.clip(-self.ddpg_agent.max_action,
+                                            self.ddpg_agent.max_action)
 
-                    state, reward, done, _ = env.step(action)
+                        state, reward, done, _ = eval_env.step(action)
 
-                    self.eval_episode_reward += reward
+                        self.eval_episode_reward += reward
 
-                    # If you want to do not all evaluation steps. Important
-                    # for the gym monitor it is important that the episode
-                    # is done before the environment is closed!
-                    if self.config["evaluation_lim"] is not None and self.config["evaluation_lim"] < k:
-                        break
+                        # If you want to do not all evaluation steps. Important
+                        # for the gym monitor it is important that the episode
+                        # is done before the environment is closed!
+                        if self.config["evaluation_lim"] is not None and self.config["evaluation_lim"] < k:
+                            break
 
-                    k += 1
+                        k += 1
 
-            if self.config['evaluation_steps'] > 0:
-                log.info(f"Evaluation Reward: {self.eval_episode_reward/self.config['evaluation_steps']}")
-
-            self.eval_rewards.append(self.eval_episode_reward/self.config["evaluation_steps"])
+                if self.config['evaluation_steps'] > 0:
+                    log.info(f"Evaluation Reward: {self.eval_episode_reward/self.config['evaluation_steps']}")
+                
+                if self.config["evaluation_steps"] > 0:
+                    self.eval_rewards.append(self.eval_episode_reward/self.config["evaluation_steps"])
 
             # Loacal tracking
             # self.track_reward(episode_reward, episode)

@@ -1,3 +1,8 @@
+""" Start script for execute the implemented algorithm using the console.
+
+    Starting point is the 'dev' directiory!
+"""
+
 import gym
 from mlagents_envs.environment import UnityEnvironment
 from gym_unity.envs import UnityToGymWrapper
@@ -7,14 +12,13 @@ from stable_baselines import logger
 import numpy as np
 from stable_baselines.common.vec_env import DummyVecEnv
 from stable_baselines.bench import Monitor
-import pickle
 import os
-import time
-import gym
+from pathlib import Path
+from datetime import datetime
 
-from dev.utils.mlagent_utils import get_env
-from dev.trainer.ddpg_trainer import DDPGTrainer
-from dev.config.config import log
+from utils.mlagent_utils import get_env
+from trainer.ddpg_trainer import DDPGTrainer
+from config.config import log, logFormatter
 
 """
 from utils.mlagent_utils import get_env
@@ -22,7 +26,7 @@ from trainer.ddpg_trainer import DDPGTrainer
 from config.config import log"""
 
 
-#PATH TO ALGORITHM
+# PATH TO ALGORITHM
 from stable_baselines.td3 import MlpPolicy
 from stable_baselines import TD3 as TD3_Baselines
 
@@ -32,14 +36,15 @@ from td3.training import TD3_Training
 from td3.training_gym import TD3_Training_Gym
 """
 
-from dev.td3.training import TD3_Training
-from dev.td3.training_gym import TD3_Training_Gym
+from td3.training import TD3_Training
+from td3.training_gym import TD3_Training_Gym
 
 
 try:
     from mpi4py import MPI
 except ImportError:
     MPI = None
+
 
 def make_unity_env(env_directory, num_env, visual, start_index=0):
     """
@@ -61,79 +66,84 @@ def make_unity_env(env_directory, num_env, visual, start_index=0):
 
 
 def main():
-    #Start TD3 Unity Training
-    #start_unity()
+    # Start TD3 Unity Training
+    # start_unity()
 
-    #Start TD3 Baseline Unity Training
-    #start_unity_baselines()
+    # Start TD3 Baseline Unity Training
+    # start_unity_baselines()
 
-    #Start TD3 Gym Training
-    start_gym_std()
+    # Start TD3 Gym Training
+    # start_gym_std()
 
-    #Start DDPG Unity Training
-    #train_ddpg()
+    # Start DDPG Unity Training
+    # train_ddpg()
 
-    #Start DDPG Gym Training
-    #train_ddpg_gym()
+    # Start DDPG Gym Training
+     train_ddpg_gym()
 
 
-def train_ddpg():
+def train_ddpg(name: str = "DPPG-WormDomain"):
+    """ Train the DDPG on the unity ML environment.
     """
-        @author: jhuthmacher
-    """
-    # env = "envs/worm_dynamic_one_agent/win/UnityEnvironment"
-    env = "./envs/worm_dynamic_one_agent/linux/worm_dynamic"
+    ###########################################
+    # Ensure that the path exists for logging #
+    ###########################################
+    folder = Path(f'models/{datetime.now().date()}/{name}/')
+    folder.mkdir(parents=True, exist_ok=True)
+
+    # Store logs directly nearby the results!
+    fh = log.FileHandler(f'models/{datetime.now().date()}/{name}/{datetime.now().date()}.log')
+    fh.setFormatter(logFormatter)
+    log.getLogger().addHandler(fh)
+
+    env = "envs/worm_dynamic_one_agent/win/UnityEnvironment"
+    # env = "./envs/worm_dynamic_one_agent/linux/worm_dynamic"
     env = get_env(env, False)
 
     trainer = DDPGTrainer()
 
     log.info("Start DDPG training (WormDomain)...")
 
-    # trainer.train(env, name="DPPG-WormDomain-9-GaussianNoise-Clipping")
-
-    # trainer.train_baseline(env, name="DPPG-WormDomain-10-Baseline",
-    #                        nb_epochs=1000, nb_epoch_cycles=50, nb_rollout_steps=200,
-    #                        nb_train_steps=500, nb_eval_steps=500)
-    # trainer.config["episodes"] = 1500
-    # trainer.config["training_steps"] = 10
-    # trainer.config["episodes"] = 10
-    # trainer.config["training_steps"] = 10
-    # trainer.config["evaluation_lim"] = 10
-    trainer.train(env, name="DPPG-WormDomain")
+    trainer.train(env, name=name)
 
     log.info("Training done!")
 
 
 def train_ddpg_gym(env_name: str = "Pendulum-v0"):
+    """ Train the DDPG on a gym environment
     """
-    """
+    ###########################################
+    # Ensure that the path exists for logging #
+    ###########################################
+    folder = Path(f'models/{datetime.now().date()}/DPPG-{env_name}/')
+    folder.mkdir(parents=True, exist_ok=True)
+
+    # Store logs directly nearby the results!
+    fh = log.FileHandler(f'models/{datetime.now().date()}/DPPG-{env_name}/{datetime.now().date()}.log')
+    fh.setFormatter(logFormatter)
+    log.getLogger().addHandler(fh)
+
+
     env = gym.make(env_name)
 
     trainer = DDPGTrainer()
 
     log.info(f"Start DDPG training ({env_name})...")
 
-    trainer.config["episodes"] = 1000
-    trainer.config["training_steps"] = 700
+    # Define default parameter
+    # trainer.config["episodes"] = 1000
+    # trainer.config["training_steps"] = 700
 
-    trainer.train(env, name="DPPG-{env_name}")
-
-    # trainer.train_baseline(env, name=f"DPPG-{env_name}-2-Longer-Training",
-    #                        nb_epochs=300, nb_epoch_cycles=100, nb_rollout_steps=300,
-    #                        nb_train_steps=600, nb_eval_steps=600)
-
-    # trainer.train_baseline(env, name=f"DPPG-{env_name}-2", render=False)
-
+    trainer.train(env, name=f"DPPG-{env_name}")
     log.info("Training done!")
-    
+
+
 def start_unity_baselines():
-    #   Set to FALSE for CIP-Pool execution
+    # Set to FALSE for CIP-Pool execution
     # env = make_unity_env('./envs/worm_dynamic_one_agent/linux/worm_dynamic', 1, False)
     # InitialTrainingExample.start_training(env)
     # env.close()
 
-    train_ddpg()
-    # train_ddpg_gym()
     unity_env = UnityEnvironment('./envs/worm_dynamic_one_agent/win/UnityEnvironment', no_graphics=True)
     env = UnityToGymWrapper(unity_env, uint8_visual=False)
     env = Monitor(env, 'results/')
@@ -145,19 +155,21 @@ def start_unity_baselines():
     model.learn(total_timesteps=int(2e6), log_interval=10)
     model.save("td3_worm")
 
+
 def start_unity():
-    #   Set to FALSE for CIP-Pool execution
+    # Set to FALSE for CIP-Pool execution
     env = make_unity_env('./envs/worm_dynamic_one_agent/linux/worm_dynamic', 1, False)
 
     training = TD3_Training()
     training.start_training(env, load=False, der_activated=False)
     env.close()
 
+
 def start_gym_std():
-    #env = gym.make("MountainCarContinuous-v0")
+    # env = gym.make("MountainCarContinuous-v0")
     env = gym.make("Pendulum-v0")
 
-    #Gym version with render
+    # Gym version with render
     training = TD3_Training_Gym()
     training.start_training(env, render=False, load=False, der_activated=False)
     env.close()

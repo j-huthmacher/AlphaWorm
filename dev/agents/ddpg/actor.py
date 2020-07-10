@@ -51,8 +51,8 @@ class Actor(nn.Module):
 
         self.output_layer = nn.Linear(last_dim, output_dim)
 
-        # self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        # self.to(self.device)
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self.to(self.device)
 
     def forward(self, state: np.array):
         """ Forward pass.
@@ -65,7 +65,8 @@ class Actor(nn.Module):
             -------
                 numpy.array: Predicted action in form of a vector.
         """
-        x = F.relu(self.input_layer(state))
+
+        x = F.relu(self.input_layer(state.to(self.device)))
 
         for layer in self.hidden_layer:
             x = F.relu(layer(x))

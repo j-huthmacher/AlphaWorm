@@ -14,10 +14,10 @@ from td3.TD3 import TD3
 from td3.utils import ReplayBuffer, DynamicExperienceReplay
 """
 
-from dev.td3 import OurDDPG
-from dev.td3 import DDPG
-from dev.td3.TD3 import TD3
-from dev.td3.utils import ReplayBuffer, DynamicExperienceReplay
+from td3 import OurDDPG
+from td3 import DDPG
+from td3.TD3 import TD3
+from td3.utils import ReplayBuffer, DynamicExperienceReplay
 
 
 

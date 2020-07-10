@@ -9,12 +9,12 @@ import torch
 import torch.optim as optim
 import torch.nn as nn
 import numpy as np
+# from torch import Variable
 
 from agents.agent import Agent
 from agents import Actor, Critic  # , MemoryBuffer
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
 
 class DDPGagent(Agent):
     """
@@ -102,8 +102,11 @@ class DDPGagent(Agent):
                 np.array: The action in form of vector predicted by the actor
                           component.
         """
-        s = torch.FloatTensor(state.reshape(1, -1)).to(device)
-        action = self.actor(s).cpu().data.numpy().flatten()
+        # s = torch.FloatTensor(state.reshape(1, -1)).to(device)
+        # action = self.actor(s).cpu().data.numpy().flatten()
+
+        s = torch.from_numpy(state).float()  #.unsqueeze(0)
+        action = self.actor(s).cpu().data.numpy()
         return action
 
     def update(self, batch_size: int = 64, tau: float = None):

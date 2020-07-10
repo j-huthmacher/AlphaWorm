@@ -13,9 +13,11 @@ Local
 pip3 install -r dev/requirements.txt
 ```
 ### Usage:
+Select DDPG/TD3 for Unity/Gym in dev/start.py main method.
+
 Local (Set working directory to /dev/)
 ```
-python3 dev/main.py
+python3 dev/start.py
 ```
 Remote (Slurm via CIP):
 ```

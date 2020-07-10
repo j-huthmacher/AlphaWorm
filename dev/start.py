@@ -12,14 +12,15 @@ import os
 import time
 import gym
 
+"""
 from dev.utils.mlagent_utils import get_env
 from dev.trainer.ddpg_trainer import DDPGTrainer
 from dev.config.config import log
-
 """
+
 from utils.mlagent_utils import get_env
 from trainer.ddpg_trainer import DDPGTrainer
-from config.config import log"""
+from config.config import log
 
 
 #PATH TO ALGORITHM
@@ -27,14 +28,13 @@ from stable_baselines.td3 import MlpPolicy
 from stable_baselines import TD3 as TD3_Baselines
 
 
-"""
 from td3.training import TD3_Training
 from td3.training_gym import TD3_Training_Gym
-"""
 
+"""
 from dev.td3.training import TD3_Training
 from dev.td3.training_gym import TD3_Training_Gym
-
+"""
 
 try:
     from mpi4py import MPI

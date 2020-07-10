@@ -2,9 +2,13 @@
 Student project where we use reinforcement learning to solve the worm domain of Unity ML.
 
 ## Package Strucute
-A brief introduction to our package structure.
+Some remarks about the package structure.
 
+Within the root level of the repository you find the folder `dev` that contains all important files and also some results from the DDPG training.
 
+`dev/models`: Contain results from different training runs and different environments.
+`dev/agents`: Contains one of the DDPG implementation as well as adapted copy of the TD3 implementation from 'dev/td3'
+`dev/notebooks`: Contains some notebooks to test the DDPG and see some plots containing the results of the DDPG.
 
 ## Usage
 ### Prerequisites:
@@ -19,6 +23,13 @@ Local (Set working directory to /dev/)
 ```
 python3 dev/start.py
 ```
+
+Alternatively you can directly start the `start.py` within the `dev` folder by change the directory to `dev`:
+
+```
+python start.py
+```
+
 Remote (Slurm via CIP):
 ```
 ./deploy.sh
@@ -36,6 +47,11 @@ All hyperparameters are already set as default and that is what is working and s
 You can find the DDPG implementation and the required dependent component under the following link [https://github.com/j-huthmacher/AlphaWorm/tree/master/dev/agents/ddpg](https://github.com/j-huthmacher/AlphaWorm/tree/master/dev/agents/ddpg). Except the `replay buffer` which is stored in the `memory_buffer.py` under [https://github.com/j-huthmacher/AlphaWorm/tree/master/dev/agents](https://github.com/j-huthmacher/AlphaWorm/tree/master/dev/agents)
 
 For using the DDPG implementation please have a look on this notebook [https://github.com/j-huthmacher/AlphaWorm/blob/master/dev/notebooks/jh-alpha-worm-ddpg.ipynb](https://github.com/j-huthmacher/AlphaWorm/blob/master/dev/notebooks/jh-alpha-worm-ddpg.ipynb) that explains the general way how to use the implmentation.
+
+**Results (DDPG)**
+You find some of the training results as well as corresponding dumpes models in `dev/models`. Please be aware that not each training run results in an dumped model. Moreover, sometimes you will find either the file `rewards.csv` or `eval_rewards.csv`. Both files contains (more or less) the same and can be used to review the results. In case you find `rewards.csv` and `eval_rewards.csv` just use the `eval_rewards.csv` instead of `rewards.csv`.
+
+To simplify review the results you can just have a look to the plotting notebook [https://github.com/j-huthmacher/AlphaWorm/blob/master/dev/notebooks/jh-ddpg-plots.ipynb](https://github.com/j-huthmacher/AlphaWorm/blob/master/dev/notebooks/jh-ddpg-plots.ipynb). 
 
 ### Errors
 ## Tensorflow

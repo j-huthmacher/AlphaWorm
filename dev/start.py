@@ -134,8 +134,9 @@ def start_unity_baselines():
 
     train_ddpg()
     # train_ddpg_gym()
-    env = make_unity_env('./envs/worm_dynamic_one_agent/linux/worm_dynamic', 1, False)
-
+    unity_env = UnityEnvironment('./envs/worm_dynamic_one_agent/win/UnityEnvironment', no_graphics=True)
+    env = UnityToGymWrapper(unity_env, uint8_visual=False)
+    env = Monitor(env, 'results/')
     # The noise objects for TD3
     n_actions = env.action_space.shape[-1]
     action_noise = NormalActionNoise(mean=np.zeros(n_actions), sigma=0.1 * np.ones(n_actions))

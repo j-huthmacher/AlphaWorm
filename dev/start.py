@@ -16,8 +16,6 @@ import os
 from pathlib import Path
 from datetime import datetime
 
-from utils.mlagent_utils import get_env
-from trainer.ddpg_trainer import DDPGTrainer
 from config.config import log, logFormatter
 
 from utils.mlagent_utils import get_env

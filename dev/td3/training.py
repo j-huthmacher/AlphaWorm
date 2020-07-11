@@ -166,22 +166,23 @@ class TD3_Training:
                 # Perform action
                 action = np.array(action).reshape((1, 9))
                 next_state, reward, done, _ = env.step(action)
-                done = True if steps < args.steps_per_episode else False
+                done = True if steps < args.steps_per_episode - 1 else False
                 done_bool = float(done)
 
                 # Store data in replay buffer
                 replay_buffer.add(state, action, next_state, reward, done_bool)
                 best_buffer.add(state, action, next_state, reward, done_bool)
 
-                # Store buffer
-                if done:
-                    der_buffer.add(best_buffer)
-                    best_buffer = ReplayBuffer(state_dim, action_dim)
+
 
                 state = next_state
                 episode_reward += reward
 
             print(f"{datetime.now()} \t Episode Num: {episode + 1} Total T: {(episode + 1) * int(args.steps_per_episode)}  Reward: {episode_reward}")
+
+            # Store buffer
+            der_buffer.add(best_buffer)
+            best_buffer = ReplayBuffer(state_dim, action_dim)
 
             # Reset environment
             state, done = env.reset(), False

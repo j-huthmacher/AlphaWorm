@@ -46,17 +46,19 @@ class TD3_Training:
         print("---------------------------------------")
         return avg_reward
 
-    def start_training(self, env, load=False, der_activated=False):
+    def start_training(self, env, load, der_activated):
         parser = argparse.ArgumentParser()
         parser.add_argument("--policy", default="TD3")  # Policy name (TD3, DDPG or OurDDPG)
-        parser.add_argument("--env", default="AlphaWorm")  # OpenAI gym environment name (not used to start env in AlphaWorm)
+        parser.add_argument("--env",
+                            default="AlphaWorm")  # OpenAI gym environment name (not used to start env in AlphaWorm)
         parser.add_argument("--seed", default=0, type=int)  # Sets Gym, PyTorch and Numpy seeds
-        parser.add_argument("--eval_freq", default=5, type=int)  # How often (time steps) we evaluate
-        parser.add_argument("--training_episodes", default=1e3, type=int)  # Time steps initial random policy is used
-        parser.add_argument("--max_episodes", default=1e6, type=int)  # Max time steps to run environment
-        parser.add_argument("--steps_per_episode", default=1e3, type=int) #Max env steps
+        parser.add_argument("--start_timesteps", default=1e6, type=int)  # Time steps initial random policy is used
+        parser.add_argument("--eval_freq", default=5e3, type=int)  # How often (time steps) we evaluate
+        parser.add_argument("--max_timesteps", default=1e9, type=int)  # Max time steps to run environment
+        parser.add_argument("--max_env_episode_steps", default=1e3, type=int)  # Max env steps
         parser.add_argument("--expl_noise", default=0.1)  # Std of Gaussian exploration noise
-        parser.add_argument("--random_policy_ratio", default=1)  # ratio of random episodes 1 = as many random as policy, 2 = double as many policy as random ...
+        parser.add_argument("--random_policy_ratio",
+                            default=1)  # ratio of random episodes 1 = as many random as policy, 2 = double as many policy as random ...
         parser.add_argument("--batch_size", default=256, type=int)  # Batch size for both actor and critic
         parser.add_argument("--discount", default=0.99)  # Discount factor
         parser.add_argument("--tau", default=0.005)  # Target network update rate
@@ -65,7 +67,8 @@ class TD3_Training:
         parser.add_argument("--policy_freq", default=2, type=int)  # Frequency of delayed policy updates
         parser.add_argument("--save_model", default=True, action="store_true")  # Save model and optimizer parameters
         if load:
-            parser.add_argument("--load_model", default="default")  # Model load file name, "" doesn't load, "default" uses file_name
+            parser.add_argument("--load_model",
+                                default="default")  # Model load file name, "" doesn't load, "default" uses file_name
         else:
             parser.add_argument("--load_model",
                                 default="")  # Model load file name, "" doesn't load, "default" uses file_name
@@ -74,9 +77,8 @@ class TD3_Training:
                                 default="buffers")  # Loads pre-trained replays to replay into the buffer "" doesn't load, "..." loads from the specified folder name
         else:
             parser.add_argument("--load_replays",
-                                default="")  # Loads pre-trained replays to replay into the buffer "" doesn't load, "..." loads from the specified folder name
-
-        parser.add_argument("--random_policy", default=False) #Activate random policy
+                                default="")  # Loads pre-trained replays to replay into the buffer "" doesn't load, "..." loads from the s
+        parser.add_argument("--random_policy", default=False)  # Activate random policy
 
         args = parser.parse_args()
 
@@ -95,7 +97,7 @@ class TD3_Training:
             os.makedirs("./buffers")
 
         # Set seeds
-        #env.seed(args.seed)
+        # env.seed(args.seed)
         env.action_space.seed(args.seed)
         torch.manual_seed(args.seed)
         np.random.seed(args.seed)
@@ -137,67 +139,66 @@ class TD3_Training:
 
         # Evaluate untrained policy
         evaluations = [self.eval_policy(policy, env, args.seed)]
+
         state, done = env.reset(), False
         episode_reward = 0
+        episode_timesteps = 0
+        episode_num = 0
 
-
-        for episode in range(int(args.max_episodes)):
-
-            for steps in range(int(args.steps_per_episode)):
-
-                if args.random_policy:
-                    # Select action randomly or according to policy
-                    if episode % ((args.random_policy_ratio + 1) * args.training_episodes) < args.training_episodes:
-                        action = env.action_space.sample()
-                    else:
-                        action = (
-                                policy.select_action(np.array(state))
-                                + np.random.normal(0, max_action * args.expl_noise, size=action_dim)
-                        ).clip(-max_action, max_action)
+        for t in range(int(args.max_timesteps)):
+            episode_timesteps += 1
+            if args.random_policy:
+                # Select action randomly or according to policy
+                if t % ((args.random_policy_ratio + 1) * args.start_timesteps) < args.start_timesteps:
+                    action = env.action_space.sample()
                 else:
-                    if episode < args.training_episodes:
-                        action = env.action_space.sample()
-                    else:
-                        action = (
-                                policy.select_action(np.array(state))
-                                + np.random.normal(0, max_action * args.expl_noise, size=action_dim)
-                        ).clip(-max_action, max_action)
+                    action = (
+                            policy.select_action(np.array(state))
+                            + np.random.normal(0, max_action * args.expl_noise, size=action_dim)
+                    ).clip(-max_action, max_action)
+            else:
+                if t < args.start_timesteps:
+                    action = env.action_space.sample()
+                else:
+                    action = (
+                            policy.select_action(np.array(state))
+                            + np.random.normal(0, max_action * args.expl_noise, size=action_dim)
+                    ).clip(-max_action, max_action)
 
-                # Perform action
-                action = np.array(action).reshape((1, 9))
-                next_state, reward, done, _ = env.step(action)
-                done = True if steps < args.steps_per_episode - 1 else False
-                done_bool = float(done)
+            # Perform action
+            action = np.array(action).reshape((1, 9))
+            next_state, reward, done, _ = env.step(action)
+            done = True if episode_timesteps % args.max_env_episode_steps == 0 else False
+            done_bool = float(done) if episode_timesteps < args.max_env_episode_steps else 0
 
-                # Store data in replay buffer
-                replay_buffer.add(state, action, next_state, reward, done_bool)
-                best_buffer.add(state, action, next_state, reward, done_bool)
-
-
-
-                state = next_state
-                episode_reward += reward
-
-            print(f"{datetime.now()} \t Episode Num: {episode + 1} Total T: {(episode + 1) * int(args.steps_per_episode)}  Reward: {episode_reward}")
+            # Store data in replay buffer
+            replay_buffer.add(state, action, next_state, reward, done_bool)
+            best_buffer.add(state, action, next_state, reward, done_bool)
 
             # Store buffer
-            der_buffer.add(best_buffer)
-            best_buffer = ReplayBuffer(state_dim, action_dim)
+            if done:
+                der_buffer.add(best_buffer)
+                best_buffer = ReplayBuffer(state_dim, action_dim)
 
-            # Reset environment
-            state, done = env.reset(), False
-            episode_reward = 0
+            state = next_state
+            episode_reward += reward
 
             # Train agent after collecting sufficient data
-            if args.random_policy:
-                if episode % ((args.random_policy_ratio + 1) * args.training_episodes) >= args.training_episodes:
-                    policy.train(replay_buffer, args.batch_size)
-            else:
-                if episode >= args.training_episodes:
-                    policy.train(replay_buffer, args.batch_size)
+            if t >= args.start_timesteps:
+                policy.train(replay_buffer, args.batch_size)
+
+            if done:
+                # +1 to account for 0 indexing. +0 on ep_timesteps since it will increment +1 even if done=True
+                print(
+                    f"{datetime.now()} \t Total T: {t + 1} Episode Num: {episode_num + 1} Episode T: {episode_timesteps} Reward: {episode_reward}")
+                # Reset environment
+                state, done = env.reset(), False
+                episode_reward = 0
+                episode_timesteps = 0
+                episode_num += 1
 
             # Evaluate episode
-            if (episode + 1) % args.eval_freq == 0:
+            if (t + 1) % args.eval_freq == 0:
                 evaluations.append(self.eval_policy(policy, env, args.seed))
                 np.save(f"./results/{file_name}", evaluations)
                 if args.save_model: policy.save(f"./models/{file_name}")
@@ -208,5 +209,5 @@ class TD3_Training:
                     else:
                         print("No buffer batch loaded")
 
-            if(episode + 1) % (args.eval_freq * 50) == 0:
+            if (t + 1) % (args.max_env_episode_steps * 100) == 0:
                 der_buffer.save()

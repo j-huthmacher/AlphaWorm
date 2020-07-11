@@ -7,26 +7,19 @@ import os
 from datetime import datetime
 
 
-"""
+
 from td3 import OurDDPG
 from td3 import DDPG
 from td3.TD3 import TD3
 from td3.utils import ReplayBuffer, DynamicExperienceReplay
-from td3.DDPG_alt import DDPG_alt
-"""
-
-from dev.td3 import OurDDPG
-from dev.td3 import DDPG
-from dev.td3.TD3 import TD3
-from dev.td3.utils import ReplayBuffer, DynamicExperienceReplay
-from dev.td3.DDPG_alt import DDPGAlt
+from td3.DDPG_alt import DDPGAlt
 
 
 
 class TD3_Training_Gym:
     # Runs policy for X episodes and returns average reward
     # A fixed seed is used for the eval environment
-    def eval_policy(self, policy, env, seed, render, eval_episodes=10):
+    def eval_policy(self, policy, env, seed, render, eval_episodes=5):
         #eval_env = gym.make(env_name)
         eval_env = env
         #eval_env.seed(seed + 100)
@@ -56,7 +49,7 @@ class TD3_Training_Gym:
 
     def start_training(self, env, render=False, load=False, der_activated=False):
         parser = argparse.ArgumentParser()
-        parser.add_argument("--policy", default="DDPG_alt")  # Policy name (TD3, DDPG, DDPG_alt or OurDDPG)
+        parser.add_argument("--policy", default="TD3")  # Policy name (TD3, DDPG, DDPG_alt or OurDDPG)
         parser.add_argument("--env", default="AlphaWorm")  # OpenAI gym environment name (not used to start env in AlphaWorm)
         parser.add_argument("--seed", default=0, type=int)  # Sets Gym, PyTorch and Numpy seeds
         parser.add_argument("--eval_freq", default=5, type=int)  # How often (time steps) we evaluate

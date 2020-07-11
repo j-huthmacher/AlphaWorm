@@ -195,11 +195,9 @@ class TD3_Training:
             if args.random_policy:
                 if episode % ((args.random_policy_ratio + 1) * args.training_episodes) >= args.training_episodes:
                     policy.train(replay_buffer, args.batch_size)
-                    #replay_buffer = ReplayBuffer(state_dim, action_dim)
             else:
                 if episode >= args.training_episodes:
                     policy.train(replay_buffer, args.batch_size)
-                    #replay_buffer = ReplayBuffer(state_dim, action_dim)
 
             # Evaluate episode
             if (episode + 1) % args.eval_freq == 0:

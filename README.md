@@ -1,7 +1,7 @@
 # AlphaWorm
 Student project where we use reinforcement learning to solve the worm domain of Unity ML.
 
-## Package Strucute
+## Package Structure
 Some remarks about the package structure.
 
 Within the root level of the repository you find the folder `dev` that contains all important files and also some results from the DDPG training.
@@ -41,7 +41,8 @@ Slurm logs will be created in the home directory!
 If the code is already transfered, one can just start the start.sh script to start the training.
 
 #### TD3
-All hyperparameters are already set as default and that is what is working and should not be changed.
+All hyperparameters are already set as default and that is what is working and should not be changed. This is currently the best working version.
+So most of the results will refer to this algorithm.
 
 #### DDPG
 You can find the DDPG implementation and the required dependent component under the following link [https://github.com/j-huthmacher/AlphaWorm/tree/master/dev/agents/ddpg](https://github.com/j-huthmacher/AlphaWorm/tree/master/dev/agents/ddpg). Except the `replay buffer` which is stored in the `memory_buffer.py` under [https://github.com/j-huthmacher/AlphaWorm/tree/master/dev/agents](https://github.com/j-huthmacher/AlphaWorm/tree/master/dev/agents)

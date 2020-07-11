@@ -60,7 +60,7 @@ def make_unity_env(env_directory, num_env, visual, start_index=0):
 
 def main():
     # Start TD3 Unity Training
-    # start_unity()
+    start_unity()
 
     # Start TD3 Baseline Unity Training
     # start_unity_baselines()
@@ -72,7 +72,7 @@ def main():
     # train_ddpg()
 
     # Start DDPG Gym Training
-     train_ddpg_gym()
+    # train_ddpg_gym()
 
 
 def train_ddpg(name: str = "DPPG-WormDomain"):
@@ -89,7 +89,7 @@ def train_ddpg(name: str = "DPPG-WormDomain"):
     fh.setFormatter(logFormatter)
     log.getLogger().addHandler(fh)
 
-    env = "envs/worm_dynamic_one_agent/win/UnityEnvironment"
+    env = "envs/worm_dynamic_one_agent/linux/worm_dynamic"
     # env = "./envs/worm_dynamic_one_agent/linux/worm_dynamic"
     env = get_env(env, False)
 
@@ -137,7 +137,7 @@ def start_unity_baselines():
     # InitialTrainingExample.start_training(env)
     # env.close()
 
-    unity_env = UnityEnvironment('./envs/worm_dynamic_one_agent/win/UnityEnvironment', no_graphics=True)
+    unity_env = UnityEnvironment('./envs/worm_dynamic_one_agent/linux/worm_dynamic', no_graphics=True)
     env = UnityToGymWrapper(unity_env, uint8_visual=False)
     env = Monitor(env, 'results/')
     # The noise objects for TD3

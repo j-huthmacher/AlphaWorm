@@ -1,5 +1,6 @@
 max_env_steps = 1e9
 max_timesteps = 1e6
+start_timesteps = 1e6
 td3_13 tau=0.005 228755
 
 duration=6-12:45:29  

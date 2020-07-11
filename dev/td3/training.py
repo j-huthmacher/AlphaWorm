@@ -46,7 +46,7 @@ class TD3_Training:
         print("---------------------------------------")
         return avg_reward
 
-    def start_training(self, env, load, der_activated):
+    def start_training(self, env, load=False, der_activated=False):
         parser = argparse.ArgumentParser()
         parser.add_argument("--policy", default="TD3")  # Policy name (TD3, DDPG or OurDDPG)
         parser.add_argument("--env",

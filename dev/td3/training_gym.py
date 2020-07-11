@@ -189,7 +189,7 @@ class TD3_Training_Gym:
 
             # Evaluate episode
             if (episode + 1) % args.eval_freq == 0:
-                evaluations.append(self.eval_policy(policy, env, args.seed))
+                evaluations.append(self.eval_policy(policy, env, args.seed, render))
                 np.save(f"./results/{file_name}", evaluations)
                 if args.save_model: policy.save(f"./models/{file_name}")
                 if args.load_replays != "":

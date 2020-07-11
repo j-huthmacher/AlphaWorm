@@ -4,7 +4,6 @@ import time
 
 import numpy as np
 import torch
-import json
 
 class ReplayBuffer(object):
 	def __init__(self, state_dim, action_dim, max_size=int(1e6)):

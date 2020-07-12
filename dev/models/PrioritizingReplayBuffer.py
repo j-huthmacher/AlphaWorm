@@ -2,18 +2,17 @@ from collections import deque
 import numpy as np
 import random
 
-# Set a = 0 for normal experience replay
 
 """
-Implement PER:
+Prioritzed Experience Replay:
+
+Idea: Some experiences are more important /worth learning on than others
+Apart from state, action, reward, new state, done also save the absolute td_error
 
 
-1. Select Prioritizing Replay Buffer
-2. Get TD-Error from update function
-3. Save TD-Error in Buffer
-4. Get TD-Error when sampling 
-5. Update self.priorities with the corresponding td_errprs
+Scale a = how much prioritized sampling
 
+Set a = 0 for normal experience replay and a = 1 for pure greedy sampling
 
 
 Greedy TD-Priorization makes NN overfit easily 
@@ -44,14 +43,7 @@ class MemoryBuffer:
         sample_probabilities = scaled_priorities / sum(scaled_priorities)
         return sample_probabilities
 
-    def get_importance(self, probs):
-        importance = 1 / self.experience_count * 1 / probs
-        importance_norm = importance / max(importance)
-        return importance_norm
 
-    # Returns a random experience
-    # Batch_size = number of experiences to add
-    # Scale: 0=Random Sampling
     def sample(self, batch_size, scale = 0.5):
 
 
@@ -66,7 +58,6 @@ class MemoryBuffer:
         probs = self.get_probabilities(scale)
         sample_indices = random.choices(range(len(self.buffer)), k=sample_size, weights=probs)
         samples = np.array(self.buffer)[sample_indices]
-        #importance = self.get_importance(probs[sample_indices])
 
         for index, experience in enumerate(self.buffer):
             if index in sample_indices:

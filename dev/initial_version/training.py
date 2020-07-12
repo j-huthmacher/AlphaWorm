@@ -1,8 +1,6 @@
-import numpy as np
 from stable_baselines.common.policies import MlpPolicy
 from stable_baselines import PPO2
-import pickle
-import gym
+
 
 import os
 
@@ -39,16 +37,4 @@ class InitialTrainingExample:
                 if done:
                     break
             print(e, ":", total_r)
-
-
-
-    """  ep_r.append(total_r)
-            ep_l.append(total_l)
-        print("episode mean reward: {:0.3f} mean length: {:0.3f}".format(np.mean(ep_r), np.mean(ep_l)))
-        with open('{}/eval.pkl'.format(log_dir), 'wb') as f:
-            pickle.dump(ep_r, f)
-            pickle.dump(ep_l, f)
-
-        model.save(log_dir + "/model")"""
-
 

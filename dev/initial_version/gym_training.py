@@ -1,8 +1,8 @@
 import gym
 import matplotlib.pyplot as plot
-from dev.models.ddpg.ddpg import DDPGagent
+from models.ddpg.ddpg import DDPGagent
 import numpy as np
-from dev.models.ddpg.OUNoise import OUNoise
+from models.ddpg.OUNoise import OUNoise
 
 class GymTraining:
 
@@ -15,7 +15,7 @@ class GymTraining:
         episodes = 200
         training_steps = 50
 
-        batch_size = 128
+        batch_size = 32
         rewards = []
 
         for episode in range(episodes):

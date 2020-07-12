@@ -2,18 +2,13 @@ from mlagents_envs.environment import UnityEnvironment
 from gym_unity.envs import UnityToGymWrapper
 from stable_baselines.common.vec_env import SubprocVecEnv
 from stable_baselines import logger
-import numpy as np
 from stable_baselines.common.vec_env import DummyVecEnv
 from stable_baselines.bench import Monitor
-import pickle
 import os
-import time
-import matplotlib as plot
 import gym
 
 #PATH TO ALGORITHM
-from dev.initial_version.gym_training import GymTraining
-from dev.initial_version.training import InitialTrainingExample
+from initial_version.gym_training import GymTraining
 
 try:
     from mpi4py import MPI
@@ -43,10 +38,7 @@ def main():
 
     #   Set to FALSE for CIP-Pool execution
     #env = make_unity_env('./envs/worm_dynamic_one_agent/linux/worm_dynamic', 1, False)
-    #env = gym.make('CartPole-v1')
-    #env = gym.make('MountainCar-v0')
     env = gym.make('Pendulum-v0')
-    #env = gym.make('Acrobot-v1')
     #InitialTrainingExample.start_training(env)
     GymTraining.perform_training(GymTraining,env)
     env.close()

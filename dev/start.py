@@ -86,9 +86,9 @@ def train_ddpg(name: str = "DPPG-WormDomain"):
     fh = log.FileHandler(f'models/{datetime.now().date()}/{name}/{datetime.now().date()}.log')
     fh.setFormatter(logFormatter)
     log.getLogger().addHandler(fh)
-
-    env = "envs/worm_dynamic_one_agent/linux/worm_dynamic"
-    # env = "./envs/worm_dynamic_one_agent/linux/worm_dynamic"
+    
+    env = "envs/worm_dynamic_one_agent/win/UnityEnvironment"  # Windows
+    # env = "./envs/worm_dynamic_one_agent/linux/worm_dynamic"  # Linux
     env = get_env(env, False)
 
     trainer = DDPGTrainer()

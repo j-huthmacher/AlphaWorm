@@ -36,12 +36,12 @@ python start.py
 
 **Important**: Depending on your execution environment you have to choose the rigth Unity build!
 
-For example for training the DDPG you can easily comment the linux (default) environemnt and uncomment the windows path, if you want to execute it on windows.
+For example for training the DDPG you can easily comment the windows (default for DDPG) environemnt and uncomment the linux path, if you want to execute it on windows.
 (start.py, lines 90 -91)
 
 ```
-    env = "envs/worm_dynamic_one_agent/linux/worm_dynamic"
-    # env = "./envs/worm_dynamic_one_agent/linux/worm_dynamic"
+    env = "envs/worm_dynamic_one_agent/win/UnityEnvironment"  # Windows
+    # env = "./envs/worm_dynamic_one_agent/linux/worm_dynamic"  # Linux
 ```
 
 Remote (Slurm via CIP):

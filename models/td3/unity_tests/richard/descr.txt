@@ -1,22 +1,15 @@
-max_env_steps = 1e9
 
 
-td3_1 baselines 50000 241250
-td3_2 baselines 50000 241251
-td3_3 baselines 1e6 241257
-td3_4 baselines 1e6 241259
-td3_5 baselines 2e6 241272
-td3_6 baselines 2e6 241268
-
-
-
-td3_6
+td3_1 baselines 5e5 246060
+td3_2 baselines 5e5 246061
+td3_3 baselines 1e6 246062
+td3_4 baselines 1e6 246063
+td3_5 baselines 2e6 246064
+td3_6 baselines 2e6 246065
 td3_7
 td3_8
 td3_9
 td3_10
-
-max_timesteps = 1e6
 td3_11
-td3_12 tau=0.005 228754
-td3_13 tau=0.005 228755
+td3_12
+td3_13

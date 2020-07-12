@@ -6,8 +6,12 @@ Some remarks about the package structure.
 
 Within the root level of the repository you find the folder `dev` that contains all important files and also some results from the DDPG training.
 
+**DDPG**
+
 `dev/models`: Contain results from different training runs and different environments.
-`dev/agents`: Contains one of the DDPG implementation as well as adapted copy of the TD3 implementation from 'dev/td3'
+
+`dev/agents`: Contains one of the DDPG implementation as well as adapted copy of the TD3 implementation from `dev/td3`
+
 `dev/notebooks`: Contains some notebooks to test the DDPG and see some plots containing the results of the DDPG.
 
 ## Usage
@@ -60,6 +64,7 @@ You can find the DDPG implementation and the required dependent component under 
 For using the DDPG implementation please have a look on this notebook [https://github.com/j-huthmacher/AlphaWorm/blob/master/dev/notebooks/jh-alpha-worm-ddpg.ipynb](https://github.com/j-huthmacher/AlphaWorm/blob/master/dev/notebooks/jh-alpha-worm-ddpg.ipynb) that explains the general way how to use the implmentation.
 
 **Results (DDPG)**
+
 You find some of the training results as well as corresponding dumpes models in `dev/models`. Please be aware that not each training run results in an dumped model. Moreover, sometimes you will find either the file `rewards.csv` or `eval_rewards.csv`. Both files contains (more or less) the same and can be used to review the results. In case you find `rewards.csv` and `eval_rewards.csv` just use the `eval_rewards.csv` instead of `rewards.csv`.
 
 To simplify review the results you can just have a look to the plotting notebook [https://github.com/j-huthmacher/AlphaWorm/blob/master/dev/notebooks/jh-ddpg-plots.ipynb](https://github.com/j-huthmacher/AlphaWorm/blob/master/dev/notebooks/jh-ddpg-plots.ipynb). 

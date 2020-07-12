@@ -1,3 +1,8 @@
+""" Raw coppy of dev/td3/TD3.py
+
+    This copy was created for debugging purpose. Please use the dev/td3/TD3.py implementation as main implementation.
+"""
+
 import copy
 import numpy as np
 import torch

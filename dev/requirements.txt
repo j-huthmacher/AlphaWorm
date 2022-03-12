@@ -44,7 +44,7 @@ optuna==1.5.0
 parso==0.7.0
 pbr==5.4.5
 pickleshare==0.7.5
-Pillow==7.1.2
+Pillow==9.0.1
 prettytable==0.7.2
 prompt-toolkit==3.0.5
 protobuf==3.12.2
